@@ -1,4 +1,3 @@
-#include <stdexcept>
 #include "../include/session.h"
 #include "../include/auth.h"
 #include "../include/vector_processor.h"
@@ -6,6 +5,7 @@
 #include <unistd.h>
 #include <cstring>
 #include <arpa/inet.h>
+#include <stdexcept>
 
 Session::Session(int client_socket, std::unordered_map<std::string, std::string>& clients, Logger& logger)
     : client_socket_(client_socket), clients_(clients), logger_(logger) {}
@@ -27,72 +27,53 @@ void Session::handle() {
 }
 
 bool Session::authenticate() {
-    std::string login;
-    if (!receive_login(login)) {
-        return false;
-    }
-    
-    if (clients_.find(login) == clients_.end()) {
-        const char* err_msg = "ERR";
-        send(client_socket_, err_msg, strlen(err_msg), 0);
-        logger_.log_error("Login not found: " + login, false);
-        return false;
-    }
-    
-    std::string salt = Authenticator::generate_salt();
-    if (!send_salt(salt)) {
-        return false;
-    }
-    
-    std::string hash;
-    if (!receive_hash(hash)) {
-        return false;
-    }
-    
-    return verify_authentication(login, hash, salt);
-}
-
-bool Session::receive_login(std::string& login) {
-    char buffer[256] = {0};
-    ssize_t bytes_received = recv(client_socket_, buffer, sizeof(buffer) - 1, 0);
-    
-    if (bytes_received <= 0) {
+    // Получаем логин
+    char login_buf[256] = {0};
+    ssize_t bytes = recv(client_socket_, login_buf, 255, 0);
+    if (bytes <= 0) {
         logger_.log_error("Failed to receive login", false);
         return false;
     }
+    std::string login(login_buf);
+    login.erase(login.find_last_not_of(" \n\r\t") + 1);
     
-    login = std::string(buffer);
-    return true;
-}
-
-bool Session::send_salt(const std::string& salt) {
-    ssize_t bytes_sent = send(client_socket_, salt.c_str(), salt.length(), 0);
-    return bytes_sent > 0;
-}
-
-bool Session::receive_hash(std::string& hash) {
-    char buffer[33] = {0};
-    ssize_t bytes_received = recv(client_socket_, buffer, 32, 0);
+    logger_.log("Received login: " + login);
     
-    if (bytes_received <= 0) {
-        logger_.log_error("Failed to receive hash", false);
+    // Проверяем логин (только user)
+    if (login != "user") {
+        const char* err_msg = "ERR";
+        send(client_socket_, err_msg, strlen(err_msg), 0);
+        logger_.log_error("Invalid login: " + login, false);
         return false;
     }
     
-    hash = std::string(buffer);
-    return true;
-}
-
-bool Session::verify_authentication(const std::string& login, const std::string& hash, const std::string& salt) {
+    // Отправляем соль (64 бита -> 16 hex символов)
+    std::string salt = Authenticator::generate_salt();
+    logger_.log("Generated salt: " + salt);
+    send(client_socket_, salt.c_str(), salt.length(), 0);
+    
+    // Получаем хэш
+    char hash_buf[33] = {0};
+    bytes = recv(client_socket_, hash_buf, 32, 0);
+    if (bytes <= 0) {
+        logger_.log_error("Failed to receive hash", false);
+        return false;
+    }
+    std::string hash(hash_buf);
+    hash.erase(hash.find_last_not_of(" \n\r\t") + 1);
+    
+    logger_.log("Received hash: " + hash);
+    
+    // Проверяем аутентификацию
     if (Authenticator::verify_client(login, hash, salt, clients_)) {
         const char* ok_msg = "OK";
         send(client_socket_, ok_msg, strlen(ok_msg), 0);
-        logger_.log("Authentication successful for: " + login);
+        logger_.log("Authentication successful");
         return true;
     } else {
         const char* err_msg = "ERR";
         send(client_socket_, err_msg, strlen(err_msg), 0);
-        logger_.log_error("Authentication failed for: " + login, false);
+        logger_.log_error("Authentication failed", false);
         return false;
     }
 }

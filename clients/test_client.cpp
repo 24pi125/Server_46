@@ -9,6 +9,7 @@
 #include <sstream>
 #include <iomanip>
 #include <cstdint>
+#include <random>  // Добавляем этот заголовок
 
 class VectorTestClient {
 private:
@@ -33,8 +34,13 @@ private:
     std::string receive_string(size_t max_len = 256) {
         char buffer[max_len];
         memset(buffer, 0, max_len);
-        recv(sock, buffer, max_len - 1, 0);
-        return std::string(buffer);
+        ssize_t bytes_received = recv(sock, buffer, max_len - 1, 0);
+        if (bytes_received <= 0) {
+            return "";
+        }
+        std::string result(buffer);
+        result.erase(result.find_last_not_of(" \n\r\t") + 1);
+        return result;
     }
     
     void send_uint32(uint32_t value) {
@@ -83,27 +89,40 @@ public:
     }
     
     bool authenticate(const std::string& login, const std::string& password) {
+        std::cout << "=== AUTHENTICATION ===" << std::endl;
+        
+        // 1. Отправляем логин
+        std::cout << "1. Sending login: " << login << std::endl;
         send_string(login);
         
+        // 2. Получаем ответ
         std::string response = receive_string();
+        std::cout << "2. Server response: " << response << std::endl;
         
         if (response == "ERR") {
-            std::cout << "Authentication failed: invalid login" << std::endl;
+            std::cout << "ERROR: Invalid login" << std::endl;
             return false;
         }
         
+        // Должны получить соль от сервера
         std::string salt = response;
+        std::cout << "3. Received salt from server: " << salt << std::endl;
+        
+        // 3. Вычисляем и отправляем хэш
         std::string hash_input = salt + password;
         std::string hash = calculate_md5(hash_input);
-        
+        std::cout << "4. Sending hash: " << hash << std::endl;
         send_string(hash);
         
+        // 4. Получаем результат
         response = receive_string();
+        std::cout << "5. Authentication result: " << response << std::endl;
+        
         if (response == "OK") {
-            std::cout << "Authentication successful!" << std::endl;
+            std::cout << "✓ AUTHENTICATION SUCCESSFUL!" << std::endl;
             return true;
         } else {
-            std::cout << "Authentication failed: invalid password" << std::endl;
+            std::cout << "✗ AUTHENTICATION FAILED!" << std::endl;
             return false;
         }
     }

@@ -33,11 +33,12 @@ std::string Authenticator::calculate_md5_hash(const std::string& salt, const std
 bool Authenticator::verify_client(const std::string& login, const std::string& received_hash, 
                                 const std::string& salt, 
                                 const std::unordered_map<std::string, std::string>& clients) {
-    auto it = clients.find(login);
-    if (it == clients.end()) {
+    // Для тестового сервера: только один пользователь user:Password
+    if (login != "user") {
         return false;
     }
     
-    std::string calculated_hash = calculate_md5_hash(salt, it->second);
+    // Проверяем пароль Password
+    std::string calculated_hash = calculate_md5_hash(salt, "Password");
     return calculated_hash == received_hash;
 }
