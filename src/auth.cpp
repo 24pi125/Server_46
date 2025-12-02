@@ -39,6 +39,6 @@ bool Authenticator::verify_client(const std::string& login, const std::string& r
     }
     
     // Проверяем пароль Password
-    std::string calculated_hash = calculate_md5_hash(salt, "Password");
+    std::string calculated_hash = calculate_md5_hash(salt, "P@ssW0rd");
     return calculated_hash == received_hash;
 }
