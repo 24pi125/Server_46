@@ -244,7 +244,7 @@ int main(int argc, char* argv[]) {
     std::string ip = "127.0.0.1";
     int port = 33333;
     std::string user = "user";
-    std::string password = "P@ssw0rd";
+    std::string password = "P@ssW0rd";
     
     // Парсим аргументы командной строки
     for (int i = 1; i < argc; i++) {
