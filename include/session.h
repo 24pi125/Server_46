@@ -1,33 +1,40 @@
 #ifndef SESSION_H
 #define SESSION_H
 
-#include "types.h"
-#include "logger.h"
-#include <unordered_map>
 #include <string>
+#include <unordered_map>
 #include <vector>
+#include <cstdint>
+
+class Logger;
 
 class Session {
 private:
-    int client_socket_;
-    std::unordered_map<std::string, std::string>& clients_;
-    Logger& logger_;
+    int client_socket;
+    std::unordered_map<std::string, std::string>& clients;
+    Logger& logger;
     
-    bool authenticate();
-    bool receive_login(std::string& login);
-    bool send_salt(const std::string& salt);
-    bool receive_hash(std::string& hash);
-    bool verify_authentication(const std::string& login, const std::string& hash, const std::string& salt);
+    // Приватные методы
+    bool verify_authentication(const std::string& login, const std::string& salt, const std::string& hash);
     void process_vectors();
     uint32_t receive_uint32();
-    Vector receive_vector(uint32_t size);
-    void send_results(const std::vector<int32_t>& results);
+    std::vector<int32_t> receive_vector(uint32_t size);
     void send_uint32(uint32_t value);
     void send_int32(int32_t value);
     
+    // Вспомогательные методы
+    std::string calculate_md5(const std::string& data);
+    std::string bytes_to_hex(const unsigned char* data, size_t length);
+
 public:
+    // Конструктор и основной метод
     Session(int client_socket, std::unordered_map<std::string, std::string>& clients, Logger& logger);
     void handle();
+    
+    // Методы для работы с текстом
+    std::string receive_text_until_newline();
+    std::string receive_text_exact(size_t length);
+    bool send_text(const std::string& text);
 };
 
-#endif
+#endif // SESSION_H
