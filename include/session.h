@@ -19,8 +19,8 @@ private:
     
     // Приватные методы
     void receive_to_buffer();
+    std::string extract_from_buffer_until_non_hex();  // <-- ДОБАВИТЬ ЭТУ СТРОКУ
     std::string extract_from_buffer_exact(size_t length);
-    std::string extract_hex_from_buffer(size_t length);  // ДОБАВЬТЕ ЭТУ СТРОКУ
     
     bool verify_authentication(const std::string& login, 
                               const std::string& salt, 

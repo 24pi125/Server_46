@@ -84,44 +84,32 @@ std::string Session::calculate_md5(const std::string& data) {
     return ss.str();
 }
 
-// Вычисление произведения вектора
+// Вычисление произведения вектора (с проверкой переполнения)
 int32_t Session::calculate_vector_product(const std::vector<int32_t>& vector) {
     if (vector.empty()) {
         return 0;
     }
     
     int64_t product = 1;
-    bool overflow_detected = false;
-    
     for (int32_t val : vector) {
-        // Проверка переполнения
+        // Проверка переполнения при умножении
         if (val != 0 && llabs(product) > INT64_MAX / llabs(val)) {
-            overflow_detected = true;
-            break;
+            // Переполнение
+            if ((product > 0 && val > 0) || (product < 0 && val < 0)) {
+                return INT32_MAX;
+            } else {
+                return INT32_MIN;
+            }
         }
         product *= val;
     }
     
-    if (overflow_detected) {
-        // Определяем знак
-        int sign = 1;
-        for (int32_t val : vector) {
-            if (val > 0) {
-                sign = 1;
-                break;
-            } else if (val < 0) {
-                sign = -1;
-                break;
-            }
-        }
-        
-        if (sign > 0) return INT32_MAX;
-        else return INT32_MIN;
+    // Проверка выхода за пределы int32
+    if (product > INT32_MAX) {
+        return INT32_MAX;
+    } else if (product < INT32_MIN) {
+        return INT32_MIN;
     }
-    
-    // Проверка границ int32
-    if (product > INT32_MAX) return INT32_MAX;
-    if (product < INT32_MIN) return INT32_MIN;
     
     return static_cast<int32_t>(product);
 }
@@ -133,35 +121,50 @@ bool Session::verify_authentication(const std::string& login,
     // Ищем пользователя в базе
     auto it = clients.find(login);
     if (it == clients.end()) {
-        logger.log("ERROR: User '" + login + "' not found in database");
+        logger.log("err: User '" + login + "' not found");
         return false;
     }
     
     std::string stored_password = it->second;
     
     // Логируем для отладки
-    logger.log("=== AUTHENTICATION VERIFICATION ===");
+    logger.log("=== AUTHENTICATION ===");
     logger.log("Login: " + login);
     logger.log("Salt: " + salt);
-    logger.log("Hash from client: " + received_hash);
-    logger.log("Password from DB: " + stored_password);
+    logger.log("Received hash: " + received_hash);
+    logger.log("Stored password: " + stored_password);
     
     // Проверяем форматы
     if (salt.length() != 16) {
-        logger.log("ERROR: Salt must be 16 hex chars");
+        logger.log("err: Salt must be 16 hex chars");
         return false;
     }
     
     if (received_hash.length() != 32) {
-        logger.log("ERROR: Hash must be 32 hex chars for MD5");
+        logger.log("err: Hash must be 32 hex chars");
         return false;
     }
     
-    // Правильный порядок - соль + пароль
-    std::string salt_plus_password = salt + stored_password;
-    logger.log("String for MD5 (salt+password): " + salt_plus_password);
+    // Проверяем что соль и хэш состоят из hex символов
+    for (char c : salt) {
+        if (!isxdigit(c)) {
+            logger.log("err: Salt contains non-hex character");
+            return false;
+        }
+    }
     
+    for (char c : received_hash) {
+        if (!isxdigit(c)) {
+            logger.log("err: Hash contains non-hex character");
+            return false;
+        }
+    }
+    
+    // ВЫЧИСЛЯЕМ MD5(СОЛЬ + ПАРОЛЬ)
+    std::string salt_plus_password = salt + stored_password;
     std::string expected_hash = calculate_md5(salt_plus_password);
+    
+    logger.log("String for MD5 (salt+password): '" + salt_plus_password + "'");
     
     // Приводим к нижнему регистру
     std::string received_lower = received_hash;
@@ -179,21 +182,23 @@ bool Session::verify_authentication(const std::string& login,
     if (success) {
         logger.log("SUCCESS: Authentication passed");
     } else {
-        logger.log("ERROR: Authentication failed - hash mismatch");
+        logger.log("err: Authentication failed - hash mismatch");
+        logger.log("Check: 1) Password in /etc/vealc.conf is 'P@ssl@rd'");
+        logger.log("       2) MD5 calculation uses 'salt + password' order");
     }
     
     return success;
 }
 
-// Получение uint32 (без ntohl)
+// Получение uint32 (БЕЗ ntohl - данные уже в сетевом порядке)
 uint32_t Session::receive_uint32() {
     std::string data = extract_from_buffer_exact(4);
     uint32_t value;
     memcpy(&value, data.c_str(), 4);
-    return value;
+    return value; // Не используем ntohl - данные уже в правильном порядке
 }
 
-// Получение вектора int32 (без ntohl)
+// Получение вектора int32
 std::vector<int32_t> Session::receive_vector(uint32_t size) {
     std::vector<int32_t> result(size);
     if (size == 0) return result;
@@ -203,18 +208,18 @@ std::vector<int32_t> Session::receive_vector(uint32_t size) {
     for (uint32_t i = 0; i < size; i++) {
         uint32_t temp;
         memcpy(&temp, data.c_str() + i * 4, 4);
-        result[i] = static_cast<int32_t>(temp);
+        result[i] = static_cast<int32_t>(temp); // Не используем ntohl
     }
     
     return result;
 }
 
-// Отправка uint32 (без htonl)
+// Отправка uint32 (БЕЗ htonl)
 void Session::send_uint32(uint32_t value) {
     send_text(std::string(reinterpret_cast<char*>(&value), 4));
 }
 
-// Отправка int32 (без htonl)
+// Отправка int32 (БЕЗ htonl)
 void Session::send_int32(int32_t value) {
     send_text(std::string(reinterpret_cast<char*>(&value), 4));
 }
@@ -224,62 +229,163 @@ void Session::process_vectors() {
     logger.log("=== NEW CLIENT CONNECTION ===");
     
     try {
-        // 1. Получаем аутентификационные данные
-        // Клиент отправляет: "user" + 16hex соль + 32hex хэш = 52 символа
+        // 1. Получаем данные
+        receive_to_buffer();
         
-        // Ждем пока не получим достаточно данных
-        while (receive_buffer.size() < 52) {
-            receive_to_buffer();
+        // Логируем сырые данные для отладки
+        logger.log("Raw buffer (first 100 chars): " + 
+                   receive_buffer.substr(0, std::min((size_t)100, receive_buffer.size())));
+        
+        // 2. Ищем 48 HEX СИМВОЛОВ ПОДРЯД (соль+хэш)
+        // Соль (16 hex) + хэш (32 hex) = 48 hex символов
+        
+        size_t hex_start = 0;
+        bool found = false;
+        
+        // Ищем в первых 100 символах (логин обычно короткий)
+        size_t search_limit = std::min((size_t)100, receive_buffer.size());
+        
+        for (size_t i = 0; i < search_limit && !found; i++) {
+            size_t hex_count = 0;
+            size_t j = i;
+            
+            // Считаем сколько hex символов подряд начиная с позиции i
+            while (j < receive_buffer.size() && hex_count < 48) {
+                char c = receive_buffer[j];
+                if ((c >= '0' && c <= '9') || 
+                    (c >= 'A' && c <= 'F') || 
+                    (c >= 'a' && c <= 'f')) {
+                    hex_count++;
+                    j++;
+                } else {
+                    break;
+                }
+            }
+            
+            // Если нашли 48 hex символов подряд
+            if (hex_count == 48) {
+                hex_start = i;
+                found = true;
+                logger.log("Found 48 hex chars starting at position: " + std::to_string(hex_start));
+                break;
+            }
         }
         
-        // Логируем полученные данные
-        std::string auth_data = receive_buffer.substr(0, 52);
-        logger.log("Authentication data received (52 chars): " + auth_data);
+        if (!found) {
+            // Получаем больше данных и пробуем снова
+            receive_to_buffer();
+            search_limit = std::min((size_t)150, receive_buffer.size());
+            
+            for (size_t i = 0; i < search_limit && !found; i++) {
+                size_t hex_count = 0;
+                size_t j = i;
+                
+                while (j < receive_buffer.size() && hex_count < 48) {
+                    char c = receive_buffer[j];
+                    if ((c >= '0' && c <= '9') || 
+                        (c >= 'A' && c <= 'F') || 
+                        (c >= 'a' && c <= 'f')) {
+                        hex_count++;
+                        j++;
+                    } else {
+                        break;
+                    }
+                }
+                
+                if (hex_count == 48) {
+                    hex_start = i;
+                    found = true;
+                    logger.log("Found 48 hex chars (2nd attempt) at position: " + std::to_string(hex_start));
+                    break;
+                }
+            }
+        }
         
-        // 2. Парсим ФИКСИРОВАННОЙ длины
-        // Позиции 0-3: "user" (всегда 4 символа)
-        // Позиции 4-19: соль (16 hex символов)
-        // Позиции 20-51: хэш (32 hex символа)
-        
-        std::string login = "user";  // Клиент всегда отправляет "user"
-        std::string client_salt = receive_buffer.substr(4, 16);
-        std::string client_hash = receive_buffer.substr(20, 32);
-        
-        // Удаляем обработанные данные
-        receive_buffer.erase(0, 52);
-        
-        logger.log("=== PARSED CREDENTIALS ===");
-        logger.log("Login: " + login);
-        logger.log("Salt: " + client_salt);
-        logger.log("Hash: " + client_hash);
-        
-        // 3. Проверяем аутентификацию
-        if (!verify_authentication(login, client_salt, client_hash)) {
-            logger.log("ERROR: Authentication FAILED");
-            send_text("ERROR\n");
+        if (!found) {
+            logger.log("err: Cannot find 48 hex characters (salt+hash)");
+            logger.log("Buffer size: " + std::to_string(receive_buffer.size()));
+            send_text("err\n");
             return;
         }
         
-        // 4. Отправляем подтверждение
+        // 3. Извлекаем части
+        // Все что до hex_start - это логин
+        std::string login = receive_buffer.substr(0, hex_start);
+        
+        // Следующие 16 символов - соль
+        std::string client_salt = receive_buffer.substr(hex_start, 16);
+        
+        // Следующие 32 символа - хэш
+        std::string client_hash = receive_buffer.substr(hex_start + 16, 32);
+        
+        // Удаляем обработанные данные
+        receive_buffer.erase(0, hex_start + 48);
+        
+        logger.log("=== PARSED CREDENTIALS ===");
+        logger.log("Login: '" + login + "' (length: " + std::to_string(login.length()) + ")");
+        logger.log("Salt: " + client_salt);
+        logger.log("Hash: " + client_hash);
+        
+        // 4. Проверяем что логин не пустой
+        if (login.empty()) {
+            logger.log("err: Empty login");
+            send_text("err\n");
+            return;
+        }
+        
+        // 5. Проверяем что соль и хэш действительно hex
+        bool salt_valid = true;
+        bool hash_valid = true;
+        
+        for (char c : client_salt) {
+            if (!isxdigit(c)) {
+                salt_valid = false;
+                logger.log("err: Salt contains non-hex char: " + std::string(1, c));
+                break;
+            }
+        }
+        
+        for (char c : client_hash) {
+            if (!isxdigit(c)) {
+                hash_valid = false;
+                logger.log("err: Hash contains non-hex char: " + std::string(1, c));
+                break;
+            }
+        }
+        
+        if (!salt_valid || !hash_valid) {
+            logger.log("err: Invalid salt or hash format");
+            send_text("err\n");
+            return;
+        }
+        
+        // 6. Проверяем аутентификацию
+        if (!verify_authentication(login, client_salt, client_hash)) {
+            logger.log("err: Authentication failed");
+            send_text("err\n");
+            return;
+        }
+        
+        // 7. Отправляем подтверждение
         logger.log("SUCCESS: Authentication OK, sending OK to client");
         send_text("OK\n");
         
-        // 5. Получаем количество векторов
+        // 8. Получаем количество векторов
         uint32_t vector_count = receive_uint32();
         logger.log("Vector count: " + std::to_string(vector_count));
         
-        // 6. Обрабатываем каждый вектор
+        // 9. Обрабатываем векторы
         for (uint32_t i = 0; i < vector_count; i++) {
             logger.log("--- Processing Vector " + std::to_string(i + 1) + " ---");
             
-            // Получаем размер вектора
+            // Размер вектора
             uint32_t vector_size = receive_uint32();
             logger.log("Vector size: " + std::to_string(vector_size));
             
-            // Получаем данные вектора
+            // Данные вектора
             std::vector<int32_t> vector_data = receive_vector(vector_size);
             
-            // Логируем первые значения
+            // Логируем значения
             if (!vector_data.empty()) {
                 std::string values = "Values: ";
                 for (size_t j = 0; j < std::min((size_t)5, vector_data.size()); j++) {
@@ -289,19 +395,20 @@ void Session::process_vectors() {
                 logger.log(values);
             }
             
-            // Вычисляем ПРОИЗВЕДЕНИЕ элементов вектора
+            // Вычисляем произведение
             int32_t product = calculate_vector_product(vector_data);
-            logger.log("Product result: " + std::to_string(product));
+            logger.log("Product: " + std::to_string(product));
             
-            // Отправляем результат клиенту
+            // Отправляем результат
             send_int32(product);
             logger.log("Result sent");
         }
         
-        logger.log("=== SESSION COMPLETED SUCCESSFULLY ===");
+        logger.log("=== SESSION COMPLETED ===");
         logger.log("Total vectors processed: " + std::to_string(vector_count));
         
     } catch (const std::exception& e) {
-        logger.log("ERROR in process_vectors: " + std::string(e.what()));
+        logger.log("err: " + std::string(e.what()));
+        send_text("err\n");
     }
 }

@@ -12,4 +12,4 @@ struct ServerConfig {
     static void print_help();
 };
 
-#endif
+#endif // CONFIG_H
