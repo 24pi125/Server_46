@@ -2,8 +2,7 @@
 #include <UnitTest++/UnitTest++.h>
 #include <unordered_map>
 #include <iostream>
-#include <cryptopp/hex.h>
-#include <cryptopp/sha.h>
+#include <cstring>
 
 SUITE(AuthenticatorTest) {
     TEST(SaltGenerationLength) {
@@ -31,7 +30,6 @@ SUITE(AuthenticatorTest) {
         std::string password = "testpass123";
         
         std::string hash = Authenticator::calculate_md5_hash(salt, password);
-        
         CHECK_EQUAL(32, hash.length());
         
         bool all_hex = true;

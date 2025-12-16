@@ -2,6 +2,7 @@
 #include <climits>
 #include <stdexcept>
 #include <iostream>
+#include <cstdlib>
 
 int32_t VectorProcessor::calculate_product(const Vector& vector) {
     if (vector.empty()) {
@@ -10,16 +11,28 @@ int32_t VectorProcessor::calculate_product(const Vector& vector) {
     
     int64_t product = 1;
     
-    for (int32_t value : vector) {
-        product *= static_cast<int64_t>(value);
+    for (int32_t val : vector) {
+        // Проверка переполнения при умножении
+        // Используем static_cast<int64_t> для безопасного преобразования
+        int64_t val64 = static_cast<int64_t>(val);
         
-        // Check for overflow - согласно ТЗ при переполнении вверх возвращать 2^31-1
-        if (product > 2147483647LL) {
-            return 2147483647;
+        if (val64 != 0 && llabs(product) > INT64_MAX / llabs(val64)) {
+            // Переполнение
+            if ((product > 0 && val64 > 0) || (product < 0 && val64 < 0)) {
+                return INT32_MAX;
+            } else {
+                return INT32_MIN;
+            }
         }
-        if (product < -2147483648LL) {
-            return -2147483648;
-        }
+        product *= val64;
+    }
+    
+    // Проверка выхода за пределы int32
+    if (product > INT32_MAX) {
+        return INT32_MAX;
+    }
+    if (product < INT32_MIN) {
+        return INT32_MIN;
     }
     
     return static_cast<int32_t>(product);

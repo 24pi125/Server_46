@@ -84,7 +84,7 @@ std::string Session::calculate_md5(const std::string& data) {
     return ss.str();
 }
 
-// Вычисление произведения вектора (с проверкой переполнения)
+// Вычисление произведения вектора (с проверкой переполнения) - ИСПРАВЛЕННАЯ ВЕРСИЯ
 int32_t Session::calculate_vector_product(const std::vector<int32_t>& vector) {
     if (vector.empty()) {
         return 0;
@@ -93,15 +93,18 @@ int32_t Session::calculate_vector_product(const std::vector<int32_t>& vector) {
     int64_t product = 1;
     for (int32_t val : vector) {
         // Проверка переполнения при умножении
-        if (val != 0 && llabs(product) > INT64_MAX / llabs(val)) {
+        // Используем static_cast<int64_t> для безопасного преобразования
+        int64_t val64 = static_cast<int64_t>(val);
+        
+        if (val64 != 0 && llabs(product) > INT64_MAX / llabs(val64)) {
             // Переполнение
-            if ((product > 0 && val > 0) || (product < 0 && val < 0)) {
+            if ((product > 0 && val64 > 0) || (product < 0 && val64 < 0)) {
                 return INT32_MAX;
             } else {
                 return INT32_MIN;
             }
         }
-        product *= val;
+        product *= val64;
     }
     
     // Проверка выхода за пределы int32
@@ -222,6 +225,28 @@ void Session::send_uint32(uint32_t value) {
 // Отправка int32 (БЕЗ htonl)
 void Session::send_int32(int32_t value) {
     send_text(std::string(reinterpret_cast<char*>(&value), 4));
+}
+
+// Извлечение из буфера до не-hex символа
+std::string Session::extract_from_buffer_until_non_hex() {
+    size_t i = 0;
+    while (i < receive_buffer.size()) {
+        char c = receive_buffer[i];
+        if (!((c >= '0' && c <= '9') || 
+              (c >= 'A' && c <= 'F') || 
+              (c >= 'a' && c <= 'f'))) {
+            break;
+        }
+        i++;
+    }
+    
+    if (i == 0) {
+        return "";
+    }
+    
+    std::string result = receive_buffer.substr(0, i);
+    receive_buffer.erase(0, i);
+    return result;
 }
 
 // Основная логика обработки векторов
