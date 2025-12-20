@@ -1,0 +1,6 @@
+<map id="Server::setup_socket" name="Server::setup_socket">
+<area shape="rect" id="node1" title="Настраивает серверный сокет" alt="" coords="5,5,163,32"/>
+<area shape="rect" id="node2" href="$classLogger.html#a025725279def374c2a103331548b2631" title="Записывает сообщение в лог" alt="" coords="391,5,485,32"/>
+<area shape="rect" id="node4" href="$classLogger.html#a0d807535d66747b03dced96d4e013a88" title="Записывает сообщение об ошибке" alt="" coords="211,31,343,57"/>
+<area shape="rect" id="node3" href="$classLogger.html#aaff42813783601ee85e141e68893af96" title="Получает текущее время в формате строки" alt="" coords="533,5,719,32"/>
+</map>

@@ -1,0 +1,1183 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.4"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>VEALC Server: Класс Session</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">VEALC Server<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Сервер для аутентификации и обработки векторных данных</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.4 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'Поиск','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classSession.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="#pri-methods">Закрытые члены</a> &#124;
+<a href="#pri-attribs">Закрытые данные</a> &#124;
+<a href="classSession-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle"><div class="title">Класс Session</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Класс обработки клиентской сессии  
+ <a href="classSession.html#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="session_8h_source.html">session.h</a>&gt;</code></p>
+<div class="dynheader">
+Граф связей класса Session:</div>
+<div class="dyncontent">
+<div class="center"><img src="classSession__coll__graph.png" border="0" usemap="#aSession_coll__map" alt="Collaboration graph"/></div>
+<map name="aSession_coll__map" id="aSession_coll__map">
+<area shape="rect" title="Класс обработки клиентской сессии" alt="" coords="5,95,77,121"/>
+<area shape="rect" href="classLogger.html" title="Класс для ведения журнала событий" alt="" coords="8,5,75,32"/>
+</map>
+<center><span class="legend">[<a target="top" href="graph_legend.html">см. легенду</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:ab0a926252af0518b654fcc4e52f18c7e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSession.html#ab0a926252af0518b654fcc4e52f18c7e">Session</a> (int <a class="el" href="classSession.html#a968ea00cae0e5293555a8223bff7b42d">client_socket</a>, std::unordered_map&lt; std::string, std::string &gt; &amp;<a class="el" href="classSession.html#a931c068afeec16b499173fa4c558826f">clients</a>, <a class="el" href="classLogger.html">Logger</a> &amp;<a class="el" href="classSession.html#aa613cae4a6bcabe30311dcee7f57804e">logger</a>)</td></tr>
+<tr class="memdesc:ab0a926252af0518b654fcc4e52f18c7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конструктор сессии  <a href="classSession.html#ab0a926252af0518b654fcc4e52f18c7e">Подробнее...</a><br /></td></tr>
+<tr class="separator:ab0a926252af0518b654fcc4e52f18c7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72b04c0d0be04cba369af88f68c32296"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSession.html#a72b04c0d0be04cba369af88f68c32296">handle</a> ()</td></tr>
+<tr class="memdesc:a72b04c0d0be04cba369af88f68c32296"><td class="mdescLeft">&#160;</td><td class="mdescRight">Основной метод обработки сессии  <a href="classSession.html#a72b04c0d0be04cba369af88f68c32296">Подробнее...</a><br /></td></tr>
+<tr class="separator:a72b04c0d0be04cba369af88f68c32296"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b1eb5ebfd3c900d71c991540b7a249f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSession.html#a8b1eb5ebfd3c900d71c991540b7a249f">send_text</a> (const std::string &amp;text)</td></tr>
+<tr class="memdesc:a8b1eb5ebfd3c900d71c991540b7a249f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Отправляет текстовые данные клиенту  <a href="classSession.html#a8b1eb5ebfd3c900d71c991540b7a249f">Подробнее...</a><br /></td></tr>
+<tr class="separator:a8b1eb5ebfd3c900d71c991540b7a249f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Закрытые члены</h2></td></tr>
+<tr class="memitem:ae353103b2780ae885b9bda8ebc2cae9b"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSession.html#ae353103b2780ae885b9bda8ebc2cae9b">calculate_md5</a> (const std::string &amp;data)</td></tr>
+<tr class="memdesc:ae353103b2780ae885b9bda8ebc2cae9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Вычисляет MD5 хэш  <a href="classSession.html#ae353103b2780ae885b9bda8ebc2cae9b">Подробнее...</a><br /></td></tr>
+<tr class="separator:ae353103b2780ae885b9bda8ebc2cae9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf4123c01bbcc19682958fea79b805cd"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSession.html#adf4123c01bbcc19682958fea79b805cd">calculate_vector_product</a> (const std::vector&lt; int32_t &gt; &amp;vector)</td></tr>
+<tr class="memdesc:adf4123c01bbcc19682958fea79b805cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Вычисляет произведение вектора  <a href="classSession.html#adf4123c01bbcc19682958fea79b805cd">Подробнее...</a><br /></td></tr>
+<tr class="separator:adf4123c01bbcc19682958fea79b805cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41d291380460c02f23813df0cc4ed94a"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSession.html#a41d291380460c02f23813df0cc4ed94a">extract_from_buffer_exact</a> (size_t length)</td></tr>
+<tr class="memdesc:a41d291380460c02f23813df0cc4ed94a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Извлекает точное количество байт  <a href="classSession.html#a41d291380460c02f23813df0cc4ed94a">Подробнее...</a><br /></td></tr>
+<tr class="separator:a41d291380460c02f23813df0cc4ed94a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a729514d9b12818e9da3d17fdae617363"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSession.html#a729514d9b12818e9da3d17fdae617363">extract_from_buffer_until_non_hex</a> ()</td></tr>
+<tr class="memdesc:a729514d9b12818e9da3d17fdae617363"><td class="mdescLeft">&#160;</td><td class="mdescRight">Извлекает hex символы до не-hex.  <a href="classSession.html#a729514d9b12818e9da3d17fdae617363">Подробнее...</a><br /></td></tr>
+<tr class="separator:a729514d9b12818e9da3d17fdae617363"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e0fc5d9d7b38a92f3bee0bb5c363283"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSession.html#a2e0fc5d9d7b38a92f3bee0bb5c363283">process_vectors</a> ()</td></tr>
+<tr class="memdesc:a2e0fc5d9d7b38a92f3bee0bb5c363283"><td class="mdescLeft">&#160;</td><td class="mdescRight">Основная логика обработки векторов  <a href="classSession.html#a2e0fc5d9d7b38a92f3bee0bb5c363283">Подробнее...</a><br /></td></tr>
+<tr class="separator:a2e0fc5d9d7b38a92f3bee0bb5c363283"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae8293633ae069f781eef8439c9ed0092"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSession.html#ae8293633ae069f781eef8439c9ed0092">receive_to_buffer</a> ()</td></tr>
+<tr class="memdesc:ae8293633ae069f781eef8439c9ed0092"><td class="mdescLeft">&#160;</td><td class="mdescRight">Принимает данные в буфер  <a href="classSession.html#ae8293633ae069f781eef8439c9ed0092">Подробнее...</a><br /></td></tr>
+<tr class="separator:ae8293633ae069f781eef8439c9ed0092"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae40fd3552757131de8d18b1503ad206b"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSession.html#ae40fd3552757131de8d18b1503ad206b">receive_uint32</a> ()</td></tr>
+<tr class="memdesc:ae40fd3552757131de8d18b1503ad206b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Принимает 32-битное беззнаковое число  <a href="classSession.html#ae40fd3552757131de8d18b1503ad206b">Подробнее...</a><br /></td></tr>
+<tr class="separator:ae40fd3552757131de8d18b1503ad206b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24067698fd194d9764917d3e67c9ad58"><td class="memItemLeft" align="right" valign="top">std::vector&lt; int32_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSession.html#a24067698fd194d9764917d3e67c9ad58">receive_vector</a> (uint32_t size)</td></tr>
+<tr class="memdesc:a24067698fd194d9764917d3e67c9ad58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Принимает вектор заданного размера  <a href="classSession.html#a24067698fd194d9764917d3e67c9ad58">Подробнее...</a><br /></td></tr>
+<tr class="separator:a24067698fd194d9764917d3e67c9ad58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4712b6686de331984ce45f67a9d36ab"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSession.html#ab4712b6686de331984ce45f67a9d36ab">send_int32</a> (int32_t value)</td></tr>
+<tr class="memdesc:ab4712b6686de331984ce45f67a9d36ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Отправляет 32-битное знаковое число  <a href="classSession.html#ab4712b6686de331984ce45f67a9d36ab">Подробнее...</a><br /></td></tr>
+<tr class="separator:ab4712b6686de331984ce45f67a9d36ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a25fdf9812d754cbc14ba8ea1afb21724"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSession.html#a25fdf9812d754cbc14ba8ea1afb21724">send_uint32</a> (uint32_t value)</td></tr>
+<tr class="memdesc:a25fdf9812d754cbc14ba8ea1afb21724"><td class="mdescLeft">&#160;</td><td class="mdescRight">Отправляет 32-битное беззнаковое число  <a href="classSession.html#a25fdf9812d754cbc14ba8ea1afb21724">Подробнее...</a><br /></td></tr>
+<tr class="separator:a25fdf9812d754cbc14ba8ea1afb21724"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f9689affdf8fa192f5ff21ac2b9198d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSession.html#a5f9689affdf8fa192f5ff21ac2b9198d">verify_authentication</a> (const std::string &amp;login, const std::string &amp;salt, const std::string &amp;received_hash)</td></tr>
+<tr class="memdesc:a5f9689affdf8fa192f5ff21ac2b9198d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Проверяет аутентификацию клиента  <a href="classSession.html#a5f9689affdf8fa192f5ff21ac2b9198d">Подробнее...</a><br /></td></tr>
+<tr class="separator:a5f9689affdf8fa192f5ff21ac2b9198d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Закрытые данные</h2></td></tr>
+<tr class="memitem:a968ea00cae0e5293555a8223bff7b42d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSession.html#a968ea00cae0e5293555a8223bff7b42d">client_socket</a></td></tr>
+<tr class="memdesc:a968ea00cae0e5293555a8223bff7b42d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Сокет клиента  <a href="classSession.html#a968ea00cae0e5293555a8223bff7b42d">Подробнее...</a><br /></td></tr>
+<tr class="separator:a968ea00cae0e5293555a8223bff7b42d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a931c068afeec16b499173fa4c558826f"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; std::string, std::string &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSession.html#a931c068afeec16b499173fa4c558826f">clients</a></td></tr>
+<tr class="memdesc:a931c068afeec16b499173fa4c558826f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ссылка на базу клиентов  <a href="classSession.html#a931c068afeec16b499173fa4c558826f">Подробнее...</a><br /></td></tr>
+<tr class="separator:a931c068afeec16b499173fa4c558826f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa613cae4a6bcabe30311dcee7f57804e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classLogger.html">Logger</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSession.html#aa613cae4a6bcabe30311dcee7f57804e">logger</a></td></tr>
+<tr class="memdesc:aa613cae4a6bcabe30311dcee7f57804e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ссылка на логгер  <a href="classSession.html#aa613cae4a6bcabe30311dcee7f57804e">Подробнее...</a><br /></td></tr>
+<tr class="separator:aa613cae4a6bcabe30311dcee7f57804e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebbafa30bd191ee057424d1fcf5b8c0d"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSession.html#aebbafa30bd191ee057424d1fcf5b8c0d">receive_buffer</a></td></tr>
+<tr class="memdesc:aebbafa30bd191ee057424d1fcf5b8c0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Буфер накопленных данных  <a href="classSession.html#aebbafa30bd191ee057424d1fcf5b8c0d">Подробнее...</a><br /></td></tr>
+<tr class="separator:aebbafa30bd191ee057424d1fcf5b8c0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p >Класс обработки клиентской сессии </p>
+<p >Обрабатывает полный цикл взаимодействия с клиентом:</p><ol type="1">
+<li>Прием и проверка аутентификационных данных</li>
+<li>Прием векторов для обработки</li>
+<li>Вычисление произведений элементов векторов</li>
+<li>Отправка результатов обратно клиенту</li>
+</ol>
+<dl class="section warning"><dt>Предупреждения</dt><dd>Класс не является потокобезопасным, должен использоваться по одной сессии на поток </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="session_8h_source.html">session.h</a> строка <a class="el" href="session_8h_source.html#l00033">33</a></p>
+</div><h2 class="groupheader">Конструктор(ы)</h2>
+<a id="ab0a926252af0518b654fcc4e52f18c7e" name="ab0a926252af0518b654fcc4e52f18c7e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0a926252af0518b654fcc4e52f18c7e">&#9670;&nbsp;</a></span>Session()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Session::Session </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>client_socket</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::unordered_map&lt; std::string, std::string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>clients</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classLogger.html">Logger</a> &amp;&#160;</td>
+          <td class="paramname"><em>logger</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Конструктор сессии </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">client_socket</td><td>Сокет подключенного клиента </td></tr>
+    <tr><td class="paramname">clients</td><td>База данных клиентов </td></tr>
+    <tr><td class="paramname">logger</td><td>Логгер для записи событий </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">См. определение в файле <a class="el" href="session_8cpp_source.html">session.cpp</a> строка <a class="el" href="session_8cpp_source.html#l00035">35</a></p>
+
+</div>
+</div>
+<h2 class="groupheader">Методы</h2>
+<a id="ae353103b2780ae885b9bda8ebc2cae9b" name="ae353103b2780ae885b9bda8ebc2cae9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae353103b2780ae885b9bda8ebc2cae9b">&#9670;&nbsp;</a></span>calculate_md5()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Session::calculate_md5 </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Вычисляет MD5 хэш </p>
+<p >Вычисление MD5 хэша</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>Данные для хэширования </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>std::string MD5 хэш в hex формате (32 символа, lowercase)</dd></dl>
+<dl class="section note"><dt>Заметки</dt><dd>Использует OpenSSL MD5 implementation </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="session_8cpp_source.html">session.cpp</a> строка <a class="el" href="session_8cpp_source.html#l00138">138</a></p>
+
+<p class="reference">Используется в <a class="el" href="session_8cpp_source.html#l00213">verify_authentication()</a>.</p>
+<div class="dynheader">
+Граф вызова функции:</div>
+<div class="dyncontent">
+<div class="center"><img src="classSession_ae353103b2780ae885b9bda8ebc2cae9b_icgraph.png" border="0" usemap="#aclassSession_ae353103b2780ae885b9bda8ebc2cae9b_icgraph" alt=""/></div>
+<map name="aclassSession_ae353103b2780ae885b9bda8ebc2cae9b_icgraph" id="aclassSession_ae353103b2780ae885b9bda8ebc2cae9b_icgraph">
+<area shape="rect" title="Вычисляет MD5 хэш" alt="" coords="1169,5,1344,32"/>
+<area shape="rect" href="classSession.html#a5f9689affdf8fa192f5ff21ac2b9198d" title="Проверяет аутентификацию клиента" alt="" coords="903,5,1121,32"/>
+<area shape="rect" href="classSession.html#a2e0fc5d9d7b38a92f3bee0bb5c363283" title="Основная логика обработки векторов" alt="" coords="669,5,855,32"/>
+<area shape="rect" href="classSession.html#a72b04c0d0be04cba369af88f68c32296" title="Основной метод обработки сессии" alt="" coords="497,5,621,32"/>
+<area shape="rect" href="classServer.html#ad4b5451852187a67551e68480fa0e9f5" title="Принимает входящие подключения" alt="" coords="249,5,449,32"/>
+<area shape="rect" href="classServer.html#abb27d30b40a94326e3fd629d3b30b7d5" title="Запускает основной цикл сервера" alt="" coords="108,5,201,32"/>
+<area shape="rect" href="main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,60,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="adf4123c01bbcc19682958fea79b805cd" name="adf4123c01bbcc19682958fea79b805cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf4123c01bbcc19682958fea79b805cd">&#9670;&nbsp;</a></span>calculate_vector_product()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int32_t Session::calculate_vector_product </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; int32_t &gt; &amp;&#160;</td>
+          <td class="paramname"><em>vector</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Вычисляет произведение вектора </p>
+<p >Вычисление произведения элементов вектора</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vector</td><td>Вектор целых чисел </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>int32_t Произведение элементов с контролем переполнения</dd></dl>
+<p>Алгоритм:</p><ol type="1">
+<li>Использует 64-битные вычисления для предотвращения промежуточного переполнения</li>
+<li>Проверяет переполнение перед каждым умножением</li>
+<li>При переполнении возвращает INT32_MAX или INT32_MIN</li>
+</ol>
+<dl class="section note"><dt>Заметки</dt><dd>Для пустого вектора возвращает 0 </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="session_8cpp_source.html">session.cpp</a> строка <a class="el" href="session_8cpp_source.html#l00165">165</a></p>
+
+<p class="reference">Используется в <a class="el" href="session_8cpp_source.html#l00391">process_vectors()</a>.</p>
+<div class="dynheader">
+Граф вызова функции:</div>
+<div class="dyncontent">
+<div class="center"><img src="classSession_adf4123c01bbcc19682958fea79b805cd_icgraph.png" border="0" usemap="#aclassSession_adf4123c01bbcc19682958fea79b805cd_icgraph" alt=""/></div>
+<map name="aclassSession_adf4123c01bbcc19682958fea79b805cd_icgraph" id="aclassSession_adf4123c01bbcc19682958fea79b805cd_icgraph">
+<area shape="rect" title="Вычисляет произведение вектора" alt="" coords="903,5,1041,47"/>
+<area shape="rect" href="classSession.html#a2e0fc5d9d7b38a92f3bee0bb5c363283" title="Основная логика обработки векторов" alt="" coords="669,13,855,39"/>
+<area shape="rect" href="classSession.html#a72b04c0d0be04cba369af88f68c32296" title="Основной метод обработки сессии" alt="" coords="497,13,621,39"/>
+<area shape="rect" href="classServer.html#ad4b5451852187a67551e68480fa0e9f5" title="Принимает входящие подключения" alt="" coords="249,13,449,39"/>
+<area shape="rect" href="classServer.html#abb27d30b40a94326e3fd629d3b30b7d5" title="Запускает основной цикл сервера" alt="" coords="108,13,201,39"/>
+<area shape="rect" href="main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,13,60,39"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a41d291380460c02f23813df0cc4ed94a" name="a41d291380460c02f23813df0cc4ed94a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41d291380460c02f23813df0cc4ed94a">&#9670;&nbsp;</a></span>extract_from_buffer_exact()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Session::extract_from_buffer_exact </td>
+          <td>(</td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>length</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Извлекает точное количество байт </p>
+<p >Извлечение точного количества байт из буфера</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">length</td><td>Количество байт для извлечения </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>std::string Извлеченные данные</dd></dl>
+<p>Если в буфере недостаточно данных, вызывает <a class="el" href="classSession.html#ae8293633ae069f781eef8439c9ed0092" title="Принимает данные в буфер">receive_to_buffer()</a> до тех пор, пока не наберется нужное количество байт.</p>
+<dl class="section note"><dt>Заметки</dt><dd>Удаляет извлеченные данные из буфера </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="session_8cpp_source.html">session.cpp</a> строка <a class="el" href="session_8cpp_source.html#l00094">94</a></p>
+
+<p class="reference">Перекрестные ссылки <a class="el" href="session_8h_source.html#l00040">receive_buffer</a> и <a class="el" href="session_8cpp_source.html#l00068">receive_to_buffer()</a>.</p>
+
+<p class="reference">Используется в <a class="el" href="session_8cpp_source.html#l00296">receive_uint32()</a> и <a class="el" href="session_8cpp_source.html#l00311">receive_vector()</a>.</p>
+<div class="dynheader">
+Граф вызовов:</div>
+<div class="dyncontent">
+<div class="center"><img src="classSession_a41d291380460c02f23813df0cc4ed94a_cgraph.png" border="0" usemap="#aclassSession_a41d291380460c02f23813df0cc4ed94a_cgraph" alt=""/></div>
+<map name="aclassSession_a41d291380460c02f23813df0cc4ed94a_cgraph" id="aclassSession_a41d291380460c02f23813df0cc4ed94a_cgraph">
+<area shape="rect" title="Извлекает точное количество байт" alt="" coords="5,5,169,47"/>
+<area shape="rect" href="classSession.html#ae8293633ae069f781eef8439c9ed0092" title="Принимает данные в буфер" alt="" coords="217,5,365,47"/>
+</map>
+</div>
+<div class="dynheader">
+Граф вызова функции:</div>
+<div class="dyncontent">
+<div class="center"><img src="classSession_a41d291380460c02f23813df0cc4ed94a_icgraph.png" border="0" usemap="#aclassSession_a41d291380460c02f23813df0cc4ed94a_icgraph" alt=""/></div>
+<map name="aclassSession_a41d291380460c02f23813df0cc4ed94a_icgraph" id="aclassSession_a41d291380460c02f23813df0cc4ed94a_icgraph">
+<area shape="rect" title="Извлекает точное количество байт" alt="" coords="1127,23,1291,65"/>
+<area shape="rect" href="classSession.html#ae40fd3552757131de8d18b1503ad206b" title="Принимает 32&#45;битное беззнаковое число" alt="" coords="903,5,1079,32"/>
+<area shape="rect" href="classSession.html#a24067698fd194d9764917d3e67c9ad58" title="Принимает вектор заданного размера" alt="" coords="903,56,1079,83"/>
+<area shape="rect" href="classSession.html#a2e0fc5d9d7b38a92f3bee0bb5c363283" title="Основная логика обработки векторов" alt="" coords="669,31,855,57"/>
+<area shape="rect" href="classSession.html#a72b04c0d0be04cba369af88f68c32296" title="Основной метод обработки сессии" alt="" coords="497,31,621,57"/>
+<area shape="rect" href="classServer.html#ad4b5451852187a67551e68480fa0e9f5" title="Принимает входящие подключения" alt="" coords="249,31,449,57"/>
+<area shape="rect" href="classServer.html#abb27d30b40a94326e3fd629d3b30b7d5" title="Запускает основной цикл сервера" alt="" coords="108,31,201,57"/>
+<area shape="rect" href="main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,31,60,57"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a729514d9b12818e9da3d17fdae617363" name="a729514d9b12818e9da3d17fdae617363"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a729514d9b12818e9da3d17fdae617363">&#9670;&nbsp;</a></span>extract_from_buffer_until_non_hex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Session::extract_from_buffer_until_non_hex </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Извлекает hex символы до не-hex. </p>
+<p >Извлечение hex символов из буфера до не-hex символа</p>
+<dl class="section return"><dt>Возвращает</dt><dd>std::string Извлеченная последовательность hex символов</dd></dl>
+<dl class="section note"><dt>Заметки</dt><dd>Используется для извлечения соли и хэша из потока данных </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="session_8cpp_source.html">session.cpp</a> строка <a class="el" href="session_8cpp_source.html#l00354">354</a></p>
+
+<p class="reference">Перекрестные ссылки <a class="el" href="session_8h_source.html#l00040">receive_buffer</a>.</p>
+
+</div>
+</div>
+<a id="a72b04c0d0be04cba369af88f68c32296" name="a72b04c0d0be04cba369af88f68c32296"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72b04c0d0be04cba369af88f68c32296">&#9670;&nbsp;</a></span>handle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Session::handle </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Основной метод обработки сессии </p>
+<p >Запускает обработку клиентской сессии. Выполняет аутентификацию, прием данных, вычисления и отправку результатов.</p>
+<dl class="section note"><dt>Заметки</dt><dd>Автоматически закрывает сокет при завершении </dd></dl>
+<dl class="exception"><dt>Исключения</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::exception</td><td>при критических ошибках обработки</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Выполняет полный цикл обработки клиентского запроса:</p><ol type="1">
+<li>Аутентификация клиента</li>
+<li>Прием векторов данных</li>
+<li>Вычисление произведений</li>
+<li>Отправка результатов</li>
+</ol>
+<dl class="section note"><dt>Заметки</dt><dd>Закрывает клиентский сокет при завершении (успешном или с ошибкой) </dd></dl>
+<dl class="exception"><dt>Исключения</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::exception</td><td>перехватывает и логирует исключения </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">См. определение в файле <a class="el" href="session_8cpp_source.html">session.cpp</a> строка <a class="el" href="session_8cpp_source.html#l00051">51</a></p>
+
+<p class="reference">Перекрестные ссылки <a class="el" href="session_8h_source.html#l00035">client_socket</a>, <a class="el" href="logger_8cpp_source.html#l00043">Logger::log()</a>, <a class="el" href="session_8h_source.html#l00037">logger</a> и <a class="el" href="session_8cpp_source.html#l00391">process_vectors()</a>.</p>
+
+<p class="reference">Используется в <a class="el" href="server_8cpp_source.html#l00149">Server::accept_connections()</a>.</p>
+<div class="dynheader">
+Граф вызовов:</div>
+<div class="dyncontent">
+<div class="center"><img src="classSession_a72b04c0d0be04cba369af88f68c32296_cgraph.png" border="0" usemap="#aclassSession_a72b04c0d0be04cba369af88f68c32296_cgraph" alt=""/></div>
+<map name="aclassSession_a72b04c0d0be04cba369af88f68c32296_cgraph" id="aclassSession_a72b04c0d0be04cba369af88f68c32296_cgraph">
+<area shape="rect" title="Основной метод обработки сессии" alt="" coords="5,70,129,97"/>
+<area shape="rect" href="classLogger.html#a025725279def374c2a103331548b2631" title="Записывает сообщение в лог" alt="" coords="717,12,812,38"/>
+<area shape="rect" href="classSession.html#a2e0fc5d9d7b38a92f3bee0bb5c363283" title="Основная логика обработки векторов" alt="" coords="177,180,363,206"/>
+<area shape="rect" href="classLogger.html#aaff42813783601ee85e141e68893af96" title="Получает текущее время в формате строки" alt="" coords="900,12,1085,38"/>
+<area shape="rect" href="classSession.html#adf4123c01bbcc19682958fea79b805cd" title="Вычисляет произведение вектора" alt="" coords="451,114,589,155"/>
+<area shape="rect" href="classSession.html#ae8293633ae069f781eef8439c9ed0092" title="Принимает данные в буфер" alt="" coords="919,202,1067,243"/>
+<area shape="rect" href="classSession.html#ae40fd3552757131de8d18b1503ad206b" title="Принимает 32&#45;битное беззнаковое число" alt="" coords="432,230,608,257"/>
+<area shape="rect" href="classSession.html#a24067698fd194d9764917d3e67c9ad58" title="Принимает вектор заданного размера" alt="" coords="432,281,608,308"/>
+<area shape="rect" href="classSession.html#ab4712b6686de331984ce45f67a9d36ab" title="Отправляет 32&#45;битное знаковое число" alt="" coords="445,382,595,409"/>
+<area shape="rect" href="classSession.html#a8b1eb5ebfd3c900d71c991540b7a249f" title="Отправляет текстовые данные клиенту" alt="" coords="693,357,837,384"/>
+<area shape="rect" href="classSession.html#a5f9689affdf8fa192f5ff21ac2b9198d" title="Проверяет аутентификацию клиента" alt="" coords="411,62,629,89"/>
+<area shape="rect" href="classSession.html#a41d291380460c02f23813df0cc4ed94a" title="Извлекает точное количество байт" alt="" coords="683,231,847,272"/>
+<area shape="rect" href="classSession.html#ae353103b2780ae885b9bda8ebc2cae9b" title="Вычисляет MD5 хэш" alt="" coords="677,62,852,89"/>
+</map>
+</div>
+<div class="dynheader">
+Граф вызова функции:</div>
+<div class="dyncontent">
+<div class="center"><img src="classSession_a72b04c0d0be04cba369af88f68c32296_icgraph.png" border="0" usemap="#aclassSession_a72b04c0d0be04cba369af88f68c32296_icgraph" alt=""/></div>
+<map name="aclassSession_a72b04c0d0be04cba369af88f68c32296_icgraph" id="aclassSession_a72b04c0d0be04cba369af88f68c32296_icgraph">
+<area shape="rect" title="Основной метод обработки сессии" alt="" coords="497,5,621,32"/>
+<area shape="rect" href="classServer.html#ad4b5451852187a67551e68480fa0e9f5" title="Принимает входящие подключения" alt="" coords="249,5,449,32"/>
+<area shape="rect" href="classServer.html#abb27d30b40a94326e3fd629d3b30b7d5" title="Запускает основной цикл сервера" alt="" coords="108,5,201,32"/>
+<area shape="rect" href="main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,60,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a2e0fc5d9d7b38a92f3bee0bb5c363283" name="a2e0fc5d9d7b38a92f3bee0bb5c363283"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e0fc5d9d7b38a92f3bee0bb5c363283">&#9670;&nbsp;</a></span>process_vectors()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Session::process_vectors </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Основная логика обработки векторов </p>
+<p >Выполняет полный цикл обработки:</p><ol type="1">
+<li>Поиск и парсинг аутентификационных данных (48 hex символов)</li>
+<li>Проверка аутентификации</li>
+<li>Прием количества векторов</li>
+<li>Обработка каждого вектора</li>
+<li>Отправка результатов</li>
+</ol>
+<p >Формат входных данных: [логин][16 hex соль][32 hex хэш][количество_векторов][вектор1]...[векторN]</p>
+<dl class="exception"><dt>Исключения</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::exception</td><td>при ошибках парсинга или сетевого взаимодействия </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">См. определение в файле <a class="el" href="session_8cpp_source.html">session.cpp</a> строка <a class="el" href="session_8cpp_source.html#l00391">391</a></p>
+
+<p class="reference">Перекрестные ссылки <a class="el" href="session_8cpp_source.html#l00165">calculate_vector_product()</a>, <a class="el" href="logger_8cpp_source.html#l00043">Logger::log()</a>, <a class="el" href="session_8h_source.html#l00037">logger</a>, <a class="el" href="session_8h_source.html#l00040">receive_buffer</a>, <a class="el" href="session_8cpp_source.html#l00068">receive_to_buffer()</a>, <a class="el" href="session_8cpp_source.html#l00296">receive_uint32()</a>, <a class="el" href="session_8cpp_source.html#l00311">receive_vector()</a>, <a class="el" href="session_8cpp_source.html#l00343">send_int32()</a>, <a class="el" href="session_8cpp_source.html#l00114">send_text()</a> и <a class="el" href="session_8cpp_source.html#l00213">verify_authentication()</a>.</p>
+
+<p class="reference">Используется в <a class="el" href="session_8cpp_source.html#l00051">handle()</a>.</p>
+<div class="dynheader">
+Граф вызовов:</div>
+<div class="dyncontent">
+<div class="center"><img src="classSession_a2e0fc5d9d7b38a92f3bee0bb5c363283_cgraph.png" border="0" usemap="#aclassSession_a2e0fc5d9d7b38a92f3bee0bb5c363283_cgraph" alt=""/></div>
+<map name="aclassSession_a2e0fc5d9d7b38a92f3bee0bb5c363283_cgraph" id="aclassSession_a2e0fc5d9d7b38a92f3bee0bb5c363283_cgraph">
+<area shape="rect" title="Основная логика обработки векторов" alt="" coords="5,198,191,225"/>
+<area shape="rect" href="classSession.html#adf4123c01bbcc19682958fea79b805cd" title="Вычисляет произведение вектора" alt="" coords="279,5,417,47"/>
+<area shape="rect" href="classLogger.html#a025725279def374c2a103331548b2631" title="Записывает сообщение в лог" alt="" coords="545,325,640,351"/>
+<area shape="rect" href="classSession.html#ae8293633ae069f781eef8439c9ed0092" title="Принимает данные в буфер" alt="" coords="747,136,895,177"/>
+<area shape="rect" href="classSession.html#ae40fd3552757131de8d18b1503ad206b" title="Принимает 32&#45;битное беззнаковое число" alt="" coords="260,71,436,98"/>
+<area shape="rect" href="classSession.html#a24067698fd194d9764917d3e67c9ad58" title="Принимает вектор заданного размера" alt="" coords="260,122,436,149"/>
+<area shape="rect" href="classSession.html#ab4712b6686de331984ce45f67a9d36ab" title="Отправляет 32&#45;битное знаковое число" alt="" coords="273,274,423,301"/>
+<area shape="rect" href="classSession.html#a8b1eb5ebfd3c900d71c991540b7a249f" title="Отправляет текстовые данные клиенту" alt="" coords="521,249,665,275"/>
+<area shape="rect" href="classSession.html#a5f9689affdf8fa192f5ff21ac2b9198d" title="Проверяет аутентификацию клиента" alt="" coords="239,375,457,402"/>
+<area shape="rect" href="classLogger.html#aaff42813783601ee85e141e68893af96" title="Получает текущее время в формате строки" alt="" coords="728,325,913,351"/>
+<area shape="rect" href="classSession.html#a41d291380460c02f23813df0cc4ed94a" title="Извлекает точное количество байт" alt="" coords="511,107,675,148"/>
+<area shape="rect" href="classSession.html#ae353103b2780ae885b9bda8ebc2cae9b" title="Вычисляет MD5 хэш" alt="" coords="505,375,680,402"/>
+</map>
+</div>
+<div class="dynheader">
+Граф вызова функции:</div>
+<div class="dyncontent">
+<div class="center"><img src="classSession_a2e0fc5d9d7b38a92f3bee0bb5c363283_icgraph.png" border="0" usemap="#aclassSession_a2e0fc5d9d7b38a92f3bee0bb5c363283_icgraph" alt=""/></div>
+<map name="aclassSession_a2e0fc5d9d7b38a92f3bee0bb5c363283_icgraph" id="aclassSession_a2e0fc5d9d7b38a92f3bee0bb5c363283_icgraph">
+<area shape="rect" title="Основная логика обработки векторов" alt="" coords="669,5,855,32"/>
+<area shape="rect" href="classSession.html#a72b04c0d0be04cba369af88f68c32296" title="Основной метод обработки сессии" alt="" coords="497,5,621,32"/>
+<area shape="rect" href="classServer.html#ad4b5451852187a67551e68480fa0e9f5" title="Принимает входящие подключения" alt="" coords="249,5,449,32"/>
+<area shape="rect" href="classServer.html#abb27d30b40a94326e3fd629d3b30b7d5" title="Запускает основной цикл сервера" alt="" coords="108,5,201,32"/>
+<area shape="rect" href="main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,60,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ae8293633ae069f781eef8439c9ed0092" name="ae8293633ae069f781eef8439c9ed0092"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8293633ae069f781eef8439c9ed0092">&#9670;&nbsp;</a></span>receive_to_buffer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Session::receive_to_buffer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Принимает данные в буфер </p>
+<p >Прием данных в буфер</p>
+<p >Принимает данные из сокета и добавляет их во внутренний буфер. Блокирующая операция - ждет поступления данных.</p>
+<dl class="exception"><dt>Исключения</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::runtime_error</td><td>при закрытии соединения или ошибке приема </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">См. определение в файле <a class="el" href="session_8cpp_source.html">session.cpp</a> строка <a class="el" href="session_8cpp_source.html#l00068">68</a></p>
+
+<p class="reference">Перекрестные ссылки <a class="el" href="session_8h_source.html#l00035">client_socket</a> и <a class="el" href="session_8h_source.html#l00040">receive_buffer</a>.</p>
+
+<p class="reference">Используется в <a class="el" href="session_8cpp_source.html#l00094">extract_from_buffer_exact()</a> и <a class="el" href="session_8cpp_source.html#l00391">process_vectors()</a>.</p>
+<div class="dynheader">
+Граф вызова функции:</div>
+<div class="dyncontent">
+<div class="center"><img src="classSession_ae8293633ae069f781eef8439c9ed0092_icgraph.png" border="0" usemap="#aclassSession_ae8293633ae069f781eef8439c9ed0092_icgraph" alt=""/></div>
+<map name="aclassSession_ae8293633ae069f781eef8439c9ed0092_icgraph" id="aclassSession_ae8293633ae069f781eef8439c9ed0092_icgraph">
+<area shape="rect" title="Принимает данные в буфер" alt="" coords="1339,70,1487,111"/>
+<area shape="rect" href="classSession.html#a41d291380460c02f23813df0cc4ed94a" title="Извлекает точное количество байт" alt="" coords="1127,41,1291,82"/>
+<area shape="rect" href="classSession.html#a2e0fc5d9d7b38a92f3bee0bb5c363283" title="Основная логика обработки векторов" alt="" coords="669,56,855,83"/>
+<area shape="rect" href="classSession.html#ae40fd3552757131de8d18b1503ad206b" title="Принимает 32&#45;битное беззнаковое число" alt="" coords="903,5,1079,32"/>
+<area shape="rect" href="classSession.html#a24067698fd194d9764917d3e67c9ad58" title="Принимает вектор заданного размера" alt="" coords="903,56,1079,83"/>
+<area shape="rect" href="classSession.html#a72b04c0d0be04cba369af88f68c32296" title="Основной метод обработки сессии" alt="" coords="497,56,621,83"/>
+<area shape="rect" href="classServer.html#ad4b5451852187a67551e68480fa0e9f5" title="Принимает входящие подключения" alt="" coords="249,56,449,83"/>
+<area shape="rect" href="classServer.html#abb27d30b40a94326e3fd629d3b30b7d5" title="Запускает основной цикл сервера" alt="" coords="108,56,201,83"/>
+<area shape="rect" href="main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,56,60,83"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ae40fd3552757131de8d18b1503ad206b" name="ae40fd3552757131de8d18b1503ad206b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae40fd3552757131de8d18b1503ad206b">&#9670;&nbsp;</a></span>receive_uint32()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t Session::receive_uint32 </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Принимает 32-битное беззнаковое число </p>
+<p >Прием 32-битного беззнакового числа</p>
+<dl class="section return"><dt>Возвращает</dt><dd>uint32_t Принятое число</dd></dl>
+<dl class="section note"><dt>Заметки</dt><dd>Данные ожидаются в сетевом порядке байт (big-endian) </dd>
+<dd>
+Не использует ntohl() - предполагается что данные уже в правильном порядке </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="session_8cpp_source.html">session.cpp</a> строка <a class="el" href="session_8cpp_source.html#l00296">296</a></p>
+
+<p class="reference">Перекрестные ссылки <a class="el" href="session_8cpp_source.html#l00094">extract_from_buffer_exact()</a>.</p>
+
+<p class="reference">Используется в <a class="el" href="session_8cpp_source.html#l00391">process_vectors()</a>.</p>
+<div class="dynheader">
+Граф вызовов:</div>
+<div class="dyncontent">
+<div class="center"><img src="classSession_ae40fd3552757131de8d18b1503ad206b_cgraph.png" border="0" usemap="#aclassSession_ae40fd3552757131de8d18b1503ad206b_cgraph" alt=""/></div>
+<map name="aclassSession_ae40fd3552757131de8d18b1503ad206b_cgraph" id="aclassSession_ae40fd3552757131de8d18b1503ad206b_cgraph">
+<area shape="rect" title="Принимает 32&#45;битное беззнаковое число" alt="" coords="5,13,181,39"/>
+<area shape="rect" href="classSession.html#a41d291380460c02f23813df0cc4ed94a" title="Извлекает точное количество байт" alt="" coords="229,5,393,47"/>
+<area shape="rect" href="classSession.html#ae8293633ae069f781eef8439c9ed0092" title="Принимает данные в буфер" alt="" coords="441,5,589,47"/>
+</map>
+</div>
+<div class="dynheader">
+Граф вызова функции:</div>
+<div class="dyncontent">
+<div class="center"><img src="classSession_ae40fd3552757131de8d18b1503ad206b_icgraph.png" border="0" usemap="#aclassSession_ae40fd3552757131de8d18b1503ad206b_icgraph" alt=""/></div>
+<map name="aclassSession_ae40fd3552757131de8d18b1503ad206b_icgraph" id="aclassSession_ae40fd3552757131de8d18b1503ad206b_icgraph">
+<area shape="rect" title="Принимает 32&#45;битное беззнаковое число" alt="" coords="903,5,1079,32"/>
+<area shape="rect" href="classSession.html#a2e0fc5d9d7b38a92f3bee0bb5c363283" title="Основная логика обработки векторов" alt="" coords="669,5,855,32"/>
+<area shape="rect" href="classSession.html#a72b04c0d0be04cba369af88f68c32296" title="Основной метод обработки сессии" alt="" coords="497,5,621,32"/>
+<area shape="rect" href="classServer.html#ad4b5451852187a67551e68480fa0e9f5" title="Принимает входящие подключения" alt="" coords="249,5,449,32"/>
+<area shape="rect" href="classServer.html#abb27d30b40a94326e3fd629d3b30b7d5" title="Запускает основной цикл сервера" alt="" coords="108,5,201,32"/>
+<area shape="rect" href="main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,60,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a24067698fd194d9764917d3e67c9ad58" name="a24067698fd194d9764917d3e67c9ad58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24067698fd194d9764917d3e67c9ad58">&#9670;&nbsp;</a></span>receive_vector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; int32_t &gt; Session::receive_vector </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>size</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Принимает вектор заданного размера </p>
+<p >Прием вектора целых чисел</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">size</td><td>Количество элементов в векторе </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>std::vector&lt;int32_t&gt; Принятый вектор</dd></dl>
+<dl class="section note"><dt>Заметки</dt><dd>Каждый элемент - 4 байта в сетевом порядке байт </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="session_8cpp_source.html">session.cpp</a> строка <a class="el" href="session_8cpp_source.html#l00311">311</a></p>
+
+<p class="reference">Перекрестные ссылки <a class="el" href="session_8cpp_source.html#l00094">extract_from_buffer_exact()</a>.</p>
+
+<p class="reference">Используется в <a class="el" href="session_8cpp_source.html#l00391">process_vectors()</a>.</p>
+<div class="dynheader">
+Граф вызовов:</div>
+<div class="dyncontent">
+<div class="center"><img src="classSession_a24067698fd194d9764917d3e67c9ad58_cgraph.png" border="0" usemap="#aclassSession_a24067698fd194d9764917d3e67c9ad58_cgraph" alt=""/></div>
+<map name="aclassSession_a24067698fd194d9764917d3e67c9ad58_cgraph" id="aclassSession_a24067698fd194d9764917d3e67c9ad58_cgraph">
+<area shape="rect" title="Принимает вектор заданного размера" alt="" coords="5,13,181,39"/>
+<area shape="rect" href="classSession.html#a41d291380460c02f23813df0cc4ed94a" title="Извлекает точное количество байт" alt="" coords="229,5,393,47"/>
+<area shape="rect" href="classSession.html#ae8293633ae069f781eef8439c9ed0092" title="Принимает данные в буфер" alt="" coords="441,5,589,47"/>
+</map>
+</div>
+<div class="dynheader">
+Граф вызова функции:</div>
+<div class="dyncontent">
+<div class="center"><img src="classSession_a24067698fd194d9764917d3e67c9ad58_icgraph.png" border="0" usemap="#aclassSession_a24067698fd194d9764917d3e67c9ad58_icgraph" alt=""/></div>
+<map name="aclassSession_a24067698fd194d9764917d3e67c9ad58_icgraph" id="aclassSession_a24067698fd194d9764917d3e67c9ad58_icgraph">
+<area shape="rect" title="Принимает вектор заданного размера" alt="" coords="903,5,1079,32"/>
+<area shape="rect" href="classSession.html#a2e0fc5d9d7b38a92f3bee0bb5c363283" title="Основная логика обработки векторов" alt="" coords="669,5,855,32"/>
+<area shape="rect" href="classSession.html#a72b04c0d0be04cba369af88f68c32296" title="Основной метод обработки сессии" alt="" coords="497,5,621,32"/>
+<area shape="rect" href="classServer.html#ad4b5451852187a67551e68480fa0e9f5" title="Принимает входящие подключения" alt="" coords="249,5,449,32"/>
+<area shape="rect" href="classServer.html#abb27d30b40a94326e3fd629d3b30b7d5" title="Запускает основной цикл сервера" alt="" coords="108,5,201,32"/>
+<area shape="rect" href="main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,60,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ab4712b6686de331984ce45f67a9d36ab" name="ab4712b6686de331984ce45f67a9d36ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4712b6686de331984ce45f67a9d36ab">&#9670;&nbsp;</a></span>send_int32()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Session::send_int32 </td>
+          <td>(</td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Отправляет 32-битное знаковое число </p>
+<p >Отправка 32-битного знакового числа</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>Число для отправки </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">См. определение в файле <a class="el" href="session_8cpp_source.html">session.cpp</a> строка <a class="el" href="session_8cpp_source.html#l00343">343</a></p>
+
+<p class="reference">Перекрестные ссылки <a class="el" href="session_8cpp_source.html#l00114">send_text()</a>.</p>
+
+<p class="reference">Используется в <a class="el" href="session_8cpp_source.html#l00391">process_vectors()</a>.</p>
+<div class="dynheader">
+Граф вызовов:</div>
+<div class="dyncontent">
+<div class="center"><img src="classSession_ab4712b6686de331984ce45f67a9d36ab_cgraph.png" border="0" usemap="#aclassSession_ab4712b6686de331984ce45f67a9d36ab_cgraph" alt=""/></div>
+<map name="aclassSession_ab4712b6686de331984ce45f67a9d36ab_cgraph" id="aclassSession_ab4712b6686de331984ce45f67a9d36ab_cgraph">
+<area shape="rect" title="Отправляет 32&#45;битное знаковое число" alt="" coords="5,5,156,32"/>
+<area shape="rect" href="classSession.html#a8b1eb5ebfd3c900d71c991540b7a249f" title="Отправляет текстовые данные клиенту" alt="" coords="204,5,348,32"/>
+</map>
+</div>
+<div class="dynheader">
+Граф вызова функции:</div>
+<div class="dyncontent">
+<div class="center"><img src="classSession_ab4712b6686de331984ce45f67a9d36ab_icgraph.png" border="0" usemap="#aclassSession_ab4712b6686de331984ce45f67a9d36ab_icgraph" alt=""/></div>
+<map name="aclassSession_ab4712b6686de331984ce45f67a9d36ab_icgraph" id="aclassSession_ab4712b6686de331984ce45f67a9d36ab_icgraph">
+<area shape="rect" title="Отправляет 32&#45;битное знаковое число" alt="" coords="903,5,1053,32"/>
+<area shape="rect" href="classSession.html#a2e0fc5d9d7b38a92f3bee0bb5c363283" title="Основная логика обработки векторов" alt="" coords="669,5,855,32"/>
+<area shape="rect" href="classSession.html#a72b04c0d0be04cba369af88f68c32296" title="Основной метод обработки сессии" alt="" coords="497,5,621,32"/>
+<area shape="rect" href="classServer.html#ad4b5451852187a67551e68480fa0e9f5" title="Принимает входящие подключения" alt="" coords="249,5,449,32"/>
+<area shape="rect" href="classServer.html#abb27d30b40a94326e3fd629d3b30b7d5" title="Запускает основной цикл сервера" alt="" coords="108,5,201,32"/>
+<area shape="rect" href="main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,60,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a8b1eb5ebfd3c900d71c991540b7a249f" name="a8b1eb5ebfd3c900d71c991540b7a249f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b1eb5ebfd3c900d71c991540b7a249f">&#9670;&nbsp;</a></span>send_text()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Session::send_text </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>text</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Отправляет текстовые данные клиенту </p>
+<p >Отправка текста клиенту</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">text</td><td>Текст для отправки </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>bool true если отправка успешна, false при ошибке</dd></dl>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">text</td><td>Текст для отправки </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>bool true если отправка успешна, false при ошибке</dd></dl>
+<p>Отправляет данные частями, пока все не будет отправлено. Обрабатывает частичную отправку (short write). </p>
+
+<p class="definition">См. определение в файле <a class="el" href="session_8cpp_source.html">session.cpp</a> строка <a class="el" href="session_8cpp_source.html#l00114">114</a></p>
+
+<p class="reference">Перекрестные ссылки <a class="el" href="session_8h_source.html#l00035">client_socket</a>.</p>
+
+<p class="reference">Используется в <a class="el" href="session_8cpp_source.html#l00391">process_vectors()</a>, <a class="el" href="session_8cpp_source.html#l00343">send_int32()</a> и <a class="el" href="session_8cpp_source.html#l00334">send_uint32()</a>.</p>
+<div class="dynheader">
+Граф вызова функции:</div>
+<div class="dyncontent">
+<div class="center"><img src="classSession_a8b1eb5ebfd3c900d71c991540b7a249f_icgraph.png" border="0" usemap="#aclassSession_a8b1eb5ebfd3c900d71c991540b7a249f_icgraph" alt=""/></div>
+<map name="aclassSession_a8b1eb5ebfd3c900d71c991540b7a249f_icgraph" id="aclassSession_a8b1eb5ebfd3c900d71c991540b7a249f_icgraph">
+<area shape="rect" title="Отправляет текстовые данные клиенту" alt="" coords="1109,31,1253,57"/>
+<area shape="rect" href="classSession.html#a2e0fc5d9d7b38a92f3bee0bb5c363283" title="Основная логика обработки векторов" alt="" coords="669,5,855,32"/>
+<area shape="rect" href="classSession.html#ab4712b6686de331984ce45f67a9d36ab" title="Отправляет 32&#45;битное знаковое число" alt="" coords="907,31,1057,57"/>
+<area shape="rect" href="classSession.html#a25fdf9812d754cbc14ba8ea1afb21724" title="Отправляет 32&#45;битное беззнаковое число" alt="" coords="903,81,1061,108"/>
+<area shape="rect" href="classSession.html#a72b04c0d0be04cba369af88f68c32296" title="Основной метод обработки сессии" alt="" coords="497,5,621,32"/>
+<area shape="rect" href="classServer.html#ad4b5451852187a67551e68480fa0e9f5" title="Принимает входящие подключения" alt="" coords="249,5,449,32"/>
+<area shape="rect" href="classServer.html#abb27d30b40a94326e3fd629d3b30b7d5" title="Запускает основной цикл сервера" alt="" coords="108,5,201,32"/>
+<area shape="rect" href="main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,60,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a25fdf9812d754cbc14ba8ea1afb21724" name="a25fdf9812d754cbc14ba8ea1afb21724"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a25fdf9812d754cbc14ba8ea1afb21724">&#9670;&nbsp;</a></span>send_uint32()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Session::send_uint32 </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Отправляет 32-битное беззнаковое число </p>
+<p >Отправка 32-битного беззнакового числа</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>Число для отправки</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Заметки</dt><dd>Отправляет в сетевом порядке байт </dd>
+<dd>
+Не использует htonl() - предполагается что данные уже в правильном порядке </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="session_8cpp_source.html">session.cpp</a> строка <a class="el" href="session_8cpp_source.html#l00334">334</a></p>
+
+<p class="reference">Перекрестные ссылки <a class="el" href="session_8cpp_source.html#l00114">send_text()</a>.</p>
+<div class="dynheader">
+Граф вызовов:</div>
+<div class="dyncontent">
+<div class="center"><img src="classSession_a25fdf9812d754cbc14ba8ea1afb21724_cgraph.png" border="0" usemap="#aclassSession_a25fdf9812d754cbc14ba8ea1afb21724_cgraph" alt=""/></div>
+<map name="aclassSession_a25fdf9812d754cbc14ba8ea1afb21724_cgraph" id="aclassSession_a25fdf9812d754cbc14ba8ea1afb21724_cgraph">
+<area shape="rect" title="Отправляет 32&#45;битное беззнаковое число" alt="" coords="5,5,164,32"/>
+<area shape="rect" href="classSession.html#a8b1eb5ebfd3c900d71c991540b7a249f" title="Отправляет текстовые данные клиенту" alt="" coords="212,5,356,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a5f9689affdf8fa192f5ff21ac2b9198d" name="a5f9689affdf8fa192f5ff21ac2b9198d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f9689affdf8fa192f5ff21ac2b9198d">&#9670;&nbsp;</a></span>verify_authentication()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Session::verify_authentication </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>login</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>salt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>received_hash</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Проверяет аутентификацию клиента </p>
+<p >Проверка аутентификации клиента</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">login</td><td>Логин клиента </td></tr>
+    <tr><td class="paramname">salt</td><td>Соль для хэширования </td></tr>
+    <tr><td class="paramname">received_hash</td><td>Полученный хэш от клиента </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>bool true если аутентификация успешна</dd></dl>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">login</td><td>Логин клиента </td></tr>
+    <tr><td class="paramname">salt</td><td>Соль (16 hex символов) </td></tr>
+    <tr><td class="paramname">received_hash</td><td>Хэш от клиента (32 hex символа) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>bool true если аутентификация успешна</dd></dl>
+<p>Выполняет следующие проверки:</p><ol type="1">
+<li>Существование логина в базе</li>
+<li>Формат соли и хэша (длина и hex символы)</li>
+<li>Сравнение MD5(salt + stored_password) с полученным хэшем</li>
+</ol>
+<dl class="section note"><dt>Заметки</dt><dd>Детально логирует все шаги проверки для отладки </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="session_8cpp_source.html">session.cpp</a> строка <a class="el" href="session_8cpp_source.html#l00213">213</a></p>
+
+<p class="reference">Перекрестные ссылки <a class="el" href="session_8cpp_source.html#l00138">calculate_md5()</a>, <a class="el" href="session_8h_source.html#l00036">clients</a>, <a class="el" href="logger_8cpp_source.html#l00043">Logger::log()</a> и <a class="el" href="session_8h_source.html#l00037">logger</a>.</p>
+
+<p class="reference">Используется в <a class="el" href="session_8cpp_source.html#l00391">process_vectors()</a>.</p>
+<div class="dynheader">
+Граф вызовов:</div>
+<div class="dyncontent">
+<div class="center"><img src="classSession_a5f9689affdf8fa192f5ff21ac2b9198d_cgraph.png" border="0" usemap="#aclassSession_a5f9689affdf8fa192f5ff21ac2b9198d_cgraph" alt=""/></div>
+<map name="aclassSession_a5f9689affdf8fa192f5ff21ac2b9198d_cgraph" id="aclassSession_a5f9689affdf8fa192f5ff21ac2b9198d_cgraph">
+<area shape="rect" title="Проверяет аутентификацию клиента" alt="" coords="5,31,224,57"/>
+<area shape="rect" href="classSession.html#ae353103b2780ae885b9bda8ebc2cae9b" title="Вычисляет MD5 хэш" alt="" coords="272,5,447,32"/>
+<area shape="rect" href="classLogger.html#a025725279def374c2a103331548b2631" title="Записывает сообщение в лог" alt="" coords="312,56,407,83"/>
+<area shape="rect" href="classLogger.html#aaff42813783601ee85e141e68893af96" title="Получает текущее время в формате строки" alt="" coords="495,56,680,83"/>
+</map>
+</div>
+<div class="dynheader">
+Граф вызова функции:</div>
+<div class="dyncontent">
+<div class="center"><img src="classSession_a5f9689affdf8fa192f5ff21ac2b9198d_icgraph.png" border="0" usemap="#aclassSession_a5f9689affdf8fa192f5ff21ac2b9198d_icgraph" alt=""/></div>
+<map name="aclassSession_a5f9689affdf8fa192f5ff21ac2b9198d_icgraph" id="aclassSession_a5f9689affdf8fa192f5ff21ac2b9198d_icgraph">
+<area shape="rect" title="Проверяет аутентификацию клиента" alt="" coords="903,5,1121,32"/>
+<area shape="rect" href="classSession.html#a2e0fc5d9d7b38a92f3bee0bb5c363283" title="Основная логика обработки векторов" alt="" coords="669,5,855,32"/>
+<area shape="rect" href="classSession.html#a72b04c0d0be04cba369af88f68c32296" title="Основной метод обработки сессии" alt="" coords="497,5,621,32"/>
+<area shape="rect" href="classServer.html#ad4b5451852187a67551e68480fa0e9f5" title="Принимает входящие подключения" alt="" coords="249,5,449,32"/>
+<area shape="rect" href="classServer.html#abb27d30b40a94326e3fd629d3b30b7d5" title="Запускает основной цикл сервера" alt="" coords="108,5,201,32"/>
+<area shape="rect" href="main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,60,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Данные класса</h2>
+<a id="a968ea00cae0e5293555a8223bff7b42d" name="a968ea00cae0e5293555a8223bff7b42d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a968ea00cae0e5293555a8223bff7b42d">&#9670;&nbsp;</a></span>client_socket</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Session::client_socket</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Сокет клиента </p>
+
+<p class="definition">См. определение в файле <a class="el" href="session_8h_source.html">session.h</a> строка <a class="el" href="session_8h_source.html#l00035">35</a></p>
+
+<p class="reference">Используется в <a class="el" href="session_8cpp_source.html#l00051">handle()</a>, <a class="el" href="session_8cpp_source.html#l00068">receive_to_buffer()</a> и <a class="el" href="session_8cpp_source.html#l00114">send_text()</a>.</p>
+
+</div>
+</div>
+<a id="a931c068afeec16b499173fa4c558826f" name="a931c068afeec16b499173fa4c558826f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a931c068afeec16b499173fa4c558826f">&#9670;&nbsp;</a></span>clients</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_map&lt;std::string, std::string&gt;&amp; Session::clients</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Ссылка на базу клиентов </p>
+
+<p class="definition">См. определение в файле <a class="el" href="session_8h_source.html">session.h</a> строка <a class="el" href="session_8h_source.html#l00036">36</a></p>
+
+<p class="reference">Используется в <a class="el" href="session_8cpp_source.html#l00213">verify_authentication()</a>.</p>
+
+</div>
+</div>
+<a id="aa613cae4a6bcabe30311dcee7f57804e" name="aa613cae4a6bcabe30311dcee7f57804e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa613cae4a6bcabe30311dcee7f57804e">&#9670;&nbsp;</a></span>logger</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classLogger.html">Logger</a>&amp; Session::logger</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Ссылка на логгер </p>
+
+<p class="definition">См. определение в файле <a class="el" href="session_8h_source.html">session.h</a> строка <a class="el" href="session_8h_source.html#l00037">37</a></p>
+
+<p class="reference">Используется в <a class="el" href="session_8cpp_source.html#l00051">handle()</a>, <a class="el" href="session_8cpp_source.html#l00391">process_vectors()</a> и <a class="el" href="session_8cpp_source.html#l00213">verify_authentication()</a>.</p>
+
+</div>
+</div>
+<a id="aebbafa30bd191ee057424d1fcf5b8c0d" name="aebbafa30bd191ee057424d1fcf5b8c0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aebbafa30bd191ee057424d1fcf5b8c0d">&#9670;&nbsp;</a></span>receive_buffer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Session::receive_buffer</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Буфер накопленных данных </p>
+
+<p class="definition">См. определение в файле <a class="el" href="session_8h_source.html">session.h</a> строка <a class="el" href="session_8h_source.html#l00040">40</a></p>
+
+<p class="reference">Используется в <a class="el" href="session_8cpp_source.html#l00094">extract_from_buffer_exact()</a>, <a class="el" href="session_8cpp_source.html#l00354">extract_from_buffer_until_non_hex()</a>, <a class="el" href="session_8cpp_source.html#l00391">process_vectors()</a> и <a class="el" href="session_8cpp_source.html#l00068">receive_to_buffer()</a>.</p>
+
+</div>
+</div>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li>include/<a class="el" href="session_8h_source.html">session.h</a></li>
+<li>src/<a class="el" href="session_8cpp_source.html">session.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="classSession.html">Session</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
+  </ul>
+</div>
+</body>
+</html>

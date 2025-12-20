@@ -1,0 +1,13 @@
+<map id="Logger::log" name="Logger::log">
+<area shape="rect" id="node1" title="Записывает сообщение в лог" alt="" coords="1169,189,1264,216"/>
+<area shape="rect" id="node2" href="$classServer.html#ad4b5451852187a67551e68480fa0e9f5" title="Принимает входящие подключения" alt="" coords="249,189,449,216"/>
+<area shape="rect" id="node3" href="$classServer.html#abb27d30b40a94326e3fd629d3b30b7d5" title="Запускает основной цикл сервера" alt="" coords="108,113,201,140"/>
+<area shape="rect" id="node5" href="$classSession.html#a72b04c0d0be04cba369af88f68c32296" title="Основной метод обработки сессии" alt="" coords="497,164,621,190"/>
+<area shape="rect" id="node6" href="$classServer.html#a0ed7695b528ccfab79656192533199c5" title="Загружает базу данных клиентов из файла" alt="" coords="687,265,837,292"/>
+<area shape="rect" id="node8" href="$classLogger.html#a0d807535d66747b03dced96d4e013a88" title="Записывает сообщение об ошибке" alt="" coords="946,214,1078,241"/>
+<area shape="rect" id="node9" href="$classServer.html#a5165c8fc64601592b4ac2b46f2747737" title="Настраивает серверный сокет" alt="" coords="683,316,841,342"/>
+<area shape="rect" id="node10" href="$classSession.html#a2e0fc5d9d7b38a92f3bee0bb5c363283" title="Основная логика обработки векторов" alt="" coords="669,113,855,140"/>
+<area shape="rect" id="node11" href="$classSession.html#a5f9689affdf8fa192f5ff21ac2b9198d" title="Проверяет аутентификацию клиента" alt="" coords="903,62,1121,89"/>
+<area shape="rect" id="node4" href="$main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,113,60,140"/>
+<area shape="rect" id="node7" href="$classServer.html#a47c127babad31cbd0a3c452d2e6b395b" title="Конструктор сервера" alt="" coords="502,290,617,317"/>
+</map>

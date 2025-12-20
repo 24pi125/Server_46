@@ -1,0 +1,279 @@
+\hypertarget{classLogger}{}\subsection{Documentation}
+\label{classLogger}\index{Logger@{Logger}}
+
+
+Класс для ведения журнала событий  
+
+
+
+
+{\ttfamily \#include $<$logger.\+h$>$}
+
+\doxysubsubsection*{Documentation}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classLogger_a4f2ee02db1d03a83b6b9b43808e09f15}{Logger}} (const std\+::string \&filename)
+\begin{DoxyCompactList}\small\item\em Конструктор логгера \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLogger_a025725279def374c2a103331548b2631}{log}} (const std\+::string \&message, bool critical=false)
+\begin{DoxyCompactList}\small\item\em Записывает сообщение в лог \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLogger_a0837f91f9353e805acd8c844cc7bb416}{log\+\_\+add}} (const std\+::string \&message)
+\begin{DoxyCompactList}\small\item\em Добавляет текст к последней записи лога \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLogger_a0d807535d66747b03dced96d4e013a88}{log\+\_\+error}} (const std\+::string \&error, bool critical=false)
+\begin{DoxyCompactList}\small\item\em Записывает сообщение об ошибке \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Documentation}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{classLogger_aaff42813783601ee85e141e68893af96}{get\+\_\+current\+\_\+time}} ()
+\begin{DoxyCompactList}\small\item\em Получает текущее время в формате строки \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Documentation}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{classLogger_ae94883fbdd8b0cd439a4855b4ef7d39c}{log\+\_\+file\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Путь к файлу логов \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsubsection{Documentation}
+Класс для ведения журнала событий 
+
+Предоставляет методы для логирования сообщений с временными метками и уровнем важности. Поддерживает одновременную запись в файл и вывод в консоль. 
+
+См. определение в файле \mbox{\hyperlink{logger_8h_source}{logger.\+h}} строка \mbox{\hyperlink{logger_8h_source_l00026}{26}}
+
+
+
+\doxysubsubsection{Documentation}
+\mbox{\Hypertarget{classLogger_a4f2ee02db1d03a83b6b9b43808e09f15}\label{classLogger_a4f2ee02db1d03a83b6b9b43808e09f15}} 
+\index{Logger@{Logger}!Logger@{Logger}}
+\index{Logger@{Logger}!Logger@{Logger}}
+\doxyparagraph{\texorpdfstring{Logger()}{Logger()}}
+{\footnotesize\ttfamily Logger\+::\+Logger (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename }\end{DoxyParamCaption})}
+
+
+
+Конструктор логгера 
+
+
+\begin{DoxyParams}{Documentation}
+{\em filename} & Путь к файлу для записи логов\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Documentation}
+Файл открывается в режиме добавления (append)
+\end{DoxyNote}
+
+\begin{DoxyParams}{Documentation}
+{\em filename} & Путь к файлу для записи логов\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Documentation}
+Не создает файл, если он не существует -\/ файл создается при первой записи 
+\end{DoxyNote}
+\begin{Desc}
+\item[Примеры]\par
+\mbox{\hyperlink{_2home_2penza365_2Server_46_2src_2logger_8cpp-example}{/home/penza365/\+Server\+\_\+46/src/logger.\+cpp}}.\end{Desc}
+
+
+См. определение в файле \mbox{\hyperlink{logger_8cpp_source}{logger.\+cpp}} строка \mbox{\hyperlink{logger_8cpp_source_l00027}{27}}
+
+
+
+\doxysubsubsection{Documentation}
+\mbox{\Hypertarget{classLogger_aaff42813783601ee85e141e68893af96}\label{classLogger_aaff42813783601ee85e141e68893af96}} 
+\index{Logger@{Logger}!get\_current\_time@{get\_current\_time}}
+\index{get\_current\_time@{get\_current\_time}!Logger@{Logger}}
+\doxyparagraph{\texorpdfstring{get\_current\_time()}{get\_current\_time()}}
+{\footnotesize\ttfamily std\+::string Logger\+::get\+\_\+current\+\_\+time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Получает текущее время в формате строки 
+
+\begin{DoxyReturn}{Documentation}
+std\+::string Время в формате \char`\"{}\+YYYY-\/\+MM-\/\+DD HH\+:\+MM\+:\+SS\char`\"{}
+\end{DoxyReturn}
+\begin{DoxyNote}{Documentation}
+Использует локальное время системы 
+
+Формат соответствует ISO 8601 без временной зоны 
+\end{DoxyNote}
+\begin{Desc}
+\item[Примеры]\par
+\mbox{\hyperlink{_2home_2penza365_2Server_46_2src_2logger_8cpp-example}{/home/penza365/\+Server\+\_\+46/src/logger.\+cpp}}.\end{Desc}
+
+
+См. определение в файле \mbox{\hyperlink{logger_8cpp_source}{logger.\+cpp}} строка \mbox{\hyperlink{logger_8cpp_source_l00111}{111}}
+
+
+
+Используется в \mbox{\hyperlink{logger_8cpp_source_l00043}{log()}}.
+
+Граф вызова функции\+:
+% FIG 0
+\mbox{\Hypertarget{classLogger_a025725279def374c2a103331548b2631}\label{classLogger_a025725279def374c2a103331548b2631}} 
+\index{Logger@{Logger}!log@{log}}
+\index{log@{log}!Logger@{Logger}}
+\doxyparagraph{\texorpdfstring{log()}{log()}}
+{\footnotesize\ttfamily void Logger\+::log (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message,  }\item[{bool}]{critical = {\ttfamily false} }\end{DoxyParamCaption})}
+
+
+
+Записывает сообщение в лог 
+
+
+\begin{DoxyParams}{Documentation}
+{\em message} & Текст сообщения \\
+\hline
+{\em critical} & Флаг критичности (по умолчанию false)\\
+\hline
+\end{DoxyParams}
+Формат записи\+: \mbox{[}время\mbox{]} \mbox{[}уровень\mbox{]} сообщение Выводит в консоль и записывает в файл
+
+
+\begin{DoxyParams}{Documentation}
+{\em message} & Текст сообщения \\
+\hline
+{\em critical} & Флаг критичности\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyEnumerate}
+\item Выводит сообщение в стандартный вывод (std\+::cout)
+\item Открывает файл логов в режиме добавления
+\item Форматирует запись\+: \mbox{[}YYYY-\/\+MM-\/\+DD HH\+:\+MM\+:SS\mbox{]} \mbox{[}LEVEL\mbox{]} message
+\item Записывает в файл и закрывает его
+\end{DoxyEnumerate}
+
+\begin{DoxyNote}{Documentation}
+Потокобезопасность не гарантируется 
+\end{DoxyNote}
+\begin{Desc}
+\item[Примеры]\par
+\mbox{\hyperlink{_2home_2penza365_2Server_46_2src_2logger_8cpp-example}{/home/penza365/\+Server\+\_\+46/src/logger.\+cpp}}.\end{Desc}
+
+
+См. определение в файле \mbox{\hyperlink{logger_8cpp_source}{logger.\+cpp}} строка \mbox{\hyperlink{logger_8cpp_source_l00043}{43}}
+
+
+
+Перекрестные ссылки \mbox{\hyperlink{logger_8cpp_source_l00111}{get\+\_\+current\+\_\+time()}} и \mbox{\hyperlink{logger_8h_source_l00028}{log\+\_\+file\+\_\+}}.
+
+
+
+Используется в \mbox{\hyperlink{server_8cpp_source_l00149}{Server\+::accept\+\_\+connections()}}, \mbox{\hyperlink{session_8cpp_source_l00051}{Session\+::handle()}}, \mbox{\hyperlink{server_8cpp_source_l00072}{Server\+::load\+\_\+clients()}}, \mbox{\hyperlink{logger_8cpp_source_l00097}{log\+\_\+error()}}, \mbox{\hyperlink{session_8cpp_source_l00391}{Session\+::process\+\_\+vectors()}}, \mbox{\hyperlink{server_8cpp_source_l00179}{Server\+::run()}}, \mbox{\hyperlink{server_8cpp_source_l00105}{Server\+::setup\+\_\+socket()}} и \mbox{\hyperlink{session_8cpp_source_l00213}{Session\+::verify\+\_\+authentication()}}.
+
+Граф вызовов\+:
+% FIG 1
+Граф вызова функции\+:
+% FIG 2
+\mbox{\Hypertarget{classLogger_a0837f91f9353e805acd8c844cc7bb416}\label{classLogger_a0837f91f9353e805acd8c844cc7bb416}} 
+\index{Logger@{Logger}!log\_add@{log\_add}}
+\index{log\_add@{log\_add}!Logger@{Logger}}
+\doxyparagraph{\texorpdfstring{log\_add()}{log\_add()}}
+{\footnotesize\ttfamily void Logger\+::log\+\_\+add (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message }\end{DoxyParamCaption})}
+
+
+
+Добавляет текст к последней записи лога 
+
+
+\begin{DoxyParams}{Documentation}
+{\em message} & Текст для добавления\\
+\hline
+\end{DoxyParams}
+\begin{DoxyNote}{Documentation}
+Не добавляет временную метку и новую строку 
+
+Полезно для прогресс-\/баров или многострочных записей
+\end{DoxyNote}
+
+\begin{DoxyParams}{Documentation}
+{\em message} & Текст для добавления\\
+\hline
+\end{DoxyParams}
+Отличается от \mbox{\hyperlink{classLogger_a025725279def374c2a103331548b2631}{log()}} тем, что\+:
+\begin{DoxyItemize}
+\item Не добавляет временную метку
+\item Не добавляет новую строку в конце
+\item Выводит в консоль без std\+::endl
+\end{DoxyItemize}
+
+\begin{DoxyNote}{Documentation}
+Полезно для создания прогресс-\/баров или форматированных выводов 
+\end{DoxyNote}
+\begin{Desc}
+\item[Примеры]\par
+\mbox{\hyperlink{_2home_2penza365_2Server_46_2src_2logger_8cpp-example}{/home/penza365/\+Server\+\_\+46/src/logger.\+cpp}}.\end{Desc}
+
+
+См. определение в файле \mbox{\hyperlink{logger_8cpp_source}{logger.\+cpp}} строка \mbox{\hyperlink{logger_8cpp_source_l00071}{71}}
+
+
+
+Перекрестные ссылки \mbox{\hyperlink{logger_8h_source_l00028}{log\+\_\+file\+\_\+}}.
+
+\mbox{\Hypertarget{classLogger_a0d807535d66747b03dced96d4e013a88}\label{classLogger_a0d807535d66747b03dced96d4e013a88}} 
+\index{Logger@{Logger}!log\_error@{log\_error}}
+\index{log\_error@{log\_error}!Logger@{Logger}}
+\doxyparagraph{\texorpdfstring{log\_error()}{log\_error()}}
+{\footnotesize\ttfamily void Logger\+::log\+\_\+error (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{error,  }\item[{bool}]{critical = {\ttfamily false} }\end{DoxyParamCaption})}
+
+
+
+Записывает сообщение об ошибке 
+
+
+\begin{DoxyParams}{Documentation}
+{\em error} & Текст ошибки \\
+\hline
+{\em critical} & Флаг критичности (по умолчанию false)\\
+\hline
+\end{DoxyParams}
+Добавляет префикс \char`\"{}err\+: \char`\"{} к сообщению Использует тот же формат, что и \mbox{\hyperlink{classLogger_a025725279def374c2a103331548b2631}{log()}} \begin{Desc}
+\item[Примеры]\par
+\mbox{\hyperlink{_2home_2penza365_2Server_46_2src_2logger_8cpp-example}{/home/penza365/\+Server\+\_\+46/src/logger.\+cpp}}.\end{Desc}
+
+
+См. определение в файле \mbox{\hyperlink{logger_8cpp_source}{logger.\+cpp}} строка \mbox{\hyperlink{logger_8cpp_source_l00097}{97}}
+
+
+
+Перекрестные ссылки \mbox{\hyperlink{logger_8cpp_source_l00043}{log()}}.
+
+
+
+Используется в \mbox{\hyperlink{server_8cpp_source_l00149}{Server\+::accept\+\_\+connections()}}, \mbox{\hyperlink{server_8cpp_source_l00072}{Server\+::load\+\_\+clients()}} и \mbox{\hyperlink{server_8cpp_source_l00105}{Server\+::setup\+\_\+socket()}}.
+
+Граф вызовов\+:
+% FIG 3
+Граф вызова функции\+:
+% FIG 4
+
+
+\doxysubsubsection{Documentation}
+\mbox{\Hypertarget{classLogger_ae94883fbdd8b0cd439a4855b4ef7d39c}\label{classLogger_ae94883fbdd8b0cd439a4855b4ef7d39c}} 
+\index{Logger@{Logger}!log\_file\_@{log\_file\_}}
+\index{log\_file\_@{log\_file\_}!Logger@{Logger}}
+\doxyparagraph{\texorpdfstring{log\_file\_}{log\_file\_}}
+{\footnotesize\ttfamily std\+::string Logger\+::log\+\_\+file\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Путь к файлу логов 
+
+\begin{Desc}
+\item[Примеры]\par
+\mbox{\hyperlink{_2home_2penza365_2Server_46_2src_2logger_8cpp-example}{/home/penza365/\+Server\+\_\+46/src/logger.\+cpp}}.\end{Desc}
+
+
+См. определение в файле \mbox{\hyperlink{logger_8h_source}{logger.\+h}} строка \mbox{\hyperlink{logger_8h_source_l00028}{28}}
+
+
+
+Используется в \mbox{\hyperlink{logger_8cpp_source_l00043}{log()}} и \mbox{\hyperlink{logger_8cpp_source_l00071}{log\+\_\+add()}}.
+
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{logger_8h}{logger.\+h}}\item 
+src/\mbox{\hyperlink{logger_8cpp}{logger.\+cpp}}\end{DoxyCompactItemize}

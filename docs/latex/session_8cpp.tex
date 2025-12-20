@@ -1,0 +1,42 @@
+\hypertarget{session_8cpp}{}\subsection{Documentation}
+\label{session_8cpp}\index{src/session.cpp@{src/session.cpp}}
+
+
+Реализация обработки клиентских сессий  
+
+
+{\ttfamily \#include \char`\"{}../include/session.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}logger.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$sys/socket.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$arpa/inet.\+h$>$}\newline
+{\ttfamily \#include $<$openssl/md5.\+h$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$iomanip$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$climits$>$}\newline
+Граф включаемых заголовочных файлов для session.\+cpp\+:
+% FIG 0
+
+
+\doxysubsubsection{Documentation}
+Реализация обработки клиентских сессий 
+
+Содержит реализацию методов класса \mbox{\hyperlink{classSession}{Session}}\+:
+\begin{DoxyItemize}
+\item обработка аутентификации по MD5
+\item прием и парсинг бинарных данных
+\item вычисление произведений векторов с контролем переполнения
+\item сетевое взаимодействие с клиентом
+\end{DoxyItemize}
+
+\begin{DoxySeeAlso}{Documentation}
+\mbox{\hyperlink{session_8h}{session.\+h}} 
+\end{DoxySeeAlso}
+
+
+См. определение в файле \mbox{\hyperlink{session_8cpp_source}{session.\+cpp}}
+

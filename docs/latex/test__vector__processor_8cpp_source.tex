@@ -1,0 +1,172 @@
+\hypertarget{test__vector__processor_8cpp_source}{}\subsection{test\+\_\+vector\+\_\+processor.\+cpp}
+\label{test__vector__processor_8cpp_source}\index{tests/test\_vector\_processor.cpp@{tests/test\_vector\_processor.cpp}}
+\mbox{\hyperlink{test__vector__processor_8cpp}{Documentation}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00001}00001 \textcolor{preprocessor}{\#include "{}../include/vector\_processor.h"{}}}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00002}00002 \textcolor{preprocessor}{\#include <UnitTest++/UnitTest++.h>}}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00003}00003 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00004}00004 \textcolor{preprocessor}{\#include <climits>}}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00005}00005 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00006}00006 }
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00007}\mbox{\hyperlink{test__vector__processor_8cpp_afbdd56508e37bb4e93b115ccfe1ac036}{00007}} \mbox{\hyperlink{test__vector__processor_8cpp_afbdd56508e37bb4e93b115ccfe1ac036}{SUITE}}(VectorProcessorTest) \{}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00008}00008     TEST(EmptyVector) \{}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00009}00009         std::vector<int32\_t> empty;}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00010}00010         CHECK\_EQUAL(0, \mbox{\hyperlink{classVectorProcessor_aad2fcac4812f8b65e04189045fa02a6b}{VectorProcessor::calculate\_product}}(empty));}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00011}00011     \}}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00012}00012     }
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00013}00013     TEST(SingleElement) \{}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00014}00014         std::vector<int32\_t> vec = \{5\};}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00015}00015         CHECK\_EQUAL(5, \mbox{\hyperlink{classVectorProcessor_aad2fcac4812f8b65e04189045fa02a6b}{VectorProcessor::calculate\_product}}(vec));}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00016}00016         }
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00017}00017         vec = \{-\/5\};}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00018}00018         CHECK\_EQUAL(-\/5, \mbox{\hyperlink{classVectorProcessor_aad2fcac4812f8b65e04189045fa02a6b}{VectorProcessor::calculate\_product}}(vec));}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00019}00019         }
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00020}00020         vec = \{0\};}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00021}00021         CHECK\_EQUAL(0, \mbox{\hyperlink{classVectorProcessor_aad2fcac4812f8b65e04189045fa02a6b}{VectorProcessor::calculate\_product}}(vec));}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00022}00022     \}}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00023}00023     }
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00024}00024     TEST(MultipleElements) \{}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00025}00025         std::vector<int32\_t> vec = \{2, 3, 4\};}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00026}00026         CHECK\_EQUAL(24, \mbox{\hyperlink{classVectorProcessor_aad2fcac4812f8b65e04189045fa02a6b}{VectorProcessor::calculate\_product}}(vec));}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00027}00027         }
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00028}00028         vec = \{1, 2, 3, 4, 5\};}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00029}00029         CHECK\_EQUAL(120, \mbox{\hyperlink{classVectorProcessor_aad2fcac4812f8b65e04189045fa02a6b}{VectorProcessor::calculate\_product}}(vec));}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00030}00030     \}}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00031}00031     }
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00032}00032     TEST(NegativeElements) \{}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00033}00033         std::vector<int32\_t> vec = \{-\/2, 3, -\/4\};}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00034}00034         CHECK\_EQUAL(24, \mbox{\hyperlink{classVectorProcessor_aad2fcac4812f8b65e04189045fa02a6b}{VectorProcessor::calculate\_product}}(vec));}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00035}00035         }
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00036}00036         vec = \{-\/1, -\/2, -\/3, -\/4\};}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00037}00037         CHECK\_EQUAL(24, \mbox{\hyperlink{classVectorProcessor_aad2fcac4812f8b65e04189045fa02a6b}{VectorProcessor::calculate\_product}}(vec));}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00038}00038         }
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00039}00039         vec = \{-\/1, 2, -\/3, 4\};}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00040}00040         CHECK\_EQUAL(24, \mbox{\hyperlink{classVectorProcessor_aad2fcac4812f8b65e04189045fa02a6b}{VectorProcessor::calculate\_product}}(vec));}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00041}00041     \}}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00042}00042     }
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00043}00043     TEST(ZeroInVector) \{}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00044}00044         std::vector<int32\_t> vec = \{2, 0, 4\};}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00045}00045         CHECK\_EQUAL(0, \mbox{\hyperlink{classVectorProcessor_aad2fcac4812f8b65e04189045fa02a6b}{VectorProcessor::calculate\_product}}(vec));}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00046}00046         }
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00047}00047         vec = \{0, 1, 2, 3\};}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00048}00048         CHECK\_EQUAL(0, \mbox{\hyperlink{classVectorProcessor_aad2fcac4812f8b65e04189045fa02a6b}{VectorProcessor::calculate\_product}}(vec));}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00049}00049         }
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00050}00050         vec = \{1, 2, 3, 0, 4, 5\};}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00051}00051         CHECK\_EQUAL(0, \mbox{\hyperlink{classVectorProcessor_aad2fcac4812f8b65e04189045fa02a6b}{VectorProcessor::calculate\_product}}(vec));}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00052}00052     \}}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00053}00053     }
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00054}00054     TEST(AllZeros) \{}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00055}00055         std::vector<int32\_t> vec = \{0, 0, 0\};}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00056}00056         CHECK\_EQUAL(0, \mbox{\hyperlink{classVectorProcessor_aad2fcac4812f8b65e04189045fa02a6b}{VectorProcessor::calculate\_product}}(vec));}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00057}00057         }
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00058}00058         vec = std::vector<int32\_t>(100, 0);}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00059}00059         CHECK\_EQUAL(0, \mbox{\hyperlink{classVectorProcessor_aad2fcac4812f8b65e04189045fa02a6b}{VectorProcessor::calculate\_product}}(vec));}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00060}00060     \}}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00061}00061     }
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00062}00062     TEST(OverflowPositive) \{}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00063}00063         \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00064}00064         std::vector<int32\_t> vec = \{INT\_MAX, 2\};}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00065}00065         int32\_t result = \mbox{\hyperlink{classVectorProcessor_aad2fcac4812f8b65e04189045fa02a6b}{VectorProcessor::calculate\_product}}(vec);}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00066}00066         CHECK\_EQUAL(INT\_MAX, result);}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00067}00067         }
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00068}00068         \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00069}00069         vec = \{10000, 10000, 10000\};}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00070}00070         result = \mbox{\hyperlink{classVectorProcessor_aad2fcac4812f8b65e04189045fa02a6b}{VectorProcessor::calculate\_product}}(vec);}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00071}00071         CHECK\_EQUAL(INT\_MAX, result);}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00072}00072     \}}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00073}00073     }
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00074}00074     TEST(OverflowNegative) \{}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00075}00075         \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00076}00076         std::vector<int32\_t> vec = \{INT\_MIN, 2\};}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00077}00077         int32\_t result = \mbox{\hyperlink{classVectorProcessor_aad2fcac4812f8b65e04189045fa02a6b}{VectorProcessor::calculate\_product}}(vec);}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00078}00078         }
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00079}00079         \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00080}00080         \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00081}00081         CHECK(result == INT\_MIN || result == INT\_MAX);}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00082}00082         }
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00083}00083         \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00084}00084         vec = \{-\/10000, 10000, -\/10000\};}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00085}00085         result = \mbox{\hyperlink{classVectorProcessor_aad2fcac4812f8b65e04189045fa02a6b}{VectorProcessor::calculate\_product}}(vec);}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00086}00086         CHECK(result == INT\_MIN || result == INT\_MAX);}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00087}00087     \}}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00088}00088     }
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00089}00089     TEST(OverflowEdgeCases) \{}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00090}00090         \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00091}00091         std::vector<int32\_t> vec = \{INT\_MAX, INT\_MAX\};}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00092}00092         int32\_t result1 = \mbox{\hyperlink{classVectorProcessor_aad2fcac4812f8b65e04189045fa02a6b}{VectorProcessor::calculate\_product}}(vec);}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00093}00093         CHECK\_EQUAL(INT\_MAX, result1);}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00094}00094         }
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00095}00095         vec = \{INT\_MIN, INT\_MIN\};}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00096}00096         int32\_t result2 = \mbox{\hyperlink{classVectorProcessor_aad2fcac4812f8b65e04189045fa02a6b}{VectorProcessor::calculate\_product}}(vec);}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00097}00097         \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00098}00098         CHECK\_EQUAL(INT\_MAX, result2);}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00099}00099         }
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00100}00100         vec = \{INT\_MAX, INT\_MIN\};}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00101}00101         int32\_t result3 = \mbox{\hyperlink{classVectorProcessor_aad2fcac4812f8b65e04189045fa02a6b}{VectorProcessor::calculate\_product}}(vec);}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00102}00102         \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00103}00103         CHECK(result3 == INT\_MIN || result3 == INT\_MAX);}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00104}00104     \}}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00105}00105     }
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00106}00106     TEST(MultipleVectors) \{}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00107}00107         std::vector<std::vector<int32\_t>> vectors = \{}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00108}00108             \{1, 2, 3\},}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00109}00109             \{4, 5\},}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00110}00110             \{-\/1, -\/2, -\/3\},}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00111}00111             \{0, 1, 2, 3\},}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00112}00112             \{INT\_MAX, 1\},}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00113}00113             \{INT\_MIN, 1\}}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00114}00114         \};}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00115}00115         }
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00116}00116         \textcolor{keyword}{auto} results = \mbox{\hyperlink{classVectorProcessor_a4b3a048b4cd7fc19ac8d03380b7bd3b9}{VectorProcessor::multiply\_vectors}}(vectors);}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00117}00117         CHECK\_EQUAL(6, results.size());}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00118}00118         CHECK\_EQUAL(6, results[0]);}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00119}00119         CHECK\_EQUAL(20, results[1]);}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00120}00120         CHECK\_EQUAL(-\/6, results[2]);}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00121}00121         CHECK\_EQUAL(0, results[3]);}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00122}00122         }
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00123}00123         \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00124}00124         CHECK\_EQUAL(INT\_MAX, results[4]);}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00125}00125         CHECK\_EQUAL(INT\_MIN, results[5]);}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00126}00126     \}}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00127}00127     }
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00128}00128     TEST(LargeNumberOfVectors) \{}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00129}00129         \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00130}00130         std::vector<std::vector<int32\_t>> vectors;}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00131}00131         std::vector<int32\_t> expected;}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00132}00132         }
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00133}00133         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < 100; i++) \{}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00134}00134             std::vector<int32\_t> vec = \{i + 1, 1\};}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00135}00135             vectors.push\_back(vec);}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00136}00136             expected.push\_back(i + 1);}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00137}00137         \}}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00138}00138         }
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00139}00139         \textcolor{keyword}{auto} results = \mbox{\hyperlink{classVectorProcessor_a4b3a048b4cd7fc19ac8d03380b7bd3b9}{VectorProcessor::multiply\_vectors}}(vectors);}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00140}00140         CHECK\_EQUAL(100, results.size());}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00141}00141         }
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00142}00142         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < 100; i++) \{}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00143}00143             CHECK\_EQUAL(expected[i], results[i]);}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00144}00144         \}}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00145}00145     \}}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00146}00146     }
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00147}00147     TEST(VectorProcessorInterface) \{}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00148}00148         \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00149}00149         std::vector<int32\_t> vec1 = \{1, 2, 3, 4\};}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00150}00150         std::vector<int32\_t> vec2 = \{-\/1, -\/2, -\/3\};}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00151}00151         std::vector<int32\_t> vec3 = \{10, 20, 30\};}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00152}00152         }
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00153}00153         std::vector<std::vector<int32\_t>> vectors = \{vec1, vec2, vec3\};}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00154}00154         }
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00155}00155         \textcolor{keyword}{auto} results = \mbox{\hyperlink{classVectorProcessor_a4b3a048b4cd7fc19ac8d03380b7bd3b9}{VectorProcessor::multiply\_vectors}}(vectors);}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00156}00156         }
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00157}00157         \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00158}00158         CHECK\_EQUAL(24, results[0]);  \textcolor{comment}{// 1*2*3*4 = 24}}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00159}00159         CHECK\_EQUAL(-\/6, results[1]);  \textcolor{comment}{// -\/1*-\/2*-\/3 = -\/6}}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00160}00160         CHECK\_EQUAL(6000, results[2]); \textcolor{comment}{// 10*20*30 = 6000}}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00161}00161     \}}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00162}00162 \}}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00163}00163 }
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00164}\mbox{\hyperlink{test__vector__processor_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{00164}} \textcolor{keywordtype}{int} \mbox{\hyperlink{test__vector__processor_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}}() \{}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00165}00165     \textcolor{keywordflow}{return} UnitTest::RunAllTests();}
+\DoxyCodeLine{\Hypertarget{test__vector__processor_8cpp_source_l00166}00166 \}}
+
+\end{DoxyCode}

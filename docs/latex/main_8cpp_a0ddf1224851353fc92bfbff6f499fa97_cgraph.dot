@@ -1,0 +1,52 @@
+digraph "main"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="main",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="ServerConfig::parse_args",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structServerConfig.html#af608810bd123ca2b2a1d30eb725f2b49",tooltip="Парсит аргументы командной строки"];
+  Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="ServerConfig::print_help",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structServerConfig.html#a60ee9072d261c5369995888d773a2afc",tooltip="Выводит справку по использованию программы"];
+  Node1 -> Node4 [color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="Server::run",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classServer.html#abb27d30b40a94326e3fd629d3b30b7d5",tooltip="Запускает основной цикл сервера"];
+  Node4 -> Node5 [color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="Server::accept_connections",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classServer.html#ad4b5451852187a67551e68480fa0e9f5",tooltip="Принимает входящие подключения"];
+  Node5 -> Node6 [color="midnightblue",fontsize="10",style="solid"];
+  Node6 [label="Session::handle",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classSession.html#a72b04c0d0be04cba369af88f68c32296",tooltip="Основной метод обработки сессии"];
+  Node6 -> Node7 [color="midnightblue",fontsize="10",style="solid"];
+  Node7 [label="Logger::log",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classLogger.html#a025725279def374c2a103331548b2631",tooltip="Записывает сообщение в лог"];
+  Node7 -> Node8 [color="midnightblue",fontsize="10",style="solid"];
+  Node8 [label="Logger::get_current_time",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classLogger.html#aaff42813783601ee85e141e68893af96",tooltip="Получает текущее время в формате строки"];
+  Node6 -> Node9 [color="midnightblue",fontsize="10",style="solid"];
+  Node9 [label="Session::process_vectors",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classSession.html#a2e0fc5d9d7b38a92f3bee0bb5c363283",tooltip="Основная логика обработки векторов"];
+  Node9 -> Node10 [color="midnightblue",fontsize="10",style="solid"];
+  Node10 [label="Session::calculate\l_vector_product",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classSession.html#adf4123c01bbcc19682958fea79b805cd",tooltip="Вычисляет произведение вектора"];
+  Node9 -> Node7 [color="midnightblue",fontsize="10",style="solid"];
+  Node9 -> Node11 [color="midnightblue",fontsize="10",style="solid"];
+  Node11 [label="Session::receive_to\l_buffer",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classSession.html#ae8293633ae069f781eef8439c9ed0092",tooltip="Принимает данные в буфер"];
+  Node9 -> Node12 [color="midnightblue",fontsize="10",style="solid"];
+  Node12 [label="Session::receive_uint32",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classSession.html#ae40fd3552757131de8d18b1503ad206b",tooltip="Принимает 32-битное беззнаковое число"];
+  Node12 -> Node13 [color="midnightblue",fontsize="10",style="solid"];
+  Node13 [label="Session::extract_from\l_buffer_exact",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classSession.html#a41d291380460c02f23813df0cc4ed94a",tooltip="Извлекает точное количество байт"];
+  Node13 -> Node11 [color="midnightblue",fontsize="10",style="solid"];
+  Node9 -> Node14 [color="midnightblue",fontsize="10",style="solid"];
+  Node14 [label="Session::receive_vector",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classSession.html#a24067698fd194d9764917d3e67c9ad58",tooltip="Принимает вектор заданного размера"];
+  Node14 -> Node13 [color="midnightblue",fontsize="10",style="solid"];
+  Node9 -> Node15 [color="midnightblue",fontsize="10",style="solid"];
+  Node15 [label="Session::send_int32",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classSession.html#ab4712b6686de331984ce45f67a9d36ab",tooltip="Отправляет 32-битное знаковое число"];
+  Node15 -> Node16 [color="midnightblue",fontsize="10",style="solid"];
+  Node16 [label="Session::send_text",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classSession.html#a8b1eb5ebfd3c900d71c991540b7a249f",tooltip="Отправляет текстовые данные клиенту"];
+  Node9 -> Node16 [color="midnightblue",fontsize="10",style="solid"];
+  Node9 -> Node17 [color="midnightblue",fontsize="10",style="solid"];
+  Node17 [label="Session::verify_authentication",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classSession.html#a5f9689affdf8fa192f5ff21ac2b9198d",tooltip="Проверяет аутентификацию клиента"];
+  Node17 -> Node18 [color="midnightblue",fontsize="10",style="solid"];
+  Node18 [label="Session::calculate_md5",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classSession.html#ae353103b2780ae885b9bda8ebc2cae9b",tooltip="Вычисляет MD5 хэш"];
+  Node17 -> Node7 [color="midnightblue",fontsize="10",style="solid"];
+  Node5 -> Node7 [color="midnightblue",fontsize="10",style="solid"];
+  Node5 -> Node19 [color="midnightblue",fontsize="10",style="solid"];
+  Node19 [label="Logger::log_error",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classLogger.html#a0d807535d66747b03dced96d4e013a88",tooltip="Записывает сообщение об ошибке"];
+  Node19 -> Node7 [color="midnightblue",fontsize="10",style="solid"];
+  Node4 -> Node7 [color="midnightblue",fontsize="10",style="solid"];
+}

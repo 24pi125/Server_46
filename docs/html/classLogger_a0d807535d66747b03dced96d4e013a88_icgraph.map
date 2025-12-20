@@ -1,0 +1,9 @@
+<map id="Logger::log_error" name="Logger::log_error">
+<area shape="rect" id="node1" title="Записывает сообщение об ошибке" alt="" coords="519,56,651,83"/>
+<area shape="rect" id="node2" href="$classServer.html#ad4b5451852187a67551e68480fa0e9f5" title="Принимает входящие подключения" alt="" coords="271,5,471,32"/>
+<area shape="rect" id="node5" href="$classServer.html#a0ed7695b528ccfab79656192533199c5" title="Загружает базу данных клиентов из файла" alt="" coords="295,56,446,83"/>
+<area shape="rect" id="node7" href="$classServer.html#a5165c8fc64601592b4ac2b46f2747737" title="Настраивает серверный сокет" alt="" coords="292,107,449,133"/>
+<area shape="rect" id="node3" href="$classServer.html#abb27d30b40a94326e3fd629d3b30b7d5" title="Запускает основной цикл сервера" alt="" coords="119,5,212,32"/>
+<area shape="rect" id="node4" href="$main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,60,32"/>
+<area shape="rect" id="node6" href="$classServer.html#a47c127babad31cbd0a3c452d2e6b395b" title="Конструктор сервера" alt="" coords="108,81,223,108"/>
+</map>

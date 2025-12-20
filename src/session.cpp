@@ -1,3 +1,16 @@
+/**
+ * @file session.cpp
+ * @brief Реализация обработки клиентских сессий
+ * 
+ * Содержит реализацию методов класса Session:
+ * - обработка аутентификации по MD5
+ * - прием и парсинг бинарных данных
+ * - вычисление произведений векторов с контролем переполнения
+ * - сетевое взаимодействие с клиентом
+ * 
+ * @see session.h
+ */
+
 #include "../include/session.h"
 #include "logger.h"
 #include <sys/socket.h>
@@ -12,12 +25,29 @@
 #include <vector>
 #include <climits>
 
-// Конструктор
+/**
+ * @brief Конструктор сессии
+ * 
+ * @param client_socket Сокет подключенного клиента
+ * @param clients База данных клиентов
+ * @param logger Логгер для записи событий
+ */
 Session::Session(int client_socket, std::unordered_map<std::string, std::string>& clients, Logger& logger)
     : client_socket(client_socket), clients(clients), logger(logger) {
 }
 
-// Основной метод обработки сессии
+/**
+ * @brief Основной метод обработки сессии
+ * 
+ * Выполняет полный цикл обработки клиентского запроса:
+ * 1. Аутентификация клиента
+ * 2. Прием векторов данных
+ * 3. Вычисление произведений
+ * 4. Отправка результатов
+ * 
+ * @note Закрывает клиентский сокет при завершении (успешном или с ошибкой)
+ * @throw std::exception перехватывает и логирует исключения
+ */
 void Session::handle() {
     try {
         process_vectors();
@@ -27,7 +57,14 @@ void Session::handle() {
     close(client_socket);
 }
 
-// Прием данных в буфер
+/**
+ * @brief Прием данных в буфер
+ * 
+ * Принимает данные из сокета и добавляет их во внутренний буфер.
+ * Блокирующая операция - ждет поступления данных.
+ * 
+ * @throw std::runtime_error при закрытии соединения или ошибке приема
+ */
 void Session::receive_to_buffer() {
     char buffer[4096];
     ssize_t bytes_received = recv(client_socket, buffer, sizeof(buffer) - 1, 0);
@@ -42,7 +79,18 @@ void Session::receive_to_buffer() {
     }
 }
 
-// Извлечение точного количества байт из буфера
+/**
+ * @brief Извлечение точного количества байт из буфера
+ * 
+ * @param length Количество байт для извлечения
+ * @return std::string Извлеченные данные
+ * 
+ * @details
+ * Если в буфере недостаточно данных, вызывает receive_to_buffer()
+ * до тех пор, пока не наберется нужное количество байт.
+ * 
+ * @note Удаляет извлеченные данные из буфера
+ */
 std::string Session::extract_from_buffer_exact(size_t length) {
     while (receive_buffer.size() < length) {
         receive_to_buffer();
@@ -53,7 +101,16 @@ std::string Session::extract_from_buffer_exact(size_t length) {
     return result;
 }
 
-// Отправка текста
+/**
+ * @brief Отправка текста клиенту
+ * 
+ * @param text Текст для отправки
+ * @return bool true если отправка успешна, false при ошибке
+ * 
+ * @details
+ * Отправляет данные частями, пока все не будет отправлено.
+ * Обрабатывает частичную отправку (short write).
+ */
 bool Session::send_text(const std::string& text) {
     size_t total_sent = 0;
     const char* buffer = text.c_str();
@@ -70,7 +127,14 @@ bool Session::send_text(const std::string& text) {
     return true;
 }
 
-// Вычисление MD5
+/**
+ * @brief Вычисление MD5 хэша
+ * 
+ * @param data Данные для хэширования
+ * @return std::string MD5 хэш в hex формате (32 символа, lowercase)
+ * 
+ * @note Использует OpenSSL MD5 implementation
+ */
 std::string Session::calculate_md5(const std::string& data) {
     unsigned char md5_hash[MD5_DIGEST_LENGTH];
     MD5(reinterpret_cast<const unsigned char*>(data.c_str()), 
@@ -84,7 +148,20 @@ std::string Session::calculate_md5(const std::string& data) {
     return ss.str();
 }
 
-// Вычисление произведения вектора (с проверкой переполнения) - ИСПРАВЛЕННАЯ ВЕРСИЯ
+/**
+ * @brief Вычисление произведения элементов вектора
+ * 
+ * @param vector Вектор целых чисел
+ * @return int32_t Произведение элементов с контролем переполнения
+ * 
+ * @details
+ * Алгоритм:
+ * 1. Использует 64-битные вычисления для предотвращения промежуточного переполнения
+ * 2. Проверяет переполнение перед каждым умножением
+ * 3. При переполнении возвращает INT32_MAX или INT32_MIN
+ * 
+ * @note Для пустого вектора возвращает 0
+ */
 int32_t Session::calculate_vector_product(const std::vector<int32_t>& vector) {
     if (vector.empty()) {
         return 0;
@@ -117,7 +194,22 @@ int32_t Session::calculate_vector_product(const std::vector<int32_t>& vector) {
     return static_cast<int32_t>(product);
 }
 
-// Проверка аутентификации
+/**
+ * @brief Проверка аутентификации клиента
+ * 
+ * @param login Логин клиента
+ * @param salt Соль (16 hex символов)
+ * @param received_hash Хэш от клиента (32 hex символа)
+ * @return bool true если аутентификация успешна
+ * 
+ * @details
+ * Выполняет следующие проверки:
+ * 1. Существование логина в базе
+ * 2. Формат соли и хэша (длина и hex символы)
+ * 3. Сравнение MD5(salt + stored_password) с полученным хэшем
+ * 
+ * @note Детально логирует все шаги проверки для отладки
+ */
 bool Session::verify_authentication(const std::string& login, 
                                    const std::string& salt, 
                                    const std::string& received_hash) {
@@ -193,7 +285,14 @@ bool Session::verify_authentication(const std::string& login,
     return success;
 }
 
-// Получение uint32 (БЕЗ ntohl - данные уже в сетевом порядке)
+/**
+ * @brief Прием 32-битного беззнакового числа
+ * 
+ * @return uint32_t Принятое число
+ * 
+ * @note Данные ожидаются в сетевом порядке байт (big-endian)
+ * @note Не использует ntohl() - предполагается что данные уже в правильном порядке
+ */
 uint32_t Session::receive_uint32() {
     std::string data = extract_from_buffer_exact(4);
     uint32_t value;
@@ -201,7 +300,14 @@ uint32_t Session::receive_uint32() {
     return value; // Не используем ntohl - данные уже в правильном порядке
 }
 
-// Получение вектора int32
+/**
+ * @brief Прием вектора целых чисел
+ * 
+ * @param size Количество элементов в векторе
+ * @return std::vector<int32_t> Принятый вектор
+ * 
+ * @note Каждый элемент - 4 байта в сетевом порядке байт
+ */
 std::vector<int32_t> Session::receive_vector(uint32_t size) {
     std::vector<int32_t> result(size);
     if (size == 0) return result;
@@ -217,17 +323,34 @@ std::vector<int32_t> Session::receive_vector(uint32_t size) {
     return result;
 }
 
-// Отправка uint32 (БЕЗ htonl)
+/**
+ * @brief Отправка 32-битного беззнакового числа
+ * 
+ * @param value Число для отправки
+ * 
+ * @note Отправляет в сетевом порядке байт
+ * @note Не использует htonl() - предполагается что данные уже в правильном порядке
+ */
 void Session::send_uint32(uint32_t value) {
     send_text(std::string(reinterpret_cast<char*>(&value), 4));
 }
 
-// Отправка int32 (БЕЗ htonl)
+/**
+ * @brief Отправка 32-битного знакового числа
+ * 
+ * @param value Число для отправки
+ */
 void Session::send_int32(int32_t value) {
     send_text(std::string(reinterpret_cast<char*>(&value), 4));
 }
 
-// Извлечение из буфера до не-hex символа
+/**
+ * @brief Извлечение hex символов из буфера до не-hex символа
+ * 
+ * @return std::string Извлеченная последовательность hex символов
+ * 
+ * @note Используется для извлечения соли и хэша из потока данных
+ */
 std::string Session::extract_from_buffer_until_non_hex() {
     size_t i = 0;
     while (i < receive_buffer.size()) {
@@ -249,7 +372,22 @@ std::string Session::extract_from_buffer_until_non_hex() {
     return result;
 }
 
-// Основная логика обработки векторов
+/**
+ * @brief Основная логика обработки векторов
+ * 
+ * Выполняет полный цикл обработки:
+ * 1. Поиск и парсинг аутентификационных данных (48 hex символов)
+ * 2. Проверка аутентификации
+ * 3. Прием количества векторов
+ * 4. Обработка каждого вектора
+ * 5. Отправка результатов
+ * 
+ * @details
+ * Формат входных данных:
+ * [логин][16 hex соль][32 hex хэш][количество_векторов][вектор1]...[векторN]
+ * 
+ * @throw std::exception при ошибках парсинга или сетевого взаимодействия
+ */
 void Session::process_vectors() {
     logger.log("=== NEW CLIENT CONNECTION ===");
     

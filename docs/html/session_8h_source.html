@@ -1,0 +1,216 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.4"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>VEALC Server: Исходный файл include/session.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">VEALC Server<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Сервер для аутентификации и обработки векторных данных</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.4 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'Поиск','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('session_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">session.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="session_8h.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * @file session.h</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * @brief Класс для обработки клиентских сессий</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * </span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * Определяет класс Session, который обрабатывает отдельные клиентские подключения.</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * Реализует полный цикл обработки: аутентификация, прием данных, вычисления, отправка результатов.</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> * </span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> * @note Каждое подключение обрабатывается в отдельном потоке/сессии</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> * @see session.cpp</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#ifndef SESSION_H</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#define SESSION_H</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &lt;unordered_map&gt;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &lt;cstdint&gt;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">class </span><a class="code hl_class" href="classLogger.html">Logger</a>;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment"></span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment"> * @brief Класс обработки клиентской сессии</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment"> * </span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment"> * Обрабатывает полный цикл взаимодействия с клиентом:</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment"> * 1. Прием и проверка аутентификационных данных</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment"> * 2. Прием векторов для обработки</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment"> * 3. Вычисление произведений элементов векторов</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment"> * 4. Отправка результатов обратно клиенту</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment"> * </span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment"> * @warning Класс не является потокобезопасным, должен использоваться по одной сессии на поток</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="classSession.html">   33</a></span><span class="keyword">class </span><a class="code hl_class" href="classSession.html">Session</a> {</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="classSession.html#a968ea00cae0e5293555a8223bff7b42d">   35</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="classSession.html#a968ea00cae0e5293555a8223bff7b42d">client_socket</a>;                                     <span class="comment">///&lt; Сокет клиента</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="classSession.html#a931c068afeec16b499173fa4c558826f">   36</a></span>    std::unordered_map&lt;std::string, std::string&gt;&amp; <a class="code hl_variable" href="classSession.html#a931c068afeec16b499173fa4c558826f">clients</a>; <span class="comment">///&lt; Ссылка на базу клиентов</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="classSession.html#aa613cae4a6bcabe30311dcee7f57804e">   37</a></span>    <a class="code hl_class" href="classLogger.html">Logger</a>&amp; <a class="code hl_variable" href="classSession.html#aa613cae4a6bcabe30311dcee7f57804e">logger</a>;                                        <span class="comment">///&lt; Ссылка на логгер</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="comment">// Буфер для приема данных</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="classSession.html#aebbafa30bd191ee057424d1fcf5b8c0d">   40</a></span>    std::string <a class="code hl_variable" href="classSession.html#aebbafa30bd191ee057424d1fcf5b8c0d">receive_buffer</a>;                            <span class="comment">///&lt; Буфер накопленных данных</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="comment">// Приватные методы</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classSession.html#ae8293633ae069f781eef8439c9ed0092">receive_to_buffer</a>();                              <span class="comment">///&lt; Принимает данные в буфер</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    std::string <a class="code hl_function" href="classSession.html#a729514d9b12818e9da3d17fdae617363">extract_from_buffer_until_non_hex</a>();       <span class="comment">///&lt; Извлекает hex символы до не-hex</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    std::string <a class="code hl_function" href="classSession.html#a41d291380460c02f23813df0cc4ed94a">extract_from_buffer_exact</a>(<span class="keywordtype">size_t</span> length);  <span class="comment">///&lt; Извлекает точное количество байт</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment">     * @brief Проверяет аутентификацию клиента</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment">     * </span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment">     * @param login Логин клиента</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment">     * @param salt Соль для хэширования</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment">     * @param received_hash Полученный хэш от клиента</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment">     * @return bool true если аутентификация успешна</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classSession.html#a5f9689affdf8fa192f5ff21ac2b9198d">verify_authentication</a>(<span class="keyword">const</span> std::string&amp; login, </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>                              <span class="keyword">const</span> std::string&amp; salt, </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>                              <span class="keyword">const</span> std::string&amp; received_hash);</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classSession.html#a2e0fc5d9d7b38a92f3bee0bb5c363283">process_vectors</a>();                                 <span class="comment">///&lt; Основная логика обработки векторов</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    uint32_t <a class="code hl_function" href="classSession.html#ae40fd3552757131de8d18b1503ad206b">receive_uint32</a>();                              <span class="comment">///&lt; Принимает 32-битное беззнаковое число</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    std::vector&lt;int32_t&gt; <a class="code hl_function" href="classSession.html#a24067698fd194d9764917d3e67c9ad58">receive_vector</a>(uint32_t size);     <span class="comment">///&lt; Принимает вектор заданного размера</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classSession.html#a25fdf9812d754cbc14ba8ea1afb21724">send_uint32</a>(uint32_t value);                       <span class="comment">///&lt; Отправляет 32-битное беззнаковое число</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classSession.html#ab4712b6686de331984ce45f67a9d36ab">send_int32</a>(int32_t value);                         <span class="comment">///&lt; Отправляет 32-битное знаковое число</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    std::string <a class="code hl_function" href="classSession.html#ae353103b2780ae885b9bda8ebc2cae9b">calculate_md5</a>(<span class="keyword">const</span> std::string&amp; data);     <span class="comment">///&lt; Вычисляет MD5 хэш</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    int32_t <a class="code hl_function" href="classSession.html#adf4123c01bbcc19682958fea79b805cd">calculate_vector_product</a>(<span class="keyword">const</span> std::vector&lt;int32_t&gt;&amp; vector); <span class="comment">///&lt; Вычисляет произведение вектора</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="keyword">public</span>:<span class="comment"></span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="comment">     * @brief Конструктор сессии</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="comment">     * </span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="comment">     * @param client_socket Сокет подключенного клиента</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="comment">     * @param clients База данных клиентов</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="comment">     * @param logger Логгер для записи событий</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <a class="code hl_function" href="classSession.html#ab0a926252af0518b654fcc4e52f18c7e">Session</a>(<span class="keywordtype">int</span> <a class="code hl_variable" href="classSession.html#a968ea00cae0e5293555a8223bff7b42d">client_socket</a>, std::unordered_map&lt;std::string, std::string&gt;&amp; <a class="code hl_variable" href="classSession.html#a931c068afeec16b499173fa4c558826f">clients</a>, <a class="code hl_class" href="classLogger.html">Logger</a>&amp; <a class="code hl_variable" href="classSession.html#aa613cae4a6bcabe30311dcee7f57804e">logger</a>);</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="comment">     * @brief Основной метод обработки сессии</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="comment">     * </span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="comment">     * Запускает обработку клиентской сессии. Выполняет аутентификацию,</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="comment">     * прием данных, вычисления и отправку результатов.</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="comment">     * </span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="comment">     * @note Автоматически закрывает сокет при завершении</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="comment">     * @throw std::exception при критических ошибках обработки</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classSession.html#a72b04c0d0be04cba369af88f68c32296">handle</a>();</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="comment">     * @brief Отправляет текстовые данные клиенту</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="comment">     * </span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="comment">     * @param text Текст для отправки</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="comment">     * @return bool true если отправка успешна, false при ошибке</span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classSession.html#a8b1eb5ebfd3c900d71c991540b7a249f">send_text</a>(<span class="keyword">const</span> std::string&amp; text);</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>};</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="preprocessor">#endif </span><span class="comment">// SESSION_H</span></div>
+<div class="ttc" id="aclassLogger_html"><div class="ttname"><a href="classLogger.html">Logger</a></div><div class="ttdoc">Класс для ведения журнала событий</div><div class="ttdef"><b>Definition:</b> <a href="logger_8h_source.html#l00026">logger.h:26</a></div></div>
+<div class="ttc" id="aclassSession_html"><div class="ttname"><a href="classSession.html">Session</a></div><div class="ttdoc">Класс обработки клиентской сессии</div><div class="ttdef"><b>Definition:</b> <a href="session_8h_source.html#l00033">session.h:33</a></div></div>
+<div class="ttc" id="aclassSession_html_a24067698fd194d9764917d3e67c9ad58"><div class="ttname"><a href="classSession.html#a24067698fd194d9764917d3e67c9ad58">Session::receive_vector</a></div><div class="ttdeci">std::vector&lt; int32_t &gt; receive_vector(uint32_t size)</div><div class="ttdoc">Принимает вектор заданного размера</div><div class="ttdef"><b>Definition:</b> <a href="session_8cpp_source.html#l00311">session.cpp:311</a></div></div>
+<div class="ttc" id="aclassSession_html_a25fdf9812d754cbc14ba8ea1afb21724"><div class="ttname"><a href="classSession.html#a25fdf9812d754cbc14ba8ea1afb21724">Session::send_uint32</a></div><div class="ttdeci">void send_uint32(uint32_t value)</div><div class="ttdoc">Отправляет 32-битное беззнаковое число</div><div class="ttdef"><b>Definition:</b> <a href="session_8cpp_source.html#l00334">session.cpp:334</a></div></div>
+<div class="ttc" id="aclassSession_html_a2e0fc5d9d7b38a92f3bee0bb5c363283"><div class="ttname"><a href="classSession.html#a2e0fc5d9d7b38a92f3bee0bb5c363283">Session::process_vectors</a></div><div class="ttdeci">void process_vectors()</div><div class="ttdoc">Основная логика обработки векторов</div><div class="ttdef"><b>Definition:</b> <a href="session_8cpp_source.html#l00391">session.cpp:391</a></div></div>
+<div class="ttc" id="aclassSession_html_a41d291380460c02f23813df0cc4ed94a"><div class="ttname"><a href="classSession.html#a41d291380460c02f23813df0cc4ed94a">Session::extract_from_buffer_exact</a></div><div class="ttdeci">std::string extract_from_buffer_exact(size_t length)</div><div class="ttdoc">Извлекает точное количество байт</div><div class="ttdef"><b>Definition:</b> <a href="session_8cpp_source.html#l00094">session.cpp:94</a></div></div>
+<div class="ttc" id="aclassSession_html_a5f9689affdf8fa192f5ff21ac2b9198d"><div class="ttname"><a href="classSession.html#a5f9689affdf8fa192f5ff21ac2b9198d">Session::verify_authentication</a></div><div class="ttdeci">bool verify_authentication(const std::string &amp;login, const std::string &amp;salt, const std::string &amp;received_hash)</div><div class="ttdoc">Проверяет аутентификацию клиента</div><div class="ttdef"><b>Definition:</b> <a href="session_8cpp_source.html#l00213">session.cpp:213</a></div></div>
+<div class="ttc" id="aclassSession_html_a729514d9b12818e9da3d17fdae617363"><div class="ttname"><a href="classSession.html#a729514d9b12818e9da3d17fdae617363">Session::extract_from_buffer_until_non_hex</a></div><div class="ttdeci">std::string extract_from_buffer_until_non_hex()</div><div class="ttdoc">Извлекает hex символы до не-hex.</div><div class="ttdef"><b>Definition:</b> <a href="session_8cpp_source.html#l00354">session.cpp:354</a></div></div>
+<div class="ttc" id="aclassSession_html_a72b04c0d0be04cba369af88f68c32296"><div class="ttname"><a href="classSession.html#a72b04c0d0be04cba369af88f68c32296">Session::handle</a></div><div class="ttdeci">void handle()</div><div class="ttdoc">Основной метод обработки сессии</div><div class="ttdef"><b>Definition:</b> <a href="session_8cpp_source.html#l00051">session.cpp:51</a></div></div>
+<div class="ttc" id="aclassSession_html_a8b1eb5ebfd3c900d71c991540b7a249f"><div class="ttname"><a href="classSession.html#a8b1eb5ebfd3c900d71c991540b7a249f">Session::send_text</a></div><div class="ttdeci">bool send_text(const std::string &amp;text)</div><div class="ttdoc">Отправляет текстовые данные клиенту</div><div class="ttdef"><b>Definition:</b> <a href="session_8cpp_source.html#l00114">session.cpp:114</a></div></div>
+<div class="ttc" id="aclassSession_html_a931c068afeec16b499173fa4c558826f"><div class="ttname"><a href="classSession.html#a931c068afeec16b499173fa4c558826f">Session::clients</a></div><div class="ttdeci">std::unordered_map&lt; std::string, std::string &gt; &amp; clients</div><div class="ttdoc">Ссылка на базу клиентов</div><div class="ttdef"><b>Definition:</b> <a href="session_8h_source.html#l00036">session.h:36</a></div></div>
+<div class="ttc" id="aclassSession_html_a968ea00cae0e5293555a8223bff7b42d"><div class="ttname"><a href="classSession.html#a968ea00cae0e5293555a8223bff7b42d">Session::client_socket</a></div><div class="ttdeci">int client_socket</div><div class="ttdoc">Сокет клиента</div><div class="ttdef"><b>Definition:</b> <a href="session_8h_source.html#l00035">session.h:35</a></div></div>
+<div class="ttc" id="aclassSession_html_aa613cae4a6bcabe30311dcee7f57804e"><div class="ttname"><a href="classSession.html#aa613cae4a6bcabe30311dcee7f57804e">Session::logger</a></div><div class="ttdeci">Logger &amp; logger</div><div class="ttdoc">Ссылка на логгер</div><div class="ttdef"><b>Definition:</b> <a href="session_8h_source.html#l00037">session.h:37</a></div></div>
+<div class="ttc" id="aclassSession_html_ab0a926252af0518b654fcc4e52f18c7e"><div class="ttname"><a href="classSession.html#ab0a926252af0518b654fcc4e52f18c7e">Session::Session</a></div><div class="ttdeci">Session(int client_socket, std::unordered_map&lt; std::string, std::string &gt; &amp;clients, Logger &amp;logger)</div><div class="ttdoc">Конструктор сессии</div><div class="ttdef"><b>Definition:</b> <a href="session_8cpp_source.html#l00035">session.cpp:35</a></div></div>
+<div class="ttc" id="aclassSession_html_ab4712b6686de331984ce45f67a9d36ab"><div class="ttname"><a href="classSession.html#ab4712b6686de331984ce45f67a9d36ab">Session::send_int32</a></div><div class="ttdeci">void send_int32(int32_t value)</div><div class="ttdoc">Отправляет 32-битное знаковое число</div><div class="ttdef"><b>Definition:</b> <a href="session_8cpp_source.html#l00343">session.cpp:343</a></div></div>
+<div class="ttc" id="aclassSession_html_adf4123c01bbcc19682958fea79b805cd"><div class="ttname"><a href="classSession.html#adf4123c01bbcc19682958fea79b805cd">Session::calculate_vector_product</a></div><div class="ttdeci">int32_t calculate_vector_product(const std::vector&lt; int32_t &gt; &amp;vector)</div><div class="ttdoc">Вычисляет произведение вектора</div><div class="ttdef"><b>Definition:</b> <a href="session_8cpp_source.html#l00165">session.cpp:165</a></div></div>
+<div class="ttc" id="aclassSession_html_ae353103b2780ae885b9bda8ebc2cae9b"><div class="ttname"><a href="classSession.html#ae353103b2780ae885b9bda8ebc2cae9b">Session::calculate_md5</a></div><div class="ttdeci">std::string calculate_md5(const std::string &amp;data)</div><div class="ttdoc">Вычисляет MD5 хэш</div><div class="ttdef"><b>Definition:</b> <a href="session_8cpp_source.html#l00138">session.cpp:138</a></div></div>
+<div class="ttc" id="aclassSession_html_ae40fd3552757131de8d18b1503ad206b"><div class="ttname"><a href="classSession.html#ae40fd3552757131de8d18b1503ad206b">Session::receive_uint32</a></div><div class="ttdeci">uint32_t receive_uint32()</div><div class="ttdoc">Принимает 32-битное беззнаковое число</div><div class="ttdef"><b>Definition:</b> <a href="session_8cpp_source.html#l00296">session.cpp:296</a></div></div>
+<div class="ttc" id="aclassSession_html_ae8293633ae069f781eef8439c9ed0092"><div class="ttname"><a href="classSession.html#ae8293633ae069f781eef8439c9ed0092">Session::receive_to_buffer</a></div><div class="ttdeci">void receive_to_buffer()</div><div class="ttdoc">Принимает данные в буфер</div><div class="ttdef"><b>Definition:</b> <a href="session_8cpp_source.html#l00068">session.cpp:68</a></div></div>
+<div class="ttc" id="aclassSession_html_aebbafa30bd191ee057424d1fcf5b8c0d"><div class="ttname"><a href="classSession.html#aebbafa30bd191ee057424d1fcf5b8c0d">Session::receive_buffer</a></div><div class="ttdeci">std::string receive_buffer</div><div class="ttdoc">Буфер накопленных данных</div><div class="ttdef"><b>Definition:</b> <a href="session_8h_source.html#l00040">session.h:40</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="session_8h.html">session.h</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
+  </ul>
+</div>
+</body>
+</html>

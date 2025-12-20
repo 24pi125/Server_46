@@ -1,0 +1,92 @@
+\hypertarget{config_8cpp_source}{}\subsection{config.\+cpp}
+\label{config_8cpp_source}\index{src/config.cpp@{src/config.cpp}}
+\mbox{\hyperlink{config_8cpp}{Documentation}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00001}00001 \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00002}00002 \textcolor{comment}{ * @file config.cpp}}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00003}00003 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00004}00004 \textcolor{comment}{ * }}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00005}00005 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00006}00006 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00007}00007 \textcolor{comment}{ * }}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00008}00008 \textcolor{comment}{ * @see config.h}}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00009}00009 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00010}00010 }
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00011}00011 \textcolor{preprocessor}{\#include "{}../include/config.h"{}}}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00012}00012 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00013}00013 \textcolor{preprocessor}{\#include <cstring>}}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00014}00014 \textcolor{preprocessor}{\#include <cstdlib>}}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00015}00015 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00016}00016 \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00017}00017 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00018}00018 \textcolor{comment}{ * }}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00019}00019 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00020}00020 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00021}00021 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00022}00022 \textcolor{comment}{ * }}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00023}00023 \textcolor{comment}{ * @details}}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00024}00024 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00025}00025 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00026}00026 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00027}00027 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00028}00028 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00029}00029 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00030}00030 \textcolor{comment}{ * }}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00031}00031 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00032}00032 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00033}00033 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00034}\mbox{\hyperlink{structServerConfig_af608810bd123ca2b2a1d30eb725f2b49}{00034}} \mbox{\hyperlink{structServerConfig}{ServerConfig}} \mbox{\hyperlink{structServerConfig_af608810bd123ca2b2a1d30eb725f2b49}{ServerConfig::parse\_args}}(\textcolor{keywordtype}{int} argc, \textcolor{keywordtype}{char}* argv[]) \{}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00035}00035     \mbox{\hyperlink{structServerConfig}{ServerConfig}} config;}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00036}00036     }
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00037}00037     \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00038}00038     \textcolor{keywordflow}{if} (argc == 1) \{}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00039}00039         \textcolor{keywordflow}{return} config;  \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00040}00040     \}}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00041}00041     }
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00042}00042     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 1; i < argc; i++) \{}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00043}00043         \textcolor{keywordflow}{if} (strcmp(argv[i], \textcolor{stringliteral}{"{}-\/h"{}}) == 0 || strcmp(argv[i], \textcolor{stringliteral}{"{}-\/-\/help"{}}) == 0) \{}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00044}00044             \mbox{\hyperlink{structServerConfig_a60ee9072d261c5369995888d773a2afc}{print\_help}}();}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00045}00045             exit(0);}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00046}00046         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (strcmp(argv[i], \textcolor{stringliteral}{"{}-\/d"{}}) == 0 \&\& i + 1 < argc) \{}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00047}00047             config.\mbox{\hyperlink{structServerConfig_ad9468bbeb222fd74df00ef1fbbf7b87f}{client\_db\_file}} = argv[++i];}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00048}00048         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (strcmp(argv[i], \textcolor{stringliteral}{"{}-\/l"{}}) == 0 \&\& i + 1 < argc) \{}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00049}00049             config.\mbox{\hyperlink{structServerConfig_a5728757aec9a966dbd50b52191438ca8}{log\_file}} = argv[++i];}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00050}00050         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (strcmp(argv[i], \textcolor{stringliteral}{"{}-\/p"{}}) == 0 \&\& i + 1 < argc) \{}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00051}00051             config.\mbox{\hyperlink{structServerConfig_ae459946703124ef5a1d98dba38a8b493}{port}} = std::stoi(argv[++i]);}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00052}00052         \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (strcmp(argv[i], \textcolor{stringliteral}{"{}-\/c"{}}) == 0 \&\& i + 1 < argc) \{}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00053}00053             config.\mbox{\hyperlink{structServerConfig_ad9468bbeb222fd74df00ef1fbbf7b87f}{client\_db\_file}} = argv[++i];}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00054}00054         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00055}00055             \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00056}00056             std::cerr << \textcolor{stringliteral}{"{}Unknown option: "{}} << argv[i] << \textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00057}00057             \mbox{\hyperlink{structServerConfig_a60ee9072d261c5369995888d773a2afc}{print\_help}}();}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00058}00058             exit(1);}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00059}00059         \}}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00060}00060     \}}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00061}00061     }
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00062}00062     \textcolor{keywordflow}{return} config;}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00063}00063 \}}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00064}00064 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00065}00065 \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00066}00066 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00067}00067 \textcolor{comment}{ * }}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00068}00068 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00069}00069 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00070}00070 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00071}00071 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00072}\mbox{\hyperlink{structServerConfig_a60ee9072d261c5369995888d773a2afc}{00072}} \textcolor{keywordtype}{void} \mbox{\hyperlink{structServerConfig_a60ee9072d261c5369995888d773a2afc}{ServerConfig::print\_help}}() \{}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00073}00073     std::cout << \textcolor{stringliteral}{"{}Usage: ./server [options]\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00074}00074     std::cout << \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00075}00075     std::cout << \textcolor{stringliteral}{"{}Options:\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00076}00076     std::cout << \textcolor{stringliteral}{"{}  -\/h, -\/-\/help       Show this help message\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00077}00077     std::cout << \textcolor{stringliteral}{"{}  -\/p PORT          Server port (default: 33333)\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00078}00078     std::cout << \textcolor{stringliteral}{"{}  -\/c CONFIG\_FILE   Client database file (default: /etc/vealc.conf)\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00079}00079     std::cout << \textcolor{stringliteral}{"{}  -\/d CONFIG\_FILE   Alias for -\/c\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00080}00080     std::cout << \textcolor{stringliteral}{"{}  -\/l LOG\_FILE      Log file (default: /var/log/vealc.log)\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00081}00081     std::cout << \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00082}00082     std::cout << \textcolor{stringliteral}{"{}Examples:\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00083}00083     std::cout << \textcolor{stringliteral}{"{}  ./server                    \# Run with default settings\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00084}00084     std::cout << \textcolor{stringliteral}{"{}  ./server -\/p 44444           \# Run on port 44444\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00085}00085     std::cout << \textcolor{stringliteral}{"{}  ./server -\/c ./myconfig.conf \# Use custom config file\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{config_8cpp_source_l00086}00086 \}}
+
+\end{DoxyCode}

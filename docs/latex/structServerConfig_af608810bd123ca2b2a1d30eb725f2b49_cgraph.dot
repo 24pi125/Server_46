@@ -1,0 +1,10 @@
+digraph "ServerConfig::parse_args"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="ServerConfig::parse_args",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Парсит аргументы командной строки"];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="ServerConfig::print_help",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structServerConfig.html#a60ee9072d261c5369995888d773a2afc",tooltip="Выводит справку по использованию программы"];
+}

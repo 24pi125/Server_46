@@ -1,0 +1,10 @@
+<map id="Session::extract_from_buffer_exact" name="Session::extract_from_buffer_exact">
+<area shape="rect" id="node1" title="Извлекает точное количество байт" alt="" coords="1127,23,1291,65"/>
+<area shape="rect" id="node2" href="$classSession.html#ae40fd3552757131de8d18b1503ad206b" title="Принимает 32&#45;битное беззнаковое число" alt="" coords="903,5,1079,32"/>
+<area shape="rect" id="node8" href="$classSession.html#a24067698fd194d9764917d3e67c9ad58" title="Принимает вектор заданного размера" alt="" coords="903,56,1079,83"/>
+<area shape="rect" id="node3" href="$classSession.html#a2e0fc5d9d7b38a92f3bee0bb5c363283" title="Основная логика обработки векторов" alt="" coords="669,31,855,57"/>
+<area shape="rect" id="node4" href="$classSession.html#a72b04c0d0be04cba369af88f68c32296" title="Основной метод обработки сессии" alt="" coords="497,31,621,57"/>
+<area shape="rect" id="node5" href="$classServer.html#ad4b5451852187a67551e68480fa0e9f5" title="Принимает входящие подключения" alt="" coords="249,31,449,57"/>
+<area shape="rect" id="node6" href="$classServer.html#abb27d30b40a94326e3fd629d3b30b7d5" title="Запускает основной цикл сервера" alt="" coords="108,31,201,57"/>
+<area shape="rect" id="node7" href="$main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,31,60,57"/>
+</map>

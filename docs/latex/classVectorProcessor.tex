@@ -1,0 +1,142 @@
+\hypertarget{classVectorProcessor}{}\subsection{Documentation}
+\label{classVectorProcessor}\index{VectorProcessor@{VectorProcessor}}
+
+
+Класс для векторных вычислений  
+
+
+
+
+{\ttfamily \#include $<$vector\+\_\+processor.\+h$>$}
+
+\doxysubsubsection*{Documentation}
+\begin{DoxyCompactItemize}
+\item 
+static int32\+\_\+t \mbox{\hyperlink{classVectorProcessor_aad2fcac4812f8b65e04189045fa02a6b}{calculate\+\_\+product}} (const \mbox{\hyperlink{types_8h_af5407ecc4669529cd5f0ac978fb5c32f}{Vector}} \&vector)
+\begin{DoxyCompactList}\small\item\em Вычисляет произведение элементов вектора \end{DoxyCompactList}\item 
+static std\+::vector$<$ int32\+\_\+t $>$ \mbox{\hyperlink{classVectorProcessor_a4b3a048b4cd7fc19ac8d03380b7bd3b9}{multiply\+\_\+vectors}} (const std\+::vector$<$ \mbox{\hyperlink{types_8h_af5407ecc4669529cd5f0ac978fb5c32f}{Vector}} $>$ \&vectors)
+\begin{DoxyCompactList}\small\item\em Вычисляет произведения для коллекции векторов \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsubsection{Documentation}
+Класс для векторных вычислений 
+
+Специализируется на вычислении произведений элементов векторов с корректной обработкой переполнения 32-\/битных целых чисел.
+
+\begin{DoxyNote}{Documentation}
+Использует 64-\/битную арифметику для промежуточных вычислений 
+
+Возвращает INT32\+\_\+\+MAX/\+INT32\+\_\+\+MIN при переполнении 
+\end{DoxyNote}
+
+
+См. определение в файле \mbox{\hyperlink{vector__processor_8h_source}{vector\+\_\+processor.\+h}} строка \mbox{\hyperlink{vector__processor_8h_source_l00029}{29}}
+
+
+
+\doxysubsubsection{Documentation}
+\mbox{\Hypertarget{classVectorProcessor_aad2fcac4812f8b65e04189045fa02a6b}\label{classVectorProcessor_aad2fcac4812f8b65e04189045fa02a6b}} 
+\index{VectorProcessor@{VectorProcessor}!calculate\_product@{calculate\_product}}
+\index{calculate\_product@{calculate\_product}!VectorProcessor@{VectorProcessor}}
+\doxyparagraph{\texorpdfstring{calculate\_product()}{calculate\_product()}}
+{\footnotesize\ttfamily int32\+\_\+t Vector\+Processor\+::calculate\+\_\+product (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{types_8h_af5407ecc4669529cd5f0ac978fb5c32f}{Vector}} \&}]{vector }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Вычисляет произведение элементов вектора 
+
+
+\begin{DoxyParams}{Documentation}
+{\em vector} & Входной вектор целых чисел \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Documentation}
+int32\+\_\+t Произведение элементов или граничное значение при переполнении
+\end{DoxyReturn}
+Особенности\+:
+\begin{DoxyItemize}
+\item Для пустого вектора возвращает 0
+\item Использует 64-\/битные вычисления для предотвращения промежуточного переполнения
+\item Проверяет переполнение перед каждым умножением
+\item При переполнении возвращает INT32\+\_\+\+MAX или INT32\+\_\+\+MIN в зависимости от знака
+\end{DoxyItemize}
+
+\begin{DoxyNote}{Documentation}
+Время выполнения\+: O(n), где n -\/ размер вектора 
+\end{DoxyNote}
+\begin{Desc}
+\item[Примеры]\par
+\mbox{\hyperlink{_2home_2penza365_2Server_46_2src_2vector_processor_8cpp-example}{/home/penza365/\+Server\+\_\+46/src/vector\+\_\+processor.\+cpp}}.\end{Desc}
+
+
+См. определение в файле \mbox{\hyperlink{vector__processor_8cpp_source}{vector\+\_\+processor.\+cpp}} строка \mbox{\hyperlink{vector__processor_8cpp_source_l00041}{41}}
+
+
+
+Используется в \mbox{\hyperlink{vector__processor_8cpp_source_l00088}{multiply\+\_\+vectors()}} и \mbox{\hyperlink{test__vector__processor_8cpp_source_l00007}{SUITE()}}.
+
+Граф вызова функции\+:
+% FIG 0
+\mbox{\Hypertarget{classVectorProcessor_a4b3a048b4cd7fc19ac8d03380b7bd3b9}\label{classVectorProcessor_a4b3a048b4cd7fc19ac8d03380b7bd3b9}} 
+\index{VectorProcessor@{VectorProcessor}!multiply\_vectors@{multiply\_vectors}}
+\index{multiply\_vectors@{multiply\_vectors}!VectorProcessor@{VectorProcessor}}
+\doxyparagraph{\texorpdfstring{multiply\_vectors()}{multiply\_vectors()}}
+{\footnotesize\ttfamily std\+::vector$<$ int32\+\_\+t $>$ Vector\+Processor\+::multiply\+\_\+vectors (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{types_8h_af5407ecc4669529cd5f0ac978fb5c32f}{Vector}} $>$ \&}]{vectors }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Вычисляет произведения для коллекции векторов 
+
+
+\begin{DoxyParams}{Documentation}
+{\em vectors} & Коллекция векторов для обработки \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Documentation}
+std\+::vector$<$int32\+\_\+t$>$ Вектор произведений для каждого входного вектора
+\end{DoxyReturn}
+Применяет \mbox{\hyperlink{classVectorProcessor_aad2fcac4812f8b65e04189045fa02a6b}{calculate\+\_\+product()}} к каждому вектору в коллекции. Сохраняет порядок результатов соответствующим порядку входных векторов.
+
+\begin{DoxyNote}{Documentation}
+Время выполнения\+: O(total\+\_\+elements), где total\+\_\+elements -\/ сумма размеров всех векторов
+\end{DoxyNote}
+
+\begin{DoxyParams}{Documentation}
+{\em vectors} & Коллекция векторов для обработки \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Documentation}
+std\+::vector$<$int32\+\_\+t$>$ Вектор произведений для каждого входного вектора
+\end{DoxyReturn}
+Обрабатывает векторы последовательно, применяя \mbox{\hyperlink{classVectorProcessor_aad2fcac4812f8b65e04189045fa02a6b}{calculate\+\_\+product()}} к каждому. Размер выходного вектора равен количеству входных векторов.
+
+\begin{DoxyNote}{Documentation}
+Не модифицирует входные векторы 
+
+Возвращает пустой вектор если входная коллекция пуста 
+\end{DoxyNote}
+\begin{Desc}
+\item[Примеры]\par
+\mbox{\hyperlink{_2home_2penza365_2Server_46_2src_2vector_processor_8cpp-example}{/home/penza365/\+Server\+\_\+46/src/vector\+\_\+processor.\+cpp}}.\end{Desc}
+
+
+См. определение в файле \mbox{\hyperlink{vector__processor_8cpp_source}{vector\+\_\+processor.\+cpp}} строка \mbox{\hyperlink{vector__processor_8cpp_source_l00088}{88}}
+
+
+
+Перекрестные ссылки \mbox{\hyperlink{vector__processor_8cpp_source_l00041}{calculate\+\_\+product()}}.
+
+
+
+Используется в \mbox{\hyperlink{test__vector__processor_8cpp_source_l00007}{SUITE()}}.
+
+Граф вызовов\+:
+% FIG 1
+Граф вызова функции\+:
+% FIG 2
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{vector__processor_8h}{vector\+\_\+processor.\+h}}\item 
+src/\mbox{\hyperlink{vector__processor_8cpp}{vector\+\_\+processor.\+cpp}}\end{DoxyCompactItemize}

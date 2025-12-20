@@ -1,0 +1,397 @@
+\hypertarget{classServer}{}\subsection{Documentation}
+\label{classServer}\index{Server@{Server}}
+
+
+Основной класс TCP сервера  
+
+
+
+
+{\ttfamily \#include $<$server.\+h$>$}
+
+
+
+Граф связей класса Server\+:
+% FIG 0
+\doxysubsubsection*{Documentation}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classServer_a47c127babad31cbd0a3c452d2e6b395b}{Server}} (const \mbox{\hyperlink{structServerConfig}{Server\+Config}} \&config)
+\begin{DoxyCompactList}\small\item\em Конструктор сервера \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classServer_a4b3aa2579cb1c8cd1d069582c14d0fa6}{$\sim$\+Server}} ()
+\begin{DoxyCompactList}\small\item\em Деструктор сервера \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classServer_abb27d30b40a94326e3fd629d3b30b7d5}{run}} ()
+\begin{DoxyCompactList}\small\item\em Запускает основной цикл сервера \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Documentation}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classServer_ad4b5451852187a67551e68480fa0e9f5}{accept\+\_\+connections}} ()
+\begin{DoxyCompactList}\small\item\em Принимает входящие подключения \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classServer_a0ed7695b528ccfab79656192533199c5}{load\+\_\+clients}} ()
+\begin{DoxyCompactList}\small\item\em Загружает базу данных клиентов из файла \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classServer_a5165c8fc64601592b4ac2b46f2747737}{setup\+\_\+socket}} ()
+\begin{DoxyCompactList}\small\item\em Настраивает серверный сокет \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Documentation}
+\begin{DoxyCompactItemize}
+\item 
+std\+::unordered\+\_\+map$<$ std\+::string, std\+::string $>$ \mbox{\hyperlink{classServer_a4d3082d5592ab7e53d2e37cbe1370575}{clients\+\_\+}}
+\begin{DoxyCompactList}\small\item\em База данных клиентов \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structServerConfig}{Server\+Config}} \mbox{\hyperlink{classServer_ad44296a781aa84fbc2cffee3407d9a25}{config\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Конфигурация сервера \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classLogger}{Logger}} \mbox{\hyperlink{classServer_a65e2a0d098d668104f26a0a08092a28f}{logger\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Логгер для записи событий \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classServer_a566cd5dd4c0933fb6132706cd12af23b}{server\+\_\+fd\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Дескриптор серверного сокета \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsubsection{Documentation}
+Основной класс TCP сервера 
+
+Реализует функциональность многопользовательского TCP сервера\+:
+\begin{DoxyItemize}
+\item Загрузка конфигурации из файла
+\item Настройка и привязка сокета
+\item Прием входящих подключений
+\item Создание сессий для обработки клиентских запросов
+\item Ведение журнала событий
+\end{DoxyItemize}
+
+\begin{DoxyNote}{Documentation}
+Использует блокирующие системные вызовы 
+\end{DoxyNote}
+\begin{DoxyWarning}{Documentation}
+Обрабатывает только одно подключение одновременно (последовательно) 
+\end{DoxyWarning}
+\begin{Desc}
+\item[Примеры]\par
+\mbox{\hyperlink{_2home_2penza365_2Server_46_2src_2main_8cpp-example}{/home/penza365/\+Server\+\_\+46/src/main.\+cpp}}.\end{Desc}
+
+
+См. определение в файле \mbox{\hyperlink{server_8h_source}{server.\+h}} строка \mbox{\hyperlink{server_8h_source_l00035}{35}}
+
+
+
+\doxysubsubsection{Documentation}
+\mbox{\Hypertarget{classServer_a47c127babad31cbd0a3c452d2e6b395b}\label{classServer_a47c127babad31cbd0a3c452d2e6b395b}} 
+\index{Server@{Server}!Server@{Server}}
+\index{Server@{Server}!Server@{Server}}
+\doxyparagraph{\texorpdfstring{Server()}{Server()}}
+{\footnotesize\ttfamily Server\+::\+Server (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structServerConfig}{Server\+Config}} \&}]{config }\end{DoxyParamCaption})}
+
+
+
+Конструктор сервера 
+
+
+\begin{DoxyParams}{Documentation}
+{\em config} & Конфигурация сервера\\
+\hline
+\end{DoxyParams}
+Инициализирует сервер с заданной конфигурацией\+:
+\begin{DoxyEnumerate}
+\item Создает логгер
+\item Загружает базу клиентов
+\item Настраивает сокет
+\end{DoxyEnumerate}
+
+
+\begin{DoxyParams}{Documentation}
+{\em config} & Конфигурация сервера\\
+\hline
+\end{DoxyParams}
+Последовательность инициализации\+:
+\begin{DoxyEnumerate}
+\item Сохранение конфигурации
+\item Создание логгера с указанным файлом
+\item Загрузка базы данных клиентов
+\item Настройка серверного сокета
+\end{DoxyEnumerate}
+
+
+\begin{DoxyExceptions}{Documentation}
+{\em std\+::runtime\+\_\+error} & при ошибках инициализации \\
+\hline
+\end{DoxyExceptions}
+
+
+См. определение в файле \mbox{\hyperlink{server_8cpp_source}{server.\+cpp}} строка \mbox{\hyperlink{server_8cpp_source_l00039}{39}}
+
+
+
+Перекрестные ссылки \mbox{\hyperlink{server_8cpp_source_l00072}{load\+\_\+clients()}} и \mbox{\hyperlink{server_8cpp_source_l00105}{setup\+\_\+socket()}}.
+
+Граф вызовов\+:
+% FIG 1
+\mbox{\Hypertarget{classServer_a4b3aa2579cb1c8cd1d069582c14d0fa6}\label{classServer_a4b3aa2579cb1c8cd1d069582c14d0fa6}} 
+\index{Server@{Server}!````~Server@{$\sim$Server}}
+\index{````~Server@{$\sim$Server}!Server@{Server}}
+\doxyparagraph{\texorpdfstring{$\sim$Server()}{~Server()}}
+{\footnotesize\ttfamily Server\+::$\sim$\+Server (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Деструктор сервера 
+
+Закрывает серверный сокет и освобождает ресурсы.
+
+Закрывает серверный сокет если он был открыт. Автоматически вызывается при уничтожении объекта. 
+
+См. определение в файле \mbox{\hyperlink{server_8cpp_source}{server.\+cpp}} строка \mbox{\hyperlink{server_8cpp_source_l00051}{51}}
+
+
+
+Перекрестные ссылки \mbox{\hyperlink{server_8h_source_l00040}{server\+\_\+fd\+\_\+}}.
+
+
+
+\doxysubsubsection{Documentation}
+\mbox{\Hypertarget{classServer_ad4b5451852187a67551e68480fa0e9f5}\label{classServer_ad4b5451852187a67551e68480fa0e9f5}} 
+\index{Server@{Server}!accept\_connections@{accept\_connections}}
+\index{accept\_connections@{accept\_connections}!Server@{Server}}
+\doxyparagraph{\texorpdfstring{accept\_connections()}{accept\_connections()}}
+{\footnotesize\ttfamily void Server\+::accept\+\_\+connections (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Принимает входящие подключения 
+
+Бесконечный цикл, который принимает новые подключения и создает для каждого экземпляр \mbox{\hyperlink{classSession}{Session}} для обработки.
+
+Бесконечный цикл, который\+:
+\begin{DoxyEnumerate}
+\item Ожидает входящее подключение (accept)
+\item Получает IP-\/адрес клиента для логирования
+\item Создает объект \mbox{\hyperlink{classSession}{Session}} для обработки подключения
+\item Запускает обработку сессии
+\end{DoxyEnumerate}
+
+\begin{DoxyNote}{Documentation}
+Обработка блокирующая -\/ следующее подключение ждет завершения текущего 
+
+При ошибке accept логирует ошибку и продолжает работу 
+\end{DoxyNote}
+
+
+См. определение в файле \mbox{\hyperlink{server_8cpp_source}{server.\+cpp}} строка \mbox{\hyperlink{server_8cpp_source_l00149}{149}}
+
+
+
+Перекрестные ссылки \mbox{\hyperlink{server_8h_source_l00039}{clients\+\_\+}}, \mbox{\hyperlink{session_8cpp_source_l00051}{Session\+::handle()}}, \mbox{\hyperlink{logger_8cpp_source_l00043}{Logger\+::log()}}, \mbox{\hyperlink{logger_8cpp_source_l00097}{Logger\+::log\+\_\+error()}}, \mbox{\hyperlink{server_8h_source_l00038}{logger\+\_\+}} и \mbox{\hyperlink{server_8h_source_l00040}{server\+\_\+fd\+\_\+}}.
+
+
+
+Используется в \mbox{\hyperlink{server_8cpp_source_l00179}{run()}}.
+
+Граф вызовов\+:
+% FIG 2
+Граф вызова функции\+:
+% FIG 3
+\mbox{\Hypertarget{classServer_a0ed7695b528ccfab79656192533199c5}\label{classServer_a0ed7695b528ccfab79656192533199c5}} 
+\index{Server@{Server}!load\_clients@{load\_clients}}
+\index{load\_clients@{load\_clients}!Server@{Server}}
+\doxyparagraph{\texorpdfstring{load\_clients()}{load\_clients()}}
+{\footnotesize\ttfamily void Server\+::load\+\_\+clients (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Загружает базу данных клиентов из файла 
+
+
+\begin{DoxyExceptions}{Documentation}
+{\em std\+::runtime\+\_\+error} & если файл не может быть открыт\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyNote}{Documentation}
+Формат файла\+: каждая строка \char`\"{}логин\+:пароль\char`\"{}
+\end{DoxyNote}
+Читает файл построчно, каждая строка должна быть в формате\+: логин\+:пароль
+
+Пример файла\+: alice\+:P@ssw0rd1 bob\+:Secret123 charlie\+:Qwerty!\#
+
+\begin{DoxyNote}{Documentation}
+Пароли хранятся в открытом виде (небезопасно!) 
+
+Пустые строки и строки без \textquotesingle{}\+:\textquotesingle{} игнорируются 
+\end{DoxyNote}
+
+
+См. определение в файле \mbox{\hyperlink{server_8cpp_source}{server.\+cpp}} строка \mbox{\hyperlink{server_8cpp_source_l00072}{72}}
+
+
+
+Перекрестные ссылки \mbox{\hyperlink{config_8h_source_l00032}{Server\+Config\+::client\+\_\+db\+\_\+file}}, \mbox{\hyperlink{server_8h_source_l00039}{clients\+\_\+}}, \mbox{\hyperlink{server_8h_source_l00037}{config\+\_\+}}, \mbox{\hyperlink{logger_8cpp_source_l00043}{Logger\+::log()}}, \mbox{\hyperlink{logger_8cpp_source_l00097}{Logger\+::log\+\_\+error()}} и \mbox{\hyperlink{server_8h_source_l00038}{logger\+\_\+}}.
+
+
+
+Используется в \mbox{\hyperlink{server_8cpp_source_l00039}{Server()}}.
+
+Граф вызовов\+:
+% FIG 4
+Граф вызова функции\+:
+% FIG 5
+\mbox{\Hypertarget{classServer_abb27d30b40a94326e3fd629d3b30b7d5}\label{classServer_abb27d30b40a94326e3fd629d3b30b7d5}} 
+\index{Server@{Server}!run@{run}}
+\index{run@{run}!Server@{Server}}
+\doxyparagraph{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily void Server\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Запускает основной цикл сервера 
+
+Выводит информацию о запуске и начинает прием подключений. Работает бесконечно до принудительной остановки (Ctrl+C).
+
+\begin{DoxyNote}{Documentation}
+Блокирующий вызов
+\end{DoxyNote}
+Выводит информацию о конфигурации сервера и начинает прием подключений. Работает до принудительного завершения (SIGINT, SIGTERM).
+
+\begin{DoxyNote}{Documentation}
+Для остановки сервера используйте Ctrl+C 
+\end{DoxyNote}
+\begin{Desc}
+\item[Примеры]\par
+\mbox{\hyperlink{_2home_2penza365_2Server_46_2src_2main_8cpp-example}{/home/penza365/\+Server\+\_\+46/src/main.\+cpp}}.\end{Desc}
+
+
+См. определение в файле \mbox{\hyperlink{server_8cpp_source}{server.\+cpp}} строка \mbox{\hyperlink{server_8cpp_source_l00179}{179}}
+
+
+
+Перекрестные ссылки \mbox{\hyperlink{server_8cpp_source_l00149}{accept\+\_\+connections()}}, \mbox{\hyperlink{config_8h_source_l00032}{Server\+Config\+::client\+\_\+db\+\_\+file}}, \mbox{\hyperlink{server_8h_source_l00037}{config\+\_\+}}, \mbox{\hyperlink{logger_8cpp_source_l00043}{Logger\+::log()}}, \mbox{\hyperlink{config_8h_source_l00033}{Server\+Config\+::log\+\_\+file}}, \mbox{\hyperlink{server_8h_source_l00038}{logger\+\_\+}} и \mbox{\hyperlink{config_8h_source_l00034}{Server\+Config\+::port}}.
+
+
+
+Используется в \mbox{\hyperlink{main_8cpp_source_l00037}{main()}}.
+
+Граф вызовов\+:
+% FIG 6
+Граф вызова функции\+:
+% FIG 7
+\mbox{\Hypertarget{classServer_a5165c8fc64601592b4ac2b46f2747737}\label{classServer_a5165c8fc64601592b4ac2b46f2747737}} 
+\index{Server@{Server}!setup\_socket@{setup\_socket}}
+\index{setup\_socket@{setup\_socket}!Server@{Server}}
+\doxyparagraph{\texorpdfstring{setup\_socket()}{setup\_socket()}}
+{\footnotesize\ttfamily void Server\+::setup\+\_\+socket (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Настраивает серверный сокет 
+
+Создает сокет, устанавливает опции, привязывает к адресу и порту, переводит в режим прослушивания.
+
+
+\begin{DoxyExceptions}{Documentation}
+{\em std\+::runtime\+\_\+error} & при ошибках системных вызовов\\
+\hline
+\end{DoxyExceptions}
+Выполняет следующие действия\+:
+\begin{DoxyEnumerate}
+\item Создает TCP сокет (AF\+\_\+\+INET, SOCK\+\_\+\+STREAM)
+\item Устанавливает опцию SO\+\_\+\+REUSEADDR для быстрого переиспользования порта
+\item Привязывает сокет к адресу INADDR\+\_\+\+ANY и указанному порту
+\item Переводит сокет в режим прослушивания с очередью на 10 подключений
+\end{DoxyEnumerate}
+
+
+\begin{DoxyExceptions}{Documentation}
+{\em std\+::runtime\+\_\+error} & при ошибках системных вызовов (socket, bind, listen) \\
+\hline
+\end{DoxyExceptions}
+
+
+См. определение в файле \mbox{\hyperlink{server_8cpp_source}{server.\+cpp}} строка \mbox{\hyperlink{server_8cpp_source_l00105}{105}}
+
+
+
+Перекрестные ссылки \mbox{\hyperlink{server_8h_source_l00037}{config\+\_\+}}, \mbox{\hyperlink{logger_8cpp_source_l00043}{Logger\+::log()}}, \mbox{\hyperlink{logger_8cpp_source_l00097}{Logger\+::log\+\_\+error()}}, \mbox{\hyperlink{server_8h_source_l00038}{logger\+\_\+}}, \mbox{\hyperlink{config_8h_source_l00034}{Server\+Config\+::port}} и \mbox{\hyperlink{server_8h_source_l00040}{server\+\_\+fd\+\_\+}}.
+
+
+
+Используется в \mbox{\hyperlink{server_8cpp_source_l00039}{Server()}}.
+
+Граф вызовов\+:
+% FIG 8
+Граф вызова функции\+:
+% FIG 9
+
+
+\doxysubsubsection{Documentation}
+\mbox{\Hypertarget{classServer_a4d3082d5592ab7e53d2e37cbe1370575}\label{classServer_a4d3082d5592ab7e53d2e37cbe1370575}} 
+\index{Server@{Server}!clients\_@{clients\_}}
+\index{clients\_@{clients\_}!Server@{Server}}
+\doxyparagraph{\texorpdfstring{clients\_}{clients\_}}
+{\footnotesize\ttfamily std\+::unordered\+\_\+map$<$std\+::string, std\+::string$>$ Server\+::clients\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+База данных клиентов 
+
+
+
+См. определение в файле \mbox{\hyperlink{server_8h_source}{server.\+h}} строка \mbox{\hyperlink{server_8h_source_l00039}{39}}
+
+
+
+Используется в \mbox{\hyperlink{server_8cpp_source_l00149}{accept\+\_\+connections()}} и \mbox{\hyperlink{server_8cpp_source_l00072}{load\+\_\+clients()}}.
+
+\mbox{\Hypertarget{classServer_ad44296a781aa84fbc2cffee3407d9a25}\label{classServer_ad44296a781aa84fbc2cffee3407d9a25}} 
+\index{Server@{Server}!config\_@{config\_}}
+\index{config\_@{config\_}!Server@{Server}}
+\doxyparagraph{\texorpdfstring{config\_}{config\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structServerConfig}{Server\+Config}} Server\+::config\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Конфигурация сервера 
+
+
+
+См. определение в файле \mbox{\hyperlink{server_8h_source}{server.\+h}} строка \mbox{\hyperlink{server_8h_source_l00037}{37}}
+
+
+
+Используется в \mbox{\hyperlink{server_8cpp_source_l00072}{load\+\_\+clients()}}, \mbox{\hyperlink{server_8cpp_source_l00179}{run()}} и \mbox{\hyperlink{server_8cpp_source_l00105}{setup\+\_\+socket()}}.
+
+\mbox{\Hypertarget{classServer_a65e2a0d098d668104f26a0a08092a28f}\label{classServer_a65e2a0d098d668104f26a0a08092a28f}} 
+\index{Server@{Server}!logger\_@{logger\_}}
+\index{logger\_@{logger\_}!Server@{Server}}
+\doxyparagraph{\texorpdfstring{logger\_}{logger\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classLogger}{Logger}} Server\+::logger\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Логгер для записи событий 
+
+
+
+См. определение в файле \mbox{\hyperlink{server_8h_source}{server.\+h}} строка \mbox{\hyperlink{server_8h_source_l00038}{38}}
+
+
+
+Используется в \mbox{\hyperlink{server_8cpp_source_l00149}{accept\+\_\+connections()}}, \mbox{\hyperlink{server_8cpp_source_l00072}{load\+\_\+clients()}}, \mbox{\hyperlink{server_8cpp_source_l00179}{run()}} и \mbox{\hyperlink{server_8cpp_source_l00105}{setup\+\_\+socket()}}.
+
+\mbox{\Hypertarget{classServer_a566cd5dd4c0933fb6132706cd12af23b}\label{classServer_a566cd5dd4c0933fb6132706cd12af23b}} 
+\index{Server@{Server}!server\_fd\_@{server\_fd\_}}
+\index{server\_fd\_@{server\_fd\_}!Server@{Server}}
+\doxyparagraph{\texorpdfstring{server\_fd\_}{server\_fd\_}}
+{\footnotesize\ttfamily int Server\+::server\+\_\+fd\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Дескриптор серверного сокета 
+
+
+
+См. определение в файле \mbox{\hyperlink{server_8h_source}{server.\+h}} строка \mbox{\hyperlink{server_8h_source_l00040}{40}}
+
+
+
+Используется в \mbox{\hyperlink{server_8cpp_source_l00051}{$\sim$\+Server()}}, \mbox{\hyperlink{server_8cpp_source_l00149}{accept\+\_\+connections()}} и \mbox{\hyperlink{server_8cpp_source_l00105}{setup\+\_\+socket()}}.
+
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{server_8h}{server.\+h}}\item 
+src/\mbox{\hyperlink{server_8cpp}{server.\+cpp}}\end{DoxyCompactItemize}

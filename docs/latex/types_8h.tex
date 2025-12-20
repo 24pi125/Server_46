@@ -1,0 +1,72 @@
+\hypertarget{types_8h}{}\subsection{Documentation}
+\label{types_8h}\index{include/types.h@{include/types.h}}
+
+
+Основные типы данных проекта  
+
+
+{\ttfamily \#include $<$cstdint$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+Граф включаемых заголовочных файлов для types.\+h\+:
+% FIG 0
+Граф файлов, в которые включается этот файл\+:
+% FIG 1
+\doxysubsubsection*{Documentation}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{types_8h_a2e40e824acb909e55010802cf4693ccd}{Byte\+Array}} = std\+::vector$<$ uint8\+\_\+t $>$
+\begin{DoxyCompactList}\small\item\em Тип для массива байтов \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{types_8h_af5407ecc4669529cd5f0ac978fb5c32f}{Vector}} = std\+::vector$<$ int32\+\_\+t $>$
+\begin{DoxyCompactList}\small\item\em Тип для целочисленного вектора \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsubsection{Documentation}
+Основные типы данных проекта 
+
+Определяет основные типы данных, используемые в проекте\+:
+\begin{DoxyItemize}
+\item Vector для работы с целочисленными векторами
+\item Byte\+Array для работы с бинарными данными
+\end{DoxyItemize}
+
+\begin{DoxyVersion}{Documentation}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Documentation}
+2024 
+\end{DoxyDate}
+
+
+См. определение в файле \mbox{\hyperlink{types_8h_source}{types.\+h}}
+
+
+
+\doxysubsubsection{Documentation}
+\mbox{\Hypertarget{types_8h_a2e40e824acb909e55010802cf4693ccd}\label{types_8h_a2e40e824acb909e55010802cf4693ccd}} 
+\index{types.h@{types.h}!ByteArray@{ByteArray}}
+\index{ByteArray@{ByteArray}!types.h@{types.h}}
+\doxyparagraph{\texorpdfstring{ByteArray}{ByteArray}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{types_8h_a2e40e824acb909e55010802cf4693ccd}{Byte\+Array}} =  std\+::vector$<$uint8\+\_\+t$>$}
+
+
+
+Тип для массива байтов 
+
+Используется для работы с бинарными данными, хэшами и сетевыми пакетами. 
+
+См. определение в файле \mbox{\hyperlink{types_8h_source}{types.\+h}} строка \mbox{\hyperlink{types_8h_source_l00032}{32}}
+
+\mbox{\Hypertarget{types_8h_af5407ecc4669529cd5f0ac978fb5c32f}\label{types_8h_af5407ecc4669529cd5f0ac978fb5c32f}} 
+\index{types.h@{types.h}!Vector@{Vector}}
+\index{Vector@{Vector}!types.h@{types.h}}
+\doxyparagraph{\texorpdfstring{Vector}{Vector}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{types_8h_af5407ecc4669529cd5f0ac978fb5c32f}{Vector}} =  std\+::vector$<$int32\+\_\+t$>$}
+
+
+
+Тип для целочисленного вектора 
+
+Используется для передачи и обработки векторов целых чисел 32-\/битного формата. Основной тип данных для вычислительных операций сервера. 
+
+См. определение в файле \mbox{\hyperlink{types_8h_source}{types.\+h}} строка \mbox{\hyperlink{types_8h_source_l00025}{25}}
+

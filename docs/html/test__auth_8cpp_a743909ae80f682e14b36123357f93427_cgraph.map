@@ -1,0 +1,6 @@
+<map id="SUITE" name="SUITE">
+<area shape="rect" id="node1" title=" " alt="" coords="5,36,65,62"/>
+<area shape="rect" id="node2" href="$classAuthenticator.html#a675778443f9ad33359938063771940e0" title="Вычисляет MD5 хэш от конкатенации соли и пароля" alt="" coords="337,32,515,74"/>
+<area shape="rect" id="node3" href="$classAuthenticator.html#ad066623b8f7c2e63c65f7caac02369fc" title="Генерирует 64&#45;битную соль в виде 16 hex символов" alt="" coords="113,28,289,70"/>
+<area shape="rect" id="node4" href="$classAuthenticator.html#a85378acecfa44df7d12a98c72296777d" title="Проверяет аутентификационные данные клиента" alt="" coords="124,94,279,135"/>
+</map>

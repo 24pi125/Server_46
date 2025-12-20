@@ -1,0 +1,4 @@
+<map id="Authenticator::verify_client" name="Authenticator::verify_client">
+<area shape="rect" id="node1" title="Проверяет аутентификационные данные клиента" alt="" coords="5,5,160,47"/>
+<area shape="rect" id="node2" href="$classAuthenticator.html#a675778443f9ad33359938063771940e0" title="Вычисляет MD5 хэш от конкатенации соли и пароля" alt="" coords="208,5,385,47"/>
+</map>

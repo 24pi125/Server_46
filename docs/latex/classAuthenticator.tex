@@ -1,0 +1,208 @@
+\hypertarget{classAuthenticator}{}\subsection{Documentation}
+\label{classAuthenticator}\index{Authenticator@{Authenticator}}
+
+
+Класс аутентификации клиентов  
+
+
+
+
+{\ttfamily \#include $<$auth.\+h$>$}
+
+\doxysubsubsection*{Documentation}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::string \mbox{\hyperlink{classAuthenticator_a675778443f9ad33359938063771940e0}{calculate\+\_\+md5\+\_\+hash}} (const std\+::string \&salt, const std\+::string \&password)
+\begin{DoxyCompactList}\small\item\em Вычисляет MD5 хэш от конкатенации соли и пароля \end{DoxyCompactList}\item 
+static std\+::string \mbox{\hyperlink{classAuthenticator_ad066623b8f7c2e63c65f7caac02369fc}{generate\+\_\+salt\+\_\+16}} ()
+\begin{DoxyCompactList}\small\item\em Генерирует 64-\/битную соль в виде 16 hex символов \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classAuthenticator_a85378acecfa44df7d12a98c72296777d}{verify\+\_\+client}} (const std\+::string \&login, const std\+::string \&received\+\_\+hash, const std\+::string \&salt, const std\+::unordered\+\_\+map$<$ std\+::string, std\+::string $>$ \&clients)
+\begin{DoxyCompactList}\small\item\em Проверяет аутентификационные данные клиента \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsubsection{Documentation}
+Класс аутентификации клиентов 
+
+Предоставляет статические методы для работы с аутентификацией\+:
+\begin{DoxyItemize}
+\item генерация 64-\/битной соли в виде 16 hex символов
+\item вычисление MD5 хэша по схеме salt+password
+\item верификация клиентских учетных данных 
+\end{DoxyItemize}
+
+См. определение в файле \mbox{\hyperlink{auth_8h_source}{auth.\+h}} строка \mbox{\hyperlink{auth_8h_source_l00026}{26}}
+
+
+
+\doxysubsubsection{Documentation}
+\mbox{\Hypertarget{classAuthenticator_a675778443f9ad33359938063771940e0}\label{classAuthenticator_a675778443f9ad33359938063771940e0}} 
+\index{Authenticator@{Authenticator}!calculate\_md5\_hash@{calculate\_md5\_hash}}
+\index{calculate\_md5\_hash@{calculate\_md5\_hash}!Authenticator@{Authenticator}}
+\doxyparagraph{\texorpdfstring{calculate\_md5\_hash()}{calculate\_md5\_hash()}}
+{\footnotesize\ttfamily std\+::string Authenticator\+::calculate\+\_\+md5\+\_\+hash (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{salt,  }\item[{const std\+::string \&}]{password }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Вычисляет MD5 хэш от конкатенации соли и пароля 
+
+
+\begin{DoxyParams}{Documentation}
+{\em salt} & Соль (16 hex символов) \\
+\hline
+{\em password} & Пароль в открытом виде \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Documentation}
+std\+::string 32-\/символьный MD5 хэш в hex формате
+\end{DoxyReturn}
+\begin{DoxyNote}{Documentation}
+Порядок\+: salt + password (соль добавляется перед паролем) 
+\end{DoxyNote}
+\begin{DoxyWarning}{Documentation}
+Для реальных проектов используйте более стойкие алгоритмы (SHA-\/256, bcrypt)
+\end{DoxyWarning}
+
+\begin{DoxyParams}{Documentation}
+{\em salt} & Соль (должна быть 16 hex символов) \\
+\hline
+{\em password} & Пароль в открытом виде \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Documentation}
+std\+::string 32-\/символьный MD5 хэш в hex формате (uppercase)
+\end{DoxyReturn}
+Формула\+: hash = MD5(salt + password) Использует Open\+SSL библиотеку для вычисления MD5
+
+\begin{DoxyWarning}{Documentation}
+Не используйте в продакшене -\/ MD5 уязвим к коллизиям 
+\end{DoxyWarning}
+
+
+См. определение в файле \mbox{\hyperlink{auth_8cpp_source}{auth.\+cpp}} строка \mbox{\hyperlink{auth_8cpp_source_l00057}{57}}
+
+
+
+Используется в \mbox{\hyperlink{test__auth_8cpp_source_l00007}{SUITE()}} и \mbox{\hyperlink{auth_8cpp_source_l00090}{verify\+\_\+client()}}.
+
+Граф вызова функции\+:
+% FIG 0
+\mbox{\Hypertarget{classAuthenticator_ad066623b8f7c2e63c65f7caac02369fc}\label{classAuthenticator_ad066623b8f7c2e63c65f7caac02369fc}} 
+\index{Authenticator@{Authenticator}!generate\_salt\_16@{generate\_salt\_16}}
+\index{generate\_salt\_16@{generate\_salt\_16}!Authenticator@{Authenticator}}
+\doxyparagraph{\texorpdfstring{generate\_salt\_16()}{generate\_salt\_16()}}
+{\footnotesize\ttfamily std\+::string Authenticator\+::generate\+\_\+salt\+\_\+16 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Генерирует 64-\/битную соль в виде 16 hex символов 
+
+\begin{DoxyReturn}{Documentation}
+std\+::string 16-\/символьная hex строка соли
+\end{DoxyReturn}
+\begin{DoxyNote}{Documentation}
+Использует случайные числа через std\+::random\+\_\+device 
+\end{DoxyNote}
+\begin{DoxyWarning}{Documentation}
+Соль должна быть уникальной для каждой сессии
+\end{DoxyWarning}
+\begin{DoxyReturn}{Documentation}
+std\+::string Соль в hex формате (16 символов, uppercase)
+\end{DoxyReturn}
+Алгоритм\+:
+\begin{DoxyEnumerate}
+\item Создает генератор случайных чисел на основе std\+::random\+\_\+device
+\item Генерирует 64-\/битное случайное число
+\item Конвертирует в hex строку с заполнением нулями
+\end{DoxyEnumerate}
+
+\begin{DoxyNote}{Documentation}
+Использует Mersenne Twister для генерации псевдослучайных чисел 
+\end{DoxyNote}
+
+
+См. определение в файле \mbox{\hyperlink{auth_8cpp_source}{auth.\+cpp}} строка \mbox{\hyperlink{auth_8cpp_source_l00032}{32}}
+
+
+
+Используется в \mbox{\hyperlink{test__auth_8cpp_source_l00007}{SUITE()}}.
+
+Граф вызова функции\+:
+% FIG 1
+\mbox{\Hypertarget{classAuthenticator_a85378acecfa44df7d12a98c72296777d}\label{classAuthenticator_a85378acecfa44df7d12a98c72296777d}} 
+\index{Authenticator@{Authenticator}!verify\_client@{verify\_client}}
+\index{verify\_client@{verify\_client}!Authenticator@{Authenticator}}
+\doxyparagraph{\texorpdfstring{verify\_client()}{verify\_client()}}
+{\footnotesize\ttfamily bool Authenticator\+::verify\+\_\+client (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{login,  }\item[{const std\+::string \&}]{received\+\_\+hash,  }\item[{const std\+::string \&}]{salt,  }\item[{const std\+::unordered\+\_\+map$<$ std\+::string, std\+::string $>$ \&}]{clients }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Проверяет аутентификационные данные клиента 
+
+
+\begin{DoxyParams}{Documentation}
+{\em login} & Логин клиента \\
+\hline
+{\em received\+\_\+hash} & Хэш, полученный от клиента \\
+\hline
+{\em salt} & Соль, использованная при аутентификации \\
+\hline
+{\em clients} & База данных клиентов (логин -\/\texorpdfstring{$>$}{>} пароль) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Documentation}
+bool true если аутентификация успешна, иначе false
+\end{DoxyReturn}
+\begin{DoxyNote}{Documentation}
+Сравнивает полученный хэш с вычисленным MD5(salt + stored\+\_\+password) 
+\end{DoxyNote}
+
+\begin{DoxyExceptions}{Documentation}
+{Documentation} & не выбрасывает, возвращает false при ошибках\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{Documentation}
+{\em login} & Логин клиента \\
+\hline
+{\em received\+\_\+hash} & Хэш, полученный от клиента (32 hex символа) \\
+\hline
+{\em salt} & Соль, использованная при аутентификации (16 hex символов) \\
+\hline
+{\em clients} & База данных клиентов в формате логин\+:пароль \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Documentation}
+bool true если хэши совпадают, false если нет или ошибка
+\end{DoxyReturn}
+Шаги проверки\+:
+\begin{DoxyEnumerate}
+\item Поиск логина в базе данных
+\item Вычисление ожидаемого хэша\+: MD5(salt + stored\+\_\+password)
+\item Сравнение полученного и вычисленного хэшей
+\end{DoxyEnumerate}
+
+\begin{DoxyNote}{Documentation}
+Возвращает false если логин не найден или хэши не совпадают 
+\end{DoxyNote}
+
+
+См. определение в файле \mbox{\hyperlink{auth_8cpp_source}{auth.\+cpp}} строка \mbox{\hyperlink{auth_8cpp_source_l00090}{90}}
+
+
+
+Перекрестные ссылки \mbox{\hyperlink{auth_8cpp_source_l00057}{calculate\+\_\+md5\+\_\+hash()}}.
+
+
+
+Используется в \mbox{\hyperlink{test__auth_8cpp_source_l00007}{SUITE()}}.
+
+Граф вызовов\+:
+% FIG 2
+Граф вызова функции\+:
+% FIG 3
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{auth_8h}{auth.\+h}}\item 
+src/\mbox{\hyperlink{auth_8cpp}{auth.\+cpp}}\end{DoxyCompactItemize}

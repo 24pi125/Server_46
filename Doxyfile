@@ -1,0 +1,91 @@
+# Проект
+PROJECT_NAME           = "VEALC Server"
+PROJECT_NUMBER         = 1.0
+PROJECT_BRIEF          = "Сервер для аутентификации и обработки векторных данных"
+OUTPUT_DIRECTORY       = docs
+
+# Входные файлы
+INPUT                  = .
+FILE_PATTERNS          = *.h *.cpp *.c *.cc *.cxx *.hpp *.hxx
+RECURSIVE              = YES
+
+# Извлечение документации
+EXTRACT_ALL            = YES
+EXTRACT_PRIVATE        = YES
+EXTRACT_STATIC         = YES
+EXTRACT_LOCAL_CLASSES  = YES
+EXTRACT_LOCAL_METHODS  = YES
+
+# Язык
+OUTPUT_LANGUAGE        = Russian
+
+# HTML вывод
+GENERATE_HTML          = YES
+HTML_OUTPUT            = html
+HTML_FILE_EXTENSION    = .html
+GENERATE_TREEVIEW      = YES
+SEARCHENGINE           = YES
+DISABLE_INDEX          = NO
+GENERATE_TREEVIEW      = YES
+
+# LaTeX вывод - КРИТИЧЕСКИЕ НАСТРОЙКИ
+GENERATE_LATEX         = YES
+LATEX_OUTPUT           = latex
+LATEX_CMD_NAME         = pdflatex
+USE_PDFLATEX           = YES
+COMPACT_LATEX          = YES
+PDF_HYPERLINKS         = YES
+LATEX_BATCHMODE        = NO
+LATEX_HIDE_INDICES     = NO
+
+# Важно: включите эти настройки для русской документации
+LATEX_EXTRA_STYLESHEET = YES
+LATEX_EXTRA_FILES      = YES
+
+# Максимальное количество запусков latex (может понадобиться для генерации индексов)
+LATEX_BIB_STYLE        = plain
+LATEX_TIMESTAMP        = NO
+
+# Диаграммы
+HAVE_DOT               = YES
+CLASS_DIAGRAMS         = YES
+UML_LOOK               = NO
+CALL_GRAPH             = YES
+CALLER_GRAPH           = YES
+
+# Поиск и индексация
+ALPHABETICAL_INDEX     = YES
+COLS_IN_ALPHA_INDEX    = 4
+
+# Прочее
+SOURCE_BROWSER         = YES
+INLINE_SOURCES         = NO
+STRIP_CODE_COMMENTS    = NO
+REFERENCED_BY_RELATION = YES
+REFERENCES_RELATION    = YES
+
+# Отключение предупреждений
+QUIET                  = NO
+WARNINGS               = YES
+WARN_IF_UNDOCUMENTED   = YES
+WARN_IF_DOC_ERROR      = YES
+WARN_NO_PARAMDOC       = NO
+
+# Исключения
+EXCLUDE                = 
+EXCLUDE_SYMLINKS       = NO
+EXCLUDE_PATTERNS       = 
+EXCLUDE_SYMBOLS        = 
+
+# Оптимизация
+OPTIMIZE_OUTPUT_FOR_C  = NO
+OPTIMIZE_OUTPUT_JAVA   = NO
+SHOW_INCLUDE_FILES     = YES
+INLINE_INFO            = YES
+SORT_MEMBER_DOCS       = YES
+SORT_BRIEF_DOCS        = YES
+SORT_MEMBERS_CTORS_1ST = YES
+SORT_GROUP_NAMES       = YES
+SORT_BY_SCOPE_NAME     = YES
+STRICT_PROTO_MATCHING  = NO
+GENERATE_OLD_PRINTFS   = NO

@@ -1,0 +1,5 @@
+<map id="Authenticator::calculate_md5_hash" name="Authenticator::calculate_md5_hash">
+<area shape="rect" id="node1" title="Вычисляет MD5 хэш от конкатенации соли и пароля" alt="" coords="316,5,493,47"/>
+<area shape="rect" id="node2" href="$test__auth_8cpp.html#a743909ae80f682e14b36123357f93427" title=" " alt="" coords="5,13,65,39"/>
+<area shape="rect" id="node3" href="$classAuthenticator.html#a85378acecfa44df7d12a98c72296777d" title="Проверяет аутентификационные данные клиента" alt="" coords="113,35,268,76"/>
+</map>

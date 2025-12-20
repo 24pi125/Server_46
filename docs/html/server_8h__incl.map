@@ -1,0 +1,10 @@
+<map id="include/server.h" name="include/server.h">
+<area shape="rect" id="node1" title="Основной класс сервера" alt="" coords="193,5,319,32"/>
+<area shape="rect" id="node2" href="$types_8h.html" title="Основные типы данных проекта" alt="" coords="50,80,121,107"/>
+<area shape="rect" id="node5" href="$config_8h.html" title="Конфигурация сервера" alt="" coords="145,80,218,107"/>
+<area shape="rect" id="node6" title=" " alt="" coords="227,155,285,181"/>
+<area shape="rect" id="node7" href="$logger_8h.html" title="Класс для логирования" alt="" coords="293,80,368,107"/>
+<area shape="rect" id="node8" title=" " alt="" coords="393,80,517,107"/>
+<area shape="rect" id="node3" title=" " alt="" coords="5,155,72,181"/>
+<area shape="rect" id="node4" title=" " alt="" coords="97,155,159,181"/>
+</map>

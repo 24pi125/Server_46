@@ -1,0 +1,17 @@
+digraph "include/logger.h"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="include/logger.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Класс для логирования"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="include/server.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$server_8h.html",tooltip="Основной класс сервера"];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="src/main.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$main_8cpp.html",tooltip="Точка входа в программу сервера"];
+  Node2 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="src/server.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$server_8cpp.html",tooltip="Реализация основного серверного процесса"];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="src/logger.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$logger_8cpp.html",tooltip="Реализация класса Logger."];
+  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node6 [label="src/session.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$session_8cpp.html",tooltip="Реализация обработки клиентских сессий"];
+}

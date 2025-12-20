@@ -1,0 +1,4 @@
+<map id="Authenticator::generate_salt_16" name="Authenticator::generate_salt_16">
+<area shape="rect" id="node1" title="Генерирует 64&#45;битную соль в виде 16 hex символов" alt="" coords="113,5,289,47"/>
+<area shape="rect" id="node2" href="$test__auth_8cpp.html#a743909ae80f682e14b36123357f93427" title=" " alt="" coords="5,13,65,39"/>
+</map>

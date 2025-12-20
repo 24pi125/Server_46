@@ -1,0 +1,93 @@
+\hypertarget{test__auth_8cpp_source}{}\subsection{test\+\_\+auth.\+cpp}
+\label{test__auth_8cpp_source}\index{tests/test\_auth.cpp@{tests/test\_auth.cpp}}
+\mbox{\hyperlink{test__auth_8cpp}{Documentation}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00001}00001 \textcolor{preprocessor}{\#include "{}../include/auth.h"{}}}
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00002}00002 \textcolor{preprocessor}{\#include <UnitTest++/UnitTest++.h>}}
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00003}00003 \textcolor{preprocessor}{\#include <unordered\_map>}}
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00004}00004 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00005}00005 \textcolor{preprocessor}{\#include <cstring>}}
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00006}00006 }
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00007}\mbox{\hyperlink{test__auth_8cpp_a743909ae80f682e14b36123357f93427}{00007}} \mbox{\hyperlink{test__auth_8cpp_a743909ae80f682e14b36123357f93427}{SUITE}}(AuthenticatorTest) \{}
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00008}00008     TEST(SaltGenerationLength) \{}
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00009}00009         std::string salt = \mbox{\hyperlink{classAuthenticator_ad066623b8f7c2e63c65f7caac02369fc}{Authenticator::generate\_salt\_16}}();}
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00010}00010         CHECK\_EQUAL(16, salt.length());}
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00011}00011         }
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00012}00012         \textcolor{keywordtype}{bool} all\_hex = \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00013}00013         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{char} c : salt) \{}
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00014}00014             \textcolor{keywordflow}{if} (!isxdigit(c)) \{}
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00015}00015                 all\_hex = \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00016}00016                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00017}00017             \}}
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00018}00018         \}}
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00019}00019         CHECK(all\_hex);}
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00020}00020     \}}
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00021}00021     }
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00022}00022     TEST(SaltUniqueness) \{}
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00023}00023         std::string salt1 = \mbox{\hyperlink{classAuthenticator_ad066623b8f7c2e63c65f7caac02369fc}{Authenticator::generate\_salt\_16}}();}
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00024}00024         std::string salt2 = \mbox{\hyperlink{classAuthenticator_ad066623b8f7c2e63c65f7caac02369fc}{Authenticator::generate\_salt\_16}}();}
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00025}00025         CHECK(salt1 != salt2);}
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00026}00026     \}}
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00027}00027     }
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00028}00028     TEST(MD5HashCalculation) \{}
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00029}00029         std::string salt = \textcolor{stringliteral}{"{}4F9C429F5C6884DB"{}};}
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00030}00030         std::string password = \textcolor{stringliteral}{"{}testpass123"{}};}
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00031}00031         }
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00032}00032         std::string hash = \mbox{\hyperlink{classAuthenticator_a675778443f9ad33359938063771940e0}{Authenticator::calculate\_md5\_hash}}(salt, password);}
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00033}00033         CHECK\_EQUAL(32, hash.length());}
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00034}00034         }
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00035}00035         \textcolor{keywordtype}{bool} all\_hex = \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00036}00036         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{char} c : hash) \{}
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00037}00037             \textcolor{keywordflow}{if} (!isxdigit(c)) \{}
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00038}00038                 all\_hex = \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00039}00039                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00040}00040             \}}
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00041}00041         \}}
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00042}00042         CHECK(all\_hex);}
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00043}00043     \}}
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00044}00044     }
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00045}00045     TEST(VerifyClientSuccess) \{}
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00046}00046         std::unordered\_map<std::string, std::string> clients = \{}
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00047}00047             \{\textcolor{stringliteral}{"{}user1"{}}, \textcolor{stringliteral}{"{}pass1"{}}\},}
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00048}00048             \{\textcolor{stringliteral}{"{}user2"{}}, \textcolor{stringliteral}{"{}pass2"{}}\}}
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00049}00049         \};}
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00050}00050         }
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00051}00051         std::string salt = \textcolor{stringliteral}{"{}4F9C429F5C6884DB"{}};}
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00052}00052         std::string password = \textcolor{stringliteral}{"{}pass1"{}};}
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00053}00053         }
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00054}00054         std::string calculated\_hash = \mbox{\hyperlink{classAuthenticator_a675778443f9ad33359938063771940e0}{Authenticator::calculate\_md5\_hash}}(salt, password);}
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00055}00055         }
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00056}00056         \textcolor{keywordtype}{bool} result = \mbox{\hyperlink{classAuthenticator_a85378acecfa44df7d12a98c72296777d}{Authenticator::verify\_client}}(\textcolor{stringliteral}{"{}user1"{}}, calculated\_hash, salt, clients);}
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00057}00057         CHECK(result);}
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00058}00058     \}}
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00059}00059     }
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00060}00060     TEST(VerifyClientFailure) \{}
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00061}00061         std::unordered\_map<std::string, std::string> clients = \{}
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00062}00062             \{\textcolor{stringliteral}{"{}user1"{}}, \textcolor{stringliteral}{"{}pass1"{}}\}}
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00063}00063         \};}
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00064}00064         }
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00065}00065         std::string salt = \textcolor{stringliteral}{"{}4F9C429F5C6884DB"{}};}
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00066}00066         std::string wrong\_hash = \textcolor{stringliteral}{"{}1234567890ABCDEF1234567890ABCDEF"{}};}
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00067}00067         }
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00068}00068         \textcolor{keywordtype}{bool} result = \mbox{\hyperlink{classAuthenticator_a85378acecfa44df7d12a98c72296777d}{Authenticator::verify\_client}}(\textcolor{stringliteral}{"{}user1"{}}, wrong\_hash, salt, clients);}
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00069}00069         CHECK(!result);}
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00070}00070     \}}
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00071}00071     }
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00072}00072     TEST(VerifyClientNotFound) \{}
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00073}00073         std::unordered\_map<std::string, std::string> clients = \{}
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00074}00074             \{\textcolor{stringliteral}{"{}user1"{}}, \textcolor{stringliteral}{"{}pass1"{}}\}}
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00075}00075         \};}
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00076}00076         }
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00077}00077         std::string salt = \textcolor{stringliteral}{"{}4F9C429F5C6884DB"{}};}
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00078}00078         std::string hash = \textcolor{stringliteral}{"{}1234567890ABCDEF1234567890ABCDEF"{}};}
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00079}00079         }
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00080}00080         \textcolor{keywordtype}{bool} result = \mbox{\hyperlink{classAuthenticator_a85378acecfa44df7d12a98c72296777d}{Authenticator::verify\_client}}(\textcolor{stringliteral}{"{}nonexistent"{}}, hash, salt, clients);}
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00081}00081         CHECK(!result);}
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00082}00082     \}}
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00083}00083 \}}
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00084}00084 }
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00085}\mbox{\hyperlink{test__auth_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{00085}} \textcolor{keywordtype}{int} \mbox{\hyperlink{test__auth_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}}() \{}
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00086}00086     \textcolor{keywordflow}{return} UnitTest::RunAllTests();}
+\DoxyCodeLine{\Hypertarget{test__auth_8cpp_source_l00087}00087 \}}
+
+\end{DoxyCode}

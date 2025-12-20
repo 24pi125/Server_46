@@ -1,0 +1,130 @@
+\hypertarget{_2home_2penza365_2Server_46_2src_2vector_processor_8cpp-example}{}\subsection{/home/penza365/\+Server\+\_\+46/src/vector\+\_\+processor.\+cpp}
+Вычисляет произведение элементов вектора
+
+Вычисляет произведение элементов вектора
+\begin{DoxyParams}{Documentation}
+{\em vector} & Входной вектор целых чисел \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Documentation}
+int32\+\_\+t Произведение элементов или граничное значение при переполнении
+\end{DoxyReturn}
+Алгоритм\+:
+\begin{DoxyEnumerate}
+\item Проверка пустого вектора -\/\texorpdfstring{$>$}{>} возврат 0
+\item Инициализация 64-\/битного аккумулятора значением 1
+\item Для каждого элемента\+:
+\begin{DoxyItemize}
+\item Проверка переполнения перед умножением
+\item Если переполнение -\/\texorpdfstring{$>$}{>} возврат INT32\+\_\+\+MAX или INT32\+\_\+\+MIN
+\item Иначе умножение аккумулятора на элемент
+\end{DoxyItemize}
+\item Проверка результата на соответствие 32-\/битному диапазону
+\end{DoxyEnumerate}
+
+Vector v = \{1, 2, 3\}; int32\+\_\+t result = Vector\+Processor\+::calculate\+\_\+product(v); // 6
+
+Vector large = \{INT32\+\_\+\+MAX, 2\}; int32\+\_\+t overflow = Vector\+Processor\+::calculate\+\_\+product(large); // INT32\+\_\+\+MAX
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{comment}{/**}}
+\DoxyCodeLine{\textcolor{comment}{ * @file vector\_processor.cpp}}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{ * }}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{ * }}
+\DoxyCodeLine{\textcolor{comment}{ * @see vector\_processor.h}}
+\DoxyCodeLine{\textcolor{comment}{ */}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include "{}../include/vector\_processor.h"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <climits>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <stdexcept>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <cstdlib>}}
+\DoxyCodeLine{\textcolor{comment}{}}
+\DoxyCodeLine{\textcolor{comment}{/**}}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{ * }}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{ * }}
+\DoxyCodeLine{\textcolor{comment}{ * @details}}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{ * }}
+\DoxyCodeLine{\textcolor{comment}{ * @example}}
+\DoxyCodeLine{\textcolor{comment}{ * Vector v = \{1, 2, 3\};}}
+\DoxyCodeLine{\textcolor{comment}{ * int32\_t result = VectorProcessor::calculate\_product(v); // 6}}
+\DoxyCodeLine{\textcolor{comment}{ * }}
+\DoxyCodeLine{\textcolor{comment}{ * Vector large = \{INT32\_MAX, 2\};}}
+\DoxyCodeLine{\textcolor{comment}{ * int32\_t overflow = VectorProcessor::calculate\_product(large); // INT32\_MAX}}
+\DoxyCodeLine{\textcolor{comment}{ */}}
+\DoxyCodeLine{int32\_t \mbox{\hyperlink{classVectorProcessor_aad2fcac4812f8b65e04189045fa02a6b}{VectorProcessor::calculate\_product}}(\textcolor{keyword}{const} \mbox{\hyperlink{types_8h_af5407ecc4669529cd5f0ac978fb5c32f}{Vector}}\& vector) \{}
+\DoxyCodeLine{    \textcolor{keywordflow}{if} (vector.empty()) \{}
+\DoxyCodeLine{        \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{    }
+\DoxyCodeLine{    int64\_t product = 1;}
+\DoxyCodeLine{    }
+\DoxyCodeLine{    \textcolor{keywordflow}{for} (int32\_t val : vector) \{}
+\DoxyCodeLine{        \textcolor{comment}{Documentation}}
+\DoxyCodeLine{        \textcolor{comment}{Documentation}}
+\DoxyCodeLine{        int64\_t val64 = \textcolor{keyword}{static\_cast<}int64\_t\textcolor{keyword}{>}(val);}
+\DoxyCodeLine{        }
+\DoxyCodeLine{        \textcolor{keywordflow}{if} (val64 != 0 \&\& llabs(product) > INT64\_MAX / llabs(val64)) \{}
+\DoxyCodeLine{            \textcolor{comment}{Documentation}}
+\DoxyCodeLine{            \textcolor{keywordflow}{if} ((product > 0 \&\& val64 > 0) || (product < 0 \&\& val64 < 0)) \{}
+\DoxyCodeLine{                \textcolor{keywordflow}{return} INT32\_MAX;}
+\DoxyCodeLine{            \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{                \textcolor{keywordflow}{return} INT32\_MIN;}
+\DoxyCodeLine{            \}}
+\DoxyCodeLine{        \}}
+\DoxyCodeLine{        product *= val64;}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{    }
+\DoxyCodeLine{    \textcolor{comment}{Documentation}}
+\DoxyCodeLine{    \textcolor{keywordflow}{if} (product > INT32\_MAX) \{}
+\DoxyCodeLine{        \textcolor{keywordflow}{return} INT32\_MAX;}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{    \textcolor{keywordflow}{if} (product < INT32\_MIN) \{}
+\DoxyCodeLine{        \textcolor{keywordflow}{return} INT32\_MIN;}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{    }
+\DoxyCodeLine{    \textcolor{keywordflow}{return} \textcolor{keyword}{static\_cast<}int32\_t\textcolor{keyword}{>}(product);}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{\textcolor{comment}{}}
+\DoxyCodeLine{\textcolor{comment}{/**}}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{ * }}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{ * }}
+\DoxyCodeLine{\textcolor{comment}{ * @details}}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{ * }}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{ */}}
+\DoxyCodeLine{std::vector<int32\_t> \mbox{\hyperlink{classVectorProcessor_a4b3a048b4cd7fc19ac8d03380b7bd3b9}{VectorProcessor::multiply\_vectors}}(\textcolor{keyword}{const} std::vector<Vector>\& vectors) \{}
+\DoxyCodeLine{    std::vector<int32\_t> results;}
+\DoxyCodeLine{    results.reserve(vectors.size());}
+\DoxyCodeLine{    }
+\DoxyCodeLine{    \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto}\& vector : vectors) \{}
+\DoxyCodeLine{        results.push\_back(\mbox{\hyperlink{classVectorProcessor_aad2fcac4812f8b65e04189045fa02a6b}{calculate\_product}}(vector));}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{    }
+\DoxyCodeLine{    \textcolor{keywordflow}{return} results;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCodeInclude}
+ 

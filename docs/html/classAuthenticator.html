@@ -1,0 +1,363 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.4"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>VEALC Server: Класс Authenticator</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">VEALC Server<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Сервер для аутентификации и обработки векторных данных</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.4 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'Поиск','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classAuthenticator.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-static-methods">Открытые статические члены</a> &#124;
+<a href="classAuthenticator-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle"><div class="title">Класс Authenticator</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Класс аутентификации клиентов  
+ <a href="classAuthenticator.html#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="auth_8h_source.html">auth.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Открытые статические члены</h2></td></tr>
+<tr class="memitem:a675778443f9ad33359938063771940e0"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAuthenticator.html#a675778443f9ad33359938063771940e0">calculate_md5_hash</a> (const std::string &amp;salt, const std::string &amp;password)</td></tr>
+<tr class="memdesc:a675778443f9ad33359938063771940e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Вычисляет MD5 хэш от конкатенации соли и пароля  <a href="classAuthenticator.html#a675778443f9ad33359938063771940e0">Подробнее...</a><br /></td></tr>
+<tr class="separator:a675778443f9ad33359938063771940e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad066623b8f7c2e63c65f7caac02369fc"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAuthenticator.html#ad066623b8f7c2e63c65f7caac02369fc">generate_salt_16</a> ()</td></tr>
+<tr class="memdesc:ad066623b8f7c2e63c65f7caac02369fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Генерирует 64-битную соль в виде 16 hex символов  <a href="classAuthenticator.html#ad066623b8f7c2e63c65f7caac02369fc">Подробнее...</a><br /></td></tr>
+<tr class="separator:ad066623b8f7c2e63c65f7caac02369fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85378acecfa44df7d12a98c72296777d"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classAuthenticator.html#a85378acecfa44df7d12a98c72296777d">verify_client</a> (const std::string &amp;login, const std::string &amp;received_hash, const std::string &amp;salt, const std::unordered_map&lt; std::string, std::string &gt; &amp;clients)</td></tr>
+<tr class="memdesc:a85378acecfa44df7d12a98c72296777d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Проверяет аутентификационные данные клиента  <a href="classAuthenticator.html#a85378acecfa44df7d12a98c72296777d">Подробнее...</a><br /></td></tr>
+<tr class="separator:a85378acecfa44df7d12a98c72296777d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p >Класс аутентификации клиентов </p>
+<p >Предоставляет статические методы для работы с аутентификацией:</p><ul>
+<li>генерация 64-битной соли в виде 16 hex символов</li>
+<li>вычисление MD5 хэша по схеме salt+password</li>
+<li>верификация клиентских учетных данных </li>
+</ul>
+
+<p class="definition">См. определение в файле <a class="el" href="auth_8h_source.html">auth.h</a> строка <a class="el" href="auth_8h_source.html#l00026">26</a></p>
+</div><h2 class="groupheader">Методы</h2>
+<a id="a675778443f9ad33359938063771940e0" name="a675778443f9ad33359938063771940e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a675778443f9ad33359938063771940e0">&#9670;&nbsp;</a></span>calculate_md5_hash()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Authenticator::calculate_md5_hash </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>salt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>password</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Вычисляет MD5 хэш от конкатенации соли и пароля </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">salt</td><td>Соль (16 hex символов) </td></tr>
+    <tr><td class="paramname">password</td><td>Пароль в открытом виде </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>std::string 32-символьный MD5 хэш в hex формате</dd></dl>
+<dl class="section note"><dt>Заметки</dt><dd>Порядок: salt + password (соль добавляется перед паролем) </dd></dl>
+<dl class="section warning"><dt>Предупреждения</dt><dd>Для реальных проектов используйте более стойкие алгоритмы (SHA-256, bcrypt)</dd></dl>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">salt</td><td>Соль (должна быть 16 hex символов) </td></tr>
+    <tr><td class="paramname">password</td><td>Пароль в открытом виде </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>std::string 32-символьный MD5 хэш в hex формате (uppercase)</dd></dl>
+<p>Формула: hash = MD5(salt + password) Использует OpenSSL библиотеку для вычисления MD5</p>
+<dl class="section warning"><dt>Предупреждения</dt><dd>Не используйте в продакшене - MD5 уязвим к коллизиям </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="auth_8cpp_source.html">auth.cpp</a> строка <a class="el" href="auth_8cpp_source.html#l00057">57</a></p>
+
+<p class="reference">Используется в <a class="el" href="test__auth_8cpp_source.html#l00007">SUITE()</a> и <a class="el" href="auth_8cpp_source.html#l00090">verify_client()</a>.</p>
+<div class="dynheader">
+Граф вызова функции:</div>
+<div class="dyncontent">
+<div class="center"><img src="classAuthenticator_a675778443f9ad33359938063771940e0_icgraph.png" border="0" usemap="#aclassAuthenticator_a675778443f9ad33359938063771940e0_icgraph" alt=""/></div>
+<map name="aclassAuthenticator_a675778443f9ad33359938063771940e0_icgraph" id="aclassAuthenticator_a675778443f9ad33359938063771940e0_icgraph">
+<area shape="rect" title="Вычисляет MD5 хэш от конкатенации соли и пароля" alt="" coords="316,5,493,47"/>
+<area shape="rect" href="test__auth_8cpp.html#a743909ae80f682e14b36123357f93427" title=" " alt="" coords="5,13,65,39"/>
+<area shape="rect" href="classAuthenticator.html#a85378acecfa44df7d12a98c72296777d" title="Проверяет аутентификационные данные клиента" alt="" coords="113,35,268,76"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ad066623b8f7c2e63c65f7caac02369fc" name="ad066623b8f7c2e63c65f7caac02369fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad066623b8f7c2e63c65f7caac02369fc">&#9670;&nbsp;</a></span>generate_salt_16()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Authenticator::generate_salt_16 </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Генерирует 64-битную соль в виде 16 hex символов </p>
+<dl class="section return"><dt>Возвращает</dt><dd>std::string 16-символьная hex строка соли</dd></dl>
+<dl class="section note"><dt>Заметки</dt><dd>Использует случайные числа через std::random_device </dd></dl>
+<dl class="section warning"><dt>Предупреждения</dt><dd>Соль должна быть уникальной для каждой сессии</dd></dl>
+<dl class="section return"><dt>Возвращает</dt><dd>std::string Соль в hex формате (16 символов, uppercase)</dd></dl>
+<p>Алгоритм:</p><ol type="1">
+<li>Создает генератор случайных чисел на основе std::random_device</li>
+<li>Генерирует 64-битное случайное число</li>
+<li>Конвертирует в hex строку с заполнением нулями</li>
+</ol>
+<dl class="section note"><dt>Заметки</dt><dd>Использует Mersenne Twister для генерации псевдослучайных чисел </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="auth_8cpp_source.html">auth.cpp</a> строка <a class="el" href="auth_8cpp_source.html#l00032">32</a></p>
+
+<p class="reference">Используется в <a class="el" href="test__auth_8cpp_source.html#l00007">SUITE()</a>.</p>
+<div class="dynheader">
+Граф вызова функции:</div>
+<div class="dyncontent">
+<div class="center"><img src="classAuthenticator_ad066623b8f7c2e63c65f7caac02369fc_icgraph.png" border="0" usemap="#aclassAuthenticator_ad066623b8f7c2e63c65f7caac02369fc_icgraph" alt=""/></div>
+<map name="aclassAuthenticator_ad066623b8f7c2e63c65f7caac02369fc_icgraph" id="aclassAuthenticator_ad066623b8f7c2e63c65f7caac02369fc_icgraph">
+<area shape="rect" title="Генерирует 64&#45;битную соль в виде 16 hex символов" alt="" coords="113,5,289,47"/>
+<area shape="rect" href="test__auth_8cpp.html#a743909ae80f682e14b36123357f93427" title=" " alt="" coords="5,13,65,39"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a85378acecfa44df7d12a98c72296777d" name="a85378acecfa44df7d12a98c72296777d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85378acecfa44df7d12a98c72296777d">&#9670;&nbsp;</a></span>verify_client()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Authenticator::verify_client </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>login</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>received_hash</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>salt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::unordered_map&lt; std::string, std::string &gt; &amp;&#160;</td>
+          <td class="paramname"><em>clients</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Проверяет аутентификационные данные клиента </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">login</td><td>Логин клиента </td></tr>
+    <tr><td class="paramname">received_hash</td><td>Хэш, полученный от клиента </td></tr>
+    <tr><td class="paramname">salt</td><td>Соль, использованная при аутентификации </td></tr>
+    <tr><td class="paramname">clients</td><td>База данных клиентов (логин -&gt; пароль) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>bool true если аутентификация успешна, иначе false</dd></dl>
+<dl class="section note"><dt>Заметки</dt><dd>Сравнивает полученный хэш с вычисленным MD5(salt + stored_password) </dd></dl>
+<dl class="exception"><dt>Исключения</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">Ничего</td><td>не выбрасывает, возвращает false при ошибках</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">login</td><td>Логин клиента </td></tr>
+    <tr><td class="paramname">received_hash</td><td>Хэш, полученный от клиента (32 hex символа) </td></tr>
+    <tr><td class="paramname">salt</td><td>Соль, использованная при аутентификации (16 hex символов) </td></tr>
+    <tr><td class="paramname">clients</td><td>База данных клиентов в формате логин:пароль </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>bool true если хэши совпадают, false если нет или ошибка</dd></dl>
+<p>Шаги проверки:</p><ol type="1">
+<li>Поиск логина в базе данных</li>
+<li>Вычисление ожидаемого хэша: MD5(salt + stored_password)</li>
+<li>Сравнение полученного и вычисленного хэшей</li>
+</ol>
+<dl class="section note"><dt>Заметки</dt><dd>Возвращает false если логин не найден или хэши не совпадают </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="auth_8cpp_source.html">auth.cpp</a> строка <a class="el" href="auth_8cpp_source.html#l00090">90</a></p>
+
+<p class="reference">Перекрестные ссылки <a class="el" href="auth_8cpp_source.html#l00057">calculate_md5_hash()</a>.</p>
+
+<p class="reference">Используется в <a class="el" href="test__auth_8cpp_source.html#l00007">SUITE()</a>.</p>
+<div class="dynheader">
+Граф вызовов:</div>
+<div class="dyncontent">
+<div class="center"><img src="classAuthenticator_a85378acecfa44df7d12a98c72296777d_cgraph.png" border="0" usemap="#aclassAuthenticator_a85378acecfa44df7d12a98c72296777d_cgraph" alt=""/></div>
+<map name="aclassAuthenticator_a85378acecfa44df7d12a98c72296777d_cgraph" id="aclassAuthenticator_a85378acecfa44df7d12a98c72296777d_cgraph">
+<area shape="rect" title="Проверяет аутентификационные данные клиента" alt="" coords="5,5,160,47"/>
+<area shape="rect" href="classAuthenticator.html#a675778443f9ad33359938063771940e0" title="Вычисляет MD5 хэш от конкатенации соли и пароля" alt="" coords="208,5,385,47"/>
+</map>
+</div>
+<div class="dynheader">
+Граф вызова функции:</div>
+<div class="dyncontent">
+<div class="center"><img src="classAuthenticator_a85378acecfa44df7d12a98c72296777d_icgraph.png" border="0" usemap="#aclassAuthenticator_a85378acecfa44df7d12a98c72296777d_icgraph" alt=""/></div>
+<map name="aclassAuthenticator_a85378acecfa44df7d12a98c72296777d_icgraph" id="aclassAuthenticator_a85378acecfa44df7d12a98c72296777d_icgraph">
+<area shape="rect" title="Проверяет аутентификационные данные клиента" alt="" coords="113,5,268,47"/>
+<area shape="rect" href="test__auth_8cpp.html#a743909ae80f682e14b36123357f93427" title=" " alt="" coords="5,13,65,39"/>
+</map>
+</div>
+
+</div>
+</div>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li>include/<a class="el" href="auth_8h_source.html">auth.h</a></li>
+<li>src/<a class="el" href="auth_8cpp_source.html">auth.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="classAuthenticator.html">Authenticator</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+\hypertarget{server_8cpp}{}\subsection{Documentation}
+\label{server_8cpp}\index{src/server.cpp@{src/server.cpp}}
+
+
+Реализация основного серверного процесса  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include \char`\"{}../include/server.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../include/session.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$sys/socket.\+h$>$}\newline
+{\ttfamily \#include $<$netinet/in.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$cstring$>$}\newline
+{\ttfamily \#include $<$stdexcept$>$}\newline
+{\ttfamily \#include $<$arpa/inet.\+h$>$}\newline
+Граф включаемых заголовочных файлов для server.\+cpp\+:
+% FIG 0
+
+
+\doxysubsubsection{Documentation}
+Реализация основного серверного процесса 
+
+Содержит реализацию методов класса \mbox{\hyperlink{classServer}{Server}}\+:
+\begin{DoxyItemize}
+\item инициализация и настройка сервера
+\item загрузка базы данных клиентов
+\item работа с сокетами и сетью
+\item основной цикл приема подключений
+\end{DoxyItemize}
+
+\begin{DoxySeeAlso}{Documentation}
+\mbox{\hyperlink{server_8h}{server.\+h}} 
+\end{DoxySeeAlso}
+
+
+См. определение в файле \mbox{\hyperlink{server_8cpp_source}{server.\+cpp}}
+

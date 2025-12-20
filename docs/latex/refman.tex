@@ -1,0 +1,624 @@
+\documentclass[11pt]{book}
+\usepackage[english]{babel}
+\usepackage{hyperref}
+\usepackage{geometry}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{framed}
+\usepackage{float}
+
+\geometry{a4paper,left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
+
+\lstset{
+    language=C++,
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{blue}\bfseries,
+    commentstyle=\color{gray}\itshape,
+    stringstyle=\color{red},
+    showstringspaces=false,
+    breaklines=true,
+    frame=single,
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    captionpos=b,
+    tabsize=2
+}
+
+\title{VEALC Server \\ Complete Project Documentation}
+\author{Generated from Source Code}
+\date{Version 1.0 \\ \today}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\chapter*{Introduction}
+\addcontentsline{toc}{chapter}{Introduction}
+
+VEALC (Vector Encryption Authentication and Logic Calculator) Server is a TCP server application written in C++ that provides:
+
+\begin{itemize}
+\item Client authentication using MD5 hashing with salt
+\item Vector data processing with overflow control
+\item Concurrent client session management
+\item Comprehensive logging system
+\item Configurable server settings
+\end{itemize}
+
+\chapter{Project Architecture}
+
+\section{System Overview}
+The server follows a modular architecture with clear separation of concerns:
+
+\begin{figure}[H]
+\centering
+\begin{framed}
+\begin{verbatim}
+        +---------------+
+        |    Client     |
+        +-------+-------+
+                |
+        +-------+-------+
+        |    Session    |
+        +-------+-------+
+                |
+    +-----------+-----------+
+    |                       |
++---+-------+         +-----+-----+
+|  Auth     |         |  Vector   |
+|  Module   |         |  Processor|
++-----------+         +-----------+
+    |                       |
++---+-------+         +-----+-----+
+|  Logger   |         |   Config  |
++-----------+         +-----------+
+\end{verbatim}
+\end{framed}
+\caption{VEALC Server Architecture}
+\end{figure}
+
+\section{Component Responsibilities}
+\begin{tabularx}{\textwidth}{|l|X|}
+\hline
+\textbf{Component} & \textbf{Responsibility} \\
+\hline
+\texttt{Server} & Main server class, manages connections and sessions \\
+\hline
+\texttt{Session} & Handles individual client communication \\
+\hline
+\texttt{Authenticator} & Client authentication using MD5 \\
+\hline
+\texttt{VectorProcessor} & Mathematical vector calculations \\
+\hline
+\texttt{Logger} & Logging system for events and errors \\
+\hline
+\texttt{Config} & Server configuration management \\
+\hline
+\end{tabularx}
+
+\chapter{Class Documentation}
+
+\section{Class: Server}
+\label{class:server}
+
+\subsection{Class Definition}
+\begin{lstlisting}[caption=Server Class Header]
+class Server {
+private:
+    ServerConfig config_;
+    Logger logger_;
+    std::unordered_map<std::string, std::string> clients_;
+    int server_fd_;
+    
+    void load_clients();
+    void setup_socket();
+    void accept_connections();
+    
+public:
+    Server(const ServerConfig& config);
+    ~Server();
+    void run();
+};
+\end{lstlisting}
+
+\subsection{Public Methods}
+\begin{tabularx}{\textwidth}{|l|X|}
+\hline
+\textbf{Method} & \textbf{Description} \\
+\hline
+\texttt{Server(const ServerConfig\& config)} & Constructor with configuration \\
+\hline
+\texttt{\~Server()} & Destructor, closes socket \\
+\hline
+\texttt{void run()} & Starts the main server loop \\
+\hline
+\end{tabularx}
+
+\subsection{Private Methods}
+\begin{tabularx}{\textwidth}{|l|X|}
+\hline
+\textbf{Method} & \textbf{Description} \\
+\hline
+\texttt{void load\_clients()} & Loads client database from file \\
+\hline
+\texttt{void setup\_socket()} & Configures server socket \\
+\hline
+\texttt{void accept\_connections()} & Accepts incoming client connections \\
+\hline
+\end{tabularx}
+
+\section{Class: Session}
+\label{class:session}
+
+\subsection{Class Definition}
+\begin{lstlisting}[caption=Session Class Header]
+class Session {
+private:
+    int client_socket;
+    std::unordered_map<std::string, std::string>& clients;
+    Logger& logger;
+    std::string receive_buffer;
+    
+    void receive_to_buffer();
+    std::string extract_from_buffer_until_non_hex();
+    std::string extract_from_buffer_exact(size_t length);
+    bool verify_authentication(const std::string& login, 
+                              const std::string& salt, 
+                              const std::string& received_hash);
+    void process_vectors();
+    uint32_t receive_uint32();
+    std::vector<int32_t> receive_vector(uint32_t size);
+    void send_uint32(uint32_t value);
+    void send_int32(int32_t value);
+    std::string calculate_md5(const std::string& data);
+    int32_t calculate_vector_product(const std::vector<int32_t>& vector);
+    
+public:
+    Session(int client_socket, 
+            std::unordered_map<std::string, std::string>& clients, 
+            Logger& logger);
+    void handle();
+    bool send_text(const std::string& text);
+};
+\end{lstlisting}
+
+\subsection{Key Methods}
+\begin{itemize}
+\item \texttt{handle()} - Main session handler
+\item \texttt{verify\_authentication()} - Client authentication
+\item \texttt{calculate\_vector\_product()} - Vector multiplication with overflow control
+\end{itemize}
+
+\section{Class: Authenticator}
+\label{class:authenticator}
+
+\subsection{Class Definition}
+\begin{lstlisting}[caption=Authenticator Class Header]
+class Authenticator {
+public:
+    static std::string generate_salt_16();
+    static std::string calculate_md5_hash(const std::string& salt, 
+                                          const std::string& password);
+    static bool verify_client(const std::string& login, 
+                              const std::string& received_hash, 
+                              const std::string& salt, 
+                              const std::unordered_map<std::string, std::string>& clients);
+};
+\end{lstlisting}
+
+\subsection{Static Methods}
+\begin{itemize}
+\item \texttt{generate\_salt\_16()} - Generates 16-byte random salt
+\item \texttt{calculate\_md5\_hash()} - Computes MD5(salt + password)
+\item \texttt{verify\_client()} - Verifies client credentials
+\end{itemize}
+
+\section{Class: VectorProcessor}
+\label{class:vectorprocessor}
+
+\subsection{Class Definition}
+\begin{lstlisting}[caption=VectorProcessor Class Header]
+class VectorProcessor {
+public:
+    static int32_t calculate_product(const Vector& vector);
+    static std::vector<int32_t> multiply_vectors(const std::vector<Vector>& vectors);
+};
+\end{lstlisting}
+
+\subsection{Algorithm Implementation}
+\begin{lstlisting}[caption=Vector Product Calculation with Overflow Control]
+int32_t VectorProcessor::calculate_product(const Vector& vector) {
+    if (vector.empty()) return 0;
+    
+    int64_t product = 1;
+    for (int32_t val : vector) {
+        int64_t val64 = static_cast<int64_t>(val);
+        
+        // Overflow check
+        if (val64 != 0 && llabs(product) > INT64_MAX / llabs(val64)) {
+            return (product > 0 && val64 > 0) ? INT32_MAX : INT32_MIN;
+        }
+        product *= val64;
+    }
+    
+    // Clamp to int32 range
+    if (product > INT32_MAX) return INT32_MAX;
+    if (product < INT32_MIN) return INT32_MIN;
+    return static_cast<int32_t>(product);
+}
+\end{lstlisting}
+
+\section{Class: Logger}
+\label{class:logger}
+
+\subsection{Class Definition}
+\begin{lstlisting}[caption=Logger Class Header]
+class Logger {
+private:
+    std::string log_file_;
+    std::string get_current_time();
+    
+public:
+    Logger(const std::string& filename);
+    void log(const std::string& message, bool critical = false);
+    void log_add(const std::string& message);
+    void log_error(const std::string& error, bool critical = false);
+};
+\end{lstlisting}
+
+\subsection{Log Format}
+\begin{verbatim}
+[2024-01-15 10:30:00] [CRITICAL] err: Error message
+[2024-01-15 10:30:05] [NON-CRITICAL] Info message
+\end{verbatim}
+
+\section{Struct: ServerConfig}
+\label{struct:serverconfig}
+
+\subsection{Structure Definition}
+\begin{lstlisting}[caption=ServerConfig Structure]
+struct ServerConfig {
+    std::string client_db_file = "/etc/vealc.conf";
+    std::string log_file = "/var/log/vealc.log";
+    int port = 33333;
+    
+    static ServerConfig parse_args(int argc, char* argv[]);
+    static void print_help();
+};
+\end{lstlisting}
+
+\chapter{File Documentation}
+
+\section{Header Files (.h)}
+
+\subsection{auth.h}
+\begin{itemize}
+\item \textbf{Purpose:} Client authentication declarations
+\item \textbf{Contains:} Authenticator class
+\item \textbf{Dependencies:} \texttt{<string>}, \texttt{<unordered\_map>}
+\end{itemize}
+
+\subsection{config.h}
+\begin{itemize}
+\item \textbf{Purpose:} Server configuration
+\item \textbf{Contains:} ServerConfig structure
+\item \textbf{Dependencies:} \texttt{<string>}
+\end{itemize}
+
+\subsection{logger.h}
+\begin{itemize}
+\item \textbf{Purpose:} Logging system interface
+\item \textbf{Contains:} Logger class
+\item \textbf{Dependencies:} \texttt{<string>}
+\end{itemize}
+
+\subsection{session.h}
+\begin{itemize}
+\item \textbf{Purpose:} Client session management
+\item \textbf{Contains:} Session class
+\item \textbf{Dependencies:} \texttt{<string>}, \texttt{<vector>}, \texttt{<unordered\_map>}
+\end{itemize}
+
+\subsection{server.h}
+\begin{itemize}
+\item \textbf{Purpose:} Main server interface
+\item \textbf{Contains:} Server class
+\item \textbf{Dependencies:} \texttt{"config.h"}, \texttt{"logger.h"}, \texttt{<unordered\_map>}
+\end{itemize}
+
+\subsection{types.h}
+\begin{itemize}
+\item \textbf{Purpose:} Common type definitions
+\item \textbf{Contains:} Vector, ByteArray type aliases
+\item \textbf{Dependencies:} \texttt{<cstdint>}, \texttt{<vector>}
+\end{itemize}
+
+\subsection{vector\_processor.h}
+\begin{itemize}
+\item \textbf{Purpose:} Vector calculations interface
+\item \textbf{Contains:} VectorProcessor class
+\item \textbf{Dependencies:} \texttt{"types.h"}, \texttt{<cstdint>}, \texttt{<vector>}
+\end{itemize}
+
+\section{Source Files (.cpp)}
+
+\subsection{auth.cpp}
+\begin{itemize}
+\item \textbf{Purpose:} Authentication implementation
+\item \textbf{Implements:} Authenticator methods
+\item \textbf{Dependencies:} \texttt{"auth.h"}, \texttt{<openssl/md5.h>}, \texttt{<random>}
+\end{itemize}
+
+\subsection{config.cpp}
+\begin{itemize}
+\item \textbf{Purpose:} Configuration parsing
+\item \textbf{Implements:} ServerConfig methods
+\item \textbf{Dependencies:} \texttt{"config.h"}, \texttt{<iostream>}, \texttt{<cstring>}
+\end{itemize}
+
+\subsection{logger.cpp}
+\begin{itemize}
+\item \textbf{Purpose:} Logging implementation
+\item \textbf{Implements:} Logger methods
+\item \textbf{Dependencies:} \texttt{"logger.h"}, \texttt{<fstream>}, \texttt{<ctime>}
+\end{itemize}
+
+\subsection{main.cpp}
+\begin{itemize}
+\item \textbf{Purpose:} Program entry point
+\item \textbf{Contains:} main() function
+\item \textbf{Dependencies:} \texttt{"server.h"}, \texttt{"config.h"}
+\end{itemize}
+
+\subsection{session.cpp}
+\begin{itemize}
+\item \textbf{Purpose:} Session handling implementation
+\item \textbf{Implements:} Session methods
+\item \textbf{Dependencies:} \texttt{"session.h"}, \texttt{<openssl/md5.h>}, \texttt{<sys/socket.h>}
+\end{itemize}
+
+\subsection{server.cpp}
+\begin{itemize}
+\item \textbf{Purpose:} Server implementation
+\item \textbf{Implements:} Server methods
+\item \textbf{Dependencies:} \texttt{"server.h"}, \texttt{"session.h"}, \texttt{<sys/socket.h>}
+\end{itemize}
+
+\subsection{vector\_processor.cpp}
+\begin{itemize}
+\item \textbf{Purpose:} Vector calculations implementation
+\item \textbf{Implements:} VectorProcessor methods
+\item \textbf{Dependencies:} \texttt{"vector\_processor.h"}, \texttt{<climits>}
+\end{itemize}
+
+\chapter{Communication Protocol}
+
+\section{Authentication Phase}
+\begin{verbatim}
+Client → Server: login[16_hex_salt][32_hex_hash]
+Server → Client: "OK\n" or "err\n"
+\end{verbatim}
+
+\section{Data Processing Phase}
+\begin{verbatim}
+Client → Server: vector_count (uint32, 4 bytes)
+For each vector (vector_count times):
+    Client → Server: vector_size (uint32, 4 bytes)
+    Client → Server: vector_data (int32[vector_size], 4*size bytes)
+    Server → Client: product (int32, 4 bytes)
+\end{verbatim}
+
+\section{Example Session}
+\begin{lstlisting}[caption=Example Protocol Exchange]
+// Authentication
+Client sends: "alice4F3A1B8C9D2E7F5A32B4C6D8E0F1A2B4"
+Server sends: "OK\n"
+
+// Vector processing
+Client sends: 0x00000002 (2 vectors)
+
+// First vector
+Client sends: 0x00000003 (3 elements)
+Client sends: 0x00000002 0x00000003 0x00000004 (2, 3, 4)
+Server sends: 0x00000018 (24)
+
+// Second vector
+Client sends: 0x00000002 (2 elements)
+Client sends: 0x7FFFFFFF 0x00000002 (INT32_MAX, 2)
+Server sends: 0x7FFFFFFF (INT32_MAX, overflow detected)
+\end{lstlisting}
+
+\chapter{Configuration}
+
+\section{Client Database Format}
+Client credentials are stored in \texttt{/etc/vealc.conf}:
+\begin{verbatim}
+username:password
+alice:P@ssw0rd1
+bob:Secret123
+charlie:Qwerty!@#
+\end{verbatim}
+
+\section{Command Line Arguments}
+\begin{tabularx}{\textwidth}{|l|l|X|}
+\hline
+\textbf{Option} & \textbf{Default} & \textbf{Description} \\
+\hline
+\texttt{-p PORT} & 33333 & Server port number \\
+\hline
+\texttt{-c FILE} & \texttt{/etc/vealc.conf} & Client database file \\
+\hline
+\texttt{-d FILE} & (same as \texttt{-c}) & Alias for \texttt{-c} \\
+\hline
+\texttt{-l FILE} & \texttt{/var/log/vealc.log} & Log file location \\
+\hline
+\texttt{-h, --help} & - & Show help message \\
+\hline
+\end{tabularx}
+
+\section{Example Usage}
+\begin{verbatim}
+# Default configuration
+./server
+
+# Custom port and config
+./server -p 44444 -c ./myclients.conf -l ./server.log
+
+# Show help
+./server --help
+\end{verbatim}
+
+\chapter{Build and Deployment}
+
+\section{Compilation}
+\begin{lstlisting}[caption=Compilation Command]
+g++ -std=c++11 -o server \
+    main.cpp server.cpp session.cpp \
+    auth.cpp config.cpp logger.cpp \
+    vector_processor.cpp \
+    -lssl -lcrypto
+\end{lstlisting}
+
+\section{Dependencies}
+\begin{itemize}
+\item \textbf{Compiler:} g++ with C++11 support
+\item \textbf{Libraries:} OpenSSL (libssl-dev)
+\item \textbf{System:} Linux with POSIX sockets
+\end{itemize}
+
+\section{Installation}
+\begin{enumerate}
+\item Install dependencies: \texttt{sudo apt-get install g++ libssl-dev}
+\item Compile the server: \texttt{make} or \texttt{g++ ...}
+\item Create configuration: \texttt{sudo cp vealc.conf /etc/}
+\item Set up log file: \texttt{sudo touch /var/log/vealc.log}
+\item Run server: \texttt{./server}
+\end{enumerate}
+
+\chapter{Security Considerations}
+
+\section{Current Implementation}
+\begin{itemize}
+\item \textbf{Authentication:} MD5(salt + password)
+\item \textbf{Password Storage:} Plain text in file
+\item \textbf{Network:} Unencrypted TCP
+\item \textbf{Salt:} 16-byte random hex string
+\end{itemize}
+
+\section{Security Limitations}
+\begin{framed}
+\textbf{Warning:} This implementation is for educational purposes only. 
+Production use requires:
+\begin{itemize}
+\item Replace MD5 with SHA-256 or bcrypt
+\item Encrypt network traffic with TLS/SSL
+\item Hash passwords before storage
+\item Implement rate limiting
+\item Add input validation and sanitization
+\item Use secure random number generation
+\end{itemize}
+\end{framed}
+
+\chapter{Troubleshooting}
+
+\section{Common Issues}
+\begin{tabularx}{\textwidth}{|l|X|X|}
+\hline
+\textbf{Issue} & \textbf{Cause} & \textbf{Solution} \\
+\hline
+\texttt{Bind failed} & Port already in use & Use different port or kill existing process \\
+\hline
+\texttt{Cannot open client database} & File doesn't exist or no permissions & Check file path and permissions \\
+\hline
+\texttt{Authentication failed} & Wrong password or hash calculation & Verify password in config file \\
+\hline
+\texttt{Connection refused} & Server not running or firewall & Start server and check firewall \\
+\hline
+\end{tabularx}
+
+\section{Debugging}
+\begin{itemize}
+\item Check logs: \texttt{tail -f /var/log/vealc.log}
+\item Verify configuration: \texttt{cat /etc/vealc.conf}
+\item Test connectivity: \texttt{netstat -tlnp | grep 33333}
+\item Monitor processes: \texttt{ps aux | grep server}
+\end{itemize}
+
+\appendix
+
+\chapter{Type Definitions}
+
+\section{Vector Type}
+\begin{lstlisting}
+using Vector = std::vector<int32_t>;
+\end{lstlisting}
+
+\section{ByteArray Type}
+\begin{lstlisting}
+using ByteArray = std::vector<uint8_t>;
+\end{lstlisting}
+
+\chapter{Complete File Listing}
+
+\section{Project Structure}
+\begin{verbatim}
+vealc-server/
+├── include/
+│   ├── auth.h
+│   ├── config.h
+│   ├── logger.h
+│   ├── server.h
+│   ├── session.h
+│   ├── types.h
+│   └── vector_processor.h
+├── src/
+│   ├── auth.cpp
+│   ├── config.cpp
+│   ├── logger.cpp
+│   ├── main.cpp
+│   ├── server.cpp
+│   ├── session.cpp
+│   └── vector_processor.cpp
+├── Doxyfile
+├── Makefile
+├── vealc.conf
+└── README.md
+\end{verbatim}
+
+\chapter{Index}
+
+\section{Classes}
+\begin{itemize}
+\item \hyperref[class:server]{Server} - Main server class
+\item \hyperref[class:session]{Session} - Client session handler
+\item \hyperref[class:authenticator]{Authenticator} - Authentication module
+\item \hyperref[class:vectorprocessor]{VectorProcessor} - Vector calculations
+\item \hyperref[class:logger]{Logger} - Logging system
+\item \hyperref[struct:serverconfig]{ServerConfig} - Configuration structure
+\end{itemize}
+
+\section{Files}
+\begin{itemize}
+\item \texttt{auth.h/cpp} - Authentication
+\item \texttt{config.h/cpp} - Configuration
+\item \texttt{logger.h/cpp} - Logging
+\item \texttt{main.cpp} - Entry point
+\item \texttt{session.h/cpp} - Session handling
+\item \texttt{server.h/cpp} - Server implementation
+\item \texttt{types.h} - Common types
+\item \texttt{vector\_processor.h/cpp} - Vector processing
+\end{itemize}
+
+\chapter*{Conclusion}
+\addcontentsline{toc}{chapter}{Conclusion}
+
+VEALC Server provides a complete solution for client authentication and vector data processing. The modular architecture allows for easy maintenance and extension. While suitable for educational purposes, production deployment would require additional security measures.
+
+\vspace{1cm}
+\begin{center}
+\textbf{© 2024 VEALC Server Development Team}
+\end{center}
+
+\end{document}

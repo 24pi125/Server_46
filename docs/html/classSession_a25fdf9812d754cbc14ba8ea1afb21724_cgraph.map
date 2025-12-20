@@ -1,0 +1,4 @@
+<map id="Session::send_uint32" name="Session::send_uint32">
+<area shape="rect" id="node1" title="Отправляет 32&#45;битное беззнаковое число" alt="" coords="5,5,164,32"/>
+<area shape="rect" id="node2" href="$classSession.html#a8b1eb5ebfd3c900d71c991540b7a249f" title="Отправляет текстовые данные клиенту" alt="" coords="212,5,356,32"/>
+</map>

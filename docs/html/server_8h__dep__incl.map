@@ -1,0 +1,5 @@
+<map id="include/server.h" name="include/server.h">
+<area shape="rect" id="node1" title="Основной класс сервера" alt="" coords="61,5,186,32"/>
+<area shape="rect" id="node2" href="$main_8cpp.html" title="Точка входа в программу сервера" alt="" coords="5,80,111,107"/>
+<area shape="rect" id="node3" href="$server_8cpp.html" title="Реализация основного серверного процесса" alt="" coords="134,80,246,107"/>
+</map>

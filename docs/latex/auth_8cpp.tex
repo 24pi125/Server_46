@@ -1,0 +1,33 @@
+\hypertarget{auth_8cpp}{}\subsection{Documentation}
+\label{auth_8cpp}\index{src/auth.cpp@{src/auth.cpp}}
+
+
+Реализация методов аутентификации  
+
+
+{\ttfamily \#include \char`\"{}../include/auth.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$openssl/md5.\+h$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$iomanip$>$}\newline
+{\ttfamily \#include $<$random$>$}\newline
+Граф включаемых заголовочных файлов для auth.\+cpp\+:
+% FIG 0
+
+
+\doxysubsubsection{Documentation}
+Реализация методов аутентификации 
+
+Содержит реализацию методов класса \mbox{\hyperlink{classAuthenticator}{Authenticator}}\+:
+\begin{DoxyItemize}
+\item генерация случайной соли
+\item вычисление MD5 хэшей
+\item проверка учетных данных клиентов
+\end{DoxyItemize}
+
+\begin{DoxySeeAlso}{Documentation}
+\mbox{\hyperlink{auth_8h}{auth.\+h}} 
+\end{DoxySeeAlso}
+
+
+См. определение в файле \mbox{\hyperlink{auth_8cpp_source}{auth.\+cpp}}
+

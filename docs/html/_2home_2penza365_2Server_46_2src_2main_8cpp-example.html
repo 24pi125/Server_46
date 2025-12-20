@@ -1,0 +1,202 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.4"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>VEALC Server: /home/penza365/Server_46/src/main.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">VEALC Server<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Сервер для аутентификации и обработки векторных данных</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.4 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'Поиск','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('_2home_2penza365_2Server_46_2src_2main_8cpp-example.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">/home/penza365/Server_46/src/main.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<p >Точка входа в программу сервера</p>
+<p >Точка входа в программу сервера</p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">argc</td><td>Количество аргументов командной строки </td></tr>
+    <tr><td class="paramname">argv</td><td>Массив аргументов командной строки </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>int Код возврата: 0 - успех, 1 - ошибка</dd></dl>
+<p>Последовательность выполнения:</p><ol type="1">
+<li>Парсинг аргументов командной строки в конфигурацию</li>
+<li>Вывод справки по использованию (всегда)</li>
+<li>Вывод текущей конфигурации</li>
+<li>Создание и запуск экземпляра сервера</li>
+<li>Обработка исключений и возврат соответствующего кода</li>
+</ol>
+<p >./server # Запуск с настройками по умолчанию ./server -p 44444 # Запуск на порту 44444 ./server -c ./clients.conf # Использование кастомного файла клиентов</p>
+<div class="fragment"><div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * @file main.cpp</span></div>
+<div class="line"><span class="comment"> * @brief Точка входа в программу сервера</span></div>
+<div class="line"><span class="comment"> * </span></div>
+<div class="line"><span class="comment"> * Содержит функцию main() - точку входа в приложение сервера.</span></div>
+<div class="line"><span class="comment"> * Отвечает за парсинг аргументов командной строки, создание</span></div>
+<div class="line"><span class="comment"> * и запуск экземпляра сервера с указанной конфигурацией.</span></div>
+<div class="line"><span class="comment"> * </span></div>
+<div class="line"><span class="comment"> * @note Всегда выводит справку по использованию при запуске</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="server_8h.html">server.h</a>&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="config_8h.html">config.h</a>&quot;</span></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * @brief Точка входа в программу сервера</span></div>
+<div class="line"><span class="comment"> * </span></div>
+<div class="line"><span class="comment"> * @param argc Количество аргументов командной строки</span></div>
+<div class="line"><span class="comment"> * @param argv Массив аргументов командной строки</span></div>
+<div class="line"><span class="comment"> * @return int Код возврата: 0 - успех, 1 - ошибка</span></div>
+<div class="line"><span class="comment"> * </span></div>
+<div class="line"><span class="comment"> * @details</span></div>
+<div class="line"><span class="comment"> * Последовательность выполнения:</span></div>
+<div class="line"><span class="comment"> * 1. Парсинг аргументов командной строки в конфигурацию</span></div>
+<div class="line"><span class="comment"> * 2. Вывод справки по использованию (всегда)</span></div>
+<div class="line"><span class="comment"> * 3. Вывод текущей конфигурации</span></div>
+<div class="line"><span class="comment"> * 4. Создание и запуск экземпляра сервера</span></div>
+<div class="line"><span class="comment"> * 5. Обработка исключений и возврат соответствующего кода</span></div>
+<div class="line"><span class="comment"> * </span></div>
+<div class="line"><span class="comment"> * @example</span></div>
+<div class="line"><span class="comment"> * ./server                    # Запуск с настройками по умолчанию</span></div>
+<div class="line"><span class="comment"> * ./server -p 44444           # Запуск на порту 44444</span></div>
+<div class="line"><span class="comment"> * ./server -c ./clients.conf  # Использование кастомного файла клиентов</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"><span class="keywordtype">int</span> <a id="a0" name="a0"></a><a class="code hl_function" href="test__client_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97">main</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>* argv[]) {</div>
+<div class="line">    <span class="keywordflow">try</span> {</div>
+<div class="line">        <span class="comment">// Парсим аргументы командной строки</span></div>
+<div class="line">        <a id="_a1" name="_a1"></a><a class="code hl_struct" href="structServerConfig.html">ServerConfig</a> config = <a id="a2" name="a2"></a><a class="code hl_function" href="structServerConfig.html#af608810bd123ca2b2a1d30eb725f2b49">ServerConfig::parse_args</a>(argc, argv);</div>
+<div class="line">        </div>
+<div class="line">        <span class="comment">// ВСЕГДА показываем справку при запуске</span></div>
+<div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;Usage: ./server [options]\n&quot;</span>;</div>
+<div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;Options:\n&quot;</span>;</div>
+<div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;  -h, --help       Show this help message\n&quot;</span>;</div>
+<div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;  -p PORT          Server port (default: 33333)\n&quot;</span>;</div>
+<div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;  -c CONFIG_FILE   Client database file (default: /etc/vealc.conf)\n&quot;</span>;</div>
+<div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;  -d CONFIG_FILE   Alias for -c\n&quot;</span>;</div>
+<div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;  -l LOG_FILE      Log file (default: /var/log/vealc.log)\n&quot;</span>;</div>
+<div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;Examples:\n&quot;</span>;</div>
+<div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;  ./server                    # Run with default settings\n&quot;</span>;</div>
+<div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;  ./server -p 44444           # Run on port 44444\n&quot;</span>;</div>
+<div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;  ./server -c ./myconfig.conf # Use custom config file\n&quot;</span>;</div>
+<div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;========================================\n&quot;</span>;</div>
+<div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;Starting server with configuration:\n&quot;</span>;</div>
+<div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;  Port: &quot;</span> &lt;&lt; config.<a id="a3" name="a3"></a><a class="code hl_variable" href="structServerConfig.html#ae459946703124ef5a1d98dba38a8b493">port</a> &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;  Config file: &quot;</span> &lt;&lt; config.<a id="a4" name="a4"></a><a class="code hl_variable" href="structServerConfig.html#ad9468bbeb222fd74df00ef1fbbf7b87f">client_db_file</a> &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;  Log file: &quot;</span> &lt;&lt; config.<a id="a5" name="a5"></a><a class="code hl_variable" href="structServerConfig.html#a5728757aec9a966dbd50b52191438ca8">log_file</a> &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;========================================\n\n&quot;</span>;</div>
+<div class="line">        </div>
+<div class="line">        <span class="comment">// Запускаем сервер с конфигом</span></div>
+<div class="line">        <a id="_a6" name="_a6"></a><a class="code hl_class" href="classServer.html">Server</a> server(config);</div>
+<div class="line">        server.<a id="a7" name="a7"></a><a class="code hl_function" href="classServer.html#abb27d30b40a94326e3fd629d3b30b7d5">run</a>();</div>
+<div class="line">        </div>
+<div class="line">    } <span class="keywordflow">catch</span> (<span class="keyword">const</span> std::exception&amp; e) {</div>
+<div class="line">        std::cerr &lt;&lt; <span class="stringliteral">&quot;Fatal error: &quot;</span> &lt;&lt; e.what() &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">        <span class="keywordflow">return</span> 1;</div>
+<div class="line">    } <span class="keywordflow">catch</span> (...) {</div>
+<div class="line">        std::cerr &lt;&lt; <span class="stringliteral">&quot;Unknown fatal error\n&quot;</span>;</div>
+<div class="line">        <span class="keywordflow">return</span> 1;</div>
+<div class="line">    }</div>
+<div class="line">    </div>
+<div class="line">    <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+<div class="ttc" id="aclassServer_html"><div class="ttname"><a href="classServer.html">Server</a></div><div class="ttdoc">Основной класс TCP сервера</div><div class="ttdef"><b>Definition:</b> <a href="server_8h_source.html#l00035">server.h:35</a></div></div>
+<div class="ttc" id="aclassServer_html_abb27d30b40a94326e3fd629d3b30b7d5"><div class="ttname"><a href="classServer.html#abb27d30b40a94326e3fd629d3b30b7d5">Server::run</a></div><div class="ttdeci">void run()</div><div class="ttdoc">Запускает основной цикл сервера</div><div class="ttdef"><b>Definition:</b> <a href="server_8cpp_source.html#l00179">server.cpp:179</a></div></div>
+<div class="ttc" id="aconfig_8h_html"><div class="ttname"><a href="config_8h.html">config.h</a></div><div class="ttdoc">Конфигурация сервера</div></div>
+<div class="ttc" id="aserver_8h_html"><div class="ttname"><a href="server_8h.html">server.h</a></div><div class="ttdoc">Основной класс сервера</div></div>
+<div class="ttc" id="astructServerConfig_html"><div class="ttname"><a href="structServerConfig.html">ServerConfig</a></div><div class="ttdoc">Структура конфигурации сервера</div><div class="ttdef"><b>Definition:</b> <a href="config_8h_source.html#l00031">config.h:31</a></div></div>
+<div class="ttc" id="astructServerConfig_html_a5728757aec9a966dbd50b52191438ca8"><div class="ttname"><a href="structServerConfig.html#a5728757aec9a966dbd50b52191438ca8">ServerConfig::log_file</a></div><div class="ttdeci">std::string log_file</div><div class="ttdoc">Файл логов сервера</div><div class="ttdef"><b>Definition:</b> <a href="config_8h_source.html#l00033">config.h:33</a></div></div>
+<div class="ttc" id="astructServerConfig_html_ad9468bbeb222fd74df00ef1fbbf7b87f"><div class="ttname"><a href="structServerConfig.html#ad9468bbeb222fd74df00ef1fbbf7b87f">ServerConfig::client_db_file</a></div><div class="ttdeci">std::string client_db_file</div><div class="ttdoc">Файл базы данных клиентов</div><div class="ttdef"><b>Definition:</b> <a href="config_8h_source.html#l00032">config.h:32</a></div></div>
+<div class="ttc" id="astructServerConfig_html_ae459946703124ef5a1d98dba38a8b493"><div class="ttname"><a href="structServerConfig.html#ae459946703124ef5a1d98dba38a8b493">ServerConfig::port</a></div><div class="ttdeci">int port</div><div class="ttdoc">Порт сервера (по умолчанию 33333)</div><div class="ttdef"><b>Definition:</b> <a href="config_8h_source.html#l00034">config.h:34</a></div></div>
+<div class="ttc" id="astructServerConfig_html_af608810bd123ca2b2a1d30eb725f2b49"><div class="ttname"><a href="structServerConfig.html#af608810bd123ca2b2a1d30eb725f2b49">ServerConfig::parse_args</a></div><div class="ttdeci">static ServerConfig parse_args(int argc, char *argv[])</div><div class="ttdoc">Парсит аргументы командной строки</div><div class="ttdef"><b>Definition:</b> <a href="config_8cpp_source.html#l00034">config.cpp:34</a></div></div>
+<div class="ttc" id="atest__client_8cpp_html_a0ddf1224851353fc92bfbff6f499fa97"><div class="ttname"><a href="test__client_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97">main</a></div><div class="ttdeci">int main(int argc, char *argv[])</div><div class="ttdef"><b>Definition:</b> <a href="test__client_8cpp_source.html#l00159">test_client.cpp:159</a></div></div>
+</div><!-- fragment --> </div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
+  </ul>
+</div>
+</body>
+</html>

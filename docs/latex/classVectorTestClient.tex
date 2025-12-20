@@ -1,0 +1,278 @@
+\hypertarget{classVectorTestClient}{}\subsection{Documentation}
+\label{classVectorTestClient}\index{VectorTestClient@{VectorTestClient}}
+\doxysubsubsection*{Documentation}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classVectorTestClient_a6b197a676caf4c350df8338682280712}{Vector\+Test\+Client}} (const std\+::string \&ip=\char`\"{}127.\+0.\+0.\+1\char`\"{}, int port=33333)
+\item 
+bool \mbox{\hyperlink{classVectorTestClient_a2410d143701f450fc6d1913021e8bc86}{authenticate}} (const std\+::string \&login, const std\+::string \&password)
+\item 
+void \mbox{\hyperlink{classVectorTestClient_ab5abdf3167bd35f45e1122900cdbd371}{close}} ()
+\item 
+bool \mbox{\hyperlink{classVectorTestClient_a08b02382ed51e72a1e8c1fde2152bec6}{connect}} ()
+\item 
+int32\+\_\+t \mbox{\hyperlink{classVectorTestClient_a36859fecb5327a20fc0bbc95ff50af47}{receive\+\_\+int32}} ()
+\item 
+void \mbox{\hyperlink{classVectorTestClient_a5d85013b91dcac5bbf5d3a1912ee6852}{send\+\_\+int32}} (int32\+\_\+t value)
+\item 
+void \mbox{\hyperlink{classVectorTestClient_a6b93aab2810905d2365f2bd8047dfeee}{send\+\_\+uint32}} (uint32\+\_\+t value)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Documentation}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{classVectorTestClient_a09f6c859cf3f4f46222ac3ada7a26e69}{calculate\+\_\+md5}} (const std\+::string \&data)
+\item 
+std\+::string \mbox{\hyperlink{classVectorTestClient_a3c446f177b729b0317355ff2cfa84985}{receive\+\_\+line}} ()
+\item 
+bool \mbox{\hyperlink{classVectorTestClient_abb9207fcf110ace0c8b4e674a2de2b92}{send\+\_\+all}} (const std\+::string \&data)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Documentation}
+\begin{DoxyCompactItemize}
+\item 
+struct sockaddr\+\_\+in \mbox{\hyperlink{classVectorTestClient_ac7488a4fca4d8281d89b45317c88d822}{serv\+\_\+addr}}
+\item 
+int \mbox{\hyperlink{classVectorTestClient_ac97ddae816cdc4e48a868a9521e4a257}{sock}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsubsection{Documentation}
+
+
+См. определение в файле \mbox{\hyperlink{test__client_8cpp_source}{test\+\_\+client.\+cpp}} строка \mbox{\hyperlink{test__client_8cpp_source_l00013}{13}}
+
+
+
+\doxysubsubsection{Documentation}
+\mbox{\Hypertarget{classVectorTestClient_a6b197a676caf4c350df8338682280712}\label{classVectorTestClient_a6b197a676caf4c350df8338682280712}} 
+\index{VectorTestClient@{VectorTestClient}!VectorTestClient@{VectorTestClient}}
+\index{VectorTestClient@{VectorTestClient}!VectorTestClient@{VectorTestClient}}
+\doxyparagraph{\texorpdfstring{VectorTestClient()}{VectorTestClient()}}
+{\footnotesize\ttfamily Vector\+Test\+Client\+::\+Vector\+Test\+Client (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{ip = {\ttfamily \char`\"{}127.0.0.1\char`\"{}},  }\item[{int}]{port = {\ttfamily 33333} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+См. определение в файле \mbox{\hyperlink{test__client_8cpp_source}{test\+\_\+client.\+cpp}} строка \mbox{\hyperlink{test__client_8cpp_source_l00067}{67}}
+
+
+
+Перекрестные ссылки \mbox{\hyperlink{test__client_8cpp_source_l00016}{serv\+\_\+addr}} и \mbox{\hyperlink{test__client_8cpp_source_l00015}{sock}}.
+
+
+
+\doxysubsubsection{Documentation}
+\mbox{\Hypertarget{classVectorTestClient_a2410d143701f450fc6d1913021e8bc86}\label{classVectorTestClient_a2410d143701f450fc6d1913021e8bc86}} 
+\index{VectorTestClient@{VectorTestClient}!authenticate@{authenticate}}
+\index{authenticate@{authenticate}!VectorTestClient@{VectorTestClient}}
+\doxyparagraph{\texorpdfstring{authenticate()}{authenticate()}}
+{\footnotesize\ttfamily bool Vector\+Test\+Client\+::authenticate (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{login,  }\item[{const std\+::string \&}]{password }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+См. определение в файле \mbox{\hyperlink{test__client_8cpp_source}{test\+\_\+client.\+cpp}} строка \mbox{\hyperlink{test__client_8cpp_source_l00089}{89}}
+
+
+
+Перекрестные ссылки \mbox{\hyperlink{test__client_8cpp_source_l00018}{calculate\+\_\+md5()}}, \mbox{\hyperlink{test__client_8cpp_source_l00046}{receive\+\_\+line()}} и \mbox{\hyperlink{test__client_8cpp_source_l00030}{send\+\_\+all()}}.
+
+
+
+Используется в \mbox{\hyperlink{test__client_8cpp_source_l00159}{main()}}.
+
+Граф вызовов\+:
+% FIG 0
+Граф вызова функции\+:
+% FIG 1
+\mbox{\Hypertarget{classVectorTestClient_a09f6c859cf3f4f46222ac3ada7a26e69}\label{classVectorTestClient_a09f6c859cf3f4f46222ac3ada7a26e69}} 
+\index{VectorTestClient@{VectorTestClient}!calculate\_md5@{calculate\_md5}}
+\index{calculate\_md5@{calculate\_md5}!VectorTestClient@{VectorTestClient}}
+\doxyparagraph{\texorpdfstring{calculate\_md5()}{calculate\_md5()}}
+{\footnotesize\ttfamily std\+::string Vector\+Test\+Client\+::calculate\+\_\+md5 (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+См. определение в файле \mbox{\hyperlink{test__client_8cpp_source}{test\+\_\+client.\+cpp}} строка \mbox{\hyperlink{test__client_8cpp_source_l00018}{18}}
+
+
+
+Используется в \mbox{\hyperlink{test__client_8cpp_source_l00089}{authenticate()}}.
+
+Граф вызова функции\+:
+% FIG 2
+\mbox{\Hypertarget{classVectorTestClient_ab5abdf3167bd35f45e1122900cdbd371}\label{classVectorTestClient_ab5abdf3167bd35f45e1122900cdbd371}} 
+\index{VectorTestClient@{VectorTestClient}!close@{close}}
+\index{close@{close}!VectorTestClient@{VectorTestClient}}
+\doxyparagraph{\texorpdfstring{close()}{close()}}
+{\footnotesize\ttfamily void Vector\+Test\+Client\+::close (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+См. определение в файле \mbox{\hyperlink{test__client_8cpp_source}{test\+\_\+client.\+cpp}} строка \mbox{\hyperlink{test__client_8cpp_source_l00085}{85}}
+
+
+
+Перекрестные ссылки \mbox{\hyperlink{test__client_8cpp_source_l00085}{close()}} и \mbox{\hyperlink{test__client_8cpp_source_l00015}{sock}}.
+
+
+
+Используется в \mbox{\hyperlink{test__client_8cpp_source_l00085}{close()}} и \mbox{\hyperlink{test__client_8cpp_source_l00159}{main()}}.
+
+Граф вызовов\+:
+% FIG 3
+Граф вызова функции\+:
+% FIG 4
+\mbox{\Hypertarget{classVectorTestClient_a08b02382ed51e72a1e8c1fde2152bec6}\label{classVectorTestClient_a08b02382ed51e72a1e8c1fde2152bec6}} 
+\index{VectorTestClient@{VectorTestClient}!connect@{connect}}
+\index{connect@{connect}!VectorTestClient@{VectorTestClient}}
+\doxyparagraph{\texorpdfstring{connect()}{connect()}}
+{\footnotesize\ttfamily bool Vector\+Test\+Client\+::connect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+См. определение в файле \mbox{\hyperlink{test__client_8cpp_source}{test\+\_\+client.\+cpp}} строка \mbox{\hyperlink{test__client_8cpp_source_l00081}{81}}
+
+
+
+Перекрестные ссылки \mbox{\hyperlink{test__client_8cpp_source_l00016}{serv\+\_\+addr}} и \mbox{\hyperlink{test__client_8cpp_source_l00015}{sock}}.
+
+
+
+Используется в \mbox{\hyperlink{test__client_8cpp_source_l00159}{main()}}.
+
+Граф вызова функции\+:
+% FIG 5
+\mbox{\Hypertarget{classVectorTestClient_a36859fecb5327a20fc0bbc95ff50af47}\label{classVectorTestClient_a36859fecb5327a20fc0bbc95ff50af47}} 
+\index{VectorTestClient@{VectorTestClient}!receive\_int32@{receive\_int32}}
+\index{receive\_int32@{receive\_int32}!VectorTestClient@{VectorTestClient}}
+\doxyparagraph{\texorpdfstring{receive\_int32()}{receive\_int32()}}
+{\footnotesize\ttfamily int32\+\_\+t Vector\+Test\+Client\+::receive\+\_\+int32 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+См. определение в файле \mbox{\hyperlink{test__client_8cpp_source}{test\+\_\+client.\+cpp}} строка \mbox{\hyperlink{test__client_8cpp_source_l00137}{137}}
+
+
+
+Перекрестные ссылки \mbox{\hyperlink{test__client_8cpp_source_l00015}{sock}}.
+
+
+
+Используется в \mbox{\hyperlink{test__client_8cpp_source_l00159}{main()}}.
+
+Граф вызова функции\+:
+% FIG 6
+\mbox{\Hypertarget{classVectorTestClient_a3c446f177b729b0317355ff2cfa84985}\label{classVectorTestClient_a3c446f177b729b0317355ff2cfa84985}} 
+\index{VectorTestClient@{VectorTestClient}!receive\_line@{receive\_line}}
+\index{receive\_line@{receive\_line}!VectorTestClient@{VectorTestClient}}
+\doxyparagraph{\texorpdfstring{receive\_line()}{receive\_line()}}
+{\footnotesize\ttfamily std\+::string Vector\+Test\+Client\+::receive\+\_\+line (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+См. определение в файле \mbox{\hyperlink{test__client_8cpp_source}{test\+\_\+client.\+cpp}} строка \mbox{\hyperlink{test__client_8cpp_source_l00046}{46}}
+
+
+
+Перекрестные ссылки \mbox{\hyperlink{test__client_8cpp_source_l00015}{sock}}.
+
+
+
+Используется в \mbox{\hyperlink{test__client_8cpp_source_l00089}{authenticate()}}.
+
+Граф вызова функции\+:
+% FIG 7
+\mbox{\Hypertarget{classVectorTestClient_abb9207fcf110ace0c8b4e674a2de2b92}\label{classVectorTestClient_abb9207fcf110ace0c8b4e674a2de2b92}} 
+\index{VectorTestClient@{VectorTestClient}!send\_all@{send\_all}}
+\index{send\_all@{send\_all}!VectorTestClient@{VectorTestClient}}
+\doxyparagraph{\texorpdfstring{send\_all()}{send\_all()}}
+{\footnotesize\ttfamily bool Vector\+Test\+Client\+::send\+\_\+all (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+См. определение в файле \mbox{\hyperlink{test__client_8cpp_source}{test\+\_\+client.\+cpp}} строка \mbox{\hyperlink{test__client_8cpp_source_l00030}{30}}
+
+
+
+Перекрестные ссылки \mbox{\hyperlink{test__client_8cpp_source_l00015}{sock}}.
+
+
+
+Используется в \mbox{\hyperlink{test__client_8cpp_source_l00089}{authenticate()}}.
+
+Граф вызова функции\+:
+% FIG 8
+\mbox{\Hypertarget{classVectorTestClient_a5d85013b91dcac5bbf5d3a1912ee6852}\label{classVectorTestClient_a5d85013b91dcac5bbf5d3a1912ee6852}} 
+\index{VectorTestClient@{VectorTestClient}!send\_int32@{send\_int32}}
+\index{send\_int32@{send\_int32}!VectorTestClient@{VectorTestClient}}
+\doxyparagraph{\texorpdfstring{send\_int32()}{send\_int32()}}
+{\footnotesize\ttfamily void Vector\+Test\+Client\+::send\+\_\+int32 (\begin{DoxyParamCaption}\item[{int32\+\_\+t}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+См. определение в файле \mbox{\hyperlink{test__client_8cpp_source}{test\+\_\+client.\+cpp}} строка \mbox{\hyperlink{test__client_8cpp_source_l00132}{132}}
+
+
+
+Перекрестные ссылки \mbox{\hyperlink{test__client_8cpp_source_l00015}{sock}}.
+
+
+
+Используется в \mbox{\hyperlink{test__client_8cpp_source_l00159}{main()}}.
+
+Граф вызова функции\+:
+% FIG 9
+\mbox{\Hypertarget{classVectorTestClient_a6b93aab2810905d2365f2bd8047dfeee}\label{classVectorTestClient_a6b93aab2810905d2365f2bd8047dfeee}} 
+\index{VectorTestClient@{VectorTestClient}!send\_uint32@{send\_uint32}}
+\index{send\_uint32@{send\_uint32}!VectorTestClient@{VectorTestClient}}
+\doxyparagraph{\texorpdfstring{send\_uint32()}{send\_uint32()}}
+{\footnotesize\ttfamily void Vector\+Test\+Client\+::send\+\_\+uint32 (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+См. определение в файле \mbox{\hyperlink{test__client_8cpp_source}{test\+\_\+client.\+cpp}} строка \mbox{\hyperlink{test__client_8cpp_source_l00127}{127}}
+
+
+
+Перекрестные ссылки \mbox{\hyperlink{test__client_8cpp_source_l00015}{sock}}.
+
+
+
+Используется в \mbox{\hyperlink{test__client_8cpp_source_l00159}{main()}}.
+
+Граф вызова функции\+:
+% FIG 10
+
+
+\doxysubsubsection{Documentation}
+\mbox{\Hypertarget{classVectorTestClient_ac7488a4fca4d8281d89b45317c88d822}\label{classVectorTestClient_ac7488a4fca4d8281d89b45317c88d822}} 
+\index{VectorTestClient@{VectorTestClient}!serv\_addr@{serv\_addr}}
+\index{serv\_addr@{serv\_addr}!VectorTestClient@{VectorTestClient}}
+\doxyparagraph{\texorpdfstring{serv\_addr}{serv\_addr}}
+{\footnotesize\ttfamily struct sockaddr\+\_\+in Vector\+Test\+Client\+::serv\+\_\+addr\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+См. определение в файле \mbox{\hyperlink{test__client_8cpp_source}{test\+\_\+client.\+cpp}} строка \mbox{\hyperlink{test__client_8cpp_source_l00016}{16}}
+
+
+
+Используется в \mbox{\hyperlink{test__client_8cpp_source_l00067}{Vector\+Test\+Client()}} и \mbox{\hyperlink{test__client_8cpp_source_l00081}{connect()}}.
+
+\mbox{\Hypertarget{classVectorTestClient_ac97ddae816cdc4e48a868a9521e4a257}\label{classVectorTestClient_ac97ddae816cdc4e48a868a9521e4a257}} 
+\index{VectorTestClient@{VectorTestClient}!sock@{sock}}
+\index{sock@{sock}!VectorTestClient@{VectorTestClient}}
+\doxyparagraph{\texorpdfstring{sock}{sock}}
+{\footnotesize\ttfamily int Vector\+Test\+Client\+::sock\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+См. определение в файле \mbox{\hyperlink{test__client_8cpp_source}{test\+\_\+client.\+cpp}} строка \mbox{\hyperlink{test__client_8cpp_source_l00015}{15}}
+
+
+
+Используется в \mbox{\hyperlink{test__client_8cpp_source_l00067}{Vector\+Test\+Client()}}, \mbox{\hyperlink{test__client_8cpp_source_l00085}{close()}}, \mbox{\hyperlink{test__client_8cpp_source_l00081}{connect()}}, \mbox{\hyperlink{test__client_8cpp_source_l00137}{receive\+\_\+int32()}}, \mbox{\hyperlink{test__client_8cpp_source_l00046}{receive\+\_\+line()}}, \mbox{\hyperlink{test__client_8cpp_source_l00030}{send\+\_\+all()}}, \mbox{\hyperlink{test__client_8cpp_source_l00132}{send\+\_\+int32()}} и \mbox{\hyperlink{test__client_8cpp_source_l00127}{send\+\_\+uint32()}}.
+
+
+
+Объявления и описания членов класса находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+clients/\mbox{\hyperlink{test__client_8cpp}{test\+\_\+client.\+cpp}}\end{DoxyCompactItemize}

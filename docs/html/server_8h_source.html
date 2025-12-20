@@ -1,0 +1,215 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.4"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>VEALC Server: Исходный файл include/server.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">VEALC Server<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Сервер для аутентификации и обработки векторных данных</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.4 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'Поиск','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('server_8h_source.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">server.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="server_8h.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * @file server.h</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * @brief Основной класс сервера</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * </span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * Определяет класс Server, который представляет собой основной серверный процесс.</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * Отвечает за инициализацию, настройку сокета, загрузку конфигурации,</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> * прием клиентских подключений и создание сессий для их обработки.</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> * </span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> * @note Сервер работает в бесконечном цикле, принимая новые подключения</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> * @see server.cpp</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#ifndef SERVER_H</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#define SERVER_H</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;<a class="code" href="types_8h.html">types.h</a>&quot;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;<a class="code" href="config_8h.html">config.h</a>&quot;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;<a class="code" href="logger_8h.html">logger.h</a>&quot;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &lt;unordered_map&gt;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment"></span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment"> * @brief Основной класс TCP сервера</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment"> * </span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment"> * Реализует функциональность многопользовательского TCP сервера:</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment"> * - Загрузка конфигурации из файла</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment"> * - Настройка и привязка сокета</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment"> * - Прием входящих подключений</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment"> * - Создание сессий для обработки клиентских запросов</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment"> * - Ведение журнала событий</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment"> * </span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment"> * @note Использует блокирующие системные вызовы</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment"> * @warning Обрабатывает только одно подключение одновременно (последовательно)</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="classServer.html">   35</a></span><span class="keyword">class </span><a class="code hl_class" href="classServer.html">Server</a> {</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="classServer.html#ad44296a781aa84fbc2cffee3407d9a25">   37</a></span>    <a class="code hl_struct" href="structServerConfig.html">ServerConfig</a> <a class="code hl_variable" href="classServer.html#ad44296a781aa84fbc2cffee3407d9a25">config_</a>;                                <span class="comment">///&lt; Конфигурация сервера</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="classServer.html#a65e2a0d098d668104f26a0a08092a28f">   38</a></span>    <a class="code hl_class" href="classLogger.html">Logger</a> <a class="code hl_variable" href="classServer.html#a65e2a0d098d668104f26a0a08092a28f">logger_</a>;                                      <span class="comment">///&lt; Логгер для записи событий</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="classServer.html#a4d3082d5592ab7e53d2e37cbe1370575">   39</a></span>    std::unordered_map&lt;std::string, std::string&gt; <a class="code hl_variable" href="classServer.html#a4d3082d5592ab7e53d2e37cbe1370575">clients_</a>; <span class="comment">///&lt; База данных клиентов</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="classServer.html#a566cd5dd4c0933fb6132706cd12af23b">   40</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="classServer.html#a566cd5dd4c0933fb6132706cd12af23b">server_fd_</a>;                                      <span class="comment">///&lt; Дескриптор серверного сокета</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment">     * @brief Загружает базу данных клиентов из файла</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment">     * </span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment">     * @throw std::runtime_error если файл не может быть открыт</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment">     * </span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment">     * @note Формат файла: каждая строка &quot;логин:пароль&quot;</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classServer.html#a0ed7695b528ccfab79656192533199c5">load_clients</a>();</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment">     * @brief Настраивает серверный сокет</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment">     * </span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment">     * Создает сокет, устанавливает опции, привязывает к адресу и порту,</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment">     * переводит в режим прослушивания.</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment">     * </span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment">     * @throw std::runtime_error при ошибках системных вызовов</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classServer.html#a5165c8fc64601592b4ac2b46f2747737">setup_socket</a>();</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment">     * @brief Принимает входящие подключения</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="comment">     * </span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="comment">     * Бесконечный цикл, который принимает новые подключения</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment">     * и создает для каждого экземпляр Session для обработки.</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classServer.html#ad4b5451852187a67551e68480fa0e9f5">accept_connections</a>();</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="keyword">public</span>:<span class="comment"></span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="comment">     * @brief Конструктор сервера</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="comment">     * </span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="comment">     * @param config Конфигурация сервера</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="comment">     * </span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="comment">     * Инициализирует сервер с заданной конфигурацией:</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="comment">     * 1. Создает логгер</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="comment">     * 2. Загружает базу клиентов</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="comment">     * 3. Настраивает сокет</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <a class="code hl_function" href="classServer.html#a47c127babad31cbd0a3c452d2e6b395b">Server</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structServerConfig.html">ServerConfig</a>&amp; config);</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="comment">     * @brief Деструктор сервера</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="comment">     * </span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="comment">     * Закрывает серверный сокет и освобождает ресурсы.</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <a class="code hl_function" href="classServer.html#a4b3aa2579cb1c8cd1d069582c14d0fa6">~Server</a>();</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    <span class="comment"></span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="comment">    /**</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="comment">     * @brief Запускает основной цикл сервера</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="comment">     * </span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="comment">     * Выводит информацию о запуске и начинает прием подключений.</span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="comment">     * Работает бесконечно до принудительной остановки (Ctrl+C).</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="comment">     * </span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="comment">     * @note Блокирующий вызов</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classServer.html#abb27d30b40a94326e3fd629d3b30b7d5">run</a>();</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>};</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclassLogger_html"><div class="ttname"><a href="classLogger.html">Logger</a></div><div class="ttdoc">Класс для ведения журнала событий</div><div class="ttdef"><b>Definition:</b> <a href="logger_8h_source.html#l00026">logger.h:26</a></div></div>
+<div class="ttc" id="aclassServer_html"><div class="ttname"><a href="classServer.html">Server</a></div><div class="ttdoc">Основной класс TCP сервера</div><div class="ttdef"><b>Definition:</b> <a href="server_8h_source.html#l00035">server.h:35</a></div></div>
+<div class="ttc" id="aclassServer_html_a0ed7695b528ccfab79656192533199c5"><div class="ttname"><a href="classServer.html#a0ed7695b528ccfab79656192533199c5">Server::load_clients</a></div><div class="ttdeci">void load_clients()</div><div class="ttdoc">Загружает базу данных клиентов из файла</div><div class="ttdef"><b>Definition:</b> <a href="server_8cpp_source.html#l00072">server.cpp:72</a></div></div>
+<div class="ttc" id="aclassServer_html_a47c127babad31cbd0a3c452d2e6b395b"><div class="ttname"><a href="classServer.html#a47c127babad31cbd0a3c452d2e6b395b">Server::Server</a></div><div class="ttdeci">Server(const ServerConfig &amp;config)</div><div class="ttdoc">Конструктор сервера</div><div class="ttdef"><b>Definition:</b> <a href="server_8cpp_source.html#l00039">server.cpp:39</a></div></div>
+<div class="ttc" id="aclassServer_html_a4b3aa2579cb1c8cd1d069582c14d0fa6"><div class="ttname"><a href="classServer.html#a4b3aa2579cb1c8cd1d069582c14d0fa6">Server::~Server</a></div><div class="ttdeci">~Server()</div><div class="ttdoc">Деструктор сервера</div><div class="ttdef"><b>Definition:</b> <a href="server_8cpp_source.html#l00051">server.cpp:51</a></div></div>
+<div class="ttc" id="aclassServer_html_a4d3082d5592ab7e53d2e37cbe1370575"><div class="ttname"><a href="classServer.html#a4d3082d5592ab7e53d2e37cbe1370575">Server::clients_</a></div><div class="ttdeci">std::unordered_map&lt; std::string, std::string &gt; clients_</div><div class="ttdoc">База данных клиентов</div><div class="ttdef"><b>Definition:</b> <a href="server_8h_source.html#l00039">server.h:39</a></div></div>
+<div class="ttc" id="aclassServer_html_a5165c8fc64601592b4ac2b46f2747737"><div class="ttname"><a href="classServer.html#a5165c8fc64601592b4ac2b46f2747737">Server::setup_socket</a></div><div class="ttdeci">void setup_socket()</div><div class="ttdoc">Настраивает серверный сокет</div><div class="ttdef"><b>Definition:</b> <a href="server_8cpp_source.html#l00105">server.cpp:105</a></div></div>
+<div class="ttc" id="aclassServer_html_a566cd5dd4c0933fb6132706cd12af23b"><div class="ttname"><a href="classServer.html#a566cd5dd4c0933fb6132706cd12af23b">Server::server_fd_</a></div><div class="ttdeci">int server_fd_</div><div class="ttdoc">Дескриптор серверного сокета</div><div class="ttdef"><b>Definition:</b> <a href="server_8h_source.html#l00040">server.h:40</a></div></div>
+<div class="ttc" id="aclassServer_html_a65e2a0d098d668104f26a0a08092a28f"><div class="ttname"><a href="classServer.html#a65e2a0d098d668104f26a0a08092a28f">Server::logger_</a></div><div class="ttdeci">Logger logger_</div><div class="ttdoc">Логгер для записи событий</div><div class="ttdef"><b>Definition:</b> <a href="server_8h_source.html#l00038">server.h:38</a></div></div>
+<div class="ttc" id="aclassServer_html_abb27d30b40a94326e3fd629d3b30b7d5"><div class="ttname"><a href="classServer.html#abb27d30b40a94326e3fd629d3b30b7d5">Server::run</a></div><div class="ttdeci">void run()</div><div class="ttdoc">Запускает основной цикл сервера</div><div class="ttdef"><b>Definition:</b> <a href="server_8cpp_source.html#l00179">server.cpp:179</a></div></div>
+<div class="ttc" id="aclassServer_html_ad44296a781aa84fbc2cffee3407d9a25"><div class="ttname"><a href="classServer.html#ad44296a781aa84fbc2cffee3407d9a25">Server::config_</a></div><div class="ttdeci">ServerConfig config_</div><div class="ttdoc">Конфигурация сервера</div><div class="ttdef"><b>Definition:</b> <a href="server_8h_source.html#l00037">server.h:37</a></div></div>
+<div class="ttc" id="aclassServer_html_ad4b5451852187a67551e68480fa0e9f5"><div class="ttname"><a href="classServer.html#ad4b5451852187a67551e68480fa0e9f5">Server::accept_connections</a></div><div class="ttdeci">void accept_connections()</div><div class="ttdoc">Принимает входящие подключения</div><div class="ttdef"><b>Definition:</b> <a href="server_8cpp_source.html#l00149">server.cpp:149</a></div></div>
+<div class="ttc" id="aconfig_8h_html"><div class="ttname"><a href="config_8h.html">config.h</a></div><div class="ttdoc">Конфигурация сервера</div></div>
+<div class="ttc" id="alogger_8h_html"><div class="ttname"><a href="logger_8h.html">logger.h</a></div><div class="ttdoc">Класс для логирования</div></div>
+<div class="ttc" id="astructServerConfig_html"><div class="ttname"><a href="structServerConfig.html">ServerConfig</a></div><div class="ttdoc">Структура конфигурации сервера</div><div class="ttdef"><b>Definition:</b> <a href="config_8h_source.html#l00031">config.h:31</a></div></div>
+<div class="ttc" id="atypes_8h_html"><div class="ttname"><a href="types_8h.html">types.h</a></div><div class="ttdoc">Основные типы данных проекта</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="server_8h.html">server.h</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
+  </ul>
+</div>
+</body>
+</html>

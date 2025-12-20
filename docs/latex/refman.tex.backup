@@ -1,0 +1,82 @@
+usepackage[russian]{babel}
+usepackage[utf8]{inputenc}
+usepackage[T2A]{fontenc}
+\documentclass[11pt,a4paper]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[english,russian]{babel}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{hyperref}
+
+\geometry{a4paper,left=30mm,right=20mm,top=20mm,bottom=20mm}
+
+\title{VEALC Server \\ Документация проекта}
+\author{Сгенерировано Doxygen}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\chapter{Введение}
+Проект VEALC Server представляет собой TCP сервер для аутентификации клиентов и обработки векторных данных.
+
+\chapter{Классы}
+
+\section{Authenticator}
+\subsection{Description}
+Client Authentication Class с использованием MD5 хэширования и соли.
+
+\subsection{Методы}
+\input{auth_8h.tex}
+
+\section{Logger}
+\subsection{Description}
+Система логирования событий сервера с записью в file и выводом в консоль.
+
+\subsection{Методы}
+\input{logger_8h.tex}
+
+\section{Server}
+\subsection{Description}
+Основной класс TCP сервера. Управляет подключениями, создает сессии.
+
+\subsection{Методы}
+\input{server_8h.tex}
+
+\section{Session}
+\subsection{Description}
+Обработка клиентских сессий: аутентификация, прием данных, вычисления.
+
+\subsection{Методы}
+\input{session_8h.tex}
+
+\section{VectorProcessor}
+\subsection{Description}
+Вычисления произведений элементов векторов с контролем переполнения.
+
+\subsection{Методы}
+\input{vector_processor_8h.tex}
+
+\chapter{Структуры}
+
+\section{ServerConfig}
+\subsection{Description}
+Структура конфигурации сервера.
+
+\subsection{Поля}
+\input{structServerConfig.tex}
+
+\chapter{Исходные fileы}
+
+\section{Заголовочные fileы (.h)}
+\input{files.tex}
+
+\chapter{Примеры кода}
+\input{examples.tex}
+
+\end{document}

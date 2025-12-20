@@ -1,0 +1,106 @@
+\hypertarget{_2home_2penza365_2Server_46_2src_2main_8cpp-example}{}\subsection{/home/penza365/\+Server\+\_\+46/src/main.\+cpp}
+Точка входа в программу сервера
+
+Точка входа в программу сервера
+\begin{DoxyParams}{Documentation}
+{\em argc} & Количество аргументов командной строки \\
+\hline
+{\em argv} & Массив аргументов командной строки \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Documentation}
+int Код возврата\+: 0 -\/ успех, 1 -\/ ошибка
+\end{DoxyReturn}
+Последовательность выполнения\+:
+\begin{DoxyEnumerate}
+\item Парсинг аргументов командной строки в конфигурацию
+\item Вывод справки по использованию (всегда)
+\item Вывод текущей конфигурации
+\item Создание и запуск экземпляра сервера
+\item Обработка исключений и возврат соответствующего кода
+\end{DoxyEnumerate}
+
+./server \# Запуск с настройками по умолчанию ./server -\/p 44444 \# Запуск на порту 44444 ./server -\/c ./clients.conf \# Использование кастомного файла клиентов
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{comment}{/**}}
+\DoxyCodeLine{\textcolor{comment}{ * @file main.cpp}}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{ * }}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{ * }}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{ */}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{server_8h}{server.h}}"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{config_8h}{config.h}}"{}}}
+\DoxyCodeLine{\textcolor{comment}{}}
+\DoxyCodeLine{\textcolor{comment}{/**}}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{ * }}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{ * }}
+\DoxyCodeLine{\textcolor{comment}{ * @details}}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{ * }}
+\DoxyCodeLine{\textcolor{comment}{ * @example}}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{ */}}
+\DoxyCodeLine{\textcolor{keywordtype}{int} \mbox{\hyperlink{test__client_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}}(\textcolor{keywordtype}{int} argc, \textcolor{keywordtype}{char}* argv[]) \{}
+\DoxyCodeLine{    \textcolor{keywordflow}{try} \{}
+\DoxyCodeLine{        \textcolor{comment}{Documentation}}
+\DoxyCodeLine{        \mbox{\hyperlink{structServerConfig}{ServerConfig}} config = \mbox{\hyperlink{structServerConfig_af608810bd123ca2b2a1d30eb725f2b49}{ServerConfig::parse\_args}}(argc, argv);}
+\DoxyCodeLine{        }
+\DoxyCodeLine{        \textcolor{comment}{Documentation}}
+\DoxyCodeLine{        std::cout << \textcolor{stringliteral}{"{}Usage: ./server [options]\(\backslash\)n"{}};}
+\DoxyCodeLine{        std::cout << \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{        std::cout << \textcolor{stringliteral}{"{}Options:\(\backslash\)n"{}};}
+\DoxyCodeLine{        std::cout << \textcolor{stringliteral}{"{}  -\/h, -\/-\/help       Show this help message\(\backslash\)n"{}};}
+\DoxyCodeLine{        std::cout << \textcolor{stringliteral}{"{}  -\/p PORT          Server port (default: 33333)\(\backslash\)n"{}};}
+\DoxyCodeLine{        std::cout << \textcolor{stringliteral}{"{}  -\/c CONFIG\_FILE   Client database file (default: /etc/vealc.conf)\(\backslash\)n"{}};}
+\DoxyCodeLine{        std::cout << \textcolor{stringliteral}{"{}  -\/d CONFIG\_FILE   Alias for -\/c\(\backslash\)n"{}};}
+\DoxyCodeLine{        std::cout << \textcolor{stringliteral}{"{}  -\/l LOG\_FILE      Log file (default: /var/log/vealc.log)\(\backslash\)n"{}};}
+\DoxyCodeLine{        std::cout << \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{        std::cout << \textcolor{stringliteral}{"{}Examples:\(\backslash\)n"{}};}
+\DoxyCodeLine{        std::cout << \textcolor{stringliteral}{"{}  ./server                    \# Run with default settings\(\backslash\)n"{}};}
+\DoxyCodeLine{        std::cout << \textcolor{stringliteral}{"{}  ./server -\/p 44444           \# Run on port 44444\(\backslash\)n"{}};}
+\DoxyCodeLine{        std::cout << \textcolor{stringliteral}{"{}  ./server -\/c ./myconfig.conf \# Use custom config file\(\backslash\)n"{}};}
+\DoxyCodeLine{        std::cout << \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{        std::cout << \textcolor{stringliteral}{"{}========================================\(\backslash\)n"{}};}
+\DoxyCodeLine{        std::cout << \textcolor{stringliteral}{"{}Starting server with configuration:\(\backslash\)n"{}};}
+\DoxyCodeLine{        std::cout << \textcolor{stringliteral}{"{}  Port: "{}} << config.\mbox{\hyperlink{structServerConfig_ae459946703124ef5a1d98dba38a8b493}{port}} << \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{        std::cout << \textcolor{stringliteral}{"{}  Config file: "{}} << config.\mbox{\hyperlink{structServerConfig_ad9468bbeb222fd74df00ef1fbbf7b87f}{client\_db\_file}} << \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{        std::cout << \textcolor{stringliteral}{"{}  Log file: "{}} << config.\mbox{\hyperlink{structServerConfig_a5728757aec9a966dbd50b52191438ca8}{log\_file}} << \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{        std::cout << \textcolor{stringliteral}{"{}========================================\(\backslash\)n\(\backslash\)n"{}};}
+\DoxyCodeLine{        }
+\DoxyCodeLine{        \textcolor{comment}{Documentation}}
+\DoxyCodeLine{        \mbox{\hyperlink{classServer}{Server}} server(config);}
+\DoxyCodeLine{        server.\mbox{\hyperlink{classServer_abb27d30b40a94326e3fd629d3b30b7d5}{run}}();}
+\DoxyCodeLine{        }
+\DoxyCodeLine{    \} \textcolor{keywordflow}{catch} (\textcolor{keyword}{const} std::exception\& e) \{}
+\DoxyCodeLine{        std::cerr << \textcolor{stringliteral}{"{}Fatal error: "{}} << e.what() << \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{        \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{    \} \textcolor{keywordflow}{catch} (...) \{}
+\DoxyCodeLine{        std::cerr << \textcolor{stringliteral}{"{}Unknown fatal error\(\backslash\)n"{}};}
+\DoxyCodeLine{        \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{    }
+\DoxyCodeLine{    \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCodeInclude}
+ 

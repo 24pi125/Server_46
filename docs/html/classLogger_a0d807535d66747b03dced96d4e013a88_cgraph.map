@@ -1,0 +1,5 @@
+<map id="Logger::log_error" name="Logger::log_error">
+<area shape="rect" id="node1" title="Записывает сообщение об ошибке" alt="" coords="5,5,137,32"/>
+<area shape="rect" id="node2" href="$classLogger.html#a025725279def374c2a103331548b2631" title="Записывает сообщение в лог" alt="" coords="185,5,280,32"/>
+<area shape="rect" id="node3" href="$classLogger.html#aaff42813783601ee85e141e68893af96" title="Получает текущее время в формате строки" alt="" coords="328,5,513,32"/>
+</map>

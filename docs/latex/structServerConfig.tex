@@ -1,0 +1,209 @@
+\hypertarget{structServerConfig}{}\subsection{Documentation}
+\label{structServerConfig}\index{ServerConfig@{ServerConfig}}
+
+
+Структура конфигурации сервера  
+
+
+
+
+{\ttfamily \#include $<$config.\+h$>$}
+
+\doxysubsubsection*{Documentation}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{structServerConfig}{Server\+Config}} \mbox{\hyperlink{structServerConfig_af608810bd123ca2b2a1d30eb725f2b49}{parse\+\_\+args}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Парсит аргументы командной строки \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{structServerConfig_a60ee9072d261c5369995888d773a2afc}{print\+\_\+help}} ()
+\begin{DoxyCompactList}\small\item\em Выводит справку по использованию программы \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Documentation}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{structServerConfig_ad9468bbeb222fd74df00ef1fbbf7b87f}{client\+\_\+db\+\_\+file}} = \char`\"{}/etc/vealc.\+conf\char`\"{}
+\begin{DoxyCompactList}\small\item\em Файл базы данных клиентов \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{structServerConfig_a5728757aec9a966dbd50b52191438ca8}{log\+\_\+file}} = \char`\"{}/var/log/vealc.\+log\char`\"{}
+\begin{DoxyCompactList}\small\item\em Файл логов сервера \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{structServerConfig_ae459946703124ef5a1d98dba38a8b493}{port}} = 33333
+\begin{DoxyCompactList}\small\item\em Порт сервера (по умолчанию 33333) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsubsection{Documentation}
+Структура конфигурации сервера 
+
+Содержит все настраиваемые параметры сервера\+:
+\begin{DoxyItemize}
+\item путь к файлу базы данных клиентов
+\item путь к файлу логов
+\item порт для прослушивания подключений
+\end{DoxyItemize}
+
+\begin{DoxyNote}{Documentation}
+Все поля имеют значения по умолчанию 
+\end{DoxyNote}
+\begin{Desc}
+\item[Примеры]\par
+\mbox{\hyperlink{_2home_2penza365_2Server_46_2src_2main_8cpp-example}{/home/penza365/\+Server\+\_\+46/src/main.\+cpp}}.\end{Desc}
+
+
+См. определение в файле \mbox{\hyperlink{config_8h_source}{config.\+h}} строка \mbox{\hyperlink{config_8h_source_l00031}{31}}
+
+
+
+\doxysubsubsection{Documentation}
+\mbox{\Hypertarget{structServerConfig_af608810bd123ca2b2a1d30eb725f2b49}\label{structServerConfig_af608810bd123ca2b2a1d30eb725f2b49}} 
+\index{ServerConfig@{ServerConfig}!parse\_args@{parse\_args}}
+\index{parse\_args@{parse\_args}!ServerConfig@{ServerConfig}}
+\doxyparagraph{\texorpdfstring{parse\_args()}{parse\_args()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structServerConfig}{Server\+Config}} Server\+Config\+::parse\+\_\+args (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Парсит аргументы командной строки 
+
+
+\begin{DoxyParams}{Documentation}
+{\em argc} & Количество аргументов \\
+\hline
+{\em argv} & Массив аргументов \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Documentation}
+\mbox{\hyperlink{structServerConfig}{Server\+Config}} Заполненная структура конфигурации
+\end{DoxyReturn}
+Поддерживаемые аргументы\+: -\/h, --help Показать справку -\/p PORT Установить порт сервера -\/c, -\/d FILE Указать файл конфигурации клиентов -\/l FILE Указать файл логов
+
+
+\begin{DoxyExceptions}{Documentation}
+{\em std\+::invalid\+\_\+argument} & при неверном формате аргументов\\
+\hline
+\end{DoxyExceptions}
+
+\begin{DoxyParams}{Documentation}
+{\em argc} & Количество аргументов \\
+\hline
+{\em argv} & Массив аргументов \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Documentation}
+\mbox{\hyperlink{structServerConfig}{Server\+Config}} Заполненная структура конфигурации
+\end{DoxyReturn}
+Обрабатывает следующие опции\+: -\/h, --help -\/\texorpdfstring{$>$}{>} выводит справку и завершает программу -\/p PORT -\/\texorpdfstring{$>$}{>} устанавливает порт сервера -\/c FILE -\/\texorpdfstring{$>$}{>} указывает файл конфигурации клиентов -\/d FILE -\/\texorpdfstring{$>$}{>} синоним для -\/c -\/l FILE -\/\texorpdfstring{$>$}{>} указывает файл логов
+
+\begin{DoxyNote}{Documentation}
+При неизвестном аргументе выводит справку и завершает программу с кодом 1 
+
+Если аргументов нет, возвращает конфигурацию по умолчанию 
+\end{DoxyNote}
+\begin{Desc}
+\item[Примеры]\par
+\mbox{\hyperlink{_2home_2penza365_2Server_46_2src_2main_8cpp-example}{/home/penza365/\+Server\+\_\+46/src/main.\+cpp}}.\end{Desc}
+
+
+См. определение в файле \mbox{\hyperlink{config_8cpp_source}{config.\+cpp}} строка \mbox{\hyperlink{config_8cpp_source_l00034}{34}}
+
+
+
+Перекрестные ссылки \mbox{\hyperlink{config_8h_source_l00032}{client\+\_\+db\+\_\+file}}, \mbox{\hyperlink{config_8h_source_l00033}{log\+\_\+file}}, \mbox{\hyperlink{config_8h_source_l00034}{port}} и \mbox{\hyperlink{config_8cpp_source_l00072}{print\+\_\+help()}}.
+
+
+
+Используется в \mbox{\hyperlink{main_8cpp_source_l00037}{main()}} и \mbox{\hyperlink{test__config_8cpp_source_l00010}{SUITE()}}.
+
+Граф вызовов\+:
+% FIG 0
+Граф вызова функции\+:
+% FIG 1
+\mbox{\Hypertarget{structServerConfig_a60ee9072d261c5369995888d773a2afc}\label{structServerConfig_a60ee9072d261c5369995888d773a2afc}} 
+\index{ServerConfig@{ServerConfig}!print\_help@{print\_help}}
+\index{print\_help@{print\_help}!ServerConfig@{ServerConfig}}
+\doxyparagraph{\texorpdfstring{print\_help()}{print\_help()}}
+{\footnotesize\ttfamily void Server\+Config\+::print\+\_\+help (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Выводит справку по использованию программы 
+
+Печатает в stdout информацию о доступных аргументах командной строки и примерах использования.
+
+Форматированный вывод доступных опций и примеров использования. Вызывается автоматически при указании -\/h или --help, а также при передаче неизвестного аргумента. 
+
+См. определение в файле \mbox{\hyperlink{config_8cpp_source}{config.\+cpp}} строка \mbox{\hyperlink{config_8cpp_source_l00072}{72}}
+
+
+
+Используется в \mbox{\hyperlink{config_8cpp_source_l00034}{parse\+\_\+args()}}.
+
+Граф вызова функции\+:
+% FIG 2
+
+
+\doxysubsubsection{Documentation}
+\mbox{\Hypertarget{structServerConfig_ad9468bbeb222fd74df00ef1fbbf7b87f}\label{structServerConfig_ad9468bbeb222fd74df00ef1fbbf7b87f}} 
+\index{ServerConfig@{ServerConfig}!client\_db\_file@{client\_db\_file}}
+\index{client\_db\_file@{client\_db\_file}!ServerConfig@{ServerConfig}}
+\doxyparagraph{\texorpdfstring{client\_db\_file}{client\_db\_file}}
+{\footnotesize\ttfamily std\+::string Server\+Config\+::client\+\_\+db\+\_\+file = \char`\"{}/etc/vealc.\+conf\char`\"{}}
+
+
+
+Файл базы данных клиентов 
+
+\begin{Desc}
+\item[Примеры]\par
+\mbox{\hyperlink{_2home_2penza365_2Server_46_2src_2main_8cpp-example}{/home/penza365/\+Server\+\_\+46/src/main.\+cpp}}.\end{Desc}
+
+
+См. определение в файле \mbox{\hyperlink{config_8h_source}{config.\+h}} строка \mbox{\hyperlink{config_8h_source_l00032}{32}}
+
+
+
+Используется в \mbox{\hyperlink{server_8cpp_source_l00072}{Server\+::load\+\_\+clients()}}, \mbox{\hyperlink{main_8cpp_source_l00037}{main()}}, \mbox{\hyperlink{config_8cpp_source_l00034}{parse\+\_\+args()}}, \mbox{\hyperlink{server_8cpp_source_l00179}{Server\+::run()}} и \mbox{\hyperlink{test__config_8cpp_source_l00010}{SUITE()}}.
+
+\mbox{\Hypertarget{structServerConfig_a5728757aec9a966dbd50b52191438ca8}\label{structServerConfig_a5728757aec9a966dbd50b52191438ca8}} 
+\index{ServerConfig@{ServerConfig}!log\_file@{log\_file}}
+\index{log\_file@{log\_file}!ServerConfig@{ServerConfig}}
+\doxyparagraph{\texorpdfstring{log\_file}{log\_file}}
+{\footnotesize\ttfamily std\+::string Server\+Config\+::log\+\_\+file = \char`\"{}/var/log/vealc.\+log\char`\"{}}
+
+
+
+Файл логов сервера 
+
+\begin{Desc}
+\item[Примеры]\par
+\mbox{\hyperlink{_2home_2penza365_2Server_46_2src_2main_8cpp-example}{/home/penza365/\+Server\+\_\+46/src/main.\+cpp}}.\end{Desc}
+
+
+См. определение в файле \mbox{\hyperlink{config_8h_source}{config.\+h}} строка \mbox{\hyperlink{config_8h_source_l00033}{33}}
+
+
+
+Используется в \mbox{\hyperlink{main_8cpp_source_l00037}{main()}}, \mbox{\hyperlink{config_8cpp_source_l00034}{parse\+\_\+args()}}, \mbox{\hyperlink{server_8cpp_source_l00179}{Server\+::run()}} и \mbox{\hyperlink{test__config_8cpp_source_l00010}{SUITE()}}.
+
+\mbox{\Hypertarget{structServerConfig_ae459946703124ef5a1d98dba38a8b493}\label{structServerConfig_ae459946703124ef5a1d98dba38a8b493}} 
+\index{ServerConfig@{ServerConfig}!port@{port}}
+\index{port@{port}!ServerConfig@{ServerConfig}}
+\doxyparagraph{\texorpdfstring{port}{port}}
+{\footnotesize\ttfamily int Server\+Config\+::port = 33333}
+
+
+
+Порт сервера (по умолчанию 33333) 
+
+\begin{Desc}
+\item[Примеры]\par
+\mbox{\hyperlink{_2home_2penza365_2Server_46_2src_2main_8cpp-example}{/home/penza365/\+Server\+\_\+46/src/main.\+cpp}}.\end{Desc}
+
+
+См. определение в файле \mbox{\hyperlink{config_8h_source}{config.\+h}} строка \mbox{\hyperlink{config_8h_source_l00034}{34}}
+
+
+
+Используется в \mbox{\hyperlink{main_8cpp_source_l00037}{main()}}, \mbox{\hyperlink{config_8cpp_source_l00034}{parse\+\_\+args()}}, \mbox{\hyperlink{server_8cpp_source_l00179}{Server\+::run()}}, \mbox{\hyperlink{server_8cpp_source_l00105}{Server\+::setup\+\_\+socket()}} и \mbox{\hyperlink{test__config_8cpp_source_l00010}{SUITE()}}.
+
+
+
+Объявления и описания членов структур находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{config_8h}{config.\+h}}\item 
+src/\mbox{\hyperlink{config_8cpp}{config.\+cpp}}\end{DoxyCompactItemize}

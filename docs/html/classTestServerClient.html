@@ -1,0 +1,785 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.4"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>VEALC Server: Класс TestServerClient</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">VEALC Server<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Сервер для аутентификации и обработки векторных данных</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.4 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'Поиск','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('classTestServerClient.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="#pri-methods">Закрытые члены</a> &#124;
+<a href="#pri-attribs">Закрытые данные</a> &#124;
+<a href="classTestServerClient-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle"><div class="title">Класс TestServerClient</div></div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:a9d91f6e5835e0f83a5c00d5b8a99c1ca"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTestServerClient.html#a9d91f6e5835e0f83a5c00d5b8a99c1ca">TestServerClient</a> (const std::string &amp;ip=&quot;127.0.0.1&quot;, int port=33333)</td></tr>
+<tr class="separator:a9d91f6e5835e0f83a5c00d5b8a99c1ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af16191c89c871c2523a7e5cb30324a67"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTestServerClient.html#af16191c89c871c2523a7e5cb30324a67">authenticate</a> (bool salt_from_client=false)</td></tr>
+<tr class="separator:af16191c89c871c2523a7e5cb30324a67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a2f5879d4ada55c0e38614de938eb48"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTestServerClient.html#a7a2f5879d4ada55c0e38614de938eb48">close</a> ()</td></tr>
+<tr class="separator:a7a2f5879d4ada55c0e38614de938eb48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ca660dbc2c34767363e46d94f38341a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTestServerClient.html#a0ca660dbc2c34767363e46d94f38341a">connect</a> ()</td></tr>
+<tr class="separator:a0ca660dbc2c34767363e46d94f38341a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0e7d670a33a2c1d4fe993ea10a0358a"><td class="memItemLeft" align="right" valign="top">std::vector&lt; int32_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTestServerClient.html#af0e7d670a33a2c1d4fe993ea10a0358a">receive_results</a> ()</td></tr>
+<tr class="separator:af0e7d670a33a2c1d4fe993ea10a0358a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11aa121ad9c1c508d9bb7c983ae992cd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTestServerClient.html#a11aa121ad9c1c508d9bb7c983ae992cd">send_test_vectors</a> ()</td></tr>
+<tr class="separator:a11aa121ad9c1c508d9bb7c983ae992cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Закрытые члены</h2></td></tr>
+<tr class="memitem:afab0e4451be5c67740e05c14f766effe"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTestServerClient.html#afab0e4451be5c67740e05c14f766effe">calculate_md5</a> (const std::string &amp;data)</td></tr>
+<tr class="separator:afab0e4451be5c67740e05c14f766effe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5e65f7dbd06b4f8c7097062e0ec600e"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTestServerClient.html#af5e65f7dbd06b4f8c7097062e0ec600e">receive_int32</a> ()</td></tr>
+<tr class="separator:af5e65f7dbd06b4f8c7097062e0ec600e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d9ad6207b94de1ece8667babb70ea02"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTestServerClient.html#a4d9ad6207b94de1ece8667babb70ea02">receive_string</a> (std::string &amp;str, size_t max_len=256)</td></tr>
+<tr class="separator:a4d9ad6207b94de1ece8667babb70ea02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf541b7302a6057da4a752bc998530ac"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTestServerClient.html#abf541b7302a6057da4a752bc998530ac">receive_uint32</a> ()</td></tr>
+<tr class="separator:abf541b7302a6057da4a752bc998530ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68c0d5ed0ee58831f6b893eee609568c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTestServerClient.html#a68c0d5ed0ee58831f6b893eee609568c">send_int32</a> (int32_t value)</td></tr>
+<tr class="separator:a68c0d5ed0ee58831f6b893eee609568c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae41e5b91814a84752cba7f8314f3a703"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTestServerClient.html#ae41e5b91814a84752cba7f8314f3a703">send_string</a> (const std::string &amp;str)</td></tr>
+<tr class="separator:ae41e5b91814a84752cba7f8314f3a703"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85c903a046ea0f7459bc57b22033852b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTestServerClient.html#a85c903a046ea0f7459bc57b22033852b">send_uint32</a> (uint32_t value)</td></tr>
+<tr class="separator:a85c903a046ea0f7459bc57b22033852b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Закрытые данные</h2></td></tr>
+<tr class="memitem:ae69bde330c23309ae6dc27e78313479a"><td class="memItemLeft" align="right" valign="top">struct sockaddr_in&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTestServerClient.html#ae69bde330c23309ae6dc27e78313479a">serv_addr</a></td></tr>
+<tr class="separator:ae69bde330c23309ae6dc27e78313479a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acdbed408803ae4410db93a4735e2f017"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTestServerClient.html#acdbed408803ae4410db93a4735e2f017">sock</a></td></tr>
+<tr class="separator:acdbed408803ae4410db93a4735e2f017"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock">
+<p class="definition">См. определение в файле <a class="el" href="test__client__for__test__server_8cpp_source.html">test_client_for_test_server.cpp</a> строка <a class="el" href="test__client__for__test__server_8cpp_source.html#l00014">14</a></p>
+</div><h2 class="groupheader">Конструктор(ы)</h2>
+<a id="a9d91f6e5835e0f83a5c00d5b8a99c1ca" name="a9d91f6e5835e0f83a5c00d5b8a99c1ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d91f6e5835e0f83a5c00d5b8a99c1ca">&#9670;&nbsp;</a></span>TestServerClient()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TestServerClient::TestServerClient </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>ip</em> = <code>&quot;127.0.0.1&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>port</em> = <code>33333</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">См. определение в файле <a class="el" href="test__client__for__test__server_8cpp_source.html">test_client_for_test_server.cpp</a> строка <a class="el" href="test__client__for__test__server_8cpp_source.html#l00070">70</a></p>
+
+<p class="reference">Перекрестные ссылки <a class="el" href="test__client__for__test__server_8cpp_source.html#l00017">serv_addr</a> и <a class="el" href="test__client__for__test__server_8cpp_source.html#l00016">sock</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Методы</h2>
+<a id="af16191c89c871c2523a7e5cb30324a67" name="af16191c89c871c2523a7e5cb30324a67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af16191c89c871c2523a7e5cb30324a67">&#9670;&nbsp;</a></span>authenticate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool TestServerClient::authenticate </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>salt_from_client</em> = <code>false</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">См. определение в файле <a class="el" href="test__client__for__test__server_8cpp_source.html">test_client_for_test_server.cpp</a> строка <a class="el" href="test__client__for__test__server_8cpp_source.html#l00092">92</a></p>
+
+<p class="reference">Перекрестные ссылки <a class="el" href="test__client__for__test__server_8cpp_source.html#l00019">calculate_md5()</a>, <a class="el" href="test__client__for__test__server_8cpp_source.html#l00035">receive_string()</a> и <a class="el" href="test__client__for__test__server_8cpp_source.html#l00030">send_string()</a>.</p>
+
+<p class="reference">Используется в <a class="el" href="test__client__for__test__server_8cpp_source.html#l00224">main()</a>.</p>
+<div class="dynheader">
+Граф вызовов:</div>
+<div class="dyncontent">
+<div class="center"><img src="classTestServerClient_af16191c89c871c2523a7e5cb30324a67_cgraph.png" border="0" usemap="#aclassTestServerClient_af16191c89c871c2523a7e5cb30324a67_cgraph" alt=""/></div>
+<map name="aclassTestServerClient_af16191c89c871c2523a7e5cb30324a67_cgraph" id="aclassTestServerClient_af16191c89c871c2523a7e5cb30324a67_cgraph">
+<area shape="rect" title=" " alt="" coords="5,64,224,91"/>
+<area shape="rect" href="classTestServerClient.html#afab0e4451be5c67740e05c14f766effe" title=" " alt="" coords="272,5,503,32"/>
+<area shape="rect" href="classTestServerClient.html#a4d9ad6207b94de1ece8667babb70ea02" title=" " alt="" coords="295,57,479,98"/>
+<area shape="rect" href="classTestServerClient.html#ae41e5b91814a84752cba7f8314f3a703" title=" " alt="" coords="304,122,471,163"/>
+</map>
+</div>
+<div class="dynheader">
+Граф вызова функции:</div>
+<div class="dyncontent">
+<div class="center"><img src="classTestServerClient_af16191c89c871c2523a7e5cb30324a67_icgraph.png" border="0" usemap="#aclassTestServerClient_af16191c89c871c2523a7e5cb30324a67_icgraph" alt=""/></div>
+<map name="aclassTestServerClient_af16191c89c871c2523a7e5cb30324a67_icgraph" id="aclassTestServerClient_af16191c89c871c2523a7e5cb30324a67_icgraph">
+<area shape="rect" title=" " alt="" coords="108,5,327,32"/>
+<area shape="rect" href="test__client__for__test__server_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,60,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="afab0e4451be5c67740e05c14f766effe" name="afab0e4451be5c67740e05c14f766effe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afab0e4451be5c67740e05c14f766effe">&#9670;&nbsp;</a></span>calculate_md5()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string TestServerClient::calculate_md5 </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">См. определение в файле <a class="el" href="test__client__for__test__server_8cpp_source.html">test_client_for_test_server.cpp</a> строка <a class="el" href="test__client__for__test__server_8cpp_source.html#l00019">19</a></p>
+
+<p class="reference">Используется в <a class="el" href="test__client__for__test__server_8cpp_source.html#l00092">authenticate()</a>.</p>
+<div class="dynheader">
+Граф вызова функции:</div>
+<div class="dyncontent">
+<div class="center"><img src="classTestServerClient_afab0e4451be5c67740e05c14f766effe_icgraph.png" border="0" usemap="#aclassTestServerClient_afab0e4451be5c67740e05c14f766effe_icgraph" alt=""/></div>
+<map name="aclassTestServerClient_afab0e4451be5c67740e05c14f766effe_icgraph" id="aclassTestServerClient_afab0e4451be5c67740e05c14f766effe_icgraph">
+<area shape="rect" title=" " alt="" coords="375,5,605,32"/>
+<area shape="rect" href="classTestServerClient.html#af16191c89c871c2523a7e5cb30324a67" title=" " alt="" coords="108,5,327,32"/>
+<area shape="rect" href="test__client__for__test__server_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,60,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a7a2f5879d4ada55c0e38614de938eb48" name="a7a2f5879d4ada55c0e38614de938eb48"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a2f5879d4ada55c0e38614de938eb48">&#9670;&nbsp;</a></span>close()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TestServerClient::close </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">См. определение в файле <a class="el" href="test__client__for__test__server_8cpp_source.html">test_client_for_test_server.cpp</a> строка <a class="el" href="test__client__for__test__server_8cpp_source.html#l00088">88</a></p>
+
+<p class="reference">Перекрестные ссылки <a class="el" href="test__client__for__test__server_8cpp_source.html#l00088">close()</a> и <a class="el" href="test__client__for__test__server_8cpp_source.html#l00016">sock</a>.</p>
+
+<p class="reference">Используется в <a class="el" href="test__client__for__test__server_8cpp_source.html#l00088">close()</a> и <a class="el" href="test__client__for__test__server_8cpp_source.html#l00224">main()</a>.</p>
+<div class="dynheader">
+Граф вызовов:</div>
+<div class="dyncontent">
+<div class="center"><img src="classTestServerClient_a7a2f5879d4ada55c0e38614de938eb48_cgraph.png" border="0" usemap="#aclassTestServerClient_a7a2f5879d4ada55c0e38614de938eb48_cgraph" alt=""/></div>
+<map name="aclassTestServerClient_a7a2f5879d4ada55c0e38614de938eb48_cgraph" id="aclassTestServerClient_a7a2f5879d4ada55c0e38614de938eb48_cgraph">
+<area shape="rect" title=" " alt="" coords="5,29,176,56"/>
+</map>
+</div>
+<div class="dynheader">
+Граф вызова функции:</div>
+<div class="dyncontent">
+<div class="center"><img src="classTestServerClient_a7a2f5879d4ada55c0e38614de938eb48_icgraph.png" border="0" usemap="#aclassTestServerClient_a7a2f5879d4ada55c0e38614de938eb48_icgraph" alt=""/></div>
+<map name="aclassTestServerClient_a7a2f5879d4ada55c0e38614de938eb48_icgraph" id="aclassTestServerClient_a7a2f5879d4ada55c0e38614de938eb48_icgraph">
+<area shape="rect" title=" " alt="" coords="108,29,279,56"/>
+<area shape="rect" href="test__client__for__test__server_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,29,60,56"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a0ca660dbc2c34767363e46d94f38341a" name="a0ca660dbc2c34767363e46d94f38341a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ca660dbc2c34767363e46d94f38341a">&#9670;&nbsp;</a></span>connect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool TestServerClient::connect </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">См. определение в файле <a class="el" href="test__client__for__test__server_8cpp_source.html">test_client_for_test_server.cpp</a> строка <a class="el" href="test__client__for__test__server_8cpp_source.html#l00084">84</a></p>
+
+<p class="reference">Перекрестные ссылки <a class="el" href="test__client__for__test__server_8cpp_source.html#l00017">serv_addr</a> и <a class="el" href="test__client__for__test__server_8cpp_source.html#l00016">sock</a>.</p>
+
+<p class="reference">Используется в <a class="el" href="test__client__for__test__server_8cpp_source.html#l00224">main()</a>.</p>
+<div class="dynheader">
+Граф вызова функции:</div>
+<div class="dyncontent">
+<div class="center"><img src="classTestServerClient_a0ca660dbc2c34767363e46d94f38341a_icgraph.png" border="0" usemap="#aclassTestServerClient_a0ca660dbc2c34767363e46d94f38341a_icgraph" alt=""/></div>
+<map name="aclassTestServerClient_a0ca660dbc2c34767363e46d94f38341a_icgraph" id="aclassTestServerClient_a0ca660dbc2c34767363e46d94f38341a_icgraph">
+<area shape="rect" title=" " alt="" coords="108,5,295,32"/>
+<area shape="rect" href="test__client__for__test__server_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,60,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="af5e65f7dbd06b4f8c7097062e0ec600e" name="af5e65f7dbd06b4f8c7097062e0ec600e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5e65f7dbd06b4f8c7097062e0ec600e">&#9670;&nbsp;</a></span>receive_int32()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int32_t TestServerClient::receive_int32 </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">См. определение в файле <a class="el" href="test__client__for__test__server_8cpp_source.html">test_client_for_test_server.cpp</a> строка <a class="el" href="test__client__for__test__server_8cpp_source.html#l00063">63</a></p>
+
+<p class="reference">Перекрестные ссылки <a class="el" href="test__client__for__test__server_8cpp_source.html#l00016">sock</a>.</p>
+
+<p class="reference">Используется в <a class="el" href="test__client__for__test__server_8cpp_source.html#l00210">receive_results()</a>.</p>
+<div class="dynheader">
+Граф вызова функции:</div>
+<div class="dyncontent">
+<div class="center"><img src="classTestServerClient_af5e65f7dbd06b4f8c7097062e0ec600e_icgraph.png" border="0" usemap="#aclassTestServerClient_af5e65f7dbd06b4f8c7097062e0ec600e_icgraph" alt=""/></div>
+<map name="aclassTestServerClient_af5e65f7dbd06b4f8c7097062e0ec600e_icgraph" id="aclassTestServerClient_af5e65f7dbd06b4f8c7097062e0ec600e_icgraph">
+<area shape="rect" title=" " alt="" coords="340,5,524,47"/>
+<area shape="rect" href="classTestServerClient.html#af0e7d670a33a2c1d4fe993ea10a0358a" title=" " alt="" coords="108,5,292,47"/>
+<area shape="rect" href="test__client__for__test__server_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,13,60,39"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="af0e7d670a33a2c1d4fe993ea10a0358a" name="af0e7d670a33a2c1d4fe993ea10a0358a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0e7d670a33a2c1d4fe993ea10a0358a">&#9670;&nbsp;</a></span>receive_results()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; int32_t &gt; TestServerClient::receive_results </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">См. определение в файле <a class="el" href="test__client__for__test__server_8cpp_source.html">test_client_for_test_server.cpp</a> строка <a class="el" href="test__client__for__test__server_8cpp_source.html#l00210">210</a></p>
+
+<p class="reference">Перекрестные ссылки <a class="el" href="test__client__for__test__server_8cpp_source.html#l00063">receive_int32()</a> и <a class="el" href="test__client__for__test__server_8cpp_source.html#l00057">receive_uint32()</a>.</p>
+
+<p class="reference">Используется в <a class="el" href="test__client__for__test__server_8cpp_source.html#l00224">main()</a>.</p>
+<div class="dynheader">
+Граф вызовов:</div>
+<div class="dyncontent">
+<div class="center"><img src="classTestServerClient_af0e7d670a33a2c1d4fe993ea10a0358a_cgraph.png" border="0" usemap="#aclassTestServerClient_af0e7d670a33a2c1d4fe993ea10a0358a_cgraph" alt=""/></div>
+<map name="aclassTestServerClient_af0e7d670a33a2c1d4fe993ea10a0358a_cgraph" id="aclassTestServerClient_af0e7d670a33a2c1d4fe993ea10a0358a_cgraph">
+<area shape="rect" title=" " alt="" coords="5,39,189,80"/>
+<area shape="rect" href="classTestServerClient.html#af5e65f7dbd06b4f8c7097062e0ec600e" title=" " alt="" coords="237,5,421,47"/>
+<area shape="rect" href="classTestServerClient.html#abf541b7302a6057da4a752bc998530ac" title=" " alt="" coords="237,71,421,112"/>
+</map>
+</div>
+<div class="dynheader">
+Граф вызова функции:</div>
+<div class="dyncontent">
+<div class="center"><img src="classTestServerClient_af0e7d670a33a2c1d4fe993ea10a0358a_icgraph.png" border="0" usemap="#aclassTestServerClient_af0e7d670a33a2c1d4fe993ea10a0358a_icgraph" alt=""/></div>
+<map name="aclassTestServerClient_af0e7d670a33a2c1d4fe993ea10a0358a_icgraph" id="aclassTestServerClient_af0e7d670a33a2c1d4fe993ea10a0358a_icgraph">
+<area shape="rect" title=" " alt="" coords="108,5,292,47"/>
+<area shape="rect" href="test__client__for__test__server_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,13,60,39"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a4d9ad6207b94de1ece8667babb70ea02" name="a4d9ad6207b94de1ece8667babb70ea02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d9ad6207b94de1ece8667babb70ea02">&#9670;&nbsp;</a></span>receive_string()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool TestServerClient::receive_string </td>
+          <td>(</td>
+          <td class="paramtype">std::string &amp;&#160;</td>
+          <td class="paramname"><em>str</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>max_len</em> = <code>256</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">См. определение в файле <a class="el" href="test__client__for__test__server_8cpp_source.html">test_client_for_test_server.cpp</a> строка <a class="el" href="test__client__for__test__server_8cpp_source.html#l00035">35</a></p>
+
+<p class="reference">Перекрестные ссылки <a class="el" href="test__client__for__test__server_8cpp_source.html#l00016">sock</a>.</p>
+
+<p class="reference">Используется в <a class="el" href="test__client__for__test__server_8cpp_source.html#l00092">authenticate()</a>.</p>
+<div class="dynheader">
+Граф вызова функции:</div>
+<div class="dyncontent">
+<div class="center"><img src="classTestServerClient_a4d9ad6207b94de1ece8667babb70ea02_icgraph.png" border="0" usemap="#aclassTestServerClient_a4d9ad6207b94de1ece8667babb70ea02_icgraph" alt=""/></div>
+<map name="aclassTestServerClient_a4d9ad6207b94de1ece8667babb70ea02_icgraph" id="aclassTestServerClient_a4d9ad6207b94de1ece8667babb70ea02_icgraph">
+<area shape="rect" title=" " alt="" coords="375,5,559,47"/>
+<area shape="rect" href="classTestServerClient.html#af16191c89c871c2523a7e5cb30324a67" title=" " alt="" coords="108,13,327,39"/>
+<area shape="rect" href="test__client__for__test__server_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,13,60,39"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="abf541b7302a6057da4a752bc998530ac" name="abf541b7302a6057da4a752bc998530ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf541b7302a6057da4a752bc998530ac">&#9670;&nbsp;</a></span>receive_uint32()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t TestServerClient::receive_uint32 </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">См. определение в файле <a class="el" href="test__client__for__test__server_8cpp_source.html">test_client_for_test_server.cpp</a> строка <a class="el" href="test__client__for__test__server_8cpp_source.html#l00057">57</a></p>
+
+<p class="reference">Перекрестные ссылки <a class="el" href="test__client__for__test__server_8cpp_source.html#l00016">sock</a>.</p>
+
+<p class="reference">Используется в <a class="el" href="test__client__for__test__server_8cpp_source.html#l00210">receive_results()</a>.</p>
+<div class="dynheader">
+Граф вызова функции:</div>
+<div class="dyncontent">
+<div class="center"><img src="classTestServerClient_abf541b7302a6057da4a752bc998530ac_icgraph.png" border="0" usemap="#aclassTestServerClient_abf541b7302a6057da4a752bc998530ac_icgraph" alt=""/></div>
+<map name="aclassTestServerClient_abf541b7302a6057da4a752bc998530ac_icgraph" id="aclassTestServerClient_abf541b7302a6057da4a752bc998530ac_icgraph">
+<area shape="rect" title=" " alt="" coords="340,5,524,47"/>
+<area shape="rect" href="classTestServerClient.html#af0e7d670a33a2c1d4fe993ea10a0358a" title=" " alt="" coords="108,5,292,47"/>
+<area shape="rect" href="test__client__for__test__server_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,13,60,39"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a68c0d5ed0ee58831f6b893eee609568c" name="a68c0d5ed0ee58831f6b893eee609568c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68c0d5ed0ee58831f6b893eee609568c">&#9670;&nbsp;</a></span>send_int32()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TestServerClient::send_int32 </td>
+          <td>(</td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">См. определение в файле <a class="el" href="test__client__for__test__server_8cpp_source.html">test_client_for_test_server.cpp</a> строка <a class="el" href="test__client__for__test__server_8cpp_source.html#l00052">52</a></p>
+
+<p class="reference">Перекрестные ссылки <a class="el" href="test__client__for__test__server_8cpp_source.html#l00016">sock</a>.</p>
+
+<p class="reference">Используется в <a class="el" href="test__client__for__test__server_8cpp_source.html#l00181">send_test_vectors()</a>.</p>
+<div class="dynheader">
+Граф вызова функции:</div>
+<div class="dyncontent">
+<div class="center"><img src="classTestServerClient_a68c0d5ed0ee58831f6b893eee609568c_icgraph.png" border="0" usemap="#aclassTestServerClient_a68c0d5ed0ee58831f6b893eee609568c_icgraph" alt=""/></div>
+<map name="aclassTestServerClient_a68c0d5ed0ee58831f6b893eee609568c_icgraph" id="aclassTestServerClient_a68c0d5ed0ee58831f6b893eee609568c_icgraph">
+<area shape="rect" title=" " alt="" coords="323,5,489,47"/>
+<area shape="rect" href="classTestServerClient.html#a11aa121ad9c1c508d9bb7c983ae992cd" title=" " alt="" coords="108,5,275,47"/>
+<area shape="rect" href="test__client__for__test__server_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,13,60,39"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ae41e5b91814a84752cba7f8314f3a703" name="ae41e5b91814a84752cba7f8314f3a703"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae41e5b91814a84752cba7f8314f3a703">&#9670;&nbsp;</a></span>send_string()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool TestServerClient::send_string </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">См. определение в файле <a class="el" href="test__client__for__test__server_8cpp_source.html">test_client_for_test_server.cpp</a> строка <a class="el" href="test__client__for__test__server_8cpp_source.html#l00030">30</a></p>
+
+<p class="reference">Перекрестные ссылки <a class="el" href="test__client__for__test__server_8cpp_source.html#l00016">sock</a>.</p>
+
+<p class="reference">Используется в <a class="el" href="test__client__for__test__server_8cpp_source.html#l00092">authenticate()</a>.</p>
+<div class="dynheader">
+Граф вызова функции:</div>
+<div class="dyncontent">
+<div class="center"><img src="classTestServerClient_ae41e5b91814a84752cba7f8314f3a703_icgraph.png" border="0" usemap="#aclassTestServerClient_ae41e5b91814a84752cba7f8314f3a703_icgraph" alt=""/></div>
+<map name="aclassTestServerClient_ae41e5b91814a84752cba7f8314f3a703_icgraph" id="aclassTestServerClient_ae41e5b91814a84752cba7f8314f3a703_icgraph">
+<area shape="rect" title=" " alt="" coords="375,5,541,47"/>
+<area shape="rect" href="classTestServerClient.html#af16191c89c871c2523a7e5cb30324a67" title=" " alt="" coords="108,13,327,39"/>
+<area shape="rect" href="test__client__for__test__server_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,13,60,39"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a11aa121ad9c1c508d9bb7c983ae992cd" name="a11aa121ad9c1c508d9bb7c983ae992cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11aa121ad9c1c508d9bb7c983ae992cd">&#9670;&nbsp;</a></span>send_test_vectors()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TestServerClient::send_test_vectors </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">См. определение в файле <a class="el" href="test__client__for__test__server_8cpp_source.html">test_client_for_test_server.cpp</a> строка <a class="el" href="test__client__for__test__server_8cpp_source.html#l00181">181</a></p>
+
+<p class="reference">Перекрестные ссылки <a class="el" href="test__client__for__test__server_8cpp_source.html#l00052">send_int32()</a> и <a class="el" href="test__client__for__test__server_8cpp_source.html#l00047">send_uint32()</a>.</p>
+
+<p class="reference">Используется в <a class="el" href="test__client__for__test__server_8cpp_source.html#l00224">main()</a>.</p>
+<div class="dynheader">
+Граф вызовов:</div>
+<div class="dyncontent">
+<div class="center"><img src="classTestServerClient_a11aa121ad9c1c508d9bb7c983ae992cd_cgraph.png" border="0" usemap="#aclassTestServerClient_a11aa121ad9c1c508d9bb7c983ae992cd_cgraph" alt=""/></div>
+<map name="aclassTestServerClient_a11aa121ad9c1c508d9bb7c983ae992cd_cgraph" id="aclassTestServerClient_a11aa121ad9c1c508d9bb7c983ae992cd_cgraph">
+<area shape="rect" title=" " alt="" coords="5,39,172,80"/>
+<area shape="rect" href="classTestServerClient.html#a68c0d5ed0ee58831f6b893eee609568c" title=" " alt="" coords="220,5,387,47"/>
+<area shape="rect" href="classTestServerClient.html#a85c903a046ea0f7459bc57b22033852b" title=" " alt="" coords="220,71,387,112"/>
+</map>
+</div>
+<div class="dynheader">
+Граф вызова функции:</div>
+<div class="dyncontent">
+<div class="center"><img src="classTestServerClient_a11aa121ad9c1c508d9bb7c983ae992cd_icgraph.png" border="0" usemap="#aclassTestServerClient_a11aa121ad9c1c508d9bb7c983ae992cd_icgraph" alt=""/></div>
+<map name="aclassTestServerClient_a11aa121ad9c1c508d9bb7c983ae992cd_icgraph" id="aclassTestServerClient_a11aa121ad9c1c508d9bb7c983ae992cd_icgraph">
+<area shape="rect" title=" " alt="" coords="108,5,275,47"/>
+<area shape="rect" href="test__client__for__test__server_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,13,60,39"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a85c903a046ea0f7459bc57b22033852b" name="a85c903a046ea0f7459bc57b22033852b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85c903a046ea0f7459bc57b22033852b">&#9670;&nbsp;</a></span>send_uint32()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TestServerClient::send_uint32 </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">См. определение в файле <a class="el" href="test__client__for__test__server_8cpp_source.html">test_client_for_test_server.cpp</a> строка <a class="el" href="test__client__for__test__server_8cpp_source.html#l00047">47</a></p>
+
+<p class="reference">Перекрестные ссылки <a class="el" href="test__client__for__test__server_8cpp_source.html#l00016">sock</a>.</p>
+
+<p class="reference">Используется в <a class="el" href="test__client__for__test__server_8cpp_source.html#l00181">send_test_vectors()</a>.</p>
+<div class="dynheader">
+Граф вызова функции:</div>
+<div class="dyncontent">
+<div class="center"><img src="classTestServerClient_a85c903a046ea0f7459bc57b22033852b_icgraph.png" border="0" usemap="#aclassTestServerClient_a85c903a046ea0f7459bc57b22033852b_icgraph" alt=""/></div>
+<map name="aclassTestServerClient_a85c903a046ea0f7459bc57b22033852b_icgraph" id="aclassTestServerClient_a85c903a046ea0f7459bc57b22033852b_icgraph">
+<area shape="rect" title=" " alt="" coords="323,5,489,47"/>
+<area shape="rect" href="classTestServerClient.html#a11aa121ad9c1c508d9bb7c983ae992cd" title=" " alt="" coords="108,5,275,47"/>
+<area shape="rect" href="test__client__for__test__server_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,13,60,39"/>
+</map>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Данные класса</h2>
+<a id="ae69bde330c23309ae6dc27e78313479a" name="ae69bde330c23309ae6dc27e78313479a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae69bde330c23309ae6dc27e78313479a">&#9670;&nbsp;</a></span>serv_addr</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct sockaddr_in TestServerClient::serv_addr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">См. определение в файле <a class="el" href="test__client__for__test__server_8cpp_source.html">test_client_for_test_server.cpp</a> строка <a class="el" href="test__client__for__test__server_8cpp_source.html#l00017">17</a></p>
+
+<p class="reference">Используется в <a class="el" href="test__client__for__test__server_8cpp_source.html#l00070">TestServerClient()</a> и <a class="el" href="test__client__for__test__server_8cpp_source.html#l00084">connect()</a>.</p>
+
+</div>
+</div>
+<a id="acdbed408803ae4410db93a4735e2f017" name="acdbed408803ae4410db93a4735e2f017"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acdbed408803ae4410db93a4735e2f017">&#9670;&nbsp;</a></span>sock</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int TestServerClient::sock</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">См. определение в файле <a class="el" href="test__client__for__test__server_8cpp_source.html">test_client_for_test_server.cpp</a> строка <a class="el" href="test__client__for__test__server_8cpp_source.html#l00016">16</a></p>
+
+<p class="reference">Используется в <a class="el" href="test__client__for__test__server_8cpp_source.html#l00070">TestServerClient()</a>, <a class="el" href="test__client__for__test__server_8cpp_source.html#l00088">close()</a>, <a class="el" href="test__client__for__test__server_8cpp_source.html#l00084">connect()</a>, <a class="el" href="test__client__for__test__server_8cpp_source.html#l00063">receive_int32()</a>, <a class="el" href="test__client__for__test__server_8cpp_source.html#l00035">receive_string()</a>, <a class="el" href="test__client__for__test__server_8cpp_source.html#l00057">receive_uint32()</a>, <a class="el" href="test__client__for__test__server_8cpp_source.html#l00052">send_int32()</a>, <a class="el" href="test__client__for__test__server_8cpp_source.html#l00030">send_string()</a> и <a class="el" href="test__client__for__test__server_8cpp_source.html#l00047">send_uint32()</a>.</p>
+
+</div>
+</div>
+<hr/>Объявления и описания членов класса находятся в файле:<ul>
+<li>clients/<a class="el" href="test__client__for__test__server_8cpp_source.html">test_client_for_test_server.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="classTestServerClient.html">TestServerClient</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
+  </ul>
+</div>
+</body>
+</html>

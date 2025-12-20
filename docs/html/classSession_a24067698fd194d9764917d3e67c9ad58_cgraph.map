@@ -1,0 +1,5 @@
+<map id="Session::receive_vector" name="Session::receive_vector">
+<area shape="rect" id="node1" title="Принимает вектор заданного размера" alt="" coords="5,13,181,39"/>
+<area shape="rect" id="node2" href="$classSession.html#a41d291380460c02f23813df0cc4ed94a" title="Извлекает точное количество байт" alt="" coords="229,5,393,47"/>
+<area shape="rect" id="node3" href="$classSession.html#ae8293633ae069f781eef8439c9ed0092" title="Принимает данные в буфер" alt="" coords="441,5,589,47"/>
+</map>

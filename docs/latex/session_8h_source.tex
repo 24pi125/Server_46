@@ -1,0 +1,103 @@
+\hypertarget{session_8h_source}{}\subsection{session.\+h}
+\label{session_8h_source}\index{include/session.h@{include/session.h}}
+\mbox{\hyperlink{session_8h}{Documentation}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00001}00001 \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00002}00002 \textcolor{comment}{ * @file session.h}}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00003}00003 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00004}00004 \textcolor{comment}{ * }}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00005}00005 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00006}00006 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00007}00007 \textcolor{comment}{ * }}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00008}00008 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00009}00009 \textcolor{comment}{ * @see session.cpp}}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00010}00010 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00011}00011 }
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00012}00012 \textcolor{preprocessor}{\#ifndef SESSION\_H}}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00013}00013 \textcolor{preprocessor}{\#define SESSION\_H}}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00014}00014 }
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00015}00015 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00016}00016 \textcolor{preprocessor}{\#include <unordered\_map>}}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00017}00017 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00018}00018 \textcolor{preprocessor}{\#include <cstdint>}}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00019}00019 }
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00020}00020 \textcolor{keyword}{class }\mbox{\hyperlink{classLogger}{Logger}};}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00021}00021 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00022}00022 \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00023}00023 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00024}00024 \textcolor{comment}{ * }}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00025}00025 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00026}00026 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00027}00027 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00028}00028 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00029}00029 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00030}00030 \textcolor{comment}{ * }}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00031}00031 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00032}00032 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00033}\mbox{\hyperlink{classSession}{00033}} \textcolor{keyword}{class }\mbox{\hyperlink{classSession}{Session}} \{}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00034}00034 \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00035}\mbox{\hyperlink{classSession_a968ea00cae0e5293555a8223bff7b42d}{00035}}     \textcolor{keywordtype}{int} \mbox{\hyperlink{classSession_a968ea00cae0e5293555a8223bff7b42d}{client\_socket}};                                     \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00036}\mbox{\hyperlink{classSession_a931c068afeec16b499173fa4c558826f}{00036}}     std::unordered\_map<std::string, std::string>\& \mbox{\hyperlink{classSession_a931c068afeec16b499173fa4c558826f}{clients}}; \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00037}\mbox{\hyperlink{classSession_aa613cae4a6bcabe30311dcee7f57804e}{00037}}     \mbox{\hyperlink{classLogger}{Logger}}\& \mbox{\hyperlink{classSession_aa613cae4a6bcabe30311dcee7f57804e}{logger}};                                        \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00038}00038     }
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00039}00039     \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00040}\mbox{\hyperlink{classSession_aebbafa30bd191ee057424d1fcf5b8c0d}{00040}}     std::string \mbox{\hyperlink{classSession_aebbafa30bd191ee057424d1fcf5b8c0d}{receive\_buffer}};                            \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00041}00041     }
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00042}00042     \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00043}00043     \textcolor{keywordtype}{void} \mbox{\hyperlink{classSession_ae8293633ae069f781eef8439c9ed0092}{receive\_to\_buffer}}();                              \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00044}00044     std::string \mbox{\hyperlink{classSession_a729514d9b12818e9da3d17fdae617363}{extract\_from\_buffer\_until\_non\_hex}}();       \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00045}00045     std::string \mbox{\hyperlink{classSession_a41d291380460c02f23813df0cc4ed94a}{extract\_from\_buffer\_exact}}(\textcolor{keywordtype}{size\_t} length);  \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00046}00046     \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00047}00047 \textcolor{comment}{    /**}}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00048}00048 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00049}00049 \textcolor{comment}{     * }}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00050}00050 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00051}00051 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00052}00052 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00053}00053 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00054}00054 \textcolor{comment}{     */}}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00055}00055     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classSession_a5f9689affdf8fa192f5ff21ac2b9198d}{verify\_authentication}}(\textcolor{keyword}{const} std::string\& login, }
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00056}00056                               \textcolor{keyword}{const} std::string\& salt, }
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00057}00057                               \textcolor{keyword}{const} std::string\& received\_hash);}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00058}00058     }
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00059}00059     \textcolor{keywordtype}{void} \mbox{\hyperlink{classSession_a2e0fc5d9d7b38a92f3bee0bb5c363283}{process\_vectors}}();                                 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00060}00060     uint32\_t \mbox{\hyperlink{classSession_ae40fd3552757131de8d18b1503ad206b}{receive\_uint32}}();                              \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00061}00061     std::vector<int32\_t> \mbox{\hyperlink{classSession_a24067698fd194d9764917d3e67c9ad58}{receive\_vector}}(uint32\_t size);     \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00062}00062     \textcolor{keywordtype}{void} \mbox{\hyperlink{classSession_a25fdf9812d754cbc14ba8ea1afb21724}{send\_uint32}}(uint32\_t value);                       \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00063}00063     \textcolor{keywordtype}{void} \mbox{\hyperlink{classSession_ab4712b6686de331984ce45f67a9d36ab}{send\_int32}}(int32\_t value);                         \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00064}00064     std::string \mbox{\hyperlink{classSession_ae353103b2780ae885b9bda8ebc2cae9b}{calculate\_md5}}(\textcolor{keyword}{const} std::string\& data);     \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00065}00065     int32\_t \mbox{\hyperlink{classSession_adf4123c01bbcc19682958fea79b805cd}{calculate\_vector\_product}}(\textcolor{keyword}{const} std::vector<int32\_t>\& vector); \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00066}00066 }
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00067}00067 \textcolor{keyword}{public}:\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00068}00068 \textcolor{comment}{    /**}}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00069}00069 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00070}00070 \textcolor{comment}{     * }}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00071}00071 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00072}00072 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00073}00073 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00074}00074 \textcolor{comment}{     */}}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00075}00075     \mbox{\hyperlink{classSession_ab0a926252af0518b654fcc4e52f18c7e}{Session}}(\textcolor{keywordtype}{int} \mbox{\hyperlink{classSession_a968ea00cae0e5293555a8223bff7b42d}{client\_socket}}, std::unordered\_map<std::string, std::string>\& \mbox{\hyperlink{classSession_a931c068afeec16b499173fa4c558826f}{clients}}, \mbox{\hyperlink{classLogger}{Logger}}\& \mbox{\hyperlink{classSession_aa613cae4a6bcabe30311dcee7f57804e}{logger}});}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00076}00076     \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00077}00077 \textcolor{comment}{    /**}}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00078}00078 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00079}00079 \textcolor{comment}{     * }}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00080}00080 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00081}00081 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00082}00082 \textcolor{comment}{     * }}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00083}00083 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00084}00084 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00085}00085 \textcolor{comment}{     */}}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00086}00086     \textcolor{keywordtype}{void} \mbox{\hyperlink{classSession_a72b04c0d0be04cba369af88f68c32296}{handle}}();}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00087}00087     \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00088}00088 \textcolor{comment}{    /**}}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00089}00089 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00090}00090 \textcolor{comment}{     * }}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00091}00091 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00092}00092 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00093}00093 \textcolor{comment}{     */}}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00094}00094     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classSession_a8b1eb5ebfd3c900d71c991540b7a249f}{send\_text}}(\textcolor{keyword}{const} std::string\& text);}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00095}00095 \};}
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00096}00096 }
+\DoxyCodeLine{\Hypertarget{session_8h_source_l00097}00097 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// SESSION\_H}}
+
+\end{DoxyCode}

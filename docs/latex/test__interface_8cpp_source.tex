@@ -1,0 +1,296 @@
+\hypertarget{test__interface_8cpp_source}{}\subsection{test\+\_\+interface.\+cpp}
+\label{test__interface_8cpp_source}\index{tests/test\_interface.cpp@{tests/test\_interface.cpp}}
+\mbox{\hyperlink{test__interface_8cpp}{Documentation}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00001}00001 \textcolor{preprocessor}{\#include <UnitTest++/UnitTest++.h>}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00002}00002 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00003}00003 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00004}00004 \textcolor{preprocessor}{\#include <climits>}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00005}00005 \textcolor{preprocessor}{\#include <algorithm>}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00006}00006 }
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00007}00007 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00008}\mbox{\hyperlink{namespaceInterfaceTest}{00008}} \textcolor{keyword}{namespace }\mbox{\hyperlink{namespaceInterfaceTest}{InterfaceTest}} \{}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00009}00009     \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00010}\mbox{\hyperlink{namespaceInterfaceTest_a52d04cb0ed756b18a0116ebf1415ab90}{00010}}     std::string \mbox{\hyperlink{namespaceInterfaceTest_a52d04cb0ed756b18a0116ebf1415ab90}{extract\_data\_interface}}(\textcolor{keyword}{const} std::string\& buffer, \textcolor{keywordtype}{size\_t}\& pos, \textcolor{keywordtype}{size\_t} length) \{}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00011}00011         \textcolor{keywordflow}{if} (pos + length > buffer.length()) \{}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00012}00012             \textcolor{keywordflow}{throw} std::runtime\_error(\textcolor{stringliteral}{"{}Not enough data in buffer"{}});}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00013}00013         \}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00014}00014         }
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00015}00015         std::string result = buffer.substr(pos, length);}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00016}00016         pos += length;}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00017}00017         \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00018}00018     \}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00019}00019     }
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00020}00020     \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00021}\mbox{\hyperlink{namespaceInterfaceTest_a9bad8adc90b1cb4400860a4be8d14557}{00021}}     \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespaceInterfaceTest_a9bad8adc90b1cb4400860a4be8d14557}{is\_valid\_hex\_string}}(\textcolor{keyword}{const} std::string\& str) \{}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00022}00022         \textcolor{keywordflow}{if} (str.empty()) \{}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00023}00023             \textcolor{keywordflow}{return} \textcolor{keyword}{false};  \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00024}00024         \}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00025}00025         }
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00026}00026         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{char} c : str) \{}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00027}00027             \textcolor{keywordflow}{if} (!isxdigit(c)) \{}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00028}00028                 \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00029}00029             \}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00030}00030         \}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00031}00031         \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00032}00032     \}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00033}00033     }
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00034}00034     \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00035}\mbox{\hyperlink{namespaceInterfaceTest_a92385975cf0a3a3b29b07f85109c3a9c}{00035}}     \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespaceInterfaceTest_a92385975cf0a3a3b29b07f85109c3a9c}{is\_valid\_hash\_length}}(\textcolor{keyword}{const} std::string\& hash) \{}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00036}00036         \textcolor{keywordflow}{return} hash.length() == 32;}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00037}00037     \}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00038}00038     }
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00039}00039     \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00040}\mbox{\hyperlink{namespaceInterfaceTest_addc512897eb09909f4b102e1c32067a7}{00040}}     \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespaceInterfaceTest_addc512897eb09909f4b102e1c32067a7}{is\_valid\_salt\_length}}(\textcolor{keyword}{const} std::string\& salt) \{}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00041}00041         \textcolor{keywordflow}{return} salt.length() == 16;}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00042}00042     \}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00043}00043     }
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00044}00044     \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00045}\mbox{\hyperlink{namespaceInterfaceTest_a930870ee4b50e9f221d121539531e9ef}{00045}}     \textcolor{keywordtype}{bool} \mbox{\hyperlink{namespaceInterfaceTest_a930870ee4b50e9f221d121539531e9ef}{is\_valid\_auth\_format}}(\textcolor{keyword}{const} std::string\& login, }
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00046}00046                               \textcolor{keyword}{const} std::string\& salt, }
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00047}00047                               \textcolor{keyword}{const} std::string\& hash) \{}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00048}00048         \textcolor{keywordflow}{return} !login.empty() \&\& }
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00049}00049                \mbox{\hyperlink{namespaceInterfaceTest_addc512897eb09909f4b102e1c32067a7}{is\_valid\_salt\_length}}(salt) \&\& }
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00050}00050                \mbox{\hyperlink{namespaceInterfaceTest_a92385975cf0a3a3b29b07f85109c3a9c}{is\_valid\_hash\_length}}(hash) \&\&}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00051}00051                \mbox{\hyperlink{namespaceInterfaceTest_a9bad8adc90b1cb4400860a4be8d14557}{is\_valid\_hex\_string}}(salt) \&\&}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00052}00052                \mbox{\hyperlink{namespaceInterfaceTest_a9bad8adc90b1cb4400860a4be8d14557}{is\_valid\_hex\_string}}(hash);}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00053}00053     \}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00054}00054     }
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00055}00055     \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00056}\mbox{\hyperlink{namespaceInterfaceTest_ae0a9d6c1f7effd21cf60c4eb18538330}{00056}}     int32\_t \mbox{\hyperlink{namespaceInterfaceTest_ae0a9d6c1f7effd21cf60c4eb18538330}{calculate\_product\_interface}}(\textcolor{keyword}{const} std::vector<int32\_t>\& vector) \{}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00057}00057         \textcolor{keywordflow}{if} (vector.empty()) \{}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00058}00058             \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00059}00059         \}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00060}00060         }
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00061}00061         int64\_t product = 1;}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00062}00062         \textcolor{keywordflow}{for} (int32\_t val : vector) \{}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00063}00063             int64\_t val64 = \textcolor{keyword}{static\_cast<}int64\_t\textcolor{keyword}{>}(val);}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00064}00064             }
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00065}00065             \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00066}00066             \textcolor{keywordflow}{if} (val64 == 0) \{}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00067}00067                 \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00068}00068             \}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00069}00069             }
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00070}00070             product *= val64;}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00071}00071             }
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00072}00072             \textcolor{keywordflow}{if} (product > INT32\_MAX) \textcolor{keywordflow}{return} INT32\_MAX;}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00073}00073             \textcolor{keywordflow}{if} (product < INT32\_MIN) \textcolor{keywordflow}{return} INT32\_MIN;}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00074}00074         \}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00075}00075         }
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00076}00076         \textcolor{keywordflow}{return} \textcolor{keyword}{static\_cast<}int32\_t\textcolor{keyword}{>}(product);}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00077}00077     \}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00078}00078 \}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00079}00079 }
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00080}\mbox{\hyperlink{test__interface_8cpp_a7b669ad81cfeb0194a030b24c1644f9a}{00080}} \mbox{\hyperlink{test__interface_8cpp_a7b669ad81cfeb0194a030b24c1644f9a}{SUITE}}(InterfaceTestSuite) \{}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00081}00081     \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00082}00082     TEST(ExtractDataBasic) \{}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00083}00083         std::string buffer = \textcolor{stringliteral}{"{}test1234567890ABCDEF"{}};}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00084}00084         \textcolor{keywordtype}{size\_t} pos = 0;}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00085}00085         }
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00086}00086         std::string part1 = \mbox{\hyperlink{namespaceInterfaceTest_a52d04cb0ed756b18a0116ebf1415ab90}{InterfaceTest::extract\_data\_interface}}(buffer, pos, 4);}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00087}00087         CHECK\_EQUAL(\textcolor{stringliteral}{"{}test"{}}, part1);}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00088}00088         CHECK\_EQUAL(4, pos);}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00089}00089         }
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00090}00090         std::string part2 = \mbox{\hyperlink{namespaceInterfaceTest_a52d04cb0ed756b18a0116ebf1415ab90}{InterfaceTest::extract\_data\_interface}}(buffer, pos, 6);}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00091}00091         CHECK\_EQUAL(\textcolor{stringliteral}{"{}123456"{}}, part2);}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00092}00092         CHECK\_EQUAL(10, pos);}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00093}00093         }
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00094}00094         std::string part3 = \mbox{\hyperlink{namespaceInterfaceTest_a52d04cb0ed756b18a0116ebf1415ab90}{InterfaceTest::extract\_data\_interface}}(buffer, pos, 10);}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00095}00095         CHECK\_EQUAL(\textcolor{stringliteral}{"{}7890ABCDEF"{}}, part3);}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00096}00096         CHECK\_EQUAL(20, pos);}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00097}00097     \}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00098}00098     }
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00099}00099     TEST(ExtractDataComplete) \{}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00100}00100         std::string buffer = \textcolor{stringliteral}{"{}full\_buffer\_content"{}};}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00101}00101         \textcolor{keywordtype}{size\_t} pos = 0;}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00102}00102         }
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00103}00103         std::string full = \mbox{\hyperlink{namespaceInterfaceTest_a52d04cb0ed756b18a0116ebf1415ab90}{InterfaceTest::extract\_data\_interface}}(buffer, pos, buffer.length());}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00104}00104         CHECK\_EQUAL(buffer, full);}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00105}00105         CHECK\_EQUAL(buffer.length(), pos);}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00106}00106     \}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00107}00107     }
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00108}00108     TEST(ExtractDataEmptyBuffer) \{}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00109}00109         std::string buffer = \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00110}00110         \textcolor{keywordtype}{size\_t} pos = 0;}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00111}00111         }
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00112}00112         CHECK\_THROW(\mbox{\hyperlink{namespaceInterfaceTest_a52d04cb0ed756b18a0116ebf1415ab90}{InterfaceTest::extract\_data\_interface}}(buffer, pos, 1), std::runtime\_error);}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00113}00113     \}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00114}00114     }
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00115}00115     TEST(ExtractDataOutOfBounds) \{}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00116}00116         std::string buffer = \textcolor{stringliteral}{"{}short"{}};}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00117}00117         \textcolor{keywordtype}{size\_t} pos = 0;}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00118}00118         }
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00119}00119         \mbox{\hyperlink{namespaceInterfaceTest_a52d04cb0ed756b18a0116ebf1415ab90}{InterfaceTest::extract\_data\_interface}}(buffer, pos, 3); \textcolor{comment}{// "{}sho"{}}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00120}00120         }
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00121}00121         CHECK\_THROW(\mbox{\hyperlink{namespaceInterfaceTest_a52d04cb0ed756b18a0116ebf1415ab90}{InterfaceTest::extract\_data\_interface}}(buffer, pos, 10), std::runtime\_error);}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00122}00122     \}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00123}00123     }
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00124}00124     \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00125}00125     TEST(HexValidationPositive) \{}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00126}00126         CHECK(\mbox{\hyperlink{namespaceInterfaceTest_a9bad8adc90b1cb4400860a4be8d14557}{InterfaceTest::is\_valid\_hex\_string}}(\textcolor{stringliteral}{"{}1234567890"{}}));}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00127}00127         CHECK(\mbox{\hyperlink{namespaceInterfaceTest_a9bad8adc90b1cb4400860a4be8d14557}{InterfaceTest::is\_valid\_hex\_string}}(\textcolor{stringliteral}{"{}ABCDEF"{}}));}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00128}00128         CHECK(\mbox{\hyperlink{namespaceInterfaceTest_a9bad8adc90b1cb4400860a4be8d14557}{InterfaceTest::is\_valid\_hex\_string}}(\textcolor{stringliteral}{"{}abcdef"{}}));}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00129}00129         CHECK(\mbox{\hyperlink{namespaceInterfaceTest_a9bad8adc90b1cb4400860a4be8d14557}{InterfaceTest::is\_valid\_hex\_string}}(\textcolor{stringliteral}{"{}1234567890ABCDEFabcdef"{}}));}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00130}00130     \}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00131}00131     }
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00132}00132     TEST(HexValidationNegative) \{}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00133}00133         CHECK(!\mbox{\hyperlink{namespaceInterfaceTest_a9bad8adc90b1cb4400860a4be8d14557}{InterfaceTest::is\_valid\_hex\_string}}(\textcolor{stringliteral}{"{}"{}})); \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00134}00134         CHECK(!\mbox{\hyperlink{namespaceInterfaceTest_a9bad8adc90b1cb4400860a4be8d14557}{InterfaceTest::is\_valid\_hex\_string}}(\textcolor{stringliteral}{"{}123G456"{}})); \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00135}00135         CHECK(!\mbox{\hyperlink{namespaceInterfaceTest_a9bad8adc90b1cb4400860a4be8d14557}{InterfaceTest::is\_valid\_hex\_string}}(\textcolor{stringliteral}{"{}12 34"{}})); \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00136}00136         CHECK(!\mbox{\hyperlink{namespaceInterfaceTest_a9bad8adc90b1cb4400860a4be8d14557}{InterfaceTest::is\_valid\_hex\_string}}(\textcolor{stringliteral}{"{}12@34"{}})); \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00137}00137         CHECK(!\mbox{\hyperlink{namespaceInterfaceTest_a9bad8adc90b1cb4400860a4be8d14557}{InterfaceTest::is\_valid\_hex\_string}}(\textcolor{stringliteral}{"{}12\(\backslash\)n34"{}})); \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00138}00138     \}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00139}00139     }
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00140}00140     TEST(HexValidationMixedCase) \{}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00141}00141         CHECK(\mbox{\hyperlink{namespaceInterfaceTest_a9bad8adc90b1cb4400860a4be8d14557}{InterfaceTest::is\_valid\_hex\_string}}(\textcolor{stringliteral}{"{}12ABcdEF90"{}}));}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00142}00142         CHECK(\mbox{\hyperlink{namespaceInterfaceTest_a9bad8adc90b1cb4400860a4be8d14557}{InterfaceTest::is\_valid\_hex\_string}}(\textcolor{stringliteral}{"{}AaBbCcDdEeFf"{}}));}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00143}00143     \}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00144}00144     }
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00145}00145     \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00146}00146     TEST(LengthValidationHash) \{}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00147}00147         CHECK(\mbox{\hyperlink{namespaceInterfaceTest_a92385975cf0a3a3b29b07f85109c3a9c}{InterfaceTest::is\_valid\_hash\_length}}(\textcolor{stringliteral}{"{}12345678901234567890123456789012"{}})); \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00148}00148         CHECK(!\mbox{\hyperlink{namespaceInterfaceTest_a92385975cf0a3a3b29b07f85109c3a9c}{InterfaceTest::is\_valid\_hash\_length}}(\textcolor{stringliteral}{"{}1234567890123456789012345678901"{}})); \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00149}00149         CHECK(!\mbox{\hyperlink{namespaceInterfaceTest_a92385975cf0a3a3b29b07f85109c3a9c}{InterfaceTest::is\_valid\_hash\_length}}(\textcolor{stringliteral}{"{}123456789012345678901234567890123"{}})); \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00150}00150         CHECK(!\mbox{\hyperlink{namespaceInterfaceTest_a92385975cf0a3a3b29b07f85109c3a9c}{InterfaceTest::is\_valid\_hash\_length}}(\textcolor{stringliteral}{"{}"{}})); \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00151}00151     \}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00152}00152     }
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00153}00153     TEST(LengthValidationSalt) \{}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00154}00154         CHECK(\mbox{\hyperlink{namespaceInterfaceTest_addc512897eb09909f4b102e1c32067a7}{InterfaceTest::is\_valid\_salt\_length}}(\textcolor{stringliteral}{"{}1234567890123456"{}})); \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00155}00155         CHECK(!\mbox{\hyperlink{namespaceInterfaceTest_addc512897eb09909f4b102e1c32067a7}{InterfaceTest::is\_valid\_salt\_length}}(\textcolor{stringliteral}{"{}123456789012345"{}})); \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00156}00156         CHECK(!\mbox{\hyperlink{namespaceInterfaceTest_addc512897eb09909f4b102e1c32067a7}{InterfaceTest::is\_valid\_salt\_length}}(\textcolor{stringliteral}{"{}12345678901234567"{}})); \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00157}00157     \}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00158}00158     }
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00159}00159     \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00160}00160     TEST(AuthFormatValid) \{}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00161}00161         CHECK(\mbox{\hyperlink{namespaceInterfaceTest_a930870ee4b50e9f221d121539531e9ef}{InterfaceTest::is\_valid\_auth\_format}}(}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00162}00162             \textcolor{stringliteral}{"{}user"{}}, }
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00163}00163             \textcolor{stringliteral}{"{}1234567890ABCDEF"{}}, }
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00164}00164             \textcolor{stringliteral}{"{}098F6BCD4621D373CADE4E832627B4F6"{}}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00165}00165         ));}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00166}00166     \}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00167}00167     }
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00168}00168     TEST(AuthFormatInvalidLogin) \{}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00169}00169         CHECK(!\mbox{\hyperlink{namespaceInterfaceTest_a930870ee4b50e9f221d121539531e9ef}{InterfaceTest::is\_valid\_auth\_format}}(}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00170}00170             \textcolor{stringliteral}{"{}"{}}, \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00171}00171             \textcolor{stringliteral}{"{}1234567890ABCDEF"{}}, }
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00172}00172             \textcolor{stringliteral}{"{}098F6BCD4621D373CADE4E832627B4F6"{}}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00173}00173         ));}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00174}00174     \}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00175}00175     }
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00176}00176     TEST(AuthFormatInvalidSaltLength) \{}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00177}00177         CHECK(!\mbox{\hyperlink{namespaceInterfaceTest_a930870ee4b50e9f221d121539531e9ef}{InterfaceTest::is\_valid\_auth\_format}}(}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00178}00178             \textcolor{stringliteral}{"{}user"{}},}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00179}00179             \textcolor{stringliteral}{"{}1234567890ABCDE"{}}, \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00180}00180             \textcolor{stringliteral}{"{}098F6BCD4621D373CADE4E832627B4F6"{}}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00181}00181         ));}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00182}00182     \}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00183}00183     }
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00184}00184     TEST(AuthFormatInvalidHashLength) \{}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00185}00185         CHECK(!\mbox{\hyperlink{namespaceInterfaceTest_a930870ee4b50e9f221d121539531e9ef}{InterfaceTest::is\_valid\_auth\_format}}(}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00186}00186             \textcolor{stringliteral}{"{}user"{}},}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00187}00187             \textcolor{stringliteral}{"{}1234567890ABCDEF"{}},}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00188}00188             \textcolor{stringliteral}{"{}098F6BCD4621D373CADE4E832627B4F"{}} \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00189}00189         ));}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00190}00190     \}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00191}00191     }
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00192}00192     TEST(AuthFormatInvalidHex) \{}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00193}00193         CHECK(!\mbox{\hyperlink{namespaceInterfaceTest_a930870ee4b50e9f221d121539531e9ef}{InterfaceTest::is\_valid\_auth\_format}}(}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00194}00194             \textcolor{stringliteral}{"{}user"{}},}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00195}00195             \textcolor{stringliteral}{"{}1234567890ABCDEG"{}}, \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00196}00196             \textcolor{stringliteral}{"{}098F6BCD4621D373CADE4E832627B4F6"{}}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00197}00197         ));}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00198}00198         }
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00199}00199         CHECK(!\mbox{\hyperlink{namespaceInterfaceTest_a930870ee4b50e9f221d121539531e9ef}{InterfaceTest::is\_valid\_auth\_format}}(}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00200}00200             \textcolor{stringliteral}{"{}user"{}},}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00201}00201             \textcolor{stringliteral}{"{}1234567890ABCDEF"{}},}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00202}00202             \textcolor{stringliteral}{"{}098F6BCD4621D373CADE4E832627B4G6"{}} \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00203}00203         ));}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00204}00204     \}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00205}00205     }
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00206}00206     \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00207}00207     TEST(ProductCalculationBasic) \{}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00208}00208         std::vector<int32\_t> vec1 = \{2, 3, 4\};}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00209}00209         CHECK\_EQUAL(24, \mbox{\hyperlink{namespaceInterfaceTest_ae0a9d6c1f7effd21cf60c4eb18538330}{InterfaceTest::calculate\_product\_interface}}(vec1));}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00210}00210         }
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00211}00211         std::vector<int32\_t> vec2 = \{5\};}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00212}00212         CHECK\_EQUAL(5, \mbox{\hyperlink{namespaceInterfaceTest_ae0a9d6c1f7effd21cf60c4eb18538330}{InterfaceTest::calculate\_product\_interface}}(vec2));}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00213}00213         }
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00214}00214         std::vector<int32\_t> vec3 = \{-\/2, 3, -\/4\};}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00215}00215         CHECK\_EQUAL(24, \mbox{\hyperlink{namespaceInterfaceTest_ae0a9d6c1f7effd21cf60c4eb18538330}{InterfaceTest::calculate\_product\_interface}}(vec3));}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00216}00216     \}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00217}00217     }
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00218}00218     TEST(ProductCalculationEdgeCases) \{}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00219}00219         std::vector<int32\_t> empty;}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00220}00220         CHECK\_EQUAL(0, \mbox{\hyperlink{namespaceInterfaceTest_ae0a9d6c1f7effd21cf60c4eb18538330}{InterfaceTest::calculate\_product\_interface}}(empty));}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00221}00221         }
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00222}00222         std::vector<int32\_t> with\_zero = \{1, 0, 3\};}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00223}00223         CHECK\_EQUAL(0, \mbox{\hyperlink{namespaceInterfaceTest_ae0a9d6c1f7effd21cf60c4eb18538330}{InterfaceTest::calculate\_product\_interface}}(with\_zero));}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00224}00224         }
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00225}00225         std::vector<int32\_t> all\_zeros = \{0, 0, 0\};}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00226}00226         CHECK\_EQUAL(0, \mbox{\hyperlink{namespaceInterfaceTest_ae0a9d6c1f7effd21cf60c4eb18538330}{InterfaceTest::calculate\_product\_interface}}(all\_zeros));}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00227}00227     \}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00228}00228     }
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00229}00229     TEST(ProductCalculationLargeNumbers) \{}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00230}00230         std::vector<int32\_t> vec = \{1000, 2000\};}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00231}00231         CHECK\_EQUAL(2000000, \mbox{\hyperlink{namespaceInterfaceTest_ae0a9d6c1f7effd21cf60c4eb18538330}{InterfaceTest::calculate\_product\_interface}}(vec));}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00232}00232     \}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00233}00233     }
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00234}00234     TEST(ProductCalculationOverflowProtection) \{}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00235}00235         std::vector<int32\_t> vec = \{INT\_MAX, 2\};}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00236}00236         int32\_t result = \mbox{\hyperlink{namespaceInterfaceTest_ae0a9d6c1f7effd21cf60c4eb18538330}{InterfaceTest::calculate\_product\_interface}}(vec);}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00237}00237         CHECK(result == INT\_MAX);}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00238}00238         }
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00239}00239         std::vector<int32\_t> vec2 = \{INT\_MIN, 2\};}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00240}00240         int32\_t result2 = \mbox{\hyperlink{namespaceInterfaceTest_ae0a9d6c1f7effd21cf60c4eb18538330}{InterfaceTest::calculate\_product\_interface}}(vec2);}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00241}00241         CHECK(result2 == INT\_MIN || result2 == INT\_MAX);}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00242}00242     \}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00243}00243     }
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00244}00244     \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00245}00245     TEST(InterfaceIntegration) \{}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00246}00246         \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00247}00247         std::string auth\_data = \textcolor{stringliteral}{"{}john\_doe4F9C429F5C6884DBD41D8CD98F00B204E9800998ECF8427E"{}};}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00248}00248         \textcolor{keywordtype}{size\_t} pos = 0;}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00249}00249         }
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00250}00250         \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00251}00251         std::string login = \mbox{\hyperlink{namespaceInterfaceTest_a52d04cb0ed756b18a0116ebf1415ab90}{InterfaceTest::extract\_data\_interface}}(auth\_data, pos, 8);}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00252}00252         CHECK\_EQUAL(\textcolor{stringliteral}{"{}john\_doe"{}}, login);}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00253}00253         }
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00254}00254         \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00255}00255         std::string salt = \mbox{\hyperlink{namespaceInterfaceTest_a52d04cb0ed756b18a0116ebf1415ab90}{InterfaceTest::extract\_data\_interface}}(auth\_data, pos, 16);}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00256}00256         CHECK\_EQUAL(\textcolor{stringliteral}{"{}4F9C429F5C6884DB"{}}, salt);}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00257}00257         }
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00258}00258         \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00259}00259         std::string hash = \mbox{\hyperlink{namespaceInterfaceTest_a52d04cb0ed756b18a0116ebf1415ab90}{InterfaceTest::extract\_data\_interface}}(auth\_data, pos, 32);}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00260}00260         CHECK\_EQUAL(\textcolor{stringliteral}{"{}D41D8CD98F00B204E9800998ECF8427E"{}}, hash);}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00261}00261         }
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00262}00262         \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00263}00263         CHECK(\mbox{\hyperlink{namespaceInterfaceTest_a930870ee4b50e9f221d121539531e9ef}{InterfaceTest::is\_valid\_auth\_format}}(login, salt, hash));}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00264}00264         }
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00265}00265         \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00266}00266         CHECK(\mbox{\hyperlink{namespaceInterfaceTest_addc512897eb09909f4b102e1c32067a7}{InterfaceTest::is\_valid\_salt\_length}}(salt));}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00267}00267         CHECK(\mbox{\hyperlink{namespaceInterfaceTest_a92385975cf0a3a3b29b07f85109c3a9c}{InterfaceTest::is\_valid\_hash\_length}}(hash));}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00268}00268         CHECK(\mbox{\hyperlink{namespaceInterfaceTest_a9bad8adc90b1cb4400860a4be8d14557}{InterfaceTest::is\_valid\_hex\_string}}(salt));}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00269}00269         CHECK(\mbox{\hyperlink{namespaceInterfaceTest_a9bad8adc90b1cb4400860a4be8d14557}{InterfaceTest::is\_valid\_hex\_string}}(hash));}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00270}00270     \}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00271}00271     }
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00272}00272     TEST(InterfaceErrorHandling) \{}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00273}00273         \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00274}00274         \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00275}00275         std::string invalid\_auth = \textcolor{stringliteral}{"{}user123G4567890ABCD1234567890ABCDEF1234567890ABCDEF12345678"{}};}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00276}00276         \textcolor{keywordtype}{size\_t} pos = 0;}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00277}00277         }
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00278}00278         std::string login = \mbox{\hyperlink{namespaceInterfaceTest_a52d04cb0ed756b18a0116ebf1415ab90}{InterfaceTest::extract\_data\_interface}}(invalid\_auth, pos, 4);}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00279}00279         std::string salt = \mbox{\hyperlink{namespaceInterfaceTest_a52d04cb0ed756b18a0116ebf1415ab90}{InterfaceTest::extract\_data\_interface}}(invalid\_auth, pos, 16);}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00280}00280         std::string hash = \mbox{\hyperlink{namespaceInterfaceTest_a52d04cb0ed756b18a0116ebf1415ab90}{InterfaceTest::extract\_data\_interface}}(invalid\_auth, pos, 32);}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00281}00281         }
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00282}00282         \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00283}00283         CHECK(!\mbox{\hyperlink{namespaceInterfaceTest_a9bad8adc90b1cb4400860a4be8d14557}{InterfaceTest::is\_valid\_hex\_string}}(salt));}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00284}00284         CHECK(!\mbox{\hyperlink{namespaceInterfaceTest_a930870ee4b50e9f221d121539531e9ef}{InterfaceTest::is\_valid\_auth\_format}}(login, salt, hash));}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00285}00285     \}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00286}00286 \}}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00287}00287 }
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00288}\mbox{\hyperlink{test__interface_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{00288}} \textcolor{keywordtype}{int} \mbox{\hyperlink{test__interface_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}}() \{}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00289}00289     \textcolor{keywordflow}{return} UnitTest::RunAllTests();}
+\DoxyCodeLine{\Hypertarget{test__interface_8cpp_source_l00290}00290 \}}
+
+\end{DoxyCode}

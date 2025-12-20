@@ -1,0 +1,4 @@
+<map id="Server::setup_socket" name="Server::setup_socket">
+<area shape="rect" id="node1" title="Настраивает серверный сокет" alt="" coords="168,5,325,32"/>
+<area shape="rect" id="node2" href="$classServer.html#a47c127babad31cbd0a3c452d2e6b395b" title="Конструктор сервера" alt="" coords="5,5,120,32"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="Session::verify_authentication" name="Session::verify_authentication">
+<area shape="rect" id="node1" title="Проверяет аутентификацию клиента" alt="" coords="5,31,224,57"/>
+<area shape="rect" id="node2" href="$classSession.html#ae353103b2780ae885b9bda8ebc2cae9b" title="Вычисляет MD5 хэш" alt="" coords="272,5,447,32"/>
+<area shape="rect" id="node3" href="$classLogger.html#a025725279def374c2a103331548b2631" title="Записывает сообщение в лог" alt="" coords="312,56,407,83"/>
+<area shape="rect" id="node4" href="$classLogger.html#aaff42813783601ee85e141e68893af96" title="Получает текущее время в формате строки" alt="" coords="495,56,680,83"/>
+</map>

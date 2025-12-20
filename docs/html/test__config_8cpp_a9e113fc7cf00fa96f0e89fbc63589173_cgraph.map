@@ -1,0 +1,5 @@
+<map id="SUITE" name="SUITE">
+<area shape="rect" id="node1" title=" " alt="" coords="5,5,65,32"/>
+<area shape="rect" id="node2" href="$structServerConfig.html#af608810bd123ca2b2a1d30eb725f2b49" title="Парсит аргументы командной строки" alt="" coords="113,5,297,32"/>
+<area shape="rect" id="node3" href="$structServerConfig.html#a60ee9072d261c5369995888d773a2afc" title="Выводит справку по использованию программы" alt="" coords="345,5,524,32"/>
+</map>

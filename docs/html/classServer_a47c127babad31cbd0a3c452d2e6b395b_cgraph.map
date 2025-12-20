@@ -1,0 +1,8 @@
+<map id="Server::Server" name="Server::Server">
+<area shape="rect" id="node1" title="Конструктор сервера" alt="" coords="5,31,120,57"/>
+<area shape="rect" id="node2" href="$classServer.html#a0ed7695b528ccfab79656192533199c5" title="Загружает базу данных клиентов из файла" alt="" coords="171,5,322,32"/>
+<area shape="rect" id="node6" href="$classServer.html#a5165c8fc64601592b4ac2b46f2747737" title="Настраивает серверный сокет" alt="" coords="168,56,325,83"/>
+<area shape="rect" id="node3" href="$classLogger.html#a025725279def374c2a103331548b2631" title="Записывает сообщение в лог" alt="" coords="553,31,648,57"/>
+<area shape="rect" id="node5" href="$classLogger.html#a0d807535d66747b03dced96d4e013a88" title="Записывает сообщение об ошибке" alt="" coords="373,31,505,57"/>
+<area shape="rect" id="node4" href="$classLogger.html#aaff42813783601ee85e141e68893af96" title="Получает текущее время в формате строки" alt="" coords="696,31,881,57"/>
+</map>

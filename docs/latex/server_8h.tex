@@ -1,0 +1,38 @@
+\hypertarget{server_8h}{}\subsection{Documentation}
+\label{server_8h}\index{include/server.h@{include/server.h}}
+
+
+Основной класс сервера  
+
+
+{\ttfamily \#include \char`\"{}types.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}config.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}logger.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$unordered\+\_\+map$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+Граф включаемых заголовочных файлов для server.\+h\+:
+% FIG 0
+Граф файлов, в которые включается этот файл\+:
+% FIG 1
+\doxysubsubsection*{Documentation}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classServer}{Server}}
+\begin{DoxyCompactList}\small\item\em Основной класс TCP сервера \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsubsection{Documentation}
+Основной класс сервера 
+
+Определяет класс \mbox{\hyperlink{classServer}{Server}}, который представляет собой основной серверный процесс. Отвечает за инициализацию, настройку сокета, загрузку конфигурации, прием клиентских подключений и создание сессий для их обработки.
+
+\begin{DoxyNote}{Documentation}
+Сервер работает в бесконечном цикле, принимая новые подключения 
+\end{DoxyNote}
+\begin{DoxySeeAlso}{Documentation}
+\mbox{\hyperlink{server_8cpp}{server.\+cpp}} 
+\end{DoxySeeAlso}
+
+
+См. определение в файле \mbox{\hyperlink{server_8h_source}{server.\+h}}
+

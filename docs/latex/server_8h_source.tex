@@ -1,0 +1,106 @@
+\hypertarget{server_8h_source}{}\subsection{server.\+h}
+\label{server_8h_source}\index{include/server.h@{include/server.h}}
+\mbox{\hyperlink{server_8h}{Documentation}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00001}00001 \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00002}00002 \textcolor{comment}{ * @file server.h}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00003}00003 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00004}00004 \textcolor{comment}{ * }}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00005}00005 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00006}00006 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00007}00007 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00008}00008 \textcolor{comment}{ * }}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00009}00009 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00010}00010 \textcolor{comment}{ * @see server.cpp}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00011}00011 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00012}00012 }
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00013}00013 \textcolor{preprocessor}{\#ifndef SERVER\_H}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00014}00014 \textcolor{preprocessor}{\#define SERVER\_H}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00015}00015 }
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00016}00016 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{types_8h}{types.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00017}00017 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{config_8h}{config.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00018}00018 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{logger_8h}{logger.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00019}00019 \textcolor{preprocessor}{\#include <unordered\_map>}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00020}00020 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00021}00021 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00022}00022 \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00023}00023 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00024}00024 \textcolor{comment}{ * }}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00025}00025 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00026}00026 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00027}00027 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00028}00028 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00029}00029 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00030}00030 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00031}00031 \textcolor{comment}{ * }}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00032}00032 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00033}00033 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00034}00034 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00035}\mbox{\hyperlink{classServer}{00035}} \textcolor{keyword}{class }\mbox{\hyperlink{classServer}{Server}} \{}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00036}00036 \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00037}\mbox{\hyperlink{classServer_ad44296a781aa84fbc2cffee3407d9a25}{00037}}     \mbox{\hyperlink{structServerConfig}{ServerConfig}} \mbox{\hyperlink{classServer_ad44296a781aa84fbc2cffee3407d9a25}{config\_}};                                \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00038}\mbox{\hyperlink{classServer_a65e2a0d098d668104f26a0a08092a28f}{00038}}     \mbox{\hyperlink{classLogger}{Logger}} \mbox{\hyperlink{classServer_a65e2a0d098d668104f26a0a08092a28f}{logger\_}};                                      \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00039}\mbox{\hyperlink{classServer_a4d3082d5592ab7e53d2e37cbe1370575}{00039}}     std::unordered\_map<std::string, std::string> \mbox{\hyperlink{classServer_a4d3082d5592ab7e53d2e37cbe1370575}{clients\_}}; \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00040}\mbox{\hyperlink{classServer_a566cd5dd4c0933fb6132706cd12af23b}{00040}}     \textcolor{keywordtype}{int} \mbox{\hyperlink{classServer_a566cd5dd4c0933fb6132706cd12af23b}{server\_fd\_}};                                      \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00041}00041     \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00042}00042 \textcolor{comment}{    /**}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00043}00043 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00044}00044 \textcolor{comment}{     * }}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00045}00045 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00046}00046 \textcolor{comment}{     * }}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00047}00047 \textcolor{comment}{     * @note Формат файла: каждая строка "{}логин:пароль"{}}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00048}00048 \textcolor{comment}{     */}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00049}00049     \textcolor{keywordtype}{void} \mbox{\hyperlink{classServer_a0ed7695b528ccfab79656192533199c5}{load\_clients}}();}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00050}00050     \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00051}00051 \textcolor{comment}{    /**}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00052}00052 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00053}00053 \textcolor{comment}{     * }}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00054}00054 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00055}00055 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00056}00056 \textcolor{comment}{     * }}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00057}00057 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00058}00058 \textcolor{comment}{     */}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00059}00059     \textcolor{keywordtype}{void} \mbox{\hyperlink{classServer_a5165c8fc64601592b4ac2b46f2747737}{setup\_socket}}();}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00060}00060     \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00061}00061 \textcolor{comment}{    /**}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00062}00062 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00063}00063 \textcolor{comment}{     * }}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00064}00064 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00065}00065 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00066}00066 \textcolor{comment}{     */}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00067}00067     \textcolor{keywordtype}{void} \mbox{\hyperlink{classServer_ad4b5451852187a67551e68480fa0e9f5}{accept\_connections}}();}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00068}00068     }
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00069}00069 \textcolor{keyword}{public}:\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00070}00070 \textcolor{comment}{    /**}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00071}00071 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00072}00072 \textcolor{comment}{     * }}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00073}00073 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00074}00074 \textcolor{comment}{     * }}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00075}00075 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00076}00076 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00077}00077 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00078}00078 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00079}00079 \textcolor{comment}{     */}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00080}00080     \mbox{\hyperlink{classServer_a47c127babad31cbd0a3c452d2e6b395b}{Server}}(\textcolor{keyword}{const} \mbox{\hyperlink{structServerConfig}{ServerConfig}}\& config);}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00081}00081     \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00082}00082 \textcolor{comment}{    /**}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00083}00083 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00084}00084 \textcolor{comment}{     * }}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00085}00085 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00086}00086 \textcolor{comment}{     */}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00087}00087     \mbox{\hyperlink{classServer_a4b3aa2579cb1c8cd1d069582c14d0fa6}{\string~Server}}();}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00088}00088     \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00089}00089 \textcolor{comment}{    /**}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00090}00090 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00091}00091 \textcolor{comment}{     * }}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00092}00092 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00093}00093 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00094}00094 \textcolor{comment}{     * }}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00095}00095 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00096}00096 \textcolor{comment}{     */}}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00097}00097     \textcolor{keywordtype}{void} \mbox{\hyperlink{classServer_abb27d30b40a94326e3fd629d3b30b7d5}{run}}();}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00098}00098 \};}
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00099}00099 }
+\DoxyCodeLine{\Hypertarget{server_8h_source_l00100}00100 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

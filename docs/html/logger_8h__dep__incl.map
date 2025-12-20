@@ -1,0 +1,8 @@
+<map id="include/logger.h" name="include/logger.h">
+<area shape="rect" id="node1" title="Класс для логирования" alt="" coords="203,5,329,32"/>
+<area shape="rect" id="node2" href="$server_8h.html" title="Основной класс сервера" alt="" coords="61,80,186,107"/>
+<area shape="rect" id="node5" href="$logger_8cpp.html" title="Реализация класса Logger." alt="" coords="210,80,322,107"/>
+<area shape="rect" id="node6" href="$session_8cpp.html" title="Реализация обработки клиентских сессий" alt="" coords="347,80,468,107"/>
+<area shape="rect" id="node3" href="$main_8cpp.html" title="Точка входа в программу сервера" alt="" coords="5,155,111,181"/>
+<area shape="rect" id="node4" href="$server_8cpp.html" title="Реализация основного серверного процесса" alt="" coords="134,155,246,181"/>
+</map>

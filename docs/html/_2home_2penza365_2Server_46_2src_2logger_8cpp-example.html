@@ -1,0 +1,232 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.4"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>VEALC Server: /home/penza365/Server_46/src/logger.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">VEALC Server<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Сервер для аутентификации и обработки векторных данных</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.9.4 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search",'Поиск','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('_2home_2penza365_2Server_46_2src_2logger_8cpp-example.html',''); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">/home/penza365/Server_46/src/logger.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<p >Записывает сообщение об ошибке</p>
+<p >Записывает сообщение об ошибке</p><dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">error</td><td>Текст ошибки </td></tr>
+    <tr><td class="paramname">critical</td><td>Флаг критичности</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Добавляет префикс "err: " к сообщению об ошибке и вызывает log() для фактической записи</p>
+<p >logger.log_error("Connection failed", true); // Запишет: [2024-01-15 10:30:00] [CRITICAL] err: Connection failed</p>
+<div class="fragment"><div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * @file logger.cpp</span></div>
+<div class="line"><span class="comment"> * @brief Реализация класса Logger</span></div>
+<div class="line"><span class="comment"> * </span></div>
+<div class="line"><span class="comment"> * Содержит реализацию методов логирования:</span></div>
+<div class="line"><span class="comment"> * - создание логгера с указанием файла</span></div>
+<div class="line"><span class="comment"> * - запись сообщений с временными метками</span></div>
+<div class="line"><span class="comment"> * - обработка ошибок и критических событий</span></div>
+<div class="line"><span class="comment"> * - добавление текста к существующей записи</span></div>
+<div class="line"><span class="comment"> * </span></div>
+<div class="line"><span class="comment"> * @see logger.h</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &quot;../include/logger.h&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;fstream&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;ctime&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;iomanip&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * @brief Конструктор логгера</span></div>
+<div class="line"><span class="comment"> * </span></div>
+<div class="line"><span class="comment"> * @param filename Путь к файлу для записи логов</span></div>
+<div class="line"><span class="comment"> * </span></div>
+<div class="line"><span class="comment"> * @note Не создает файл, если он не существует - файл создается при первой записи</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"><a id="a0" name="a0"></a><a class="code hl_function" href="classLogger.html#a4f2ee02db1d03a83b6b9b43808e09f15">Logger::Logger</a>(<span class="keyword">const</span> std::string&amp; filename) : log_file_(filename) {}</div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * @brief Записывает сообщение в лог</span></div>
+<div class="line"><span class="comment"> * </span></div>
+<div class="line"><span class="comment"> * @param message Текст сообщения</span></div>
+<div class="line"><span class="comment"> * @param critical Флаг критичности</span></div>
+<div class="line"><span class="comment"> * </span></div>
+<div class="line"><span class="comment"> * @details</span></div>
+<div class="line"><span class="comment"> * 1. Выводит сообщение в стандартный вывод (std::cout)</span></div>
+<div class="line"><span class="comment"> * 2. Открывает файл логов в режиме добавления</span></div>
+<div class="line"><span class="comment"> * 3. Форматирует запись: [YYYY-MM-DD HH:MM:SS] [LEVEL] message</span></div>
+<div class="line"><span class="comment"> * 4. Записывает в файл и закрывает его</span></div>
+<div class="line"><span class="comment"> * </span></div>
+<div class="line"><span class="comment"> * @note Потокобезопасность не гарантируется</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"><span class="keywordtype">void</span> <a id="a1" name="a1"></a><a class="code hl_function" href="classLogger.html#a025725279def374c2a103331548b2631">Logger::log</a>(<span class="keyword">const</span> std::string&amp; message, <span class="keywordtype">bool</span> critical) {</div>
+<div class="line">    <span class="comment">// Вывод в консоль для отладки</span></div>
+<div class="line">    std::cout &lt;&lt; message &lt;&lt; std::endl;</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// Запись в файл</span></div>
+<div class="line">    std::ofstream file(<a id="a2" name="a2"></a><a class="code hl_variable" href="classLogger.html#ae94883fbdd8b0cd439a4855b4ef7d39c">log_file_</a>, std::ios_base::app);</div>
+<div class="line">    <span class="keywordflow">if</span> (file.is_open()) {</div>
+<div class="line">        std::string time_str = <a id="a3" name="a3"></a><a class="code hl_function" href="classLogger.html#aaff42813783601ee85e141e68893af96">get_current_time</a>();</div>
+<div class="line">        std::string critical_str = critical ? <span class="stringliteral">&quot;CRITICAL&quot;</span> : <span class="stringliteral">&quot;NON-CRITICAL&quot;</span>;</div>
+<div class="line"> </div>
+<div class="line">        file &lt;&lt; <span class="stringliteral">&quot;[&quot;</span> &lt;&lt; time_str &lt;&lt; <span class="stringliteral">&quot;] [&quot;</span> &lt;&lt; critical_str &lt;&lt; <span class="stringliteral">&quot;] &quot;</span> &lt;&lt; message &lt;&lt; std::endl;</div>
+<div class="line">        file.close();</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * @brief Добавляет текст к последней записи лога</span></div>
+<div class="line"><span class="comment"> * </span></div>
+<div class="line"><span class="comment"> * @param message Текст для добавления</span></div>
+<div class="line"><span class="comment"> * </span></div>
+<div class="line"><span class="comment"> * @details</span></div>
+<div class="line"><span class="comment"> * Отличается от log() тем, что:</span></div>
+<div class="line"><span class="comment"> * - Не добавляет временную метку</span></div>
+<div class="line"><span class="comment"> * - Не добавляет новую строку в конце</span></div>
+<div class="line"><span class="comment"> * - Выводит в консоль без std::endl</span></div>
+<div class="line"><span class="comment"> * </span></div>
+<div class="line"><span class="comment"> * @note Полезно для создания прогресс-баров или форматированных выводов</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"><span class="keywordtype">void</span> <a id="a4" name="a4"></a><a class="code hl_function" href="classLogger.html#a0837f91f9353e805acd8c844cc7bb416">Logger::log_add</a>(<span class="keyword">const</span> std::string&amp; message) {</div>
+<div class="line">    <span class="comment">// Вывод в консоль без новой строки</span></div>
+<div class="line">    std::cout &lt;&lt; message;</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// Запись в файл без новой строки</span></div>
+<div class="line">    std::ofstream file(<a class="code hl_variable" href="classLogger.html#ae94883fbdd8b0cd439a4855b4ef7d39c">log_file_</a>, std::ios_base::app);</div>
+<div class="line">    <span class="keywordflow">if</span> (file.is_open()) {</div>
+<div class="line">        file &lt;&lt; message;</div>
+<div class="line">        file.close();</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * @brief Записывает сообщение об ошибке</span></div>
+<div class="line"><span class="comment"> * </span></div>
+<div class="line"><span class="comment"> * @param error Текст ошибки</span></div>
+<div class="line"><span class="comment"> * @param critical Флаг критичности</span></div>
+<div class="line"><span class="comment"> * </span></div>
+<div class="line"><span class="comment"> * @details</span></div>
+<div class="line"><span class="comment"> * Добавляет префикс &quot;err: &quot; к сообщению об ошибке</span></div>
+<div class="line"><span class="comment"> * и вызывает log() для фактической записи</span></div>
+<div class="line"><span class="comment"> * </span></div>
+<div class="line"><span class="comment"> * @example</span></div>
+<div class="line"><span class="comment"> * logger.log_error(&quot;Connection failed&quot;, true);</span></div>
+<div class="line"><span class="comment"> * // Запишет: [2024-01-15 10:30:00] [CRITICAL] err: Connection failed</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"><span class="keywordtype">void</span> <a id="a5" name="a5"></a><a class="code hl_function" href="classLogger.html#a0d807535d66747b03dced96d4e013a88">Logger::log_error</a>(<span class="keyword">const</span> std::string&amp; error, <span class="keywordtype">bool</span> critical) {</div>
+<div class="line">    <span class="comment">// err вместо ERROR</span></div>
+<div class="line">    std::string err_message = <span class="stringliteral">&quot;err: &quot;</span> + error;</div>
+<div class="line">    <a class="code hl_function" href="classLogger.html#a025725279def374c2a103331548b2631">log</a>(err_message, critical);</div>
+<div class="line">}</div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * @brief Получает текущее время в формате строки</span></div>
+<div class="line"><span class="comment"> * </span></div>
+<div class="line"><span class="comment"> * @return std::string Время в формате &quot;YYYY-MM-DD HH:MM:SS&quot;</span></div>
+<div class="line"><span class="comment"> * </span></div>
+<div class="line"><span class="comment"> * @note Использует локальное время системы</span></div>
+<div class="line"><span class="comment"> * @note Формат соответствует ISO 8601 без временной зоны</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line">std::string <a class="code hl_function" href="classLogger.html#aaff42813783601ee85e141e68893af96">Logger::get_current_time</a>() {</div>
+<div class="line">    <span class="keyword">auto</span> now = std::time(<span class="keyword">nullptr</span>);</div>
+<div class="line">    <span class="keyword">auto</span> tm = *std::localtime(&amp;now);</div>
+<div class="line">    </div>
+<div class="line">    <span class="keywordtype">char</span> buffer[20];</div>
+<div class="line">    std::strftime(buffer, <span class="keyword">sizeof</span>(buffer), <span class="stringliteral">&quot;%Y-%m-%d %H:%M:%S&quot;</span>, &amp;tm);</div>
+<div class="line">    <span class="keywordflow">return</span> std::string(buffer);</div>
+<div class="line">}</div>
+<div class="ttc" id="aclassLogger_html_a025725279def374c2a103331548b2631"><div class="ttname"><a href="classLogger.html#a025725279def374c2a103331548b2631">Logger::log</a></div><div class="ttdeci">void log(const std::string &amp;message, bool critical=false)</div><div class="ttdoc">Записывает сообщение в лог</div><div class="ttdef"><b>Definition:</b> <a href="logger_8cpp_source.html#l00043">logger.cpp:43</a></div></div>
+<div class="ttc" id="aclassLogger_html_a0837f91f9353e805acd8c844cc7bb416"><div class="ttname"><a href="classLogger.html#a0837f91f9353e805acd8c844cc7bb416">Logger::log_add</a></div><div class="ttdeci">void log_add(const std::string &amp;message)</div><div class="ttdoc">Добавляет текст к последней записи лога</div><div class="ttdef"><b>Definition:</b> <a href="logger_8cpp_source.html#l00071">logger.cpp:71</a></div></div>
+<div class="ttc" id="aclassLogger_html_a0d807535d66747b03dced96d4e013a88"><div class="ttname"><a href="classLogger.html#a0d807535d66747b03dced96d4e013a88">Logger::log_error</a></div><div class="ttdeci">void log_error(const std::string &amp;error, bool critical=false)</div><div class="ttdoc">Записывает сообщение об ошибке</div><div class="ttdef"><b>Definition:</b> <a href="logger_8cpp_source.html#l00097">logger.cpp:97</a></div></div>
+<div class="ttc" id="aclassLogger_html_a4f2ee02db1d03a83b6b9b43808e09f15"><div class="ttname"><a href="classLogger.html#a4f2ee02db1d03a83b6b9b43808e09f15">Logger::Logger</a></div><div class="ttdeci">Logger(const std::string &amp;filename)</div><div class="ttdoc">Конструктор логгера</div><div class="ttdef"><b>Definition:</b> <a href="logger_8cpp_source.html#l00027">logger.cpp:27</a></div></div>
+<div class="ttc" id="aclassLogger_html_aaff42813783601ee85e141e68893af96"><div class="ttname"><a href="classLogger.html#aaff42813783601ee85e141e68893af96">Logger::get_current_time</a></div><div class="ttdeci">std::string get_current_time()</div><div class="ttdoc">Получает текущее время в формате строки</div><div class="ttdef"><b>Definition:</b> <a href="logger_8cpp_source.html#l00111">logger.cpp:111</a></div></div>
+<div class="ttc" id="aclassLogger_html_ae94883fbdd8b0cd439a4855b4ef7d39c"><div class="ttname"><a href="classLogger.html#ae94883fbdd8b0cd439a4855b4ef7d39c">Logger::log_file_</a></div><div class="ttdeci">std::string log_file_</div><div class="ttdoc">Путь к файлу логов</div><div class="ttdef"><b>Definition:</b> <a href="logger_8h_source.html#l00028">logger.h:28</a></div></div>
+</div><!-- fragment --> </div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,10 @@
+<map id="Session::send_text" name="Session::send_text">
+<area shape="rect" id="node1" title="Отправляет текстовые данные клиенту" alt="" coords="1109,31,1253,57"/>
+<area shape="rect" id="node2" href="$classSession.html#a2e0fc5d9d7b38a92f3bee0bb5c363283" title="Основная логика обработки векторов" alt="" coords="669,5,855,32"/>
+<area shape="rect" id="node7" href="$classSession.html#ab4712b6686de331984ce45f67a9d36ab" title="Отправляет 32&#45;битное знаковое число" alt="" coords="907,31,1057,57"/>
+<area shape="rect" id="node8" href="$classSession.html#a25fdf9812d754cbc14ba8ea1afb21724" title="Отправляет 32&#45;битное беззнаковое число" alt="" coords="903,81,1061,108"/>
+<area shape="rect" id="node3" href="$classSession.html#a72b04c0d0be04cba369af88f68c32296" title="Основной метод обработки сессии" alt="" coords="497,5,621,32"/>
+<area shape="rect" id="node4" href="$classServer.html#ad4b5451852187a67551e68480fa0e9f5" title="Принимает входящие подключения" alt="" coords="249,5,449,32"/>
+<area shape="rect" id="node5" href="$classServer.html#abb27d30b40a94326e3fd629d3b30b7d5" title="Запускает основной цикл сервера" alt="" coords="108,5,201,32"/>
+<area shape="rect" id="node6" href="$main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,60,32"/>
+</map>

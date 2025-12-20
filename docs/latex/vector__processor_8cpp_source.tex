@@ -1,0 +1,103 @@
+\hypertarget{vector__processor_8cpp_source}{}\subsection{vector\+\_\+processor.\+cpp}
+\label{vector__processor_8cpp_source}\index{src/vector\_processor.cpp@{src/vector\_processor.cpp}}
+\mbox{\hyperlink{vector__processor_8cpp}{Documentation}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00001}00001 \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00002}00002 \textcolor{comment}{ * @file vector\_processor.cpp}}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00003}00003 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00004}00004 \textcolor{comment}{ * }}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00005}00005 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00006}00006 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00007}00007 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00008}00008 \textcolor{comment}{ * }}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00009}00009 \textcolor{comment}{ * @see vector\_processor.h}}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00010}00010 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00011}00011 }
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00012}00012 \textcolor{preprocessor}{\#include "{}../include/vector\_processor.h"{}}}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00013}00013 \textcolor{preprocessor}{\#include <climits>}}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00014}00014 \textcolor{preprocessor}{\#include <stdexcept>}}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00015}00015 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00016}00016 \textcolor{preprocessor}{\#include <cstdlib>}}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00017}00017 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00018}00018 \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00019}00019 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00020}00020 \textcolor{comment}{ * }}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00021}00021 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00022}00022 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00023}00023 \textcolor{comment}{ * }}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00024}00024 \textcolor{comment}{ * @details}}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00025}00025 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00026}00026 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00027}00027 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00028}00028 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00029}00029 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00030}00030 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00031}00031 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00032}00032 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00033}00033 \textcolor{comment}{ * }}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00034}00034 \textcolor{comment}{ * @example}}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00035}00035 \textcolor{comment}{ * Vector v = \{1, 2, 3\};}}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00036}00036 \textcolor{comment}{ * int32\_t result = VectorProcessor::calculate\_product(v); // 6}}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00037}00037 \textcolor{comment}{ * }}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00038}00038 \textcolor{comment}{ * Vector large = \{INT32\_MAX, 2\};}}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00039}00039 \textcolor{comment}{ * int32\_t overflow = VectorProcessor::calculate\_product(large); // INT32\_MAX}}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00040}00040 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00041}\mbox{\hyperlink{classVectorProcessor_aad2fcac4812f8b65e04189045fa02a6b}{00041}} int32\_t \mbox{\hyperlink{classVectorProcessor_aad2fcac4812f8b65e04189045fa02a6b}{VectorProcessor::calculate\_product}}(\textcolor{keyword}{const} \mbox{\hyperlink{types_8h_af5407ecc4669529cd5f0ac978fb5c32f}{Vector}}\& vector) \{}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00042}00042     \textcolor{keywordflow}{if} (vector.empty()) \{}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00043}00043         \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00044}00044     \}}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00045}00045     }
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00046}00046     int64\_t product = 1;}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00047}00047     }
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00048}00048     \textcolor{keywordflow}{for} (int32\_t val : vector) \{}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00049}00049         \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00050}00050         \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00051}00051         int64\_t val64 = \textcolor{keyword}{static\_cast<}int64\_t\textcolor{keyword}{>}(val);}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00052}00052         }
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00053}00053         \textcolor{keywordflow}{if} (val64 != 0 \&\& llabs(product) > INT64\_MAX / llabs(val64)) \{}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00054}00054             \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00055}00055             \textcolor{keywordflow}{if} ((product > 0 \&\& val64 > 0) || (product < 0 \&\& val64 < 0)) \{}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00056}00056                 \textcolor{keywordflow}{return} INT32\_MAX;}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00057}00057             \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00058}00058                 \textcolor{keywordflow}{return} INT32\_MIN;}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00059}00059             \}}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00060}00060         \}}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00061}00061         product *= val64;}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00062}00062     \}}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00063}00063     }
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00064}00064     \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00065}00065     \textcolor{keywordflow}{if} (product > INT32\_MAX) \{}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00066}00066         \textcolor{keywordflow}{return} INT32\_MAX;}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00067}00067     \}}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00068}00068     \textcolor{keywordflow}{if} (product < INT32\_MIN) \{}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00069}00069         \textcolor{keywordflow}{return} INT32\_MIN;}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00070}00070     \}}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00071}00071     }
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00072}00072     \textcolor{keywordflow}{return} \textcolor{keyword}{static\_cast<}int32\_t\textcolor{keyword}{>}(product);}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00073}00073 \}}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00074}00074 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00075}00075 \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00076}00076 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00077}00077 \textcolor{comment}{ * }}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00078}00078 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00079}00079 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00080}00080 \textcolor{comment}{ * }}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00081}00081 \textcolor{comment}{ * @details}}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00082}00082 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00083}00083 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00084}00084 \textcolor{comment}{ * }}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00085}00085 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00086}00086 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00087}00087 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00088}\mbox{\hyperlink{classVectorProcessor_a4b3a048b4cd7fc19ac8d03380b7bd3b9}{00088}} std::vector<int32\_t> \mbox{\hyperlink{classVectorProcessor_a4b3a048b4cd7fc19ac8d03380b7bd3b9}{VectorProcessor::multiply\_vectors}}(\textcolor{keyword}{const} std::vector<Vector>\& vectors) \{}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00089}00089     std::vector<int32\_t> results;}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00090}00090     results.reserve(vectors.size());}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00091}00091     }
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00092}00092     \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto}\& vector : vectors) \{}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00093}00093         results.push\_back(\mbox{\hyperlink{classVectorProcessor_aad2fcac4812f8b65e04189045fa02a6b}{calculate\_product}}(vector));}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00094}00094     \}}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00095}00095     }
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00096}00096     \textcolor{keywordflow}{return} results;}
+\DoxyCodeLine{\Hypertarget{vector__processor_8cpp_source_l00097}00097 \}}
+
+\end{DoxyCode}

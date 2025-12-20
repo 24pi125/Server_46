@@ -1,3 +1,16 @@
+/**
+ * @file server.cpp
+ * @brief Реализация основного серверного процесса
+ * 
+ * Содержит реализацию методов класса Server:
+ * - инициализация и настройка сервера
+ * - загрузка базы данных клиентов
+ * - работа с сокетами и сетью
+ * - основной цикл приема подключений
+ * 
+ * @see server.h
+ */
+
 #include <iostream>
 #include "../include/server.h"
 #include "../include/session.h"
@@ -9,18 +22,53 @@
 #include <stdexcept>
 #include <arpa/inet.h>
 
+/**
+ * @brief Конструктор сервера
+ * 
+ * @param config Конфигурация сервера
+ * 
+ * @details
+ * Последовательность инициализации:
+ * 1. Сохранение конфигурации
+ * 2. Создание логгера с указанным файлом
+ * 3. Загрузка базы данных клиентов
+ * 4. Настройка серверного сокета
+ * 
+ * @throw std::runtime_error при ошибках инициализации
+ */
 Server::Server(const ServerConfig& config) 
     : config_(config), logger_(config.log_file), server_fd_(-1) {
     load_clients();
     setup_socket();
 }
 
+/**
+ * @brief Деструктор сервера
+ * 
+ * Закрывает серверный сокет если он был открыт.
+ * Автоматически вызывается при уничтожении объекта.
+ */
 Server::~Server() {
     if (server_fd_ > 0) {
         close(server_fd_);
     }
 }
 
+/**
+ * @brief Загружает базу данных клиентов из файла
+ * 
+ * @details
+ * Читает файл построчно, каждая строка должна быть в формате:
+ * логин:пароль
+ * 
+ * Пример файла:
+ * alice:P@ssw0rd1
+ * bob:Secret123
+ * charlie:Qwerty!@#
+ * 
+ * @note Пароли хранятся в открытом виде (небезопасно!)
+ * @note Пустые строки и строки без ':' игнорируются
+ */
 void Server::load_clients() {
     std::ifstream file(config_.client_db_file);
     if (!file.is_open()) {
@@ -42,6 +90,18 @@ void Server::load_clients() {
     logger_.log("Loaded " + std::to_string(clients_.size()) + " clients");
 }
 
+/**
+ * @brief Настраивает серверный сокет
+ * 
+ * @details
+ * Выполняет следующие действия:
+ * 1. Создает TCP сокет (AF_INET, SOCK_STREAM)
+ * 2. Устанавливает опцию SO_REUSEADDR для быстрого переиспользования порта
+ * 3. Привязывает сокет к адресу INADDR_ANY и указанному порту
+ * 4. Переводит сокет в режим прослушивания с очередью на 10 подключений
+ * 
+ * @throw std::runtime_error при ошибках системных вызовов (socket, bind, listen)
+ */
 void Server::setup_socket() {
     server_fd_ = socket(AF_INET, SOCK_STREAM, 0);
     if (server_fd_ < 0) {
@@ -73,6 +133,19 @@ void Server::setup_socket() {
     logger_.log("Server socket setup complete on port " + std::to_string(config_.port));
 }
 
+/**
+ * @brief Принимает входящие подключения
+ * 
+ * @details
+ * Бесконечный цикл, который:
+ * 1. Ожидает входящее подключение (accept)
+ * 2. Получает IP-адрес клиента для логирования
+ * 3. Создает объект Session для обработки подключения
+ * 4. Запускает обработку сессии
+ * 
+ * @note Обработка блокирующая - следующее подключение ждет завершения текущего
+ * @note При ошибке accept логирует ошибку и продолжает работу
+ */
 void Server::accept_connections() {
     struct sockaddr_in address;
     socklen_t addrlen = sizeof(address);
@@ -95,6 +168,14 @@ void Server::accept_connections() {
     }
 }
 
+/**
+ * @brief Запускает основной цикл сервера
+ * 
+ * Выводит информацию о конфигурации сервера и начинает прием подключений.
+ * Работает до принудительного завершения (SIGINT, SIGTERM).
+ * 
+ * @note Для остановки сервера используйте Ctrl+C
+ */
 void Server::run() {
     logger_.log("Server starting...");
     std::cout << "Server running on port " << config_.port << std::endl;

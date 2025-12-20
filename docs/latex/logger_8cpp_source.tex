@@ -1,0 +1,124 @@
+\hypertarget{logger_8cpp_source}{}\subsection{logger.\+cpp}
+\label{logger_8cpp_source}\index{src/logger.cpp@{src/logger.cpp}}
+\mbox{\hyperlink{logger_8cpp}{Documentation}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00001}00001 \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00002}00002 \textcolor{comment}{ * @file logger.cpp}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00003}00003 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00004}00004 \textcolor{comment}{ * }}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00005}00005 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00006}00006 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00007}00007 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00008}00008 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00009}00009 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00010}00010 \textcolor{comment}{ * }}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00011}00011 \textcolor{comment}{ * @see logger.h}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00012}00012 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00013}00013 }
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00014}00014 \textcolor{preprocessor}{\#include "{}../include/logger.h"{}}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00015}00015 \textcolor{preprocessor}{\#include <fstream>}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00016}00016 \textcolor{preprocessor}{\#include <ctime>}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00017}00017 \textcolor{preprocessor}{\#include <iomanip>}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00018}00018 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00019}00019 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00020}00020 \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00021}00021 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00022}00022 \textcolor{comment}{ * }}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00023}00023 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00024}00024 \textcolor{comment}{ * }}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00025}00025 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00026}00026 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00027}\mbox{\hyperlink{classLogger_a4f2ee02db1d03a83b6b9b43808e09f15}{00027}} \mbox{\hyperlink{classLogger_a4f2ee02db1d03a83b6b9b43808e09f15}{Logger::Logger}}(\textcolor{keyword}{const} std::string\& filename) : log\_file\_(filename) \{\}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00028}00028 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00029}00029 \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00030}00030 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00031}00031 \textcolor{comment}{ * }}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00032}00032 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00033}00033 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00034}00034 \textcolor{comment}{ * }}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00035}00035 \textcolor{comment}{ * @details}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00036}00036 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00037}00037 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00038}00038 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00039}00039 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00040}00040 \textcolor{comment}{ * }}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00041}00041 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00042}00042 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00043}\mbox{\hyperlink{classLogger_a025725279def374c2a103331548b2631}{00043}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classLogger_a025725279def374c2a103331548b2631}{Logger::log}}(\textcolor{keyword}{const} std::string\& message, \textcolor{keywordtype}{bool} critical) \{}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00044}00044     \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00045}00045     std::cout << message << std::endl;}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00046}00046     }
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00047}00047     \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00048}00048     std::ofstream file(\mbox{\hyperlink{classLogger_ae94883fbdd8b0cd439a4855b4ef7d39c}{log\_file\_}}, std::ios\_base::app);}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00049}00049     \textcolor{keywordflow}{if} (file.is\_open()) \{}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00050}00050         std::string time\_str = \mbox{\hyperlink{classLogger_aaff42813783601ee85e141e68893af96}{get\_current\_time}}();}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00051}00051         std::string critical\_str = critical ? \textcolor{stringliteral}{"{}CRITICAL"{}} : \textcolor{stringliteral}{"{}NON-\/CRITICAL"{}};}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00052}00052 }
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00053}00053         file << \textcolor{stringliteral}{"{}["{}} << time\_str << \textcolor{stringliteral}{"{}] ["{}} << critical\_str << \textcolor{stringliteral}{"{}] "{}} << message << std::endl;}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00054}00054         file.close();}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00055}00055     \}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00056}00056 \}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00057}00057 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00058}00058 \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00059}00059 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00060}00060 \textcolor{comment}{ * }}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00061}00061 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00062}00062 \textcolor{comment}{ * }}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00063}00063 \textcolor{comment}{ * @details}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00064}00064 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00065}00065 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00066}00066 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00067}00067 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00068}00068 \textcolor{comment}{ * }}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00069}00069 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00070}00070 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00071}\mbox{\hyperlink{classLogger_a0837f91f9353e805acd8c844cc7bb416}{00071}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classLogger_a0837f91f9353e805acd8c844cc7bb416}{Logger::log\_add}}(\textcolor{keyword}{const} std::string\& message) \{}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00072}00072     \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00073}00073     std::cout << message;}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00074}00074     }
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00075}00075     \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00076}00076     std::ofstream file(\mbox{\hyperlink{classLogger_ae94883fbdd8b0cd439a4855b4ef7d39c}{log\_file\_}}, std::ios\_base::app);}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00077}00077     \textcolor{keywordflow}{if} (file.is\_open()) \{}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00078}00078         file << message;}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00079}00079         file.close();}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00080}00080     \}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00081}00081 \}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00082}00082 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00083}00083 \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00084}00084 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00085}00085 \textcolor{comment}{ * }}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00086}00086 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00087}00087 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00088}00088 \textcolor{comment}{ * }}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00089}00089 \textcolor{comment}{ * @details}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00090}00090 \textcolor{comment}{ * Добавляет префикс "{}err: "{} к сообщению об ошибке}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00091}00091 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00092}00092 \textcolor{comment}{ * }}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00093}00093 \textcolor{comment}{ * @example}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00094}00094 \textcolor{comment}{ * logger.log\_error("{}Connection failed"{}, true);}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00095}00095 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00096}00096 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00097}\mbox{\hyperlink{classLogger_a0d807535d66747b03dced96d4e013a88}{00097}} \textcolor{keywordtype}{void} \mbox{\hyperlink{classLogger_a0d807535d66747b03dced96d4e013a88}{Logger::log\_error}}(\textcolor{keyword}{const} std::string\& error, \textcolor{keywordtype}{bool} critical) \{}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00098}00098     \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00099}00099     std::string err\_message = \textcolor{stringliteral}{"{}err: "{}} + error;}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00100}00100     \mbox{\hyperlink{classLogger_a025725279def374c2a103331548b2631}{log}}(err\_message, critical);}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00101}00101 \}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00102}00102 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00103}00103 \textcolor{comment}{/**}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00104}00104 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00105}00105 \textcolor{comment}{ * }}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00106}00106 \textcolor{comment}{ * @return std::string Время в формате "{}YYYY-\/MM-\/DD HH:MM:SS"{}}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00107}00107 \textcolor{comment}{ * }}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00108}00108 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00109}00109 \textcolor{comment}{Documentation}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00110}00110 \textcolor{comment}{ */}}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00111}\mbox{\hyperlink{classLogger_aaff42813783601ee85e141e68893af96}{00111}} std::string \mbox{\hyperlink{classLogger_aaff42813783601ee85e141e68893af96}{Logger::get\_current\_time}}() \{}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00112}00112     \textcolor{keyword}{auto} now = std::time(\textcolor{keyword}{nullptr});}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00113}00113     \textcolor{keyword}{auto} tm = *std::localtime(\&now);}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00114}00114     }
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00115}00115     \textcolor{keywordtype}{char} buffer[20];}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00116}00116     std::strftime(buffer, \textcolor{keyword}{sizeof}(buffer), \textcolor{stringliteral}{"{}\%Y-\/\%m-\/\%d \%H:\%M:\%S"{}}, \&tm);}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00117}00117     \textcolor{keywordflow}{return} std::string(buffer);}
+\DoxyCodeLine{\Hypertarget{logger_8cpp_source_l00118}00118 \}}
+
+\end{DoxyCode}

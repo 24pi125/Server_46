@@ -1,0 +1,8 @@
+<map id="Session::calculate_vector_product" name="Session::calculate_vector_product">
+<area shape="rect" id="node1" title="Вычисляет произведение вектора" alt="" coords="903,5,1041,47"/>
+<area shape="rect" id="node2" href="$classSession.html#a2e0fc5d9d7b38a92f3bee0bb5c363283" title="Основная логика обработки векторов" alt="" coords="669,13,855,39"/>
+<area shape="rect" id="node3" href="$classSession.html#a72b04c0d0be04cba369af88f68c32296" title="Основной метод обработки сессии" alt="" coords="497,13,621,39"/>
+<area shape="rect" id="node4" href="$classServer.html#ad4b5451852187a67551e68480fa0e9f5" title="Принимает входящие подключения" alt="" coords="249,13,449,39"/>
+<area shape="rect" id="node5" href="$classServer.html#abb27d30b40a94326e3fd629d3b30b7d5" title="Запускает основной цикл сервера" alt="" coords="108,13,201,39"/>
+<area shape="rect" id="node6" href="$main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,13,60,39"/>
+</map>

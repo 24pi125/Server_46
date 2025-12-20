@@ -1,0 +1,35 @@
+\hypertarget{auth_8h}{}\subsection{Documentation}
+\label{auth_8h}\index{include/auth.h@{include/auth.h}}
+
+
+Класс для аутентификации клиентов  
+
+
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$unordered\+\_\+map$>$}\newline
+Граф включаемых заголовочных файлов для auth.\+h\+:
+% FIG 0
+Граф файлов, в которые включается этот файл\+:
+% FIG 1
+\doxysubsubsection*{Documentation}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classAuthenticator}{Authenticator}}
+\begin{DoxyCompactList}\small\item\em Класс аутентификации клиентов \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsubsection{Documentation}
+Класс для аутентификации клиентов 
+
+Содержит класс \mbox{\hyperlink{classAuthenticator}{Authenticator}}, который предоставляет статические методы для генерации соли, расчета MD5 хэшей и проверки подлинности клиентов.
+
+\begin{DoxyNote}{Documentation}
+Использует алгоритм MD5 для хэширования паролей с солью 
+\end{DoxyNote}
+\begin{DoxyWarning}{Documentation}
+MD5 считается криптографически слабым, использовать только в тестовых целях 
+\end{DoxyWarning}
+
+
+См. определение в файле \mbox{\hyperlink{auth_8h_source}{auth.\+h}}
+

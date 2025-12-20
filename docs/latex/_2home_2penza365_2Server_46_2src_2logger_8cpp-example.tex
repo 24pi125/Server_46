@@ -1,0 +1,137 @@
+\hypertarget{_2home_2penza365_2Server_46_2src_2logger_8cpp-example}{}\subsection{/home/penza365/\+Server\+\_\+46/src/logger.\+cpp}
+Записывает сообщение об ошибке
+
+Записывает сообщение об ошибке
+\begin{DoxyParams}{Documentation}
+{\em error} & Текст ошибки \\
+\hline
+{\em critical} & Флаг критичности\\
+\hline
+\end{DoxyParams}
+Добавляет префикс \char`\"{}err\+: \char`\"{} к сообщению об ошибке и вызывает log() для фактической записи
+
+logger.\+log\+\_\+error(\char`\"{}\+Connection failed\char`\"{}, true); // Запишет\+: \mbox{[}2024-\/01-\/15 10\+:30\+:00\mbox{]} \mbox{[}CRITICAL\mbox{]} err\+: Connection failed
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{comment}{/**}}
+\DoxyCodeLine{\textcolor{comment}{ * @file logger.cpp}}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{ * }}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{ * }}
+\DoxyCodeLine{\textcolor{comment}{ * @see logger.h}}
+\DoxyCodeLine{\textcolor{comment}{ */}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include "{}../include/logger.h"{}}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <fstream>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <ctime>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <iomanip>}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{\textcolor{comment}{}}
+\DoxyCodeLine{\textcolor{comment}{/**}}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{ * }}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{ * }}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{ */}}
+\DoxyCodeLine{\mbox{\hyperlink{classLogger_a4f2ee02db1d03a83b6b9b43808e09f15}{Logger::Logger}}(\textcolor{keyword}{const} std::string\& filename) : log\_file\_(filename) \{\}}
+\DoxyCodeLine{\textcolor{comment}{}}
+\DoxyCodeLine{\textcolor{comment}{/**}}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{ * }}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{ * }}
+\DoxyCodeLine{\textcolor{comment}{ * @details}}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{ * }}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{ */}}
+\DoxyCodeLine{\textcolor{keywordtype}{void} \mbox{\hyperlink{classLogger_a025725279def374c2a103331548b2631}{Logger::log}}(\textcolor{keyword}{const} std::string\& message, \textcolor{keywordtype}{bool} critical) \{}
+\DoxyCodeLine{    \textcolor{comment}{Documentation}}
+\DoxyCodeLine{    std::cout << message << std::endl;}
+\DoxyCodeLine{    }
+\DoxyCodeLine{    \textcolor{comment}{Documentation}}
+\DoxyCodeLine{    std::ofstream file(\mbox{\hyperlink{classLogger_ae94883fbdd8b0cd439a4855b4ef7d39c}{log\_file\_}}, std::ios\_base::app);}
+\DoxyCodeLine{    \textcolor{keywordflow}{if} (file.is\_open()) \{}
+\DoxyCodeLine{        std::string time\_str = \mbox{\hyperlink{classLogger_aaff42813783601ee85e141e68893af96}{get\_current\_time}}();}
+\DoxyCodeLine{        std::string critical\_str = critical ? \textcolor{stringliteral}{"{}CRITICAL"{}} : \textcolor{stringliteral}{"{}NON-\/CRITICAL"{}};}
+\DoxyCodeLine{}
+\DoxyCodeLine{        file << \textcolor{stringliteral}{"{}["{}} << time\_str << \textcolor{stringliteral}{"{}] ["{}} << critical\_str << \textcolor{stringliteral}{"{}] "{}} << message << std::endl;}
+\DoxyCodeLine{        file.close();}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{\textcolor{comment}{}}
+\DoxyCodeLine{\textcolor{comment}{/**}}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{ * }}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{ * }}
+\DoxyCodeLine{\textcolor{comment}{ * @details}}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{ * }}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{ */}}
+\DoxyCodeLine{\textcolor{keywordtype}{void} \mbox{\hyperlink{classLogger_a0837f91f9353e805acd8c844cc7bb416}{Logger::log\_add}}(\textcolor{keyword}{const} std::string\& message) \{}
+\DoxyCodeLine{    \textcolor{comment}{Documentation}}
+\DoxyCodeLine{    std::cout << message;}
+\DoxyCodeLine{    }
+\DoxyCodeLine{    \textcolor{comment}{Documentation}}
+\DoxyCodeLine{    std::ofstream file(\mbox{\hyperlink{classLogger_ae94883fbdd8b0cd439a4855b4ef7d39c}{log\_file\_}}, std::ios\_base::app);}
+\DoxyCodeLine{    \textcolor{keywordflow}{if} (file.is\_open()) \{}
+\DoxyCodeLine{        file << message;}
+\DoxyCodeLine{        file.close();}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{\textcolor{comment}{}}
+\DoxyCodeLine{\textcolor{comment}{/**}}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{ * }}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{ * }}
+\DoxyCodeLine{\textcolor{comment}{ * @details}}
+\DoxyCodeLine{\textcolor{comment}{ * Добавляет префикс "{}err: "{} к сообщению об ошибке}}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{ * }}
+\DoxyCodeLine{\textcolor{comment}{ * @example}}
+\DoxyCodeLine{\textcolor{comment}{ * logger.log\_error("{}Connection failed"{}, true);}}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{ */}}
+\DoxyCodeLine{\textcolor{keywordtype}{void} \mbox{\hyperlink{classLogger_a0d807535d66747b03dced96d4e013a88}{Logger::log\_error}}(\textcolor{keyword}{const} std::string\& error, \textcolor{keywordtype}{bool} critical) \{}
+\DoxyCodeLine{    \textcolor{comment}{Documentation}}
+\DoxyCodeLine{    std::string err\_message = \textcolor{stringliteral}{"{}err: "{}} + error;}
+\DoxyCodeLine{    \mbox{\hyperlink{classLogger_a025725279def374c2a103331548b2631}{log}}(err\_message, critical);}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{\textcolor{comment}{}}
+\DoxyCodeLine{\textcolor{comment}{/**}}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{ * }}
+\DoxyCodeLine{\textcolor{comment}{ * @return std::string Время в формате "{}YYYY-\/MM-\/DD HH:MM:SS"{}}}
+\DoxyCodeLine{\textcolor{comment}{ * }}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{Documentation}}
+\DoxyCodeLine{\textcolor{comment}{ */}}
+\DoxyCodeLine{std::string \mbox{\hyperlink{classLogger_aaff42813783601ee85e141e68893af96}{Logger::get\_current\_time}}() \{}
+\DoxyCodeLine{    \textcolor{keyword}{auto} now = std::time(\textcolor{keyword}{nullptr});}
+\DoxyCodeLine{    \textcolor{keyword}{auto} tm = *std::localtime(\&now);}
+\DoxyCodeLine{    }
+\DoxyCodeLine{    \textcolor{keywordtype}{char} buffer[20];}
+\DoxyCodeLine{    std::strftime(buffer, \textcolor{keyword}{sizeof}(buffer), \textcolor{stringliteral}{"{}\%Y-\/\%m-\/\%d \%H:\%M:\%S"{}}, \&tm);}
+\DoxyCodeLine{    \textcolor{keywordflow}{return} std::string(buffer);}
+\DoxyCodeLine{\}}
+
+\end{DoxyCodeInclude}
+ 

@@ -1,0 +1,52 @@
+\hypertarget{test__types_8cpp_source}{}\subsection{test\+\_\+types.\+cpp}
+\label{test__types_8cpp_source}\index{tests/test\_types.cpp@{tests/test\_types.cpp}}
+\mbox{\hyperlink{test__types_8cpp}{Documentation}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{test__types_8cpp_source_l00001}00001 \textcolor{preprocessor}{\#include "{}../include/types.h"{}}}
+\DoxyCodeLine{\Hypertarget{test__types_8cpp_source_l00002}00002 \textcolor{preprocessor}{\#include <UnitTest++/UnitTest++.h>}}
+\DoxyCodeLine{\Hypertarget{test__types_8cpp_source_l00003}00003 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{\Hypertarget{test__types_8cpp_source_l00004}00004 \textcolor{preprocessor}{\#include <cstdint>}}
+\DoxyCodeLine{\Hypertarget{test__types_8cpp_source_l00005}00005 }
+\DoxyCodeLine{\Hypertarget{test__types_8cpp_source_l00006}\mbox{\hyperlink{test__types_8cpp_a815d86a77795724a40cc4f80b6cb158c}{00006}} \mbox{\hyperlink{test__types_8cpp_a815d86a77795724a40cc4f80b6cb158c}{SUITE}}(TypesTest) \{}
+\DoxyCodeLine{\Hypertarget{test__types_8cpp_source_l00007}00007     TEST(VectorType) \{}
+\DoxyCodeLine{\Hypertarget{test__types_8cpp_source_l00008}00008         \mbox{\hyperlink{types_8h_af5407ecc4669529cd5f0ac978fb5c32f}{Vector}} vec;}
+\DoxyCodeLine{\Hypertarget{test__types_8cpp_source_l00009}00009         vec.push\_back(1);}
+\DoxyCodeLine{\Hypertarget{test__types_8cpp_source_l00010}00010         vec.push\_back(2);}
+\DoxyCodeLine{\Hypertarget{test__types_8cpp_source_l00011}00011         vec.push\_back(3);}
+\DoxyCodeLine{\Hypertarget{test__types_8cpp_source_l00012}00012         }
+\DoxyCodeLine{\Hypertarget{test__types_8cpp_source_l00013}00013         CHECK\_EQUAL(3, vec.size());}
+\DoxyCodeLine{\Hypertarget{test__types_8cpp_source_l00014}00014         CHECK\_EQUAL(1, vec[0]);}
+\DoxyCodeLine{\Hypertarget{test__types_8cpp_source_l00015}00015         CHECK\_EQUAL(2, vec[1]);}
+\DoxyCodeLine{\Hypertarget{test__types_8cpp_source_l00016}00016         CHECK\_EQUAL(3, vec[2]);}
+\DoxyCodeLine{\Hypertarget{test__types_8cpp_source_l00017}00017     \}}
+\DoxyCodeLine{\Hypertarget{test__types_8cpp_source_l00018}00018     }
+\DoxyCodeLine{\Hypertarget{test__types_8cpp_source_l00019}00019     TEST(ByteArrayType) \{}
+\DoxyCodeLine{\Hypertarget{test__types_8cpp_source_l00020}00020         \mbox{\hyperlink{types_8h_a2e40e824acb909e55010802cf4693ccd}{ByteArray}} bytes;}
+\DoxyCodeLine{\Hypertarget{test__types_8cpp_source_l00021}00021         bytes.push\_back(0x00);}
+\DoxyCodeLine{\Hypertarget{test__types_8cpp_source_l00022}00022         bytes.push\_back(0xFF);}
+\DoxyCodeLine{\Hypertarget{test__types_8cpp_source_l00023}00023         bytes.push\_back(0x80);}
+\DoxyCodeLine{\Hypertarget{test__types_8cpp_source_l00024}00024         bytes.push\_back(0x7F);}
+\DoxyCodeLine{\Hypertarget{test__types_8cpp_source_l00025}00025         }
+\DoxyCodeLine{\Hypertarget{test__types_8cpp_source_l00026}00026         CHECK\_EQUAL(4, bytes.size());}
+\DoxyCodeLine{\Hypertarget{test__types_8cpp_source_l00027}00027         CHECK\_EQUAL(0x00, bytes[0]);}
+\DoxyCodeLine{\Hypertarget{test__types_8cpp_source_l00028}00028         CHECK\_EQUAL(0xFF, bytes[1]);}
+\DoxyCodeLine{\Hypertarget{test__types_8cpp_source_l00029}00029         CHECK\_EQUAL(0x80, bytes[2]);}
+\DoxyCodeLine{\Hypertarget{test__types_8cpp_source_l00030}00030         CHECK\_EQUAL(0x7F, bytes[3]);}
+\DoxyCodeLine{\Hypertarget{test__types_8cpp_source_l00031}00031     \}}
+\DoxyCodeLine{\Hypertarget{test__types_8cpp_source_l00032}00032     }
+\DoxyCodeLine{\Hypertarget{test__types_8cpp_source_l00033}00033     TEST(TypeAliasesCompatibility) \{}
+\DoxyCodeLine{\Hypertarget{test__types_8cpp_source_l00034}00034         std::vector<int32\_t> std\_vec = \{1, 2, 3\};}
+\DoxyCodeLine{\Hypertarget{test__types_8cpp_source_l00035}00035         \mbox{\hyperlink{types_8h_af5407ecc4669529cd5f0ac978fb5c32f}{Vector}} alias\_vec = std\_vec;}
+\DoxyCodeLine{\Hypertarget{test__types_8cpp_source_l00036}00036         }
+\DoxyCodeLine{\Hypertarget{test__types_8cpp_source_l00037}00037         CHECK\_EQUAL(std\_vec.size(), alias\_vec.size());}
+\DoxyCodeLine{\Hypertarget{test__types_8cpp_source_l00038}00038         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i = 0; i < std\_vec.size(); i++) \{}
+\DoxyCodeLine{\Hypertarget{test__types_8cpp_source_l00039}00039             CHECK\_EQUAL(std\_vec[i], alias\_vec[i]);}
+\DoxyCodeLine{\Hypertarget{test__types_8cpp_source_l00040}00040         \}}
+\DoxyCodeLine{\Hypertarget{test__types_8cpp_source_l00041}00041     \}}
+\DoxyCodeLine{\Hypertarget{test__types_8cpp_source_l00042}00042 \}}
+\DoxyCodeLine{\Hypertarget{test__types_8cpp_source_l00043}00043 }
+\DoxyCodeLine{\Hypertarget{test__types_8cpp_source_l00044}\mbox{\hyperlink{test__types_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{00044}} \textcolor{keywordtype}{int} \mbox{\hyperlink{test__types_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}}() \{}
+\DoxyCodeLine{\Hypertarget{test__types_8cpp_source_l00045}00045     \textcolor{keywordflow}{return} UnitTest::RunAllTests();}
+\DoxyCodeLine{\Hypertarget{test__types_8cpp_source_l00046}00046 \}}
+
+\end{DoxyCode}
